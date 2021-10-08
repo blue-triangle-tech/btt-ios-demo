@@ -170,8 +170,8 @@ struct ContentView: View {
                 }
             }
         }
-        .sheet(isPresented: self.$viewModel.showDetail, onDismiss: { self.viewModel.timerFields = nil}) {
-            TimerRequestView(timerFields: self.viewModel.timerFields ?? [:])
+        .sheet(isPresented: $viewModel.showDetail, onDismiss: { viewModel.timerFields = nil}) {
+            TimerRequestView(timerFields: viewModel.timerFields ?? [:])
         }
     }
 }
