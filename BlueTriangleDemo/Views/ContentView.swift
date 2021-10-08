@@ -171,7 +171,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $viewModel.showDetail, onDismiss: { viewModel.timerFields = nil}) {
-            TimerRequestView(timerFields: viewModel.timerFields ?? [:])
+            TimerRequestView(shouldDisplay: $viewModel.showDetail, timerFields: viewModel.timerFields ?? [:])
         }
     }
 }

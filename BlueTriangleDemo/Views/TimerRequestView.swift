@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TimerRequestView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Binding var shouldDisplay: Bool
     var timerFields: [String: String]
     var requestRepresentation: String {
         timerFields.reduce( "{", { $0 + "\n  \"\($1.key)\": \"\($1.value)\"," }) + "\n}"
@@ -23,7 +23,7 @@ struct TimerRequestView: View {
                     .padding(.all, 8)
             }
             .onTapGesture {
-                self.presentationMode.wrappedValue.dismiss()
+                shouldDisplay = false
             }
             .navigationBarTitle("Request Body")
             .navigationBarTitleDisplayMode(.inline)
@@ -33,6 +33,6 @@ struct TimerRequestView: View {
 
 struct TimerRequestView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerRequestView(timerFields: PreviewData.timerFields)
+        TimerRequestView(shouldDisplay: .constant(true), timerFields: PreviewData.timerFields)
     }
 }
