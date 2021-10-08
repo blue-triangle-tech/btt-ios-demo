@@ -28,6 +28,9 @@ class ContentViewModel: ObservableObject {
     private var timerDelay: Double {
         Double.random(in: 1...2)
     }
+
+    @Published var showDetail = false
+    var timerFields: [String: String]?
     private var btTimer: BTTimer?
 
     init() {
@@ -54,8 +57,16 @@ class ContentViewModel: ObservableObject {
         }
         self.btTimer = timer
         DispatchQueue.main.schedule(after: .init(.now() + delay)) { [weak self] in
+            let requestRepresentation = BTTracker.shared().allGlobalFields().merging(
+                timer.allFields() ?? [:], uniquingKeysWith: { $1 }) as? [String: String]
+
             BTTracker.shared().submitTimer(timer)
             self?.btTimer = nil
+
+            if requestRepresentation != nil {
+                self?.timerFields = requestRepresentation
+                self?.showDetail = true
+            }
         }
     }
 }
@@ -158,6 +169,9 @@ struct ContentView: View {
                     }
                 }
             }
+        }
+        .sheet(isPresented: self.$viewModel.showDetail, onDismiss: { self.viewModel.timerFields = nil}) {
+            TimerRequestView(timerFields: self.viewModel.timerFields ?? [:])
         }
     }
 }
