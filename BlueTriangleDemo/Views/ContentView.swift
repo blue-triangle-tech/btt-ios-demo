@@ -8,6 +8,7 @@
 import SwiftUI
 import BlueTriangleSDK_iOS
 
+@MainActor
 class ContentViewModel: ObservableObject {
     @Published var siteID: String {
         didSet {
@@ -25,12 +26,8 @@ class ContentViewModel: ObservableObject {
     }
 
     @Published var timerConfig = TimerConfiguration()
-    private var timerDelay: Double {
-        Double.random(in: 1...2)
-    }
 
-    @Published var showDetail = false
-    var timerFields: [String: String]?
+    @Published var timerFields: [String: String]?
     private var btTimer: BTTimer?
 
     init() {
@@ -40,39 +37,48 @@ class ContentViewModel: ObservableObject {
         self.sessionID = fields?["sID"] as? String ?? ""
     }
 
-    func submit() {
-        let timer = BTTimer()
-        timer.configure(with: timerConfig)
-        timer.start()
-        submitTimer(timer: timer, after: timerDelay)
+    func submit() async {
+        timerFields = await submitTimer(with: timerConfig)
     }
 
     func clear() {
         timerConfig = TimerConfiguration()
     }
 
-    func submitTimer(timer: BTTimer, after delay: Double) {
-        guard self.btTimer == nil else {
-            return
+    private func submitTimer(with configuration: TimerConfiguration) async -> [String: String]? {
+        guard btTimer == nil else {
+            return nil
         }
-        self.btTimer = timer
-        DispatchQueue.main.schedule(after: .init(.now() + delay)) { [weak self] in
+
+        let timer = BTTimer()
+        timer.configure(with: timerConfig)
+
+        btTimer = timer
+        defer { btTimer = nil }
+
+        timer.start()
+        let task = Task { () -> [String: String]? in
+            await Task.sleep(UInt64.random(in: 1_000_000_000...2_000_000_000))
+            try Task.checkCancellation()
+
             let requestRepresentation = BTTracker.shared().allGlobalFields().merging(
                 timer.allFields() ?? [:], uniquingKeysWith: { $1 }) as? [String: String]
 
             BTTracker.shared().submitTimer(timer)
-            self?.btTimer = nil
+            return requestRepresentation
+        }
 
-            if requestRepresentation != nil {
-                self?.timerFields = requestRepresentation
-                self?.showDetail = true
-            }
+        do {
+            return try await task.value
+        } catch {
+            return nil
         }
     }
 }
 
 struct ContentView: View {
     @StateObject var viewModel: ContentViewModel
+    @State var showDetail = false
 
     var body: some View {
         NavigationView {
@@ -154,7 +160,12 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button(action: {
-                        viewModel.submit()
+                        Task {
+                            await viewModel.submit()
+                            if viewModel.timerFields != nil {
+                                showDetail = true
+                            }
+                        }
                     }) {
                         HStack(spacing: 10) {
                             Image(systemName: "arrow.up.circle.fill")
@@ -170,8 +181,8 @@ struct ContentView: View {
                 }
             }
         }
-        .sheet(isPresented: $viewModel.showDetail, onDismiss: { viewModel.timerFields = nil}) {
-            TimerRequestView(shouldDisplay: $viewModel.showDetail, timerFields: viewModel.timerFields ?? [:])
+        .sheet(isPresented: $showDetail, onDismiss: { viewModel.timerFields = nil}) {
+            TimerRequestView(shouldDisplay: $showDetail, timerFields: viewModel.timerFields ?? [:])
         }
     }
 }
