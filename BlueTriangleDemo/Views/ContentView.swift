@@ -28,7 +28,16 @@ class ContentViewModel: ObservableObject {
     @Published var timerConfig = TimerConfiguration()
 
     @Published var timerFields: [String: String]?
-    private var btTimer: BTTimer?
+
+    var hasPendingTimer: Bool {
+        btTimer != nil
+    }
+
+    private var btTimer: BTTimer? {
+        didSet {
+            objectWillChange.send()
+        }
+    }
 
     init() {
         self.siteID = UserDefaults.standard.string(forKey: "siteID") ?? Constants.siteID
@@ -172,6 +181,7 @@ struct ContentView: View {
                             Text("Submit")
                         }
                     }
+                    .disabled(viewModel.hasPendingTimer)
 
                     Spacer()
 
