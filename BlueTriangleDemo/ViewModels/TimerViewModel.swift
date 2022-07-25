@@ -97,6 +97,13 @@ class TimerViewModel: ObservableObject {
     }
 
     func clear() {
+        isReturningVisitor = false
+        abTestID = ""
+        campaignMedium = ""
+        campaignName = ""
+        campaignSource = ""
+        dataCenter = "Default"
+        trafficSegmentName = ""
         page = Page(pageName: "")
     }
 
