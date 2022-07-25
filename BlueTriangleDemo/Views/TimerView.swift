@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  TimerView.swift
 //  BlueTriangleDemo
 //
 //  Created by Mathew Gacy on 8/31/21.
@@ -8,8 +8,8 @@
 import SwiftUI
 import BlueTriangleSDK_iOS
 
-struct ContentView: View {
-    @StateObject var viewModel: ContentViewModel
+struct TimerView: View {
+    @StateObject var viewModel: TimerViewModel
     @State var showDetail = false
 
     var body: some View {
@@ -120,8 +120,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: .init())
+        TimerView(viewModel: .init())
     }
 }

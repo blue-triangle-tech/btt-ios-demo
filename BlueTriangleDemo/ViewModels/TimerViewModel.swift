@@ -1,5 +1,5 @@
 //
-//  ContentViewModel.swift
+//  TimerViewModel.swift
 //  BlueTriangleDemo
 //
 //  Created by Mathew Gacy on 7/24/22.
@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-class ContentViewModel: ObservableObject {
+class TimerViewModel: ObservableObject {
     @Published var siteID: String {
         didSet {
             UserDefaults.standard.set(siteID, forKey: "siteID")

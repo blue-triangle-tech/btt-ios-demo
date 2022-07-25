@@ -20,7 +20,7 @@ struct BlueTriangleDemoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: ContentViewModel())
+            TimerView(viewModel: TimerViewModel())
         }
     }
 }

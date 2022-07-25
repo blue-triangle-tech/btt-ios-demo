@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4FE684746A058BE7814D0D22 /* Pods_BlueTriangleDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF45EA6605A5F9459981F2BA /* Pods_BlueTriangleDemoTests.framework */; };
-		C90DA42A288E2A690080A91E /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90DA429288E2A690080A91E /* ContentViewModel.swift */; };
+		C90DA42A288E2A690080A91E /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90DA429288E2A690080A91E /* TimerViewModel.swift */; };
 		C948A65A26F96B0300D7138C /* LabeledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948A65926F96B0300D7138C /* LabeledView.swift */; };
 		C948A65D26F971CA00D7138C /* NumberFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948A65C26F971CA00D7138C /* NumberFormatter+Ext.swift */; };
 		C949154426DEBBDB002D12B6 /* BlueTriangleDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949154326DEBBDB002D12B6 /* BlueTriangleDemoApp.swift */; };
-		C949154626DEBBDB002D12B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949154526DEBBDB002D12B6 /* ContentView.swift */; };
+		C949154626DEBBDB002D12B6 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949154526DEBBDB002D12B6 /* TimerView.swift */; };
 		C949154826DEBBDE002D12B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C949154726DEBBDE002D12B6 /* Assets.xcassets */; };
 		C949154B26DEBBDE002D12B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C949154A26DEBBDE002D12B6 /* Preview Assets.xcassets */; };
 		C949155626DEBBDE002D12B6 /* BlueTriangleDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949155526DEBBDE002D12B6 /* BlueTriangleDemoTests.swift */; };
@@ -47,12 +47,12 @@
 /* Begin PBXFileReference section */
 		4FC143FB1449398FA12C7753 /* Pods_BlueTriangleDemo_BlueTriangleDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueTriangleDemo_BlueTriangleDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF45EA6605A5F9459981F2BA /* Pods_BlueTriangleDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueTriangleDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C90DA429288E2A690080A91E /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		C90DA429288E2A690080A91E /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		C948A65926F96B0300D7138C /* LabeledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledView.swift; sourceTree = "<group>"; };
 		C948A65C26F971CA00D7138C /* NumberFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Ext.swift"; sourceTree = "<group>"; };
 		C949154026DEBBDB002D12B6 /* BlueTriangleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueTriangleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C949154326DEBBDB002D12B6 /* BlueTriangleDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueTriangleDemoApp.swift; sourceTree = "<group>"; };
-		C949154526DEBBDB002D12B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C949154526DEBBDB002D12B6 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		C949154726DEBBDE002D12B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C949154A26DEBBDE002D12B6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C949154C26DEBBDE002D12B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		C90DA428288E2A4F0080A91E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				C90DA429288E2A690080A91E /* ContentViewModel.swift */,
+				C90DA429288E2A690080A91E /* TimerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -201,9 +201,9 @@
 		C949157226DEC472002D12B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C949154526DEBBDB002D12B6 /* ContentView.swift */,
-				C964095F270F904600C5B727 /* TimerRequestView.swift */,
 				C948A65926F96B0300D7138C /* LabeledView.swift */,
+				C964095F270F904600C5B727 /* TimerRequestView.swift */,
+				C949154526DEBBDB002D12B6 /* TimerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -467,13 +467,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C948A65A26F96B0300D7138C /* LabeledView.swift in Sources */,
-				C949154626DEBBDB002D12B6 /* ContentView.swift in Sources */,
+				C949154626DEBBDB002D12B6 /* TimerView.swift in Sources */,
 				C990AB3426FA30EA00B55264 /* TimerConfiguration.swift in Sources */,
 				C949157526DEC585002D12B6 /* SettingsAccess.swift in Sources */,
 				C948A65D26F971CA00D7138C /* NumberFormatter+Ext.swift in Sources */,
 				C9F3F8EB271092D800F8116D /* PreviewData.swift in Sources */,
 				C949154426DEBBDB002D12B6 /* BlueTriangleDemoApp.swift in Sources */,
-				C90DA42A288E2A690080A91E /* ContentViewModel.swift in Sources */,
+				C90DA42A288E2A690080A91E /* TimerViewModel.swift in Sources */,
 				C9640960270F904600C5B727 /* TimerRequestView.swift in Sources */,
 				C990AB3826FA398B00B55264 /* Constants.swift in Sources */,
 			);
