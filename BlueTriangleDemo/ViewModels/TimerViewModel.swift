@@ -5,28 +5,71 @@
 //  Created by Mathew Gacy on 7/24/22.
 //
 
+import BlueTriangle
 import Foundation
 
 @MainActor
 class TimerViewModel: ObservableObject {
-    @Published var siteID: String {
+    let siteID: String
+    let globalUserID: String
+
+    @Published var isReturningVisitor: Bool {
         didSet {
-            UserDefaults.standard.set(siteID, forKey: "siteID")
-            BTTracker.shared().setSiteID(siteID)
+            BlueTriangle.isReturningVisitor = isReturningVisitor
         }
     }
 
-    @Published var globalUserID: String {
-        didSet { BTTracker.shared().setGlobalUserID(globalUserID) }
+    @Published var sessionID: String {
+        didSet {
+            BlueTriangle.sessionID = UInt64(sessionID) ?? 0
+        }
     }
 
-    @Published var sessionID: String {
-        didSet { BTTracker.shared().setSessionID(sessionID) }
+    @Published var abTestID: String {
+        didSet {
+            BlueTriangle.abTestID = abTestID
+        }
+    }
+
+    @Published var campaignMedium: String {
+        didSet {
+            BlueTriangle.campaignMedium = campaignMedium
+        }
+    }
+
+    @Published var campaignName: String {
+        didSet {
+            BlueTriangle.campaignName = campaignName
+        }
+    }
+
+    @Published var campaignSource: String {
+        didSet {
+            BlueTriangle.campaignSource = campaignSource
+        }
+    }
+
+    @Published var dataCenter: String {
+        didSet {
+            BlueTriangle.dataCenter = dataCenter
+        }
+    }
+
+    @Published var trafficSegmentName: String {
+        didSet {
+            BlueTriangle.trafficSegmentName = trafficSegmentName
+        }
     }
 
     @Published var timerConfig = TimerConfiguration()
 
     @Published var timerFields: [String: String]?
+
+    @Published var page = Page(pageName: "")
+
+    @Published var showPurchaseConfirmation: Bool = false
+
+    @Published var purchaseConfirmation = PurchaseConfirmation(cartValue: 0.0)
 
     var hasPendingTimer: Bool {
         btTimer != nil
@@ -40,9 +83,15 @@ class TimerViewModel: ObservableObject {
 
     init() {
         self.siteID = UserDefaults.standard.string(forKey: "siteID") ?? Constants.siteID
-        let fields = BTTracker.shared()?.allGlobalFields()
-        self.globalUserID = fields?["gID"] as? String ?? ""
-        self.sessionID = fields?["sID"] as? String ?? ""
+        self.globalUserID = String(BlueTriangle.globalUserID)
+        self.isReturningVisitor = BlueTriangle.isReturningVisitor
+        self.sessionID = String(BlueTriangle.sessionID)
+        self.abTestID = BlueTriangle.abTestID
+        self.campaignMedium = BlueTriangle.campaignMedium
+        self.campaignName = BlueTriangle.campaignName
+        self.campaignSource = BlueTriangle.campaignSource
+        self.dataCenter = BlueTriangle.dataCenter
+        self.trafficSegmentName = BlueTriangle.trafficSegmentName
     }
 
     func submit() async {
@@ -58,21 +107,21 @@ class TimerViewModel: ObservableObject {
             return nil
         }
 
-        let timer = BTTimer()
-        timer.configure(with: timerConfig)
+        let timer = BlueTriangle.makeTimer(page: page)
 
         btTimer = timer
         defer { btTimer = nil }
 
         timer.start()
         let task = Task { () -> [String: String]? in
-            await Task.sleep(UInt64.random(in: 1_000_000_000...2_000_000_000))
+            try await Task.sleep(nanoseconds: UInt64.random(in: 1_000_000_000...2_000_000_000))
             try Task.checkCancellation()
 
-            let requestRepresentation = BTTracker.shared().allGlobalFields().merging(
-                timer.allFields() ?? [:], uniquingKeysWith: { $1 }) as? [String: String]
+            let requestRepresentation: [String: String] = [:]
 
-            BTTracker.shared().submitTimer(timer)
+            BlueTriangle.endTimer(
+                timer,
+                purchaseConfirmation: showPurchaseConfirmation ? purchaseConfirmation : nil)
             return requestRepresentation
         }
 
