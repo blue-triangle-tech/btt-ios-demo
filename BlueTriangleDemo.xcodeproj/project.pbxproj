@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4FE684746A058BE7814D0D22 /* Pods_BlueTriangleDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF45EA6605A5F9459981F2BA /* Pods_BlueTriangleDemoTests.framework */; };
+		C90DA42A288E2A690080A91E /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90DA429288E2A690080A91E /* ContentViewModel.swift */; };
 		C948A65A26F96B0300D7138C /* LabeledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948A65926F96B0300D7138C /* LabeledView.swift */; };
 		C948A65D26F971CA00D7138C /* NumberFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948A65C26F971CA00D7138C /* NumberFormatter+Ext.swift */; };
 		C949154426DEBBDB002D12B6 /* BlueTriangleDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949154326DEBBDB002D12B6 /* BlueTriangleDemoApp.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		4FC143FB1449398FA12C7753 /* Pods_BlueTriangleDemo_BlueTriangleDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueTriangleDemo_BlueTriangleDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF45EA6605A5F9459981F2BA /* Pods_BlueTriangleDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueTriangleDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C90DA429288E2A690080A91E /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		C948A65926F96B0300D7138C /* LabeledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledView.swift; sourceTree = "<group>"; };
 		C948A65C26F971CA00D7138C /* NumberFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Ext.swift"; sourceTree = "<group>"; };
 		C949154026DEBBDB002D12B6 /* BlueTriangleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueTriangleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +109,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C90DA428288E2A4F0080A91E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C90DA429288E2A690080A91E /* ContentViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		C948A65B26F971AC00D7138C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 				C949157326DEC566002D12B6 /* Utils */,
 				C948A65B26F971AC00D7138C /* Extensions */,
 				C990AB3226FA30A600B55264 /* Models */,
+				C90DA428288E2A4F0080A91E /* ViewModels */,
 				C949157226DEC472002D12B6 /* Views */,
 			);
 			path = BlueTriangleDemo;
@@ -462,6 +473,7 @@
 				C948A65D26F971CA00D7138C /* NumberFormatter+Ext.swift in Sources */,
 				C9F3F8EB271092D800F8116D /* PreviewData.swift in Sources */,
 				C949154426DEBBDB002D12B6 /* BlueTriangleDemoApp.swift in Sources */,
+				C90DA42A288E2A690080A91E /* ContentViewModel.swift in Sources */,
 				C9640960270F904600C5B727 /* TimerRequestView.swift in Sources */,
 				C990AB3826FA398B00B55264 /* Constants.swift in Sources */,
 			);
