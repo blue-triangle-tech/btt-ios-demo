@@ -5,8 +5,8 @@
 //  Created by Mathew Gacy on 8/31/21.
 //
 
+import BlueTriangle
 import SwiftUI
-import BlueTriangleSDK_iOS
 
 struct TimerView: View {
     @StateObject var viewModel: TimerViewModel
@@ -15,78 +15,105 @@ struct TimerView: View {
     var body: some View {
         NavigationView {
             Form {
-
-                Section(header: Text("GLOBAL")) {
+                Section(
+                    header: Text("Session (1)"),
+                    footer: Text("Can only be set during initial configuration")
+                ) {
                     LabeledView("Site ID") {
-                        TextField("", text: $viewModel.siteID)
-                    }
-                    LabeledView("Session ID") {
-                        TextField("", text: $viewModel.sessionID)
+                        Text(viewModel.siteID)
+                            .foregroundColor(.gray)
                     }
                     LabeledView("Global User ID") {
-                        TextField("", text: $viewModel.globalUserID)
+                        Text(viewModel.globalUserID)
+                            .foregroundColor(.gray)
                     }
                 }
 
-                Section(header: Text("TIMER: A")) {
-                    LabeledView("Page Name") {
-                        TextField("", text: $viewModel.timerConfig.pageName)
-                    }
-                    LabeledView("Traffic Segment Name") {
-                        TextField("", text: $viewModel.timerConfig.trafficSegmentName)
+                Section(header: Text("Session")) {
+                    Toggle("Returning Visitor", isOn: $viewModel.isReturningVisitor)
+                    LabeledView("Session ID") {
+                        TextField("", text: $viewModel.sessionID)
+                            .keyboardType(.numbersAndPunctuation)
+                            .disabled(true)
                     }
                     LabeledView("A/B Test ID") {
-                        TextField("", text: $viewModel.timerConfig.abTestID)
-                    }
-                    LabeledView("Content Group Name") {
-                        TextField("", text: $viewModel.timerConfig.contentGroupName)
-                    }
-                    LabeledView("URL") {
-                        TextField("", text: $viewModel.timerConfig.url)
-                    }
-                    LabeledView("Referrer") {
-                        TextField("", text: $viewModel.timerConfig.referrer)
-                    }
-                }
-
-                Section(header: Text("CAMPAIGN")) {
-                    LabeledView("Campaign Name") {
-                        TextField("", text: $viewModel.timerConfig.campaignName)
-                    }
-                    LabeledView("Campaign Source") {
-                        TextField("", text: $viewModel.timerConfig.campaignSource)
+                        TextField("", text: $viewModel.abTestID)
                     }
                     LabeledView("Campaign Medium") {
-                        TextField("", text: $viewModel.timerConfig.campaignMedium)
+                        TextField("", text: $viewModel.campaignMedium)
+                    }
+                    LabeledView("Campaign Name") {
+                        TextField("", text: $viewModel.campaignName)
+                    }
+                    LabeledView("Campaign Source") {
+                        TextField("", text: $viewModel.campaignSource)
+                    }
+                    LabeledView("Data Center") {
+                        TextField("", text: $viewModel.dataCenter)
+                    }
+                    LabeledView("Traffic Segment Name") {
+                        TextField("", text: $viewModel.trafficSegmentName)
                     }
                 }
 
-                Section(header: Text("TIMER: B")) {
+                Section(header: Text("Page")) {
+                    LabeledView("Page Name") {
+                        TextField("", text: $viewModel.page.pageName)
+                    }
+                    LabeledView("Page Type") {
+                        TextField("", text: $viewModel.page.pageType)
+                    }
                     LabeledView("Brand Value") {
                         TextField("", value: $viewModel.timerConfig.brandValue, formatter: NumberFormatter.decimal)
                             .keyboardType(.numbersAndPunctuation)
                     }
-                    LabeledView("Page Value") {
-                        TextField("", value: $viewModel.timerConfig.pageValue, formatter: NumberFormatter.decimal)
-                            .keyboardType(.numbersAndPunctuation)
+                    LabeledView("Referring URL") {
+                        TextField("", text: $viewModel.page.referringURL)
                     }
-                    LabeledView("Cart Value") {
-                        TextField("", value: $viewModel.timerConfig.cartValue, formatter: NumberFormatter.decimal)
-                            .keyboardType(.numbersAndPunctuation)
-                    }
-                    LabeledView("Order Numer") {
-                        TextField("", text: $viewModel.timerConfig.orderNumber)
-                    }
-                    LabeledView("Order Time") {
-                        TextField("", value: $viewModel.timerConfig.orderTime, formatter: NumberFormatter.integer)
-                            .keyboardType(.numbersAndPunctuation)
-                    }
-                    LabeledView("Time on Page") {
-                        TextField("", value: $viewModel.timerConfig.timeOnPage, formatter: NumberFormatter.integer)
-                            .keyboardType(.numbersAndPunctuation)
+                    LabeledView("URL") {
+                        TextField("", text: $viewModel.timerConfig.url)
                     }
                 }
 
+                Section(
+                    header: HStack {
+                        Button {
+                            viewModel.showPurchaseConfirmation.toggle()
+                        } label: {
+                            HStack {
+                                Text("PURCHASE CONFIRMATION")
+                                Spacer()
+                                Image(systemName: "chevron.right.circle")
+                                    .rotationEffect(.degrees(viewModel.showPurchaseConfirmation ? 90.0 : 0.0))
+                                    .animation(.default, value: viewModel.showPurchaseConfirmation)
+                            }
+                        }
+                    }
+                ) {
+                    if viewModel.showPurchaseConfirmation {
+                        LabeledView("Cart Value") {
+                            TextField(
+                                "",
+                                value: $viewModel.purchaseConfirmation.cartValue,
+                                formatter: NumberFormatter.decimal)
+                            .keyboardType(.numbersAndPunctuation)
+                        }
+                        LabeledView("Order Numer") {
+                            TextField(
+                                "",
+                                text: $viewModel.purchaseConfirmation.orderNumber)
+                        }
+                        LabeledView("Order Time") {
+                            TextField(
+                                "",
+                                value: $viewModel.purchaseConfirmation.orderTime,
+                                formatter: NumberFormatter.integer)
+                            .keyboardType(.numbersAndPunctuation)
+                        }
+                    } else {
+                        EmptyView()
+                    }
+                }
             }
             .navigationBarTitle("Timer", displayMode: .automatic)
             .toolbar {
