@@ -61,8 +61,6 @@ class TimerViewModel: ObservableObject {
         }
     }
 
-    @Published var timerConfig = TimerConfiguration()
-
     @Published var timerFields: [String: String]?
 
     @Published var page = Page(pageName: "")
@@ -95,14 +93,14 @@ class TimerViewModel: ObservableObject {
     }
 
     func submit() async {
-        timerFields = await submitTimer(with: timerConfig)
+        timerFields = await submitTimer()
     }
 
     func clear() {
-        timerConfig = TimerConfiguration()
+        page = Page(pageName: "")
     }
 
-    private func submitTimer(with configuration: TimerConfiguration) async -> [String: String]? {
+    private func submitTimer() async -> [String: String]? {
         guard btTimer == nil else {
             return nil
         }

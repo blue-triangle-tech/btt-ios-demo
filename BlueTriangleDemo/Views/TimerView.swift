@@ -34,7 +34,6 @@ struct TimerView: View {
                     LabeledView("Session ID") {
                         TextField("", text: $viewModel.sessionID)
                             .keyboardType(.numbersAndPunctuation)
-                            .disabled(true)
                     }
                     LabeledView("A/B Test ID") {
                         TextField("", text: $viewModel.abTestID)
@@ -64,21 +63,23 @@ struct TimerView: View {
                         TextField("", text: $viewModel.page.pageType)
                     }
                     LabeledView("Brand Value") {
-                        TextField("", value: $viewModel.timerConfig.brandValue, formatter: NumberFormatter.decimal)
+                        TextField("", value: $viewModel.page.brandValue, formatter: NumberFormatter.decimal)
                             .keyboardType(.numbersAndPunctuation)
                     }
                     LabeledView("Referring URL") {
                         TextField("", text: $viewModel.page.referringURL)
                     }
                     LabeledView("URL") {
-                        TextField("", text: $viewModel.timerConfig.url)
+                        TextField("", text: $viewModel.page.url)
                     }
                 }
 
                 Section(
                     header: HStack {
                         Button {
-                            viewModel.showPurchaseConfirmation.toggle()
+                            withAnimation {
+                                viewModel.showPurchaseConfirmation.toggle()
+                            }
                         } label: {
                             HStack {
                                 Text("PURCHASE CONFIRMATION")
@@ -99,9 +100,7 @@ struct TimerView: View {
                             .keyboardType(.numbersAndPunctuation)
                         }
                         LabeledView("Order Numer") {
-                            TextField(
-                                "",
-                                text: $viewModel.purchaseConfirmation.orderNumber)
+                            TextField("", text: $viewModel.purchaseConfirmation.orderNumber)
                         }
                         LabeledView("Order Time") {
                             TextField(
@@ -112,6 +111,7 @@ struct TimerView: View {
                         }
                     } else {
                         EmptyView()
+                            .transition(.scale)
                     }
                 }
             }

@@ -20,7 +20,6 @@
 		C949157526DEC585002D12B6 /* SettingsAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949157426DEC585002D12B6 /* SettingsAccess.swift */; };
 		C949157726DEC5F9002D12B6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C949157626DEC5F9002D12B6 /* Settings.bundle */; };
 		C9640960270F904600C5B727 /* TimerRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C964095F270F904600C5B727 /* TimerRequestView.swift */; };
-		C990AB3426FA30EA00B55264 /* TimerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990AB3326FA30EA00B55264 /* TimerConfiguration.swift */; };
 		C990AB3826FA398B00B55264 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990AB3726FA398B00B55264 /* Constants.swift */; };
 		C9F1E1122884EA7F00A0489B /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = C9F1E1112884EA7F00A0489B /* BlueTriangle */; };
 		C9F3F8EB271092D800F8116D /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3F8EA271092D800F8116D /* PreviewData.swift */; };
@@ -65,7 +64,6 @@
 		C949157426DEC585002D12B6 /* SettingsAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAccess.swift; sourceTree = "<group>"; };
 		C949157626DEC5F9002D12B6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		C964095F270F904600C5B727 /* TimerRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRequestView.swift; sourceTree = "<group>"; };
-		C990AB3326FA30EA00B55264 /* TimerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerConfiguration.swift; sourceTree = "<group>"; };
 		C990AB3726FA398B00B55264 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C9F3F8EA271092D800F8116D /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		CADEA2DAF91CDF39FC63C188 /* Pods_BlueTriangleDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueTriangleDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,7 +153,6 @@
 				C949157126DEC465002D12B6 /* Resources */,
 				C949157326DEC566002D12B6 /* Utils */,
 				C948A65B26F971AC00D7138C /* Extensions */,
-				C990AB3226FA30A600B55264 /* Models */,
 				C90DA428288E2A4F0080A91E /* ViewModels */,
 				C949157226DEC472002D12B6 /* Views */,
 			);
@@ -215,14 +212,6 @@
 				C949157426DEC585002D12B6 /* SettingsAccess.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		C990AB3226FA30A600B55264 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C990AB3326FA30EA00B55264 /* TimerConfiguration.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,7 +457,6 @@
 			files = (
 				C948A65A26F96B0300D7138C /* LabeledView.swift in Sources */,
 				C949154626DEBBDB002D12B6 /* TimerView.swift in Sources */,
-				C990AB3426FA30EA00B55264 /* TimerConfiguration.swift in Sources */,
 				C949157526DEC585002D12B6 /* SettingsAccess.swift in Sources */,
 				C948A65D26F971CA00D7138C /* NumberFormatter+Ext.swift in Sources */,
 				C9F3F8EB271092D800F8116D /* PreviewData.swift in Sources */,
