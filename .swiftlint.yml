@@ -32,6 +32,7 @@ disabled_rules:
 identifier_name:
     excluded:
         - id
+        - os
 
 function_body_length: 50
 
