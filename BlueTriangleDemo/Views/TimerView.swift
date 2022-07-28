@@ -16,7 +16,7 @@ struct TimerView: View {
         NavigationView {
             Form {
                 Section(
-                    header: Text("Session (1)"),
+                    header: Text("Session"),
                     footer: Text("Can only be set during initial configuration")
                 ) {
                     LabeledView("Site ID") {
