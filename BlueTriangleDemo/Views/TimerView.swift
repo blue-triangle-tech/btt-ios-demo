@@ -77,9 +77,7 @@ struct TimerView: View {
                 Section(
                     header: HStack {
                         Button {
-                            withAnimation {
-                                viewModel.showPurchaseConfirmation.toggle()
-                            }
+                            viewModel.showPurchaseConfirmation.toggle()
                         } label: {
                             HStack {
                                 Text("PURCHASE CONFIRMATION")
@@ -109,9 +107,6 @@ struct TimerView: View {
                                 formatter: NumberFormatter.integer)
                             .keyboardType(.numbersAndPunctuation)
                         }
-                    } else {
-                        EmptyView()
-                            .transition(.scale)
                     }
                 }
             }
