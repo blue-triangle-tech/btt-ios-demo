@@ -3,16 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4FE684746A058BE7814D0D22 /* Pods_BlueTriangleDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF45EA6605A5F9459981F2BA /* Pods_BlueTriangleDemoTests.framework */; };
-		9A2B822801942B3F3EAE93D0 /* Pods_BlueTriangleDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CADEA2DAF91CDF39FC63C188 /* Pods_BlueTriangleDemo.framework */; };
+		C90DA427288E1ABD0080A91E /* Bool+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90DA426288E1ABD0080A91E /* Bool+Utils.swift */; };
+		C90DA42A288E2A690080A91E /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90DA429288E2A690080A91E /* TimerViewModel.swift */; };
 		C948A65A26F96B0300D7138C /* LabeledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948A65926F96B0300D7138C /* LabeledView.swift */; };
 		C948A65D26F971CA00D7138C /* NumberFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948A65C26F971CA00D7138C /* NumberFormatter+Ext.swift */; };
 		C949154426DEBBDB002D12B6 /* BlueTriangleDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949154326DEBBDB002D12B6 /* BlueTriangleDemoApp.swift */; };
-		C949154626DEBBDB002D12B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949154526DEBBDB002D12B6 /* ContentView.swift */; };
+		C949154626DEBBDB002D12B6 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949154526DEBBDB002D12B6 /* TimerView.swift */; };
 		C949154826DEBBDE002D12B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C949154726DEBBDE002D12B6 /* Assets.xcassets */; };
 		C949154B26DEBBDE002D12B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C949154A26DEBBDE002D12B6 /* Preview Assets.xcassets */; };
 		C949155626DEBBDE002D12B6 /* BlueTriangleDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949155526DEBBDE002D12B6 /* BlueTriangleDemoTests.swift */; };
@@ -20,8 +21,9 @@
 		C949157526DEC585002D12B6 /* SettingsAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = C949157426DEC585002D12B6 /* SettingsAccess.swift */; };
 		C949157726DEC5F9002D12B6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C949157626DEC5F9002D12B6 /* Settings.bundle */; };
 		C9640960270F904600C5B727 /* TimerRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C964095F270F904600C5B727 /* TimerRequestView.swift */; };
-		C990AB3426FA30EA00B55264 /* TimerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990AB3326FA30EA00B55264 /* TimerConfiguration.swift */; };
 		C990AB3826FA398B00B55264 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990AB3726FA398B00B55264 /* Constants.swift */; };
+		C9E2930328922A9C0064F83F /* Dictionary+RequestRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2930228922A9C0064F83F /* Dictionary+RequestRepresentation.swift */; };
+		C9F1E1122884EA7F00A0489B /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = C9F1E1112884EA7F00A0489B /* BlueTriangle */; };
 		C9F3F8EB271092D800F8116D /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3F8EA271092D800F8116D /* PreviewData.swift */; };
 		FFDD260EE6AEBD99A3118351 /* Pods_BlueTriangleDemo_BlueTriangleDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FC143FB1449398FA12C7753 /* Pods_BlueTriangleDemo_BlueTriangleDemoUITests.framework */; };
 /* End PBXBuildFile section */
@@ -44,17 +46,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2058C467570167357C9E8994 /* Pods-BlueTriangleDemo-BlueTriangleDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueTriangleDemo-BlueTriangleDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-BlueTriangleDemo-BlueTriangleDemoUITests/Pods-BlueTriangleDemo-BlueTriangleDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		33D28699C2E582C246EC9BB0 /* Pods-BlueTriangleDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueTriangleDemoTests.release.xcconfig"; path = "Target Support Files/Pods-BlueTriangleDemoTests/Pods-BlueTriangleDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		4FC143FB1449398FA12C7753 /* Pods_BlueTriangleDemo_BlueTriangleDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueTriangleDemo_BlueTriangleDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		94DB4C2FB1219B1256E28728 /* Pods-BlueTriangleDemo-BlueTriangleDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueTriangleDemo-BlueTriangleDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-BlueTriangleDemo-BlueTriangleDemoUITests/Pods-BlueTriangleDemo-BlueTriangleDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AF45EA6605A5F9459981F2BA /* Pods_BlueTriangleDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueTriangleDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B246B4CAE108EFF8946FE347 /* Pods-BlueTriangleDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueTriangleDemo.debug.xcconfig"; path = "Target Support Files/Pods-BlueTriangleDemo/Pods-BlueTriangleDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C90DA426288E1ABD0080A91E /* Bool+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Utils.swift"; sourceTree = "<group>"; };
+		C90DA429288E2A690080A91E /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		C948A65926F96B0300D7138C /* LabeledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledView.swift; sourceTree = "<group>"; };
 		C948A65C26F971CA00D7138C /* NumberFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Ext.swift"; sourceTree = "<group>"; };
 		C949154026DEBBDB002D12B6 /* BlueTriangleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueTriangleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C949154326DEBBDB002D12B6 /* BlueTriangleDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueTriangleDemoApp.swift; sourceTree = "<group>"; };
-		C949154526DEBBDB002D12B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C949154526DEBBDB002D12B6 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		C949154726DEBBDE002D12B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C949154A26DEBBDE002D12B6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C949154C26DEBBDE002D12B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,12 +67,10 @@
 		C949157426DEC585002D12B6 /* SettingsAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAccess.swift; sourceTree = "<group>"; };
 		C949157626DEC5F9002D12B6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		C964095F270F904600C5B727 /* TimerRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRequestView.swift; sourceTree = "<group>"; };
-		C990AB3326FA30EA00B55264 /* TimerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerConfiguration.swift; sourceTree = "<group>"; };
 		C990AB3726FA398B00B55264 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C9E2930228922A9C0064F83F /* Dictionary+RequestRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+RequestRepresentation.swift"; sourceTree = "<group>"; };
 		C9F3F8EA271092D800F8116D /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		CADEA2DAF91CDF39FC63C188 /* Pods_BlueTriangleDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueTriangleDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0226FDB47885E0865D12DDA /* Pods-BlueTriangleDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueTriangleDemo.release.xcconfig"; path = "Target Support Files/Pods-BlueTriangleDemo/Pods-BlueTriangleDemo.release.xcconfig"; sourceTree = "<group>"; };
-		D5DCADEE68AB5B602F78BC76 /* Pods-BlueTriangleDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueTriangleDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-BlueTriangleDemoTests/Pods-BlueTriangleDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A2B822801942B3F3EAE93D0 /* Pods_BlueTriangleDemo.framework in Frameworks */,
+				C9F1E1122884EA7F00A0489B /* BlueTriangle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,10 +111,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C90DA428288E2A4F0080A91E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C90DA429288E2A690080A91E /* TimerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		C948A65B26F971AC00D7138C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				C948A65C26F971CA00D7138C /* NumberFormatter+Ext.swift */,
+				C9E2930228922A9C0064F83F /* Dictionary+RequestRepresentation.swift */,
+				C90DA426288E1ABD0080A91E /* Bool+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -128,7 +136,6 @@
 				C949155426DEBBDE002D12B6 /* BlueTriangleDemoTests */,
 				C949155F26DEBBDE002D12B6 /* BlueTriangleDemoUITests */,
 				C949154126DEBBDB002D12B6 /* Products */,
-				E2979865330F844D0B52B1C5 /* Pods */,
 				B1E6D75973D658ADE020278A /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -152,7 +159,7 @@
 				C949157126DEC465002D12B6 /* Resources */,
 				C949157326DEC566002D12B6 /* Utils */,
 				C948A65B26F971AC00D7138C /* Extensions */,
-				C990AB3226FA30A600B55264 /* Models */,
+				C90DA428288E2A4F0080A91E /* ViewModels */,
 				C949157226DEC472002D12B6 /* Views */,
 			);
 			path = BlueTriangleDemo;
@@ -197,9 +204,9 @@
 		C949157226DEC472002D12B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C949154526DEBBDB002D12B6 /* ContentView.swift */,
-				C964095F270F904600C5B727 /* TimerRequestView.swift */,
 				C948A65926F96B0300D7138C /* LabeledView.swift */,
+				C964095F270F904600C5B727 /* TimerRequestView.swift */,
+				C949154526DEBBDB002D12B6 /* TimerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,27 +220,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		C990AB3226FA30A600B55264 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C990AB3326FA30EA00B55264 /* TimerConfiguration.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E2979865330F844D0B52B1C5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B246B4CAE108EFF8946FE347 /* Pods-BlueTriangleDemo.debug.xcconfig */,
-				D0226FDB47885E0865D12DDA /* Pods-BlueTriangleDemo.release.xcconfig */,
-				2058C467570167357C9E8994 /* Pods-BlueTriangleDemo-BlueTriangleDemoUITests.debug.xcconfig */,
-				94DB4C2FB1219B1256E28728 /* Pods-BlueTriangleDemo-BlueTriangleDemoUITests.release.xcconfig */,
-				D5DCADEE68AB5B602F78BC76 /* Pods-BlueTriangleDemoTests.debug.xcconfig */,
-				33D28699C2E582C246EC9BB0 /* Pods-BlueTriangleDemoTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -241,19 +227,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C949156526DEBBDE002D12B6 /* Build configuration list for PBXNativeTarget "BlueTriangleDemo" */;
 			buildPhases = (
-				4EBE230F185677EFE8BE905C /* [CP] Check Pods Manifest.lock */,
 				C949157B26DEC8D8002D12B6 /* Swiftlint */,
 				C949157926DEC6D4002D12B6 /* Commit Hash */,
 				C949153C26DEBBDB002D12B6 /* Sources */,
 				C949153D26DEBBDB002D12B6 /* Frameworks */,
 				C949153E26DEBBDB002D12B6 /* Resources */,
-				EADB14715B7AC53A457804B1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = BlueTriangleDemo;
+			packageProductDependencies = (
+				C9F1E1112884EA7F00A0489B /* BlueTriangle */,
+			);
 			productName = BlueTriangleDemo;
 			productReference = C949154026DEBBDB002D12B6 /* BlueTriangleDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -328,6 +315,9 @@
 				Base,
 			);
 			mainGroup = C949153726DEBBDB002D12B6;
+			packageReferences = (
+				C9F1E1102884EA7F00A0489B /* XCRemoteSwiftPackageReference "btt-swift-sdk" */,
+			);
 			productRefGroup = C949154126DEBBDB002D12B6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -382,28 +372,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlueTriangleDemo-BlueTriangleDemoUITests/Pods-BlueTriangleDemo-BlueTriangleDemoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4EBE230F185677EFE8BE905C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BlueTriangleDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7B4F2C6EEA87F681CC690974 /* [CP] Check Pods Manifest.lock */ = {
@@ -462,7 +430,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Adds support for Apple Silicon brew directory\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint; then\n    swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Support default Mint install path from v0.17.0\nif [ -d ~/.mint/bin ]; then\n    export PATH=~/.mint/bin:$PATH\nfi\n\nif which swiftlint; then\n    swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		DFA2C4C6CCFF31B9721362E2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -486,23 +454,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EADB14715B7AC53A457804B1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BlueTriangleDemo/Pods-BlueTriangleDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BlueTriangleDemo/Pods-BlueTriangleDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlueTriangleDemo/Pods-BlueTriangleDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -511,14 +462,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C948A65A26F96B0300D7138C /* LabeledView.swift in Sources */,
-				C949154626DEBBDB002D12B6 /* ContentView.swift in Sources */,
-				C990AB3426FA30EA00B55264 /* TimerConfiguration.swift in Sources */,
+				C949154626DEBBDB002D12B6 /* TimerView.swift in Sources */,
+				C9E2930328922A9C0064F83F /* Dictionary+RequestRepresentation.swift in Sources */,
 				C949157526DEC585002D12B6 /* SettingsAccess.swift in Sources */,
 				C948A65D26F971CA00D7138C /* NumberFormatter+Ext.swift in Sources */,
 				C9F3F8EB271092D800F8116D /* PreviewData.swift in Sources */,
 				C949154426DEBBDB002D12B6 /* BlueTriangleDemoApp.swift in Sources */,
+				C90DA42A288E2A690080A91E /* TimerViewModel.swift in Sources */,
 				C9640960270F904600C5B727 /* TimerRequestView.swift in Sources */,
 				C990AB3826FA398B00B55264 /* Constants.swift in Sources */,
+				C90DA427288E1ABD0080A91E /* Bool+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,7 +625,6 @@
 		};
 		C949156626DEBBDE002D12B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B246B4CAE108EFF8946FE347 /* Pods-BlueTriangleDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -695,7 +647,6 @@
 		};
 		C949156726DEBBDE002D12B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0226FDB47885E0865D12DDA /* Pods-BlueTriangleDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -718,7 +669,6 @@
 		};
 		C949156926DEBBDE002D12B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5DCADEE68AB5B602F78BC76 /* Pods-BlueTriangleDemoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -741,7 +691,6 @@
 		};
 		C949156A26DEBBDE002D12B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33D28699C2E582C246EC9BB0 /* Pods-BlueTriangleDemoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -764,7 +713,6 @@
 		};
 		C949156C26DEBBDE002D12B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2058C467570167357C9E8994 /* Pods-BlueTriangleDemo-BlueTriangleDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -785,7 +733,6 @@
 		};
 		C949156D26DEBBDE002D12B6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94DB4C2FB1219B1256E28728 /* Pods-BlueTriangleDemo-BlueTriangleDemoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -844,6 +791,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C9F1E1102884EA7F00A0489B /* XCRemoteSwiftPackageReference "btt-swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/blue-triangle-tech/btt-swift-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C9F1E1112884EA7F00A0489B /* BlueTriangle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9F1E1102884EA7F00A0489B /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
+			productName = BlueTriangle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C949153826DEBBDB002D12B6 /* Project object */;
 }

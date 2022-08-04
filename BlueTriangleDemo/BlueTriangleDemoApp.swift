@@ -6,18 +6,21 @@
 //
 
 import SwiftUI
-import BlueTriangleSDK_iOS
+import BlueTriangle
 
 @main
 struct BlueTriangleDemoApp: App {
 
     init() {
-        BTTracker.shared().setSiteID(Constants.siteID)
+        BlueTriangle.configure { config in
+            config.siteID = Constants.siteID
+            // ...
+        }
     }
 
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: ContentViewModel())
+            TimerView(viewModel: TimerViewModel())
         }
     }
 }

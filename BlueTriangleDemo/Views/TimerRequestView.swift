@@ -11,7 +11,7 @@ struct TimerRequestView: View {
     @Binding var shouldDisplay: Bool
     var timerFields: [String: String]
     var requestRepresentation: String {
-        timerFields.reduce( "{", { $0 + "\n  \"\($1.key)\": \"\($1.value)\"," }) + "\n}"
+        timerFields.reduce( "{", { $0 + "\n  \"\($1.key)\": \($1.value)," }) + "\n}"
     }
 
     var body: some View {
