@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4FE684746A058BE7814D0D22 /* Pods_BlueTriangleDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF45EA6605A5F9459981F2BA /* Pods_BlueTriangleDemoTests.framework */; };
+		C90DA427288E1ABD0080A91E /* Bool+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90DA426288E1ABD0080A91E /* Bool+Utils.swift */; };
 		C90DA42A288E2A690080A91E /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90DA429288E2A690080A91E /* TimerViewModel.swift */; };
 		C948A65A26F96B0300D7138C /* LabeledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948A65926F96B0300D7138C /* LabeledView.swift */; };
 		C948A65D26F971CA00D7138C /* NumberFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948A65C26F971CA00D7138C /* NumberFormatter+Ext.swift */; };
@@ -21,6 +22,7 @@
 		C949157726DEC5F9002D12B6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C949157626DEC5F9002D12B6 /* Settings.bundle */; };
 		C9640960270F904600C5B727 /* TimerRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C964095F270F904600C5B727 /* TimerRequestView.swift */; };
 		C990AB3826FA398B00B55264 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990AB3726FA398B00B55264 /* Constants.swift */; };
+		C9E2930328922A9C0064F83F /* Dictionary+RequestRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E2930228922A9C0064F83F /* Dictionary+RequestRepresentation.swift */; };
 		C9F1E1122884EA7F00A0489B /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = C9F1E1112884EA7F00A0489B /* BlueTriangle */; };
 		C9F3F8EB271092D800F8116D /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3F8EA271092D800F8116D /* PreviewData.swift */; };
 		FFDD260EE6AEBD99A3118351 /* Pods_BlueTriangleDemo_BlueTriangleDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FC143FB1449398FA12C7753 /* Pods_BlueTriangleDemo_BlueTriangleDemoUITests.framework */; };
@@ -46,6 +48,7 @@
 /* Begin PBXFileReference section */
 		4FC143FB1449398FA12C7753 /* Pods_BlueTriangleDemo_BlueTriangleDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueTriangleDemo_BlueTriangleDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF45EA6605A5F9459981F2BA /* Pods_BlueTriangleDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueTriangleDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C90DA426288E1ABD0080A91E /* Bool+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Utils.swift"; sourceTree = "<group>"; };
 		C90DA429288E2A690080A91E /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		C948A65926F96B0300D7138C /* LabeledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledView.swift; sourceTree = "<group>"; };
 		C948A65C26F971CA00D7138C /* NumberFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Ext.swift"; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 		C949157626DEC5F9002D12B6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		C964095F270F904600C5B727 /* TimerRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRequestView.swift; sourceTree = "<group>"; };
 		C990AB3726FA398B00B55264 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C9E2930228922A9C0064F83F /* Dictionary+RequestRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+RequestRepresentation.swift"; sourceTree = "<group>"; };
 		C9F3F8EA271092D800F8116D /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		CADEA2DAF91CDF39FC63C188 /* Pods_BlueTriangleDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueTriangleDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -119,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				C948A65C26F971CA00D7138C /* NumberFormatter+Ext.swift */,
+				C9E2930228922A9C0064F83F /* Dictionary+RequestRepresentation.swift */,
+				C90DA426288E1ABD0080A91E /* Bool+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 			files = (
 				C948A65A26F96B0300D7138C /* LabeledView.swift in Sources */,
 				C949154626DEBBDB002D12B6 /* TimerView.swift in Sources */,
+				C9E2930328922A9C0064F83F /* Dictionary+RequestRepresentation.swift in Sources */,
 				C949157526DEC585002D12B6 /* SettingsAccess.swift in Sources */,
 				C948A65D26F971CA00D7138C /* NumberFormatter+Ext.swift in Sources */,
 				C9F3F8EB271092D800F8116D /* PreviewData.swift in Sources */,
@@ -464,6 +471,7 @@
 				C90DA42A288E2A690080A91E /* TimerViewModel.swift in Sources */,
 				C9640960270F904600C5B727 /* TimerRequestView.swift in Sources */,
 				C990AB3826FA398B00B55264 /* Constants.swift in Sources */,
+				C90DA427288E1ABD0080A91E /* Bool+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
