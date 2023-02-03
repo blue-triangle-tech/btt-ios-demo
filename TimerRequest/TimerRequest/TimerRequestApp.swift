@@ -12,7 +12,7 @@ import SwiftUI
 struct TimerRequestApp: App {
     init() {
         BlueTriangle.configure { config in
-            config.siteID = Constants.siteID
+            config.siteID = Configuration.siteID
             // ...
         }
     }
