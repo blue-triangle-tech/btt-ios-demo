@@ -235,6 +235,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
+				ORGANIZATIONNAME = "Blue Triangle";
 				TargetAttributes = {
 					C9B9E59729B65B2F007CC9DA = {
 						CreatedOnToolsVersion = 14.2;
