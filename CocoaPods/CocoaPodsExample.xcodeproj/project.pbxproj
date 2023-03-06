@@ -11,6 +11,8 @@
 		C90679F42979E4C100D0634F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90679F32979E4C100D0634F /* ContentView.swift */; };
 		C90679F62979E4C200D0634F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C90679F52979E4C200D0634F /* Assets.xcassets */; };
 		C90679F92979E4C200D0634F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C90679F82979E4C200D0634F /* Preview Assets.xcassets */; };
+		C9B9E58929B65900007CC9DA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C9B9E58829B65900007CC9DA /* README.md */; };
+		C9B9E58E29B65922007CC9DA /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C9B9E58D29B65922007CC9DA /* Config.xcconfig */; };
 		E4166607AF27C0FE6362CDF0 /* Pods_CocoaPodsExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7D576F3E459829B3822959 /* Pods_CocoaPodsExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +24,8 @@
 		C90679F32979E4C100D0634F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C90679F52979E4C200D0634F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C90679F82979E4C200D0634F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C9B9E58829B65900007CC9DA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C9B9E58D29B65922007CC9DA /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		FCB5340EE8CB00488817C908 /* Pods-CocoaPodsExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaPodsExample.debug.xcconfig"; path = "Target Support Files/Pods-CocoaPodsExample/Pods-CocoaPodsExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,7 +47,6 @@
 				FCB5340EE8CB00488817C908 /* Pods-CocoaPodsExample.debug.xcconfig */,
 				56171195BD42CB3B85416C05 /* Pods-CocoaPodsExample.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -58,10 +61,12 @@
 		C90679E52979E4C000D0634F = {
 			isa = PBXGroup;
 			children = (
+				C9B9E58829B65900007CC9DA /* README.md */,
 				C90679F02979E4C100D0634F /* CocoaPodsExample */,
 				C90679EF2979E4C100D0634F /* Products */,
 				3470492F623DF71BDE7D6D40 /* Pods */,
 				9184358D9C0BAAE56205123B /* Frameworks */,
+				C9B9E58C29B65922007CC9DA /* Configuration */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +95,14 @@
 				C90679F82979E4C200D0634F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C9B9E58C29B65922007CC9DA /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				C9B9E58D29B65922007CC9DA /* Config.xcconfig */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +165,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9B9E58E29B65922007CC9DA /* Config.xcconfig in Resources */,
+				C9B9E58929B65900007CC9DA /* README.md in Resources */,
 				C90679F92979E4C200D0634F /* Preview Assets.xcassets in Resources */,
 				C90679F62979E4C200D0634F /* Assets.xcassets in Resources */,
 			);
