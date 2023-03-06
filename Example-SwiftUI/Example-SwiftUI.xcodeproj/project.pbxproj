@@ -83,6 +83,7 @@
 		C94BF02C290B1825007E1C25 /* CheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewModel.swift; sourceTree = "<group>"; };
 		C97930B4294A598200605CC9 /* Service+BTT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+BTT.swift"; sourceTree = "<group>"; };
 		C9B637D0290B26A6006E5F90 /* View+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ErrorAlert.swift"; sourceTree = "<group>"; };
+		C9B9E58729B654EE007CC9DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C9C7D88E2939029C00950C55 /* LineItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineItemRow.swift; sourceTree = "<group>"; };
 		C9C7D890293930E900950C55 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLoader.swift; path = "Example-SwiftUI/ImageLoader.swift"; sourceTree = SOURCE_ROOT; };
 		C9C7D8922939315D00950C55 /* RemoteImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
@@ -210,6 +211,7 @@
 		C9F4A4092900DB6100BCDF3E = {
 			isa = PBXGroup;
 			children = (
+				C9B9E58729B654EE007CC9DA /* README.md */,
 				C9F4A4142900DB6100BCDF3E /* Example-SwiftUI */,
 				C9F4A4252900DB6200BCDF3E /* Example-SwiftUITests */,
 				C9F4A42F2900DB6200BCDF3E /* Example-SwiftUIUITests */,
