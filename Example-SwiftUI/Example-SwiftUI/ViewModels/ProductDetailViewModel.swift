@@ -41,6 +41,12 @@ final class ProductDetailViewModel: ObservableObject {
 
     @MainActor
     func imageStatus() async -> ImageStatus? {
+        // Custom metrics
+        BlueTriangle.metrics?["metrics-page"] = "product-detail"
+        BlueTriangle.metrics?["product-name"] = "\(product.name)"
+        BlueTriangle.metrics?["product-id"] = .int(product.id)
+        BlueTriangle.metrics?["nested"] = ["int": .int(100), "array": .array([1, 2, 3])]
+
         // Start timer
         let timer = BlueTriangle.startTimer(
             page: Page(
@@ -50,6 +56,10 @@ final class ProductDetailViewModel: ObservableObject {
 
         // End timer
         BlueTriangle.endTimer(timer)
+
+        // Remove `product-name` from metrics
+        BlueTriangle.metrics?["product-name"] = nil
+        BlueTriangle.metrics?["nested"] = nil
 
         return status
     }

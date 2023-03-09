@@ -29,6 +29,9 @@ final class ProductListViewModel: ObservableObject {
 
     @MainActor
     func loadProducts() async {
+        // Custom metrics
+        BlueTriangle.metrics?["metrics-page"] = "product-list"
+
         // Start timer
         let timer = BlueTriangle.startTimer(
             page: Page(
