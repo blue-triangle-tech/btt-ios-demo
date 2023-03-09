@@ -6,7 +6,7 @@
 //  Copyright © 2022 Blue Triangle. All rights reserved.
 //
 
-import BlueTriangleSDK_Swift
+import BlueTriangle
 import UIKit
 
 class ViewController: UIViewController {
