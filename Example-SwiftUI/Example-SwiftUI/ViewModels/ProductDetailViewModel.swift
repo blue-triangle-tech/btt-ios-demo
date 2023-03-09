@@ -59,6 +59,7 @@ final class ProductDetailViewModel: ObservableObject {
 
         // Remove `product-name` from metrics
         BlueTriangle.metrics?["product-name"] = nil
+        BlueTriangle.metrics?["product-id"] = nil
         BlueTriangle.metrics?["nested"] = nil
 
         return status
