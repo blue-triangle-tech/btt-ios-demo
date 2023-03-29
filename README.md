@@ -4,6 +4,7 @@ Demo apps for the [Blue Triangle SDK for iOS](https://github.com/blue-triangle-t
 
 This repo contains the following demo apps:
 
+- [CocoaPods](/CocoaPods/): A minimal UIKit app demonstrating usage of the SDK with CocoaPods](https://cocoapods.org)
 - [Example-SwiftUI](/Example-SwiftUI/): A SwiftUI app for interacting with a custom ecommerce API
 - [TimerRequest](/TimerRequest/): A SwiftUI app for submitting custom timer requests to the Blue Triangle portal
 
