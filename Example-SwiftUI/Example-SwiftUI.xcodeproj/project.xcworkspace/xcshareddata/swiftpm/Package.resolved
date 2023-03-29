@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/blue-triangle-tech/btt-swift-sdk.git",
       "state" : {
-        "branch" : "master",
-        "revision" : "5b85dd09141f13743a3af60a0e88818a81a86fc5"
+        "branch" : "intermediary/custom-metrics/main",
+        "revision" : "17060d162ba89410330a61e2c2db37a8b2c445c7"
       }
     },
     {

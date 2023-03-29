@@ -801,7 +801,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/blue-triangle-tech/btt-swift-sdk.git";
 			requirement = {
-				branch = master;
+				branch = "intermediary/custom-metrics/main";
 				kind = branch;
 			};
 		};

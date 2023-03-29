@@ -17,6 +17,8 @@ struct Example_SwiftUIApp: App {
             config.networkSampleRate = 1.0
             // ...
         }
+
+        BlueTriangle.metrics["example-app"] = "custom1"
     }
 
     var body: some Scene {
