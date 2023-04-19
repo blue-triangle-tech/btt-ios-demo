@@ -1,0 +1,26 @@
+//
+//  Configuration.swift
+//  CocoaPodsExample
+//
+//  Created by Mathew Gacy on 3/6/23.
+//  Copyright © 2022 Blue Triangle. All rights reserved.
+//
+
+import Foundation
+
+enum Configuration {
+    static var siteID: String {
+        value(for: "_SITE_ID")
+    }
+
+    private static func value(for key: String) -> String {
+        guard let object = Bundle.main.object(forInfoDictionaryKey: key) else {
+            fatalError("Missing Configuration.Key: \(key)")
+        }
+        guard let value = object as? String else {
+            fatalError("Invalid Type for Configuration.Key \(key)")
+        }
+
+        return value
+    }
+}
