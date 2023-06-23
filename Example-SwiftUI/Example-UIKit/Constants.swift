@@ -1,0 +1,22 @@
+//
+//  Constants.swift
+//
+//  Created by Admin on 22/06/23.
+//  Copyright © 2023 Blue Triangle. All rights reserved.
+//
+
+import Foundation
+
+enum Constants {
+    
+    enum APIPath {
+        static let product = "http://34.31.235.63:8000/btriangle/api/product/?format=json"
+    }
+    
+    enum checkout {
+        static let averageSalesTax: Double = 0.0635
+        static let currencyCode = "USD"
+        static let shipping = "3.99"
+    }
+    
+}
