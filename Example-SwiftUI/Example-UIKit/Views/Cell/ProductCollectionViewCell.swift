@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Service
 class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
@@ -29,9 +29,15 @@ class ProductCollectionViewCell: UICollectionViewCell {
         
         lblTitle.text = product.name
         lblPrice.text = product.price
-        do{
-            imgProduct.image = try UIImage(data: Data(contentsOf: (URL(string: product.image) ?? URL(string: ""))!))
-        }catch {
-        }  
+        DispatchQueue.global().async {
+            do {
+                let data = try Data(contentsOf: product.image)
+                DispatchQueue.main.async {
+                    self.imgProduct.image = UIImage(data: data)
+                }
+            } catch {
+                print(error)
+            }
+        }
     }
 }

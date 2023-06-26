@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Service
 
 class APIManager {
     
@@ -14,7 +14,7 @@ class APIManager {
         
     func request(completionHandler: @escaping (Result<[Product], Error>) -> Void) {
         
-        guard let url = URL(string: Constants.APIPath.product) else {
+        guard let url = URL(string: APIPath.product) else {
             completionHandler(.failure(Error.self as! Error))
             return
         }

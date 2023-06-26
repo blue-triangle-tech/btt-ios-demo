@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import BlueTriangle
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -14,6 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        BlueTriangle.configure { config in
+            config.siteID = Secrets.siteID
+            config.networkSampleRate = 1.0
+            // ...
+        }
         return true
     }
 

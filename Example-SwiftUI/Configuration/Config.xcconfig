@@ -8,7 +8,7 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-BASE_URL = example.com/api
+BASE_URL = 34.31.235.63:8000/btriangle/api
 SITE_ID = bluetriangledemo500z
 DEVELOPMENT_TEAM = UG892XBK75
 

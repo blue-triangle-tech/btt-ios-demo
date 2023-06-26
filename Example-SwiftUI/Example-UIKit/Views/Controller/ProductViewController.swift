@@ -6,82 +6,52 @@
 //
 
 import UIKit
-
+import Service
+import Combine
 class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet weak var ProductCollectionView: UICollectionView!
-    let vm = ProductViewModel()
+    let service = Service.captured
+    let imageLoader = ImageLoader.live
+    var vm: ProductListViewModel?
     
+    @IBOutlet weak var ProductCollectionView: UICollectionView!
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backButtonTitle = "Product"
-        config()
-        // Do any additional setup after loading the view.
+        vm = ProductListViewModel(cartRepository: CartRepository(service: service),
+                                  imageLoader: imageLoader,
+                                  service: service)
+        loadData()
+    }
+    
+    func loadData()  {
+        Task {
+            let _ =  await vm?.loadProducts()
+            self.ProductCollectionView.reloadData()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return vm.product.count
+        vm?.productList.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell:ProductCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as! ProductCollectionViewCell
         
-        let product = vm.product[indexPath.row]
+        let product = vm?.productList[indexPath.row]
         cell.product = product
-//        for i in 0..<product.images.count{
-//            print(product.images[i])
-//        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell:ProductDetailView = self.storyboard?.instantiateViewController(withIdentifier: "ProductDetailView") as? ProductDetailView
+        if let product = vm?.productList[indexPath.row],
+           let vc :ProductDetailView = self.storyboard?.instantiateViewController(withIdentifier: "ProductDetailView") as? ProductDetailView
         {
-            let product = vm.product[indexPath.row]
-            cell.strTitle = product.name
-            cell.strPrice = product.price
-            cell.img = product.image
-            cell.strDesc = product.description
+            vc.vm = ProductDetailViewModel(cartRepository: CartRepository(service: service), imageLoader: imageLoader, product: product)
             
-            self.navigationController?.pushViewController(cell, animated: true)
-        }
-    }
-    
-    private func config() {
-        initAPI()
-        reloadEvent()
-    }
-    
-    private func initAPI() {
-        vm.fetchAPI()
-    }
-    
-    private func reloadEvent(){
-        vm.eventHandler = { [weak self] event in
-            
-            guard let self else { return }
-            
-            switch event {
-                
-            case .loading:
-                print("loading")
-            case .stopLoading:
-                print("Stoploading")
-            case .dataLoaded:
-                DispatchQueue.main.async {
-                    self.ProductCollectionView.reloadData()
-                }
-                print("dataloaded")
-            case .error(let error):
-                print(error!)
-            }
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
-
-//var arr = [UIImage(named: "clothes"),UIImage(named: "clothes"),UIImage(named: "clothes"),UIImage(named: "clothes"),UIImage(named: "clothes"),UIImage(named: "clothes"),UIImage(named: "clothes"),UIImage(named: "clothes"),UIImage(named: "clothes"),UIImage(named: "clothes")]
-//
-//var lbl1 = ["Stuff1","Stuff2","Stuff3","Stuff4","Stuff5","Stuff6","Stuff7","Stuff8"]
-//
-//var lbl2 = ["$1","$2","$3","$4","$5","$6","$7","$8"]

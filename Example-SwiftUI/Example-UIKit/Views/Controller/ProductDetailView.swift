@@ -17,12 +17,7 @@ class ProductDetailView: UIViewController {
     @IBOutlet weak var btnAddtoCart: UIButton!
     @IBOutlet weak var txtFieldQty: UITextField!
     
-   let vm = ProductViewModel()
-    
-    var strTitle: String?
-    var strPrice: String?
-    var strDesc : String?
-    var img: String?
+    var vm: ProductDetailViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +29,7 @@ class ProductDetailView: UIViewController {
     
     @IBAction func btnAddToCart(_ sender: UIButton) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "CheckOutViewController") as? CheckOutViewController
-        vc?.strItemPrice = "$\(strPrice)"
+        vc?.strItemPrice = vm.price
         
         self.present(vc!, animated: true)
     }
@@ -66,11 +61,11 @@ class ProductDetailView: UIViewController {
     }
     
     private func setupLbl(){
-        self.productTitle.text = strTitle
-        self.productPrice.text = strPrice
-        self.productDesc.text = strDesc
+        self.productTitle.text = vm.name
+        self.productPrice.text = vm.price
+        self.productDesc.text = vm.description
         do {
-            self.productImage.image = try UIImage(data: Data(contentsOf: URL(string: img!)!))
+            // self.productImage.image = tr
         } catch {}
     }
     
