@@ -31,6 +31,7 @@ struct ProductDetailView: View {
                 .padding(.horizontal, 16)
             }
         }
+        .bttTrackScreen("ProductDetailView")
         .overlay(alignment: .bottom) {
             Button(
                 action: {

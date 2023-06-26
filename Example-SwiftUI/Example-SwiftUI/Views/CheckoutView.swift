@@ -33,6 +33,7 @@ struct CheckoutView: View {
                 })
             .buttonStyle(.primary())
         }
+        .bttTrackScreen("CheckoutView")
         .padding()
         .errorAlert(error: $viewModel.error)
     }

@@ -33,6 +33,7 @@ struct TabContainerView: View {
                     cartRepository: cartRepository,
                     imageLoader: imageLoader,
                     service: service))
+                .bttTrackScreen("ProductListViewTab")
                 .tabItem {
                     Text("Products")
                     Image(systemName: "square.grid.2x2.fill")
@@ -44,6 +45,7 @@ struct TabContainerView: View {
                 viewModel: .init(
                     service: service,
                     cartRepository: cartRepository))
+                .bttTrackScreen("CartViewTab")
                 .tabItem {
                     Text("Cart")
                     Image(systemName: "cart.fill")
@@ -51,6 +53,7 @@ struct TabContainerView: View {
                 .tag(Tab.cart)
 
             SettingsView(viewModel: .init())
+                .bttTrackScreen("Setting Tab")
                 .tabItem {
                     Text("Settings")
                     Image(systemName: "gearshape.fill")

@@ -18,7 +18,7 @@ struct Example_SwiftUIApp: App {
             // ...
         }
 
-        BlueTriangle.metrics?["example-app"] = "custom1"
+       // BlueTriangle.metrics?["example-app"] = "custom1"
     }
 
     var body: some Scene {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		518403202A4604330081F87D /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 5184031F2A4604330081F87D /* BlueTriangle */; };
 		847CF43F2A4315D7001E9011 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CF43E2A4315D7001E9011 /* AppDelegate.swift */; };
 		847CF4412A4315D7001E9011 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CF4402A4315D7001E9011 /* SceneDelegate.swift */; };
 		847CF4432A4315D7001E9011 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CF4422A4315D7001E9011 /* ViewController.swift */; };
@@ -44,7 +45,6 @@
 		C94BF02B290B1803007E1C25 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94BF02A290B1802007E1C25 /* CheckoutView.swift */; };
 		C94BF02D290B1825007E1C25 /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94BF02C290B1825007E1C25 /* CheckoutViewModel.swift */; };
 		C97930B5294A598200605CC9 /* Service+BTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97930B4294A598200605CC9 /* Service+BTT.swift */; };
-		C97CE353298D76F40044EBE1 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = C97CE352298D76F40044EBE1 /* BlueTriangle */; };
 		C9B637D1290B26A6006E5F90 /* View+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B637D0290B26A6006E5F90 /* View+ErrorAlert.swift */; };
 		C9C7D88F2939029C00950C55 /* LineItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D88E2939029C00950C55 /* LineItemRow.swift */; };
 		C9C7D891293930E900950C55 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C7D890293930E900950C55 /* ImageLoader.swift */; };
@@ -155,7 +155,7 @@
 			files = (
 				C9E1141A291421F00031E874 /* IdentifiedCollections in Frameworks */,
 				C94BF015290AE2FC007E1C25 /* Service in Frameworks */,
-				C97CE353298D76F40044EBE1 /* BlueTriangle in Frameworks */,
+				518403202A4604330081F87D /* BlueTriangle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +453,7 @@
 			packageProductDependencies = (
 				C94BF014290AE2FC007E1C25 /* Service */,
 				C9E11419291421F00031E874 /* IdentifiedCollections */,
-				C97CE352298D76F40044EBE1 /* BlueTriangle */,
+				5184031F2A4604330081F87D /* BlueTriangle */,
 			);
 			productName = "Example-SwiftUI";
 			productReference = C9F4A4122900DB6100BCDF3E /* Example-SwiftUI.app */;
@@ -533,7 +533,7 @@
 			mainGroup = C9F4A4092900DB6100BCDF3E;
 			packageReferences = (
 				C9E11418291421F00031E874 /* XCRemoteSwiftPackageReference "swift-identified-collections" */,
-				C97CE351298D76F40044EBE1 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */,
+				5184031E2A4604330081F87D /* XCRemoteSwiftPackageReference "btt-swift-sdk" */,
 			);
 			productRefGroup = C9F4A4132900DB6100BCDF3E /* Products */;
 			projectDirPath = "";
@@ -699,6 +699,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VK9WL7ZZTF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Example-UIKit/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -727,6 +728,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VK9WL7ZZTF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Example-UIKit/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1051,11 +1053,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C97CE351298D76F40044EBE1 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */ = {
+		5184031E2A4604330081F87D /* XCRemoteSwiftPackageReference "btt-swift-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/blue-triangle-tech/btt-swift-sdk.git";
+			repositoryURL = "http://github.com/JP-aloha/btt-swift-sdk.git";
 			requirement = {
-				branch = "intermediary/custom-metrics/main";
+				branch = master;
 				kind = branch;
 			};
 		};
@@ -1070,14 +1072,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5184031F2A4604330081F87D /* BlueTriangle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5184031E2A4604330081F87D /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
+			productName = BlueTriangle;
+		};
 		C94BF014290AE2FC007E1C25 /* Service */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Service;
-		};
-		C97CE352298D76F40044EBE1 /* BlueTriangle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C97CE351298D76F40044EBE1 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
-			productName = BlueTriangle;
 		};
 		C9E11419291421F00031E874 /* IdentifiedCollections */ = {
 			isa = XCSwiftPackageProductDependency;
