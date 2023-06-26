@@ -53,7 +53,7 @@ struct TabContainerView: View {
                 .tag(Tab.cart)
 
             SettingsView(viewModel: .init())
-                .bttTrackScreen("Setting Tab")
+                .bttTrackScreen("SettingsViewTab")
                 .tabItem {
                     Text("Settings")
                     Image(systemName: "gearshape.fill")
