@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             config.networkSampleRate = 1.0
             config.enableScreenTracking = true
             config.enableDebugLogging = true
-            config.ANRMonitoring = true
+            config.ANRMonitoring = false
         }
         return true
     }

@@ -10,24 +10,21 @@ import Service
 import Combine
 class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    let service = Service.captured
-    let imageLoader = ImageLoader.live
-    var vm: ProductListViewModel?
+  
+    var vm: ProductListViewModel!
     
     @IBOutlet weak var ProductCollectionView: UICollectionView!
  
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backButtonTitle = "Product"
-        vm = ProductListViewModel(cartRepository: CartRepository(service: service),
-                                  imageLoader: imageLoader,
-                                  service: service)
+        
         loadData()
     }
     
     func loadData()  {
         Task {
-            let _ =  await vm?.loadProducts()
+            let _ =  await vm.loadProducts()
             self.ProductCollectionView.reloadData()
         }
     }
@@ -49,7 +46,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         if let product = vm?.productList[indexPath.row],
            let vc :ProductDetailView = self.storyboard?.instantiateViewController(withIdentifier: "ProductDetailView") as? ProductDetailView
         {
-            vc.vm = ProductDetailViewModel(cartRepository: CartRepository(service: service), imageLoader: imageLoader, product: product)
+            vc.vm = vm.detailViewModel(for: product.id)
             
             self.navigationController?.pushViewController(vc, animated: true)
         }

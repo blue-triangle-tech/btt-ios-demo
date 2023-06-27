@@ -11,20 +11,16 @@ class CheckOutViewController: UIViewController {
     
     @IBOutlet weak var btnPlaceOrder: UIButton!
     @IBOutlet weak var itemPriceLbl: UILabel!
+    @IBOutlet weak var itemCountLbl: UILabel!
     @IBOutlet weak var shippinghandlingPriceLbl: UILabel!
     @IBOutlet weak var estimatedtaxPriceLbl: UILabel!
     @IBOutlet weak var ordertotalPriceLbl: UILabel!
     
-    var strItemPrice: String?
-    var strshippinghandlingPrice: String?
-    var strestimatedtaxPrice: String?
-    var strordertotalPrice: String?
-    
+    var vm: CheckoutViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBtn()
         setupLbl()
-        // Do any additional setup after loading the view.
     }
     
     private func setupBtn() {
@@ -33,12 +29,16 @@ class CheckOutViewController: UIViewController {
     }
     
     private func setupLbl(){
-        self.itemPriceLbl.text = strItemPrice
-        self.shippinghandlingPriceLbl.text = strshippinghandlingPrice
-        self.estimatedtaxPriceLbl.text = strestimatedtaxPrice
-        self.ordertotalPriceLbl.text = strordertotalPrice
+        itemCountLbl.text = "Items (\(vm.itemCount))"
+        self.itemPriceLbl.text = "$\(vm.itemTotal.roundedToPlaces())"
+        self.shippinghandlingPriceLbl.text = "$\(vm.shipping.roundedToPlaces())"
+        self.estimatedtaxPriceLbl.text = "$\(vm.estimatedTax.roundedToPlaces())"
+        self.ordertotalPriceLbl.text = "$\(vm.total.roundedToPlaces())"
     }
     
-    
-
+    @IBAction func didClickPlaceOrder(_ sender: UIButton) {
+        Task {
+            await vm.placeOrder()
+        }
+    }
 }

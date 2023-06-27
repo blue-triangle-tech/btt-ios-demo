@@ -15,58 +15,42 @@ class ProductDetailView: UIViewController {
     @IBOutlet weak var productQty: UILabel!
     @IBOutlet weak var productDesc: UILabel!
     @IBOutlet weak var btnAddtoCart: UIButton!
-    @IBOutlet weak var txtFieldQty: UITextField!
+    @IBOutlet weak var lblQty: UILabel!
     
     var vm: ProductDetailViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerView()
         setupBtn()
         setupLbl()
-        // Do any additional setup after loading the view.
+       
     }
     
-    @IBAction func btnAddToCart(_ sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CheckOutViewController") as? CheckOutViewController
-        vc?.strItemPrice = vm.price
+   
+    
+    @IBAction func didClickStepper(_ sender: UIStepper) {
+        self.vm.quantity = Int(sender.value)
+        self.lblQty.text = "\(vm.quantity)"
         
-        self.present(vc!, animated: true)
     }
-    
-    
-    private func pickerView() {
-        let picker = UIPickerView()
-        picker.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-        picker.dataSource = self
-        picker.delegate = self
-        
-        let toolbar = UIToolbar()
-        toolbar.barStyle = .default
-        toolbar.isTranslucent = true
-        toolbar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
-        toolbar.sizeToFit()
-        
-        
-        let done = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(ProductDetailView.doneClicked))
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(ProductDetailView.cancelClicked))
-        
-        toolbar.setItems([cancel, space, done], animated: true)
-        toolbar.isUserInteractionEnabled = true
-        
-        self.txtFieldQty.tintColor = .clear
-        self.txtFieldQty.inputView = picker
-        self.txtFieldQty.inputAccessoryView = toolbar
-    }
-    
     private func setupLbl(){
         self.productTitle.text = vm.name
         self.productPrice.text = vm.price
         self.productDesc.text = vm.description
-        do {
-            // self.productImage.image = tr
-        } catch {}
+        Task {
+            let imageStaus = await vm.imageStatus()
+            switch imageStaus {
+            case .downloaded(let result):
+                switch result {
+                case .success(let image):
+                    self.productImage.image = image
+                default:
+                    self.productImage.image = UIImage(systemName: "exclamationmark.circle")
+                }
+            default:
+                self.productImage.image = UIImage(systemName: "exclamationmark.circle")
+            }
+        }
     }
     
     private func setupBtn() {
@@ -74,52 +58,10 @@ class ProductDetailView: UIViewController {
         self.btnAddtoCart.layer.cornerRadius = 10
     }
     
-    @objc func doneClicked(){
-        self.txtFieldQty.resignFirstResponder()
-    }
-    
-    @objc func cancelClicked(){
-        txtFieldQty.text = ""
-        self.txtFieldQty.resignFirstResponder()
-    }
-    
-}
-
-extension ProductDetailView : UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let row = picker_data[row]
-        return row
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return picker_data.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.txtFieldQty.text = picker_data[row]
+    @IBAction func didSelectAddToCart(_ sender: Any) {
+        Task {
+            await vm.addToCart()
+        }
+       
     }
 }
-
-//extension ProductDetailView : UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return vm.product.count
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        
-//        let cell: ProductDetailCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductDetailCollectionViewCell", for: indexPath) as! ProductDetailCollectionViewCell
-//        
-//        let product = vm.product[indexPath.row].images
-//        //cell.productImages.image = product
-//        
-//        return cell
-//    }
-//    
-//    
-//}
-
-var picker_data = ["1","2","3","4","5","6"]
