@@ -10,8 +10,6 @@ import Service
 
 struct CartItemModel: Codable, Equatable, Hashable, Identifiable {
     
-   
-    
     var id: Int
     var quantity: Int
     var product: Product
