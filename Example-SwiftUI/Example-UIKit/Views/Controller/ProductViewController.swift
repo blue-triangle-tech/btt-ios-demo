@@ -23,8 +23,20 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func loadData()  {
+        
+        
         Task {
             let _ =  await vm.loadProducts()
+            
+            if let error = vm.error{                
+                let alert = UIAlertController(title: "Error", message: "Unable to connent with server \(Secrets.baseURL) with error :\(error.localizedDescription)", preferredStyle: UIAlertController.Style.alert)
+                       alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                       self.present(alert, animated: true, completion: nil)
+            }
+            else{
+                print("Success loading")
+            }
+            
             self.ProductCollectionView.reloadData()
         }
     }

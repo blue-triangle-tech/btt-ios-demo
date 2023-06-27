@@ -15,7 +15,8 @@ private struct LocalizedErrorWrapper: LocalizedError {
     }
 
     var recoverySuggestion: String? {
-        "There was an error"
+       return "Unable to connect with server \(Secrets.baseURL) with error : \(underlyingError.localizedDescription)"
+        //"There was an error"
     }
 
     init(_ error: Error) {
