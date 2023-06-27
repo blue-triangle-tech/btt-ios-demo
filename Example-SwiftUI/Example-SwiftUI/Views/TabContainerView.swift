@@ -14,15 +14,17 @@ struct TabContainerView: View {
         case cart
         case settings
     }
-
+   
     @State private var selectedTab: Tab = .products
     private let cartRepository: CartRepository
     private let imageLoader: ImageLoader
     private let service: Service
+    @ObservedObject var vm: BTTConfigModel
 
-    init(imageLoader: ImageLoader, service: Service) {
+    init(imageLoader: ImageLoader, service: Service, vm : BTTConfigModel) {
         self.imageLoader = imageLoader
         self.service = service
+        self.vm = vm
         self.cartRepository = CartRepository(service: service)
     }
 
@@ -67,6 +69,6 @@ struct TabContainerView_Previews: PreviewProvider {
     static var previews: some View {
         TabContainerView(
             imageLoader: .mock,
-            service: .mock)
+            service: .mock, vm: BTTConfigModel())
     }
 }

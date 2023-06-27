@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		512BBE982A49ED1A00EAFD97 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 512BBE972A49ED1A00EAFD97 /* Config.xcconfig */; };
+		512BBE992A49ED1A00EAFD97 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 512BBE972A49ED1A00EAFD97 /* Config.xcconfig */; };
+		51F61C942A4ACE9F0071F957 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C922A4ACE9F0071F957 /* AppCoordinator.swift */; };
+		51F61C972A4ACF2B0071F957 /* BTTrackingConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C952A4ACF2B0071F957 /* BTTrackingConfigViewController.swift */; };
+		51F61C992A4AD1EB0071F957 /* BTTrackingConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C982A4AD1EB0071F957 /* BTTrackingConfigView.swift */; };
+		51F61C9B2A4AD3490071F957 /* BTTRootContrainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C9A2A4AD3490071F957 /* BTTRootContrainerView.swift */; };
+		51F61C9F2A4AD6980071F957 /* BTTConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C9E2A4AD6980071F957 /* BTTConfigModel.swift */; };
 		8419BD132A49CFD7009429C9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419BD0F2A49CFD7009429C9 /* Constants.swift */; };
 		8419BD142A49CFD7009429C9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419BD0F2A49CFD7009429C9 /* Constants.swift */; };
 		8419BD152A49CFD7009429C9 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8419BD102A49CFD7009429C9 /* ImageLoader.swift */; };
@@ -101,6 +108,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		512BBE972A49ED1A00EAFD97 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		51F61C922A4ACE9F0071F957 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		51F61C952A4ACF2B0071F957 /* BTTrackingConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTTrackingConfigViewController.swift; sourceTree = "<group>"; };
+		51F61C982A4AD1EB0071F957 /* BTTrackingConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTTrackingConfigView.swift; sourceTree = "<group>"; };
+		51F61C9A2A4AD3490071F957 /* BTTRootContrainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTTRootContrainerView.swift; sourceTree = "<group>"; };
+		51F61C9E2A4AD6980071F957 /* BTTConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTTConfigModel.swift; sourceTree = "<group>"; };
 		8419BD0F2A49CFD7009429C9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8419BD102A49CFD7009429C9 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		8419BD112A49CFD7009429C9 /* CartRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartRepository.swift; sourceTree = "<group>"; };
@@ -248,9 +261,11 @@
 		847CF43D2A4315D7001E9011 /* Example-UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				51F61C922A4ACE9F0071F957 /* AppCoordinator.swift */,
 				847CF43E2A4315D7001E9011 /* AppDelegate.swift */,
 				847CF4402A4315D7001E9011 /* SceneDelegate.swift */,
 				847CF4422A4315D7001E9011 /* ViewController.swift */,
+				51F61C952A4ACF2B0071F957 /* BTTrackingConfigViewController.swift */,
 				8488265B2A449992007B9D72 /* Constant.swift */,
 				848826602A449B8E007B9D72 /* APIManger */,
 				8488265D2A449B42007B9D72 /* Model */,
@@ -356,7 +371,7 @@
 		C9D83EA1294FE52400330F33 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				84A03BF22A49DF01000C8BD0 /* Config.xcconfig */,
+				512BBE972A49ED1A00EAFD97 /* Config.xcconfig */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -396,6 +411,9 @@
 			children = (
 				C9D83EA5294FEA9C00330F33 /* Info.plist */,
 				C9F4A4152900DB6100BCDF3E /* ExampleApp.swift */,
+				51F61C9E2A4AD6980071F957 /* BTTConfigModel.swift */,
+				51F61C9A2A4AD3490071F957 /* BTTRootContrainerView.swift */,
+				51F61C982A4AD1EB0071F957 /* BTTrackingConfigView.swift */,
 				C9F4A41B2900DB6200BCDF3E /* Preview Content */,
 				C9F4A43F2900DBD000BCDF3E /* Resources */,
 				C94BF00A290ADBA6007E1C25 /* Views */,
@@ -591,6 +609,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				512BBE992A49ED1A00EAFD97 /* Config.xcconfig in Resources */,
 				847CF44B2A4315DB001E9011 /* LaunchScreen.storyboard in Resources */,
 				847CF4482A4315DB001E9011 /* Assets.xcassets in Resources */,
 				847CF4462A4315D7001E9011 /* Main.storyboard in Resources */,
@@ -602,7 +621,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9F4A41D2900DB6200BCDF3E /* Preview Assets.xcassets in Resources */,
-				84A03BF52A49E266000C8BD0 /* Config.xcconfig in Resources */,
+				512BBE982A49ED1A00EAFD97 /* Config.xcconfig in Resources */,
 				C9F4A41A2900DB6200BCDF3E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,10 +659,12 @@
 				847CF43F2A4315D7001E9011 /* AppDelegate.swift in Sources */,
 				848826622A449BB6007B9D72 /* APIManager.swift in Sources */,
 				84AAA77B2A45891B000D2798 /* ProductCollectionViewCell.swift in Sources */,
+				51F61C942A4ACE9F0071F957 /* AppCoordinator.swift in Sources */,
 				84D977352A4488C700192330 /* CheckOutViewController.swift in Sources */,
 				847CF4552A431B10001E9011 /* ProductViewController.swift in Sources */,
 				84538C822A4ABE6400EF70A2 /* CartItemTableViewCell.swift in Sources */,
 				8419BD1A2A49CFD7009429C9 /* Configuration.swift in Sources */,
+				51F61C972A4ACF2B0071F957 /* BTTrackingConfigViewController.swift in Sources */,
 				8419BD412A49CFFF009429C9 /* Collection+Utils.swift in Sources */,
 				8419BD392A49CFFF009429C9 /* Service+BTT.swift in Sources */,
 				8419BD2F2A49CFEC009429C9 /* ProductListViewModel.swift in Sources */,
@@ -674,6 +695,7 @@
 				C9C7D88F2939029C00950C55 /* LineItemRow.swift in Sources */,
 				8419BD172A49CFD7009429C9 /* CartRepository.swift in Sources */,
 				C94BF01B290AE580007E1C25 /* CartView.swift in Sources */,
+				51F61C9F2A4AD6980071F957 /* BTTConfigModel.swift in Sources */,
 				C94BF00C290ADBF0007E1C25 /* ProductListView.swift in Sources */,
 				8419BD192A49CFD7009429C9 /* Configuration.swift in Sources */,
 				8419BD302A49CFEC009429C9 /* CartViewModel.swift in Sources */,
@@ -681,8 +703,10 @@
 				C94BF00E290ADC02007E1C25 /* ProductDetailView.swift in Sources */,
 				8419BD402A49CFFF009429C9 /* Collection+Utils.swift in Sources */,
 				C94BF01D290AE58A007E1C25 /* SettingsView.swift in Sources */,
+				51F61C992A4AD1EB0071F957 /* BTTrackingConfigView.swift in Sources */,
 				8419BD202A49CFE1009429C9 /* CartModel.swift in Sources */,
 				8419BD3A2A49CFFF009429C9 /* View+ErrorAlert.swift in Sources */,
+				51F61C9B2A4AD3490071F957 /* BTTRootContrainerView.swift in Sources */,
 				8419BD1E2A49CFE1009429C9 /* CartItemModel.swift in Sources */,
 				8419BD282A49CFEC009429C9 /* ProductDetailViewModel.swift in Sources */,
 				C94BF011290ADC20007E1C25 /* ProductCell.swift in Sources */,
@@ -751,7 +775,7 @@
 /* Begin XCBuildConfiguration section */
 		847CF44D2A4315DB001E9011 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84A03BF22A49DF01000C8BD0 /* Config.xcconfig */;
+			baseConfigurationReference = 512BBE972A49ED1A00EAFD97 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -781,6 +805,7 @@
 		};
 		847CF44E2A4315DB001E9011 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 512BBE972A49ED1A00EAFD97 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -924,7 +949,7 @@
 		};
 		C9F4A4372900DB6200BCDF3E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84A03BF22A49DF01000C8BD0 /* Config.xcconfig */;
+			baseConfigurationReference = 512BBE972A49ED1A00EAFD97 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -957,6 +982,7 @@
 		};
 		C9F4A4382900DB6200BCDF3E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 512BBE972A49ED1A00EAFD97 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
