@@ -35,7 +35,7 @@ struct BTTrackingConfigView: View {
             
             VStack {
                 HStack{
-                    TextField("", text: $vm.txtSiteId)
+                    TextField("Please enter SiteId", text: $vm.txtSiteId)
                         .frame(height: 40)
                         .foregroundColor(.black)
                         .padding(.leading, 15)

@@ -14,7 +14,7 @@ class BTTrackingConfigViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.txtSiteID.text = Secrets.siteID
+        self.txtSiteID.text = ""
     }
     
     @IBAction func didSelectConfig(_ sender: Any?) {

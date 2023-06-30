@@ -14,7 +14,7 @@ import BlueTriangle
 class BTTConfigModel: ObservableObject {
 
     @Published var isConfiguration : Bool = true
-    @Published var txtSiteId : String = Secrets.siteID
+    @Published var txtSiteId : String = ""
     
     
     func configure(){
