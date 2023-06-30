@@ -35,6 +35,10 @@ struct ProductDetailView: View {
         .overlay(alignment: .bottom) {
             Button(
                 action: {
+                    if viewModel.quantity > 3 {
+                            ANRTest.quantityLimitExceedCrash()
+                    }
+                    
                     Task {
                         await viewModel.addToCart()
                     }

@@ -11,13 +11,7 @@ import Service
 
 final class ProductDetailViewModel: ObservableObject {
     @Published var error: Error?
-    @Published var quantity: Int {
-        didSet {
-            if quantity > 3 {
-                    ANRTest.crashTest()
-            }
-        }
-    }
+    @Published var quantity: Int
     private let cartRepository: CartRepository
     private let imageLoader: ImageLoader
     private let product: Product
@@ -63,6 +57,7 @@ final class ProductDetailViewModel: ObservableObject {
 
     @MainActor
     func addToCart() async {
+        
         do {
             try  await cartRepository.add(
                 product: product,

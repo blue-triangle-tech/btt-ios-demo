@@ -58,6 +58,10 @@ class ProductDetailView: UIViewController {
     }
     
     @IBAction func didSelectAddToCart(_ sender: Any) {
+        if vm.quantity > 3 {
+                ANRTest.quantityLimitExceedCrash()
+        }
+        
         Task {
             await vm.addToCart()
         }

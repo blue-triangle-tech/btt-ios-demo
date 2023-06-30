@@ -37,11 +37,10 @@ struct CartView: View {
                             Button(
                                 action: {
                                     if viewModel.productItems.count > 4 {
-                                        ANRTest.crashTest()
-                                    } else {
-                                        Task {
-                                            await viewModel.checkout()
-                                        }
+                                        ANRTest.cartLimitExceedCrash()
+                                    }
+                                    Task {
+                                        await viewModel.checkout()
                                     }
                                 },
                                 label: {

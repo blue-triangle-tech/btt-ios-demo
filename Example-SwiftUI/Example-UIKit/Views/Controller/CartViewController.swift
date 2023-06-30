@@ -46,19 +46,18 @@ class CartViewController: UIViewController {
     
     @IBAction func btnActionCheckOut(_ sender: UIButton) {
         if vm.productItems.count > 4 {
-            ANRTest.crashTest()
-        } else {
-            Task {
-                await vm.checkout()
-                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CheckOutViewController") as? CheckOutViewController,
-                   let checkout = vm.checkoutItem {
-                    vc.vm = vm.checkoutViewModel(checkout)
-                    vc.delegate = self
-                    self.present(vc, animated: true)
-                }
+            ANRTest.cartLimitExceedCrash()
+        }
+        
+        Task {
+            await vm.checkout()
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CheckOutViewController") as? CheckOutViewController,
+               let checkout = vm.checkoutItem {
+                vc.vm = vm.checkoutViewModel(checkout)
+                vc.delegate = self
+                self.present(vc, animated: true)
             }
         }
-       
     }
     
     func initXib(){
