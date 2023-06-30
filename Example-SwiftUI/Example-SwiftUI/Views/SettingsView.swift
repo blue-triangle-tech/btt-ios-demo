@@ -12,52 +12,117 @@ struct SettingsView: View {
     @ObservedObject var vm: SettingsViewModel
 
     var body: some View {
-        VStack{
-            Text("App Version : \(version())")
-                .font(Font.system(size: 20, weight: .bold))
-                .padding(.bottom, 50)
+        VStack(spacing: 15){
             
-            HStack{
-                Text("Site Id :")
-                    .font(Font.system(size: 18, weight: .regular))
-                Spacer()
-                Text(vm.configureSiteId)
-                    .font(Font.system(size: 18, weight: .bold))
+            Spacer().frame(height:20)
+            
+            VStack{
+                HStack{
+                    Text("App Version")
+                        .font(Font.system(size: 18, weight: .bold))
+                        .foregroundColor(.black)
+                    Spacer()
+                }
+                
+                HStack{
+                    Text("\(version())")
+                        .font(Font.system(size: 18, weight: .regular))
+                        .foregroundColor(.gray)
+                    Spacer()
+                }
             }
-            .padding(.leading, 15)
-            .padding(.trailing, 15)
+            .frame(height: 50)
             
-            HStack{
-                Toggle("ANR Enable", isOn: $vm.anrEnable)
-                    .disabled(true)
+            VStack{
+                HStack{
+                    Text("BTT SDK VersionRule")
+                        .font(Font.system(size: 18, weight: .bold))
+                        .foregroundColor(.black)
+                    Spacer()
+                }
+                
+                HStack{
+                    Text("master")
+                        .font(Font.system(size: 18, weight: .regular))
+                        .foregroundColor(.gray)
+                    Spacer()
+                }
             }
-            .padding(.leading, 15)
-            .padding(.trailing, 15)
+            .frame(height: 50)
             
-            HStack{
-                Toggle("Screen Tracking Enable", isOn: $vm.screenTrackingEnable)
-                    .disabled(true)
+            VStack{
+                HStack{
+                    Text("BTT SDK Location")
+                        .font(Font.system(size: 18, weight: .bold))
+                        .foregroundColor(.black)
+                    Spacer()
+                }
+                
+                HStack{
+                    Text("http://github.com/JP-aloha/btt-swift-sdk.git")
+                        .font(Font.system(size: 18, weight: .regular))
+                        .foregroundColor(.gray)
+                    Spacer()
+                }
             }
-            .padding(.leading, 15)
-            .padding(.trailing, 15)
+            .frame(height: 50)
             
-            Text ("BTT SDK VersionRule:")
-                .padding(.top, 30)
-                .foregroundColor(.gray)
-                .font(Font.system(size: 16, weight: .bold))
-            Text ("master")
-                .padding(.top, 1)
-                .font(Font.system(size: 15, weight: .bold))
+            VStack{
+                HStack{
+                    Text("Site Id")
+                        .font(Font.system(size: 18, weight: .bold))
+                        .foregroundColor(.black)
+                    Spacer()
+                }
+                
+                HStack{
+                    Text(vm.configureSiteId)
+                        .font(Font.system(size: 18, weight: .regular))
+                        .foregroundColor(.gray)
+                    Spacer()
+                }
+            }
+            .frame(height: 50)
             
-            //location
-            Text("BTT SDK Location:")
-                .foregroundColor(.gray)
-                .padding(.top, 30)
-                .font(Font.system(size: 16, weight: .bold))
-            Text("http://github.com/JP-aloha/btt-swift-sdk.git")
-                .padding(.top, 1)
-                .font(Font.system(size: 15, weight: .bold))
+            
+            VStack{
+                HStack{
+                    Text("ANR Detection")
+                        .font(Font.system(size: 18, weight: .bold))
+                        .foregroundColor(.black)
+                    Spacer()
+                }
+                
+                HStack{
+                    Text(vm.anrEnable ? "Enable" : "Disable")
+                        .font(Font.system(size: 18, weight: .regular))
+                        .foregroundColor(.gray)
+                    Spacer()
+                }
+            }
+            .frame(height: 50)
+            
+            VStack{
+                HStack{
+                    Text("Screen Tracking")
+                        .font(Font.system(size: 18, weight: .bold))
+                        .foregroundColor(.black)
+                    Spacer()
+                }
+                
+                HStack{
+                    Text(vm.screenTrackingEnable ? "Enable" : "Disable")
+                        .font(Font.system(size: 18, weight: .regular))
+                        .foregroundColor(.gray)
+                    Spacer()
+                }
+            }
+            .frame(height: 50)
+            
+            Spacer()
         }
+        .padding(.leading, 15)
+        .padding(.trailing, 15)
         .onAppear {
                 let timer = BlueTriangle.startTimer(
                     page: Page(

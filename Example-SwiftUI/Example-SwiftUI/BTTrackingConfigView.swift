@@ -28,13 +28,13 @@ struct BTTrackingConfigView: View {
                 .frame(height: 160)
             
             HStack{
-                Toggle("ANR Enable", isOn: $vm.anrEnable)
+                Toggle("ANR Detection", isOn: $vm.anrEnable)
             }
             .padding(.leading, 15)
             .padding(.trailing, 15)
             
             HStack{
-                Toggle("Screen Tracking Enable", isOn: $vm.screenTrackingEnable)
+                Toggle("Screen Tracking", isOn: $vm.screenTrackingEnable)
             }
             .padding(.leading, 15)
             .padding(.trailing, 15)
