@@ -15,7 +15,7 @@ struct BTTRootContrainerView: View {
         
         VStack{
             
-            if vm.isConfiguration{
+            if vm.isConfigurationScreen{
                 BTTrackingConfigView(vm: vm)
             }else{
                 TabContainerView(

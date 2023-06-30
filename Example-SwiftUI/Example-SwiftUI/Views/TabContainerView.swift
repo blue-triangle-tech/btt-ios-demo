@@ -54,7 +54,7 @@ struct TabContainerView: View {
                  }
                 .tag(Tab.cart)
 
-            SettingsView(viewModel: .init())
+            SettingsView(vm: .init())
                 .bttTrackScreen("SettingsViewTab")
                 .tabItem {
                     Text("Settings")

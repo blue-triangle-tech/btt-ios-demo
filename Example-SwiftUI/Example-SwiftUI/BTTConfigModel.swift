@@ -13,23 +13,30 @@ import BlueTriangle
 
 class BTTConfigModel: ObservableObject {
 
-    @Published var isConfiguration : Bool = true
-    @Published var txtSiteId : String = Secrets.siteID
+    @Published var isConfigurationScreen : Bool = true
+    @Published var txtSiteId : String =  ""
+    @Published var anrEnable : Bool = false
+    @Published var screenTrackingEnable : Bool = false
     
     
     func configure(){
         
+        UserDefaults.standard.set(anrEnable, forKey: UserDefaultKeys.ANREnableKey)
+        UserDefaults.standard.set(screenTrackingEnable, forKey: UserDefaultKeys.ScreenTrackingEnableKey)
+        UserDefaults.standard.set(txtSiteId, forKey: UserDefaultKeys.ConfigureSiteId)
+        UserDefaults.standard.synchronize()
+        
         BlueTriangle.configure { config in
-             config.siteID = txtSiteId
-             config.networkSampleRate = 1.0
-             config.enableScreenTracking = true
-             config.enableDebugLogging = true
-             config.ANRMonitoring = true
-         }
+            config.siteID = txtSiteId
+            config.networkSampleRate = 1.0
+            config.enableDebugLogging = true
+            config.enableScreenTracking = screenTrackingEnable
+            config.ANRMonitoring = anrEnable
+        }
         
         // BlueTriangle.metrics?["example-app"] = "custom1"
         
-        isConfiguration = false
+        isConfigurationScreen = false
     }
     
 }

@@ -13,10 +13,17 @@ enum Constants {
     static let currencyCode = "USD"
     static let shipping = "3.99"
 }
+
 extension Double {
     /// Rounds the double to decimal places value
     func roundedToPlaces(places: Int = 2) -> Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor
     }
+}
+
+struct UserDefaultKeys {
+    static let ANREnableKey = "ANREnableKey"
+    static let ScreenTrackingEnableKey = "ScreenTrackingEnableKey"
+    static let ConfigureSiteId = "ConfigureSiteId"
 }
