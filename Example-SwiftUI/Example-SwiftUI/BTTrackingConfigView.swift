@@ -25,7 +25,22 @@ struct BTTrackingConfigView: View {
             }
             
             Spacer()
-                .frame(height: 200)
+                .frame(height: 160)
+            
+            HStack{
+                Toggle("ANR Enable", isOn: $vm.anrEnable)
+            }
+            .padding(.leading, 15)
+            .padding(.trailing, 15)
+            
+            HStack{
+                Toggle("Screen Tracking Enable", isOn: $vm.screenTrackingEnable)
+            }
+            .padding(.leading, 15)
+            .padding(.trailing, 15)
+            
+            Spacer()
+                .frame(height: 40)
             
             HStack{
                 Text("Site Id :")

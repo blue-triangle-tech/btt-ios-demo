@@ -12,10 +12,18 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var lblAppVersion: UILabel!
     @IBOutlet weak var lblSdkVersionRule: UILabel!
     @IBOutlet weak var lblSdkLocation: UILabel!
+    @IBOutlet weak var lblSiteId: UILabel!
+    
+    @IBOutlet weak var anrEnableSwitch : UISwitch!
+    @IBOutlet weak var screenTrackEnableSwitch : UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        anrEnableSwitch.isOn = UserDefaults.standard.bool(forKey: UserDefaultKeys.ANREnableKey)
+        screenTrackEnableSwitch.isOn = UserDefaults.standard.bool(forKey: UserDefaultKeys.ScreenTrackingEnableKey)
+        
+        lblSiteId.text = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSiteId) ?? ""
         lblAppVersion.text = "App Version : \(version())"
         lblSdkVersionRule.text = "master"
         lblSdkLocation.text = "http://github.com/JP-aloha/btt-swift-sdk.git"

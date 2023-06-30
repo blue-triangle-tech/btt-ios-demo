@@ -9,13 +9,37 @@ import BlueTriangle
 import SwiftUI
 
 struct SettingsView: View {
-    @ObservedObject var viewModel: SettingsViewModel
+    @ObservedObject var vm: SettingsViewModel
 
     var body: some View {
         VStack{
             Text("App Version : \(version())")
                 .font(Font.system(size: 20, weight: .bold))
+                .padding(.bottom, 50)
             
+            HStack{
+                Text("Site Id :")
+                    .font(Font.system(size: 18, weight: .regular))
+                Spacer()
+                Text(vm.configureSiteId)
+                    .font(Font.system(size: 18, weight: .bold))
+            }
+            .padding(.leading, 15)
+            .padding(.trailing, 15)
+            
+            HStack{
+                Toggle("ANR Enable", isOn: $vm.anrEnable)
+                    .disabled(true)
+            }
+            .padding(.leading, 15)
+            .padding(.trailing, 15)
+            
+            HStack{
+                Toggle("Screen Tracking Enable", isOn: $vm.screenTrackingEnable)
+                    .disabled(true)
+            }
+            .padding(.leading, 15)
+            .padding(.trailing, 15)
             
             Text ("BTT SDK VersionRule:")
                 .padding(.top, 30)
@@ -53,6 +77,6 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(viewModel: .init())
+        SettingsView(vm: .init())
     }
 }

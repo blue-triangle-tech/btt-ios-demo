@@ -95,15 +95,17 @@ extension CartViewController: CartItemTVCDelegate {
     func chageQuanitiy(to quantity: Int, for index: Int) {
         if quantity > vm.productItems[index].quantity {
             Task {
+                let id = self.vm.productItems[index].id
                 self.view.isUserInteractionEnabled = false
-                await vm.increment(id: vm.productItems[index].id)
+                await vm.increment(id: id)
                 self.tableView.reloadData()
                 self.view.isUserInteractionEnabled = true
             }
         } else {
             Task {
+                let id = self.vm.productItems[index].id
                 self.view.isUserInteractionEnabled = false
-                await vm.decrement(id: vm.productItems[index].id)
+                await vm.decrement(id: id)
                 self.tableView.reloadData()
                 self.view.isUserInteractionEnabled = true
             }
