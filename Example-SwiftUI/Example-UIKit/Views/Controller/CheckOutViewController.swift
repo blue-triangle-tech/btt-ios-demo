@@ -6,7 +6,9 @@
 //
 
 import UIKit
-
+protocol CheckoutVCDelegate: AnyObject {
+    func didCheckout(with id: String)
+}
 class CheckOutViewController: UIViewController {
     
     @IBOutlet weak var btnPlaceOrder: UIButton!
@@ -16,6 +18,7 @@ class CheckOutViewController: UIViewController {
     @IBOutlet weak var estimatedtaxPriceLbl: UILabel!
     @IBOutlet weak var ordertotalPriceLbl: UILabel!
     
+    weak var delegate: CheckoutVCDelegate?
     var vm: CheckoutViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +42,9 @@ class CheckOutViewController: UIViewController {
     @IBAction func didClickPlaceOrder(_ sender: UIButton) {
         Task {
             await vm.placeOrder()
+            self.dismiss(animated: true) { [self] in
+                self.delegate?.didCheckout(with: self.vm.checkout.confirmation)
+            }
         }
     }
 }

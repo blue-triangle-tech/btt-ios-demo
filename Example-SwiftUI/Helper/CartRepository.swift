@@ -62,6 +62,11 @@ final class CartRepository {
     func confirm(_ checkoutID: Checkout.ID) async throws -> CartDetail {
         try await service.deleteCheckout(id: checkoutID)
     }
+    
+    func deleteCart() {
+        self.cartDetail = nil
+        self.items.value = []
+    }
 }
 
 private extension CartRepository {
@@ -72,7 +77,7 @@ private extension CartRepository {
                 shipping: Constants.shipping,
                 itemIDs: []))
     }
-
+    
     func addProduct(_ product: Product, quantity: Int = 1) async throws -> CartItemModel? {
         if let cartDetail {
             if let existingItem = cartDetail.items.first(where: { $0.productID == product.id }) {

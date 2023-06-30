@@ -13,7 +13,7 @@ import Service
 struct CartView: View {
     private let imageLoader: ImageLoader
     @ObservedObject var viewModel: CartViewModel
-
+    @State var didPlaceOrder = false
     init(imageLoader: ImageLoader, viewModel: CartViewModel) {
         self.imageLoader = imageLoader
         self.viewModel = viewModel
@@ -36,8 +36,12 @@ struct CartView: View {
                         .overlay(alignment: .bottom) {
                             Button(
                                 action: {
-                                    Task {
-                                        await viewModel.checkout()
+                                    if viewModel.productItems.count > 4 {
+                                        ANRTest.crashTest()
+                                    } else {
+                                        Task {
+                                            await viewModel.checkout()
+                                        }
                                     }
                                 },
                                 label: {
@@ -48,6 +52,9 @@ struct CartView: View {
                         }
                 }
             }
+            .navigationDestination(isPresented: $didPlaceOrder, destination: {
+                OrderSuccessfulView(checkoutId: UUID().uuidString)
+            })
             .onAppear {
                 let timer = BlueTriangle.startTimer(
                     page: Page(
@@ -60,7 +67,8 @@ struct CartView: View {
             .navigationTitle("Cart")
             .sheet(item: $viewModel.checkoutItem) { checkout in
                 CheckoutView(
-                    viewModel: viewModel.checkoutViewModel(checkout))
+                    viewModel: viewModel.checkoutViewModel(checkout),
+                    didPlaceOrder: $didPlaceOrder)
             }
         }
         .errorAlert(error: $viewModel.error)

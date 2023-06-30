@@ -26,13 +26,12 @@ class ProductDetailView: UIViewController {
        
     }
     
-   
     
     @IBAction func didClickStepper(_ sender: UIStepper) {
         self.vm.quantity = Int(sender.value)
         self.lblQty.text = "\(vm.quantity)"
-        
     }
+    
     private func setupLbl(){
         self.productTitle.text = vm.name
         self.productPrice.text = vm.price

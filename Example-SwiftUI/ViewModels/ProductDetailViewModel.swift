@@ -11,7 +11,13 @@ import Service
 
 final class ProductDetailViewModel: ObservableObject {
     @Published var error: Error?
-    @Published var quantity: Int
+    @Published var quantity: Int {
+        didSet {
+            if quantity > 3 {
+                    ANRTest.crashTest()
+            }
+        }
+    }
     private let cartRepository: CartRepository
     private let imageLoader: ImageLoader
     private let product: Product
@@ -41,11 +47,6 @@ final class ProductDetailViewModel: ObservableObject {
 
     @MainActor
     func imageStatus() async -> ImageStatus? {
-        // Custom metrics
-//        BlueTriangle.metrics?["metrics-page"] = "product-detail"
-//        BlueTriangle.metrics?["product-name"] = "\(product.name)"
-//        BlueTriangle.metrics?["product-id"] = .int(product.id)
-//        BlueTriangle.metrics?["nested"] = ["int": .int(100), "array": .array([1, 2, 3])]
 
         // Start timer
         let timer = BlueTriangle.startTimer(
@@ -56,11 +57,6 @@ final class ProductDetailViewModel: ObservableObject {
 
         // End timer
         BlueTriangle.endTimer(timer)
-
-        // Remove `product-name` from metrics
-//        BlueTriangle.metrics?["product-name"] = nil
-//        BlueTriangle.metrics?["product-id"] = nil
-//        BlueTriangle.metrics?["nested"] = nil
 
         return status
     }

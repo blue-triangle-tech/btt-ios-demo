@@ -63,8 +63,8 @@ final class CheckoutViewModel: ObservableObject {
                 purchaseConfirmation: PurchaseConfirmation(
                     cartValue: Decimal(itemTotal),
                     orderNumber: detail.confirmation))
-
             onFinish()
+            cartRepository.deleteCart()
         } catch {
             self.error = error
         }

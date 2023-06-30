@@ -42,21 +42,24 @@ class CartViewController: UIViewController {
                 self?.setupTotals()
             }
         }).store(in: &cancellable)
-        
     }
     
     @IBAction func btnActionCheckOut(_ sender: UIButton) {
-        Task {
-            await vm.checkout()
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CheckOutViewController") as? CheckOutViewController,
-               let checkout = vm.checkoutItem {
-                vc.vm = vm.checkoutViewModel(checkout)
-                self.present(vc, animated: true)
+        if vm.productItems.count > 4 {
+            ANRTest.crashTest()
+        } else {
+            Task {
+                await vm.checkout()
+                if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CheckOutViewController") as? CheckOutViewController,
+                   let checkout = vm.checkoutItem {
+                    vc.vm = vm.checkoutViewModel(checkout)
+                    vc.delegate = self
+                    self.present(vc, animated: true)
+                }
             }
         }
        
     }
-    
     
     func initXib(){
         tableView.register(UINib(nibName: "CartItemTableViewCell", bundle: nil),forCellReuseIdentifier: "CartItemTableViewCell")
@@ -109,5 +112,14 @@ extension CartViewController: CartItemTVCDelegate {
             }
         }
         
+    }
+}
+
+extension CartViewController: CheckoutVCDelegate {
+    func didCheckout(with id: String) {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "OrderSuccessfulViewController") as? OrderSuccessfulViewController{
+            vc.checkoutID = id
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
