@@ -21,22 +21,25 @@ class BTTConfigModel: ObservableObject {
     
     func configure(){
         
-        UserDefaults.standard.set(anrEnable, forKey: UserDefaultKeys.ANREnableKey)
-        UserDefaults.standard.set(screenTrackingEnable, forKey: UserDefaultKeys.ScreenTrackingEnableKey)
-        UserDefaults.standard.set(txtSiteId, forKey: UserDefaultKeys.ConfigureSiteId)
-        UserDefaults.standard.synchronize()
-        
-        BlueTriangle.configure { config in
-            config.siteID = txtSiteId
-            config.networkSampleRate = 1.0
-            config.enableDebugLogging = true
-            config.enableScreenTracking = screenTrackingEnable
-            config.ANRMonitoring = anrEnable
+        if txtSiteId.count > 0 {
+            
+            UserDefaults.standard.set(anrEnable, forKey: UserDefaultKeys.ANREnableKey)
+            UserDefaults.standard.set(screenTrackingEnable, forKey: UserDefaultKeys.ScreenTrackingEnableKey)
+            UserDefaults.standard.set(txtSiteId, forKey: UserDefaultKeys.ConfigureSiteId)
+            UserDefaults.standard.synchronize()
+            
+            BlueTriangle.configure { config in
+                config.siteID = txtSiteId
+                config.networkSampleRate = 1.0
+                config.enableDebugLogging = true
+                config.enableScreenTracking = screenTrackingEnable
+                config.ANRMonitoring = anrEnable
+            }
+            
+            // BlueTriangle.metrics?["example-app"] = "custom1"
+            
+            isConfigurationScreen = false
         }
-        
-        // BlueTriangle.metrics?["example-app"] = "custom1"
-        
-        isConfigurationScreen = false
     }
     
 }

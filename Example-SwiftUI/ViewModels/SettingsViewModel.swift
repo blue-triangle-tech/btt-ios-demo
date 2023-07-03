@@ -9,8 +9,8 @@ import Foundation
 
 final class SettingsViewModel: ObservableObject {
 
-    @Published var anrEnable : Bool = UserDefaults.standard.bool(forKey: UserDefaultKeys.ANREnableKey)
-    @Published var screenTrackingEnable : Bool = UserDefaults.standard.bool(forKey: UserDefaultKeys.ScreenTrackingEnableKey)
+    private(set) var anrEnable : Bool = UserDefaults.standard.bool(forKey: UserDefaultKeys.ANREnableKey)
+    private(set) var screenTrackingEnable : Bool = UserDefaults.standard.bool(forKey: UserDefaultKeys.ScreenTrackingEnableKey)
     private(set) var configureSiteId : String = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSiteId) ?? ""
     
 }
