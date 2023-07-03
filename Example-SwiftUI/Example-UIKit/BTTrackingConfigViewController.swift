@@ -18,6 +18,7 @@ class BTTrackingConfigViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.txtSiteID.text = ""
+        btnSetup()
     }
     
     func btnSetup() {

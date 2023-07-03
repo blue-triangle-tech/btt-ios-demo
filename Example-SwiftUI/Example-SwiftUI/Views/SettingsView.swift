@@ -10,120 +10,121 @@ import SwiftUI
 
 struct SettingsView: View {
     @ObservedObject var vm: SettingsViewModel
-
+    
     var body: some View {
-        VStack(spacing: 15){
-            
-            Spacer().frame(height:20)
-            
-            VStack{
-                HStack{
-                    Text("App Version")
-                        .font(Font.system(size: 18, weight: .bold))
-                        .foregroundColor(.black)
-                    Spacer()
-                }
+        NavigationStack {
+            VStack(spacing: 15){
                 
-                HStack{
-                    Text("\(version())")
-                        .font(Font.system(size: 18, weight: .regular))
-                        .foregroundColor(.gray)
-                    Spacer()
-                }
-            }
-            .frame(height: 50)
-            
-            VStack{
-                HStack{
-                    Text("BTT SDK VersionRule")
-                        .font(Font.system(size: 18, weight: .bold))
-                        .foregroundColor(.black)
-                    Spacer()
-                }
+                Spacer().frame(height:20)
                 
-                HStack{
-                    Text("master")
-                        .font(Font.system(size: 18, weight: .regular))
-                        .foregroundColor(.gray)
-                    Spacer()
+                VStack{
+                    HStack{
+                        Text("App Version")
+                            .font(Font.system(size: 18, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    
+                    HStack{
+                        Text("\(version())")
+                            .font(Font.system(size: 18, weight: .regular))
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
                 }
-            }
-            .frame(height: 50)
-            
-            VStack{
-                HStack{
-                    Text("BTT SDK Location")
-                        .font(Font.system(size: 18, weight: .bold))
-                        .foregroundColor(.black)
-                    Spacer()
-                }
+                .frame(height: 50)
                 
-                HStack{
-                    Text("http://github.com/JP-aloha/btt-swift-sdk.git")
-                        .font(Font.system(size: 18, weight: .regular))
-                        .foregroundColor(.gray)
-                    Spacer()
+                VStack{
+                    HStack{
+                        Text("BTT SDK VersionRule")
+                            .font(Font.system(size: 18, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    
+                    HStack{
+                        Text("master")
+                            .font(Font.system(size: 18, weight: .regular))
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
                 }
-            }
-            .frame(height: 50)
-            
-            VStack{
-                HStack{
-                    Text("Site Id")
-                        .font(Font.system(size: 18, weight: .bold))
-                        .foregroundColor(.black)
-                    Spacer()
-                }
+                .frame(height: 50)
                 
-                HStack{
-                    Text(vm.configureSiteId)
-                        .font(Font.system(size: 18, weight: .regular))
-                        .foregroundColor(.gray)
-                    Spacer()
+                VStack{
+                    HStack{
+                        Text("BTT SDK Location")
+                            .font(Font.system(size: 18, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    
+                    HStack{
+                        Text(verbatim: "http://github.com/JP-aloha/btt-swift-sdk.git")
+                            .font(Font.system(size: 18, weight: .regular))
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
                 }
-            }
-            .frame(height: 50)
-            
-            
-            VStack{
-                HStack{
-                    Text("ANR Detection")
-                        .font(Font.system(size: 18, weight: .bold))
-                        .foregroundColor(.black)
-                    Spacer()
-                }
+                .frame(height: 50)
                 
-                HStack{
-                    Text(vm.anrEnable ? "Enable" : "Disable")
-                        .font(Font.system(size: 18, weight: .regular))
-                        .foregroundColor(.gray)
-                    Spacer()
+                VStack{
+                    HStack{
+                        Text("Site Id")
+                            .font(Font.system(size: 18, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    
+                    HStack{
+                        Text(vm.configureSiteId)
+                            .font(Font.system(size: 18, weight: .regular))
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
                 }
-            }
-            .frame(height: 50)
-            
-            VStack{
-                HStack{
-                    Text("Screen Tracking")
-                        .font(Font.system(size: 18, weight: .bold))
-                        .foregroundColor(.black)
-                    Spacer()
-                }
+                .frame(height: 50)
                 
-                HStack{
-                    Text(vm.screenTrackingEnable ? "Enable" : "Disable")
-                        .font(Font.system(size: 18, weight: .regular))
-                        .foregroundColor(.gray)
-                    Spacer()
+                
+                VStack{
+                    HStack{
+                        Text("ANR Detection")
+                            .font(Font.system(size: 18, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    
+                    HStack{
+                        Text(vm.anrEnable ? "Enable" : "Disable")
+                            .font(Font.system(size: 18, weight: .regular))
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
                 }
+                .frame(height: 50)
+                
+                VStack{
+                    HStack{
+                        Text("Screen Tracking")
+                            .font(Font.system(size: 18, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    
+                    HStack{
+                        Text(vm.screenTrackingEnable ? "Enable" : "Disable")
+                            .font(Font.system(size: 18, weight: .regular))
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
+                }
+                .frame(height: 50)
+                
+                Spacer()
             }
-            .frame(height: 50)
-            
-            Spacer()
-        }
-        .padding(.leading, 15)
-        .padding(.trailing, 15)
-        .onAppear {
+            .padding(.leading, 15)
+            .padding(.trailing, 15)
+            .onAppear {
                 let timer = BlueTriangle.startTimer(
                     page: Page(
                         pageName: "Settings"))
@@ -132,6 +133,7 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
         }
+        
     }
     
     func version() -> String {

@@ -69,7 +69,10 @@ struct BTTrackingConfigView: View {
             
             Button(
                 action: {
-                    vm.configure()
+                    if !vm.txtSiteId.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                        vm.configure()
+                    } 
+                    
                 },
                 label: {
                     Text("SAVE")
