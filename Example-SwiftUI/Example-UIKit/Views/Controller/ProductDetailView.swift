@@ -54,16 +54,19 @@ class ProductDetailView: UIViewController {
     
     private func setupBtn() {
         // AddToCart Button
-        self.btnAddtoCart.layer.cornerRadius = 10
+        self.btnAddtoCart.layer.cornerRadius = 8
     }
     
     @IBAction func didSelectAddToCart(_ sender: Any) {
+        vm.quantity += 1
         if vm.quantity > 3 {
                 ANRTest.quantityLimitExceedCrash()
         }
         
         Task {
+            btnAddtoCart.isEnabled = false
             await vm.addToCart()
+            btnAddtoCart.isEnabled = true
         }
        
     }

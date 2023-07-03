@@ -47,22 +47,32 @@ class CartViewController: UIViewController {
     @IBAction func btnActionCheckOut(_ sender: UIButton) {
         if vm.productItems.count > 4 {
             ANRTest.cartLimitExceedCrash()
+        } else if vm.productItems.isEmpty {
+            ANRTest.emptyCartCrash()
         }
         
         Task {
             await vm.checkout()
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CheckOutViewController") as? CheckOutViewController,
-               let checkout = vm.checkoutItem {
-                vc.vm = vm.checkoutViewModel(checkout)
-                vc.delegate = self
-                self.present(vc, animated: true)
+            await vm.placeOrder()
+            
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "OrderSuccessfulViewController") as? OrderSuccessfulViewController{
+                vc.checkoutID = vm.checkoutItem?.confirmation ?? UUID().uuidString
+                self.navigationController?.pushViewController(vc, animated: true)
             }
+            
+//            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "CheckOutViewController") as? CheckOutViewController,
+//               let checkout = vm.checkoutItem {
+//                vc.vm = vm.checkoutViewModel(checkout)
+//                vc.delegate = self
+//                self.present(vc, animated: true)
+//            }
         }
     }
     
     func initXib(){
         tableView.register(UINib(nibName: "CartItemTableViewCell", bundle: nil),forCellReuseIdentifier: "CartItemTableViewCell")
     }
+    
     func btnSetup(){
         self.btnCheckOut.layer.cornerRadius = 8
        
@@ -76,8 +86,8 @@ class CartViewController: UIViewController {
 
 extension CartViewController: UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        emptyCartView.isHidden =  !vm.productItems.isEmpty
-        tableStackView.isHidden = vm.productItems.isEmpty
+//        emptyCartView.isHidden =  !vm.productItems.isEmpty
+//        tableStackView.isHidden = vm.productItems.isEmpty
         return vm.productItems.count
     }
     
@@ -112,7 +122,23 @@ extension CartViewController: CartItemTVCDelegate {
                 self.view.isUserInteractionEnabled = true
             }
         }
+        if self.vm.productItems.isEmpty {
+            ANRTest.emptyCartCrash()
+        }
+    }
+    
+    func deleteItem(at index: Int) {
         
+        ANRTest.removeCartItem()
+        if vm.productItems.count > index {
+            Task {
+                self.view.isUserInteractionEnabled = false
+                let id = self.vm.productItems[index].id
+                await vm.removeProduct(id: id)
+                self.tableView.reloadData()
+                self.view.isUserInteractionEnabled = true
+            }
+        }
     }
 }
 

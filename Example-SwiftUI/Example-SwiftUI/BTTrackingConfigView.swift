@@ -15,35 +15,34 @@ struct BTTrackingConfigView: View {
         VStack{
             
             Spacer()
-                .frame(height: 60)
             
             HStack{
                 Spacer()
-                Text("View Tracking Configuration")
+                Text("BTT Configuration")
                     .font(Font.system(size: 20, weight: .bold))
                 Spacer()
             }
             
             Spacer()
-                .frame(height: 160)
+                .frame(height: 60)
             
             HStack{
-                Toggle("ANR Enable", isOn: $vm.anrEnable)
+                Toggle("ANR Detection", isOn: $vm.anrEnable)
             }
             .padding(.leading, 15)
             .padding(.trailing, 15)
             
             HStack{
-                Toggle("Screen Tracking Enable", isOn: $vm.screenTrackingEnable)
+                Toggle("Screen Tracking", isOn: $vm.screenTrackingEnable)
             }
             .padding(.leading, 15)
             .padding(.trailing, 15)
             
             Spacer()
-                .frame(height: 40)
+                .frame(height: 20)
             
             HStack{
-                Text("Site Id :")
+                Text("Enter Site Id :")
                     .padding(.leading, 15)
                 Spacer()
             }
@@ -68,16 +67,15 @@ struct BTTrackingConfigView: View {
                 .padding(.trailing, 20)
             }.frame(height: 40)
             
-            
-            Button(action: {
-                vm.configure()
-            }) {
-                Text("Configure")
-                    .foregroundColor(.blue)
-                    .font(.system(size: 16.0, weight: .bold))
-                
-            }
-            .padding(.top, 30)
+            Button(
+                action: {
+                    vm.configure()
+                },
+                label: {
+                    Text("SAVE")
+                })
+            .buttonStyle(.primary())
+            .padding()
             
             Spacer()
         }

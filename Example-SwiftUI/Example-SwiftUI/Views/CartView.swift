@@ -14,6 +14,7 @@ struct CartView: View {
     private let imageLoader: ImageLoader
     @ObservedObject var viewModel: CartViewModel
     @State var didPlaceOrder = false
+   
     init(imageLoader: ImageLoader, viewModel: CartViewModel) {
         self.imageLoader = imageLoader
         self.viewModel = viewModel
@@ -22,37 +23,41 @@ struct CartView: View {
     var body: some View {
         NavigationStack {
             Group {
-                if viewModel.productItems.isEmpty {
-                    VStack(spacing: 16) {
-                        Image(systemName: "cart.fill")
-                            .resizable()
-                            .frame(width: 64, height: 64)
-
-                        Text("Your cart is empty")
-                    }
-                    .foregroundColor(.secondary)
-                } else {
+//                if viewModel.productItems.isEmpty {
+//                    VStack(spacing: 16) {
+//                        Image(systemName: "cart.fill")
+//                            .resizable()
+//                            .frame(width: 64, height: 64)
+//
+//                        Text("Your cart is empty")
+//                    }
+//                    .foregroundColor(.secondary)
+//                } else {
                     cartList(viewModel)
                         .overlay(alignment: .bottom) {
                             Button(
                                 action: {
                                     if viewModel.productItems.count > 4 {
                                         ANRTest.cartLimitExceedCrash()
+                                    } else if viewModel.productItems.isEmpty {
+                                        ANRTest.emptyCartCrash()
                                     }
                                     Task {
                                         await viewModel.checkout()
+                                        await viewModel.placeOrder()
+                                        didPlaceOrder = true
                                     }
                                 },
                                 label: {
-                                    Text("Check Out")
+                                    Text("Checkout")
                                 })
                             .buttonStyle(.primary())
                             .padding()
-                        }
-                }
+                        }.disabled(viewModel.isLoading)
+           //     }
             }
             .navigationDestination(isPresented: $didPlaceOrder, destination: {
-                OrderSuccessfulView(checkoutId: UUID().uuidString)
+                OrderSuccessfulView(checkoutId: viewModel.checkoutItem?.confirmation ?? UUID().uuidString)
             })
             .onAppear {
                 let timer = BlueTriangle.startTimer(
@@ -64,11 +69,11 @@ struct CartView: View {
                 BlueTriangle.endTimer(timer)
             }
             .navigationTitle("Cart")
-            .sheet(item: $viewModel.checkoutItem) { checkout in
-                CheckoutView(
-                    viewModel: viewModel.checkoutViewModel(checkout),
-                    didPlaceOrder: $didPlaceOrder)
-            }
+//            .sheet(item: $viewModel.checkoutItem) { checkout in
+//                CheckoutView(
+//                    viewModel: viewModel.checkoutViewModel(checkout),
+//                    didPlaceOrder: $didPlaceOrder)
+//            }
         }
         .errorAlert(error: $viewModel.error)
     }
@@ -104,14 +109,23 @@ private extension CartView {
                         Task {
                             await viewModel.decrement(id: productItem.id)
                         }
+                    },
+                    onRemove: {
+                        Task {
+                            
+                             ANRTest.removeCartItem()
+                            await viewModel.removeProduct(id: productItem.id)
+                            
+                        }
                     })
             }
 
-            Section {
-                footer(
-                    estimatedTax: viewModel.estimatedTax,
-                    subtotal: viewModel.subtotal)
-            }
+//            Section {
+//
+//                footer(
+//                    estimatedTax: viewModel.estimatedTax,
+//                    subtotal: viewModel.subtotal)
+//            }
         }
     }
 }

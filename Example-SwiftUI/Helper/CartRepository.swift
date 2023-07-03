@@ -81,9 +81,6 @@ private extension CartRepository {
     func addProduct(_ product: Product, quantity: Int = 1) async throws -> CartItemModel? {
         if let cartDetail {
             if let existingItem = cartDetail.items.first(where: { $0.productID == product.id }) {
-                guard quantity != existingItem.quantity else {
-                    return nil
-                }
 
                 let productItem = try await updateItem(cartItemID: existingItem.id, product: product, quantity: quantity)
                 self.cartDetail = try await service.cart(id: cartDetail.id)

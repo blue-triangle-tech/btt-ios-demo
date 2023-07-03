@@ -9,6 +9,7 @@ import UIKit
 
 protocol CartItemTVCDelegate: AnyObject {
     func chageQuanitiy(to quantity: Int, for index: Int)
+    func deleteItem(at index: Int)
 }
 
 class CartItemTableViewCell: UITableViewCell {
@@ -29,6 +30,13 @@ class CartItemTableViewCell: UITableViewCell {
         self.productQty.text = "\(Int(sender.value))"
     }
     
+    
+    @IBAction func didSelectRemoveItem(_ sender: UIButton) {
+        guard let index = index else { return }
+        delegate?.deleteItem(at: index)
+    }
+    
+    
     func initCell(with data: CartItemModel, index: Int) {
         self.index = index
         counter.value = Double(data.quantity)
@@ -46,4 +54,5 @@ class CartItemTableViewCell: UITableViewCell {
             }
         }
     }
+    
 }

@@ -10,14 +10,23 @@ import UIKit
 class OrderSuccessfulViewController: UIViewController {
 
     @IBOutlet weak var lblCheckoutId: UILabel!
+    @IBOutlet weak var btnConitueShopping: UIButton!
+    
     var checkoutID: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.lblCheckoutId.text = checkoutID
+        btnSetup()
     }
 
     @IBAction func didSelectContiueShopiing(_ sender: UIButton) {
-        ANRTest.sleepMainThreadTest()
+        ANRTest.heavyLoop()
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func btnSetup() {
+        self.btnConitueShopping.layer.cornerRadius = 8
+       
+    }
+
 }

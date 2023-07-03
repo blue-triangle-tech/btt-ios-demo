@@ -31,7 +31,7 @@ final class ProductDetailViewModel: ObservableObject {
     init(
         cartRepository: CartRepository,
         imageLoader: ImageLoader,
-        product: Product, quantity: Int = 1
+        product: Product, quantity: Int = 0
     ) {
         self.cartRepository = cartRepository
         self.imageLoader = imageLoader

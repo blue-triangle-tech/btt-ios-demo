@@ -13,11 +13,17 @@ class BTTrackingConfigViewController: UIViewController {
     @IBOutlet weak var txtSiteID : UITextField!
     @IBOutlet weak var anrEnableSwitch : UISwitch!
     @IBOutlet weak var screenTrackEnableSwitch : UISwitch!
+    @IBOutlet weak var btnSave: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.txtSiteID.text = ""
     }
+    
+    func btnSetup() {
+        self.btnSave.layer.cornerRadius = 8
+    }
+
     
     @IBAction func didSelectConfig(_ sender: Any?) {
         

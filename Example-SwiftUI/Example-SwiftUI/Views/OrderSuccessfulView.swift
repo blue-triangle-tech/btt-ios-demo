@@ -13,24 +13,27 @@ struct OrderSuccessfulView: View {
 
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Thanks for ordering")
-                .foregroundColor(.accentColor)
-                .font(.system(size: 22, weight: .bold))
-            Text("Chekout Id: ")
-            Text(checkoutId)
-            Button(
-                action: {
-                    ANRTest.sleepMainThreadTest()
-                    presentationMode.wrappedValue.dismiss()
-                },
-                label: {
-                    Text("Continue Shopping")
-                })
-            .buttonStyle(.primary())
+        NavigationStack {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("Thanks for ordering")
+                    .foregroundColor(.accentColor)
+                    .font(.system(size: 22, weight: .bold))
+                Text("Chekout Id: ")
+                Text(checkoutId)
+                Button(
+                    action: {
+                        ANRTest.heavyLoop()
+                        presentationMode.wrappedValue.dismiss()
+                    },
+                    label: {
+                        Text("Continue Shopping")
+                    })
+                .buttonStyle(.primary())
+            }
+            .foregroundColor(.secondary)
+            .padding(.horizontal)
+            .navigationTitle("Checkout")
         }
-        .foregroundColor(.secondary)
-        .padding(.horizontal)
     }
 }
 

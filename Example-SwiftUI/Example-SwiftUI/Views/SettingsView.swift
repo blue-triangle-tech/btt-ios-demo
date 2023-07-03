@@ -12,59 +12,64 @@ struct SettingsView: View {
     @ObservedObject var vm: SettingsViewModel
 
     var body: some View {
-        VStack{
-            Text("App Version : \(version())")
-                .font(Font.system(size: 20, weight: .bold))
-                .padding(.bottom, 50)
-            
-            HStack{
-                Text("Site Id :")
-                    .font(Font.system(size: 18, weight: .regular))
-                Spacer()
-                Text(vm.configureSiteId)
-                    .font(Font.system(size: 18, weight: .bold))
+        NavigationStack {
+            VStack{
+                Text("App Version : \(version())")
+                    .font(Font.system(size: 20, weight: .bold))
+                    .padding(.bottom, 50)
+                
+                HStack{
+                    Text("Site Id :")
+                        .font(Font.system(size: 18, weight: .regular))
+                    Spacer()
+                    Text(vm.configureSiteId)
+                        .font(Font.system(size: 18, weight: .bold))
+                }
+                .padding(.leading, 15)
+                .padding(.trailing, 15)
+                
+                HStack{
+                    Toggle("ANR Enable", isOn: $vm.anrEnable)
+                        .disabled(true)
+                }
+                .padding(.leading, 15)
+                .padding(.trailing, 15)
+                
+                HStack{
+                    Toggle("Screen Tracking Enable", isOn: $vm.screenTrackingEnable)
+                        .disabled(true)
+                }
+                .padding(.leading, 15)
+                .padding(.trailing, 15)
+                
+                Text ("BTT SDK VersionRule:")
+                    .padding(.top, 30)
+                    .foregroundColor(.gray)
+                    .font(Font.system(size: 16, weight: .bold))
+                Text ("master")
+                    .padding(.top, 1)
+                    .font(Font.system(size: 15, weight: .bold))
+                
+                //location
+                Text("BTT SDK Location:")
+                    .foregroundColor(.gray)
+                    .padding(.top, 30)
+                    .font(Font.system(size: 16, weight: .bold))
+                Text(verbatim: "http://github.com/JP-aloha/btt-swift-sdk.git")
+                    .padding(.top, 1)
+                    .font(Font.system(size: 15, weight: .bold))
+                    .foregroundColor(.accentColor)
             }
-            .padding(.leading, 15)
-            .padding(.trailing, 15)
             
-            HStack{
-                Toggle("ANR Enable", isOn: $vm.anrEnable)
-                    .disabled(true)
-            }
-            .padding(.leading, 15)
-            .padding(.trailing, 15)
-            
-            HStack{
-                Toggle("Screen Tracking Enable", isOn: $vm.screenTrackingEnable)
-                    .disabled(true)
-            }
-            .padding(.leading, 15)
-            .padding(.trailing, 15)
-            
-            Text ("BTT SDK VersionRule:")
-                .padding(.top, 30)
-                .foregroundColor(.gray)
-                .font(Font.system(size: 16, weight: .bold))
-            Text ("master")
-                .padding(.top, 1)
-                .font(Font.system(size: 15, weight: .bold))
-            
-            //location
-            Text("BTT SDK Location:")
-                .foregroundColor(.gray)
-                .padding(.top, 30)
-                .font(Font.system(size: 16, weight: .bold))
-            Text("http://github.com/JP-aloha/btt-swift-sdk.git")
-                .padding(.top, 1)
-                .font(Font.system(size: 15, weight: .bold))
-        }
-        .onAppear {
+            .onAppear {
                 let timer = BlueTriangle.startTimer(
                     page: Page(
                         pageName: "Settings"))
-
+                
                 BlueTriangle.endTimer(timer)
             }
+            .navigationTitle("Settings")
+        }
     }
     
     func version() -> String {
