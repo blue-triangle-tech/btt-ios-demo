@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import BlueTriangle
 struct OrderSuccessfulView: View {
     var checkoutId: String!
     @Environment(\.presentationMode) var presentationMode
@@ -33,6 +33,7 @@ struct OrderSuccessfulView: View {
             .foregroundColor(.secondary)
             .padding(.horizontal)
             .navigationTitle("Checkout")
+            .bttTrackScreen("ChekoutView")
         }
     }
 }
