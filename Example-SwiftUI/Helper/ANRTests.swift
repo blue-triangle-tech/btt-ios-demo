@@ -10,15 +10,19 @@ import Foundation
 struct ANRTest {
     
     static func quantityLimitExceedCrash() {
-        fatalError("Quantity of a product can not be more than 3.")
+        let arr = NSArray()
+        NSLog("Not found element \(arr[1])")
+        
     }
     
     static func cartLimitExceedCrash() {
-        fatalError("Can not add more than 4 product in cart.")
+        let arr = NSArray()
+        NSLog("Not found element \(arr[1])")
     }
     
     static func emptyCartCrash() {
-        fatalError("Cart is empty.")
+        let arr = NSArray()
+        NSLog("Not found element \(arr[1])")
     }
     
     static func removeCartItem(startTime: TimeInterval = Date().timeIntervalSince1970) {
