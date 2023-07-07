@@ -34,6 +34,7 @@ class BTTConfigModel: ObservableObject {
                 config.siteID = txtSiteId
                 config.networkSampleRate = 1.0
                 config.enableDebugLogging = true
+                config.crashTracking = .nsException
                 config.enableScreenTracking = screenTrackingEnable
                 config.ANRMonitoring = anrEnable
                 config.ANRStackTrace = anrStackTrace

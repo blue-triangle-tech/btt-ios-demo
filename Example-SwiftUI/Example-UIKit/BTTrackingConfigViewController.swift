@@ -42,6 +42,7 @@ class BTTrackingConfigViewController: UIViewController {
         BlueTriangle.configure { config in
             config.siteID = siteId
             config.networkSampleRate = 1.0
+            config.crashTracking = .nsException
             config.enableDebugLogging = true
             config.enableScreenTracking = screenTrackEnableSwitch.isOn
             config.ANRMonitoring = anrEnableSwitch.isOn
