@@ -10,7 +10,7 @@ import SwiftUI
 struct BTTrackingConfigView: View {
     
     @ObservedObject var vm: BTTConfigModel
-   
+    
     var body: some View {
         VStack{
             
@@ -26,18 +26,27 @@ struct BTTrackingConfigView: View {
             Spacer()
                 .frame(height: 60)
             
-            HStack{
-                Toggle("ANR Detection", isOn: $vm.anrEnable)
+            VStack {
+                HStack{
+                    Toggle("ANR Detection", isOn: $vm.anrEnable)
+                }
+                .padding(.leading, 15)
+                .padding(.trailing, 15)
+                
+                HStack{
+                    Toggle("Screen Tracking", isOn: $vm.screenTrackingEnable)
+                }
+                .padding(.leading, 15)
+                .padding(.trailing, 15)
+                
+                
+                HStack{
+                    Toggle("ANR Stack Trace", isOn: $vm.anrStackTrace)
+                }
+                .padding(.leading, 15)
+                .padding(.trailing, 15)
+                
             }
-            .padding(.leading, 15)
-            .padding(.trailing, 15)
-            
-            HStack{
-                Toggle("Screen Tracking", isOn: $vm.screenTrackingEnable)
-            }
-            .padding(.leading, 15)
-            .padding(.trailing, 15)
-            
             Spacer()
                 .frame(height: 20)
             
@@ -71,7 +80,7 @@ struct BTTrackingConfigView: View {
                 action: {
                     if !vm.txtSiteId.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                         vm.configure()
-                    } 
+                    }
                     
                 },
                 label: {
@@ -79,7 +88,6 @@ struct BTTrackingConfigView: View {
                 })
             .buttonStyle(.primary())
             .padding()
-            
             Spacer()
         }
     }

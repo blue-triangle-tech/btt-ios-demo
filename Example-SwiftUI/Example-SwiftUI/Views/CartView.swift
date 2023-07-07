@@ -23,17 +23,9 @@ struct CartView: View {
     var body: some View {
         NavigationStack {
             Group {
-//                if viewModel.productItems.isEmpty {
-//                    VStack(spacing: 16) {
-//                        Image(systemName: "cart.fill")
-//                            .resizable()
-//                            .frame(width: 64, height: 64)
-//
-//                        Text("Your cart is empty")
-//                    }
-//                    .foregroundColor(.secondary)
-//                } else {
+
                     cartList(viewModel)
+                        .padding(.bottom, 60)
                         .overlay(alignment: .bottom) {
                             Button(
                                 action: {
@@ -54,26 +46,13 @@ struct CartView: View {
                             .buttonStyle(.primary())
                             .padding()
                         }.disabled(viewModel.isLoading)
+                    
            //     }
             }
             .navigationDestination(isPresented: $didPlaceOrder, destination: {
                 OrderSuccessfulView(checkoutId: viewModel.checkoutItem?.confirmation ?? UUID().uuidString)
             })
-            .onAppear {
-                let timer = BlueTriangle.startTimer(
-                    page: Page(
-                        pageName: "Cart",
-                        customNumbers: CustomNumbers(
-                            cn1: viewModel.subtotal)))
-
-                BlueTriangle.endTimer(timer)
-            }
             .navigationTitle("Cart")
-//            .sheet(item: $viewModel.checkoutItem) { checkout in
-//                CheckoutView(
-//                    viewModel: viewModel.checkoutViewModel(checkout),
-//                    didPlaceOrder: $didPlaceOrder)
-//            }
         }
         .errorAlert(error: $viewModel.error)
     }

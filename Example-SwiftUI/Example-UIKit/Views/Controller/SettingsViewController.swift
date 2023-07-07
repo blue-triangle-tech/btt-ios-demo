@@ -16,12 +16,14 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var lblAnrEnable : UILabel!
     @IBOutlet weak var lblScreenTrackEnable : UILabel!
+    @IBOutlet weak var lblAnrStackTraceEnable : UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         lblAnrEnable.text = UserDefaults.standard.bool(forKey: UserDefaultKeys.ANREnableKey) ? "Enable" : "Disable"
         lblScreenTrackEnable.text = UserDefaults.standard.bool(forKey: UserDefaultKeys.ScreenTrackingEnableKey)  ? "Enable" : "Disable"
+        lblAnrStackTraceEnable.text = UserDefaults.standard.bool(forKey: UserDefaultKeys.ANRStackTraceKey) ? "Enable" : "Disable"
         lblSiteId.text = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSiteId) ?? ""
         lblAppVersion.text = "\(version())"
         lblSdkVersionRule.text = "master"

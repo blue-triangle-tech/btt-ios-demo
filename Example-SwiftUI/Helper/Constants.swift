@@ -25,4 +25,5 @@ struct UserDefaultKeys {
     static let ANREnableKey = "ANREnableKey"
     static let ScreenTrackingEnableKey = "ScreenTrackingEnableKey"
     static let ConfigureSiteId = "ConfigureSiteId"
+    static let ANRStackTraceKey = "ANRStackTraceKey"
 }

@@ -13,11 +13,12 @@ class BTTrackingConfigViewController: UIViewController {
     @IBOutlet weak var txtSiteID : UITextField!
     @IBOutlet weak var anrEnableSwitch : UISwitch!
     @IBOutlet weak var screenTrackEnableSwitch : UISwitch!
+    @IBOutlet weak var anrStackTraceSwitch : UISwitch!
     @IBOutlet weak var btnSave: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.txtSiteID.text = ""
+        self.txtSiteID.text = Secrets.siteID
         btnSetup()
     }
     
@@ -35,6 +36,7 @@ class BTTrackingConfigViewController: UIViewController {
         UserDefaults.standard.set(anrEnableSwitch.isOn, forKey: UserDefaultKeys.ANREnableKey)
         UserDefaults.standard.set(screenTrackEnableSwitch.isOn, forKey: UserDefaultKeys.ScreenTrackingEnableKey)
         UserDefaults.standard.set(siteId, forKey: UserDefaultKeys.ConfigureSiteId)
+        UserDefaults.standard.set(anrStackTraceSwitch.isOn, forKey: UserDefaultKeys.ANRStackTraceKey)
         UserDefaults.standard.synchronize()
         
         BlueTriangle.configure { config in
@@ -43,6 +45,7 @@ class BTTrackingConfigViewController: UIViewController {
             config.enableDebugLogging = true
             config.enableScreenTracking = screenTrackEnableSwitch.isOn
             config.ANRMonitoring = anrEnableSwitch.isOn
+            config.ANRStackTrace = anrStackTraceSwitch.isOn
         }
         
         AppCoordinator.setupRootTabVc()

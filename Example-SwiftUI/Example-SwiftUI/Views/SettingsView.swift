@@ -120,17 +120,27 @@ struct SettingsView: View {
                 }
                 .frame(height: 50)
                 
+                VStack{
+                    HStack{
+                        Text("ANR Stack Trace")
+                            .font(Font.system(size: 18, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    
+                    HStack{
+                        Text(vm.anrStackTraceEnable ? "Enable" : "Disable")
+                            .font(Font.system(size: 18, weight: .regular))
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
+                }
+                .frame(height: 50)
+                
                 Spacer()
             }
             .padding(.leading, 15)
             .padding(.trailing, 15)
-            .onAppear {
-                let timer = BlueTriangle.startTimer(
-                    page: Page(
-                        pageName: "Settings"))
-                
-                BlueTriangle.endTimer(timer)
-            }
             .navigationTitle("Settings")
         }
         
