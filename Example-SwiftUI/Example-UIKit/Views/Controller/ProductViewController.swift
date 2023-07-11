@@ -56,7 +56,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let product = vm?.productList[indexPath.row],
-           let vc :ProductDetailView = self.storyboard?.instantiateViewController(withIdentifier: "ProductDetailView") as? ProductDetailView
+           let vc :ProductDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "ProductDetailView") as? ProductDetailViewController
         {
             vc.vm = vm.detailViewModel(for: product.id)
             

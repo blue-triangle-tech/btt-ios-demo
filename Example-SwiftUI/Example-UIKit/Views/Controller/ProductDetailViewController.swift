@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductDetailView: UIViewController {
+class ProductDetailViewController: UIViewController {
      
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productTitle: UILabel!

@@ -54,17 +54,17 @@
 		847CF4482A4315DB001E9011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847CF4472A4315DB001E9011 /* Assets.xcassets */; };
 		847CF44B2A4315DB001E9011 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847CF4492A4315DB001E9011 /* LaunchScreen.storyboard */; };
 		847CF4552A431B10001E9011 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CF4542A431B10001E9011 /* ProductViewController.swift */; };
-		847CF4592A433F35001E9011 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CF4582A433F35001E9011 /* ProductDetailView.swift */; };
+		847CF4592A433F35001E9011 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CF4582A433F35001E9011 /* ProductDetailViewController.swift */; };
 		847CF4632A4466DC001E9011 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CF4622A4466DC001E9011 /* CartViewController.swift */; };
 		847CF4652A446736001E9011 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CF4642A446736001E9011 /* SettingsViewController.swift */; };
 		8488265C2A449992007B9D72 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488265B2A449992007B9D72 /* Constant.swift */; };
 		848826622A449BB6007B9D72 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848826612A449BB6007B9D72 /* APIManager.swift */; };
 		848826662A44A33A007B9D72 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848826652A44A33A007B9D72 /* ProductViewModel.swift */; };
 		8492EDC62A45D39000FE3A5E /* ProductDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492EDC52A45D39000FE3A5E /* ProductDetailCollectionViewCell.swift */; };
-		84A03BE92A49D9AF000C8BD0 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 84A03BE82A49D9AF000C8BD0 /* BlueTriangle */; };
 		84A03BEB2A49DE16000C8BD0 /* Service in Frameworks */ = {isa = PBXBuildFile; productRef = 84A03BEA2A49DE16000C8BD0 /* Service */; };
 		84A03BED2A49DE16000C8BD0 /* IdentifiedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 84A03BEC2A49DE16000C8BD0 /* IdentifiedCollections */; };
-		84A03BEF2A49DE16000C8BD0 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 84A03BEE2A49DE16000C8BD0 /* BlueTriangle */; };
+		84A28B902A5D68CE00C59466 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 84A28B8F2A5D68CE00C59466 /* BlueTriangle */; };
+		84A28B922A5D68EA00C59466 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 84A28B912A5D68EA00C59466 /* BlueTriangle */; };
 		84A2DA732A4AC6F4002732EC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2DA722A4AC6F4002732EC /* TabBarViewController.swift */; };
 		84AAA77B2A45891B000D2798 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AAA77A2A45891B000D2798 /* ProductCollectionViewCell.swift */; };
 		84B301E92A4DD9DC00BF23B5 /* ANRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B301E82A4DD9DC00BF23B5 /* ANRTests.swift */; };
@@ -143,7 +143,7 @@
 		847CF44A2A4315DB001E9011 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		847CF44C2A4315DB001E9011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847CF4542A431B10001E9011 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
-		847CF4582A433F35001E9011 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		847CF4582A433F35001E9011 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		847CF4622A4466DC001E9011 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		847CF4642A446736001E9011 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8488265B2A449992007B9D72 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 			files = (
 				84A03BEB2A49DE16000C8BD0 /* Service in Frameworks */,
 				84A03BED2A49DE16000C8BD0 /* IdentifiedCollections in Frameworks */,
-				84A03BEF2A49DE16000C8BD0 /* BlueTriangle in Frameworks */,
+				84A28B922A5D68EA00C59466 /* BlueTriangle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +198,7 @@
 			files = (
 				C9E1141A291421F00031E874 /* IdentifiedCollections in Frameworks */,
 				C94BF015290AE2FC007E1C25 /* Service in Frameworks */,
-				84A03BE92A49D9AF000C8BD0 /* BlueTriangle in Frameworks */,
+				84A28B902A5D68CE00C59466 /* BlueTriangle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +299,7 @@
 			children = (
 				847CF4542A431B10001E9011 /* ProductViewController.swift */,
 				84A2DA722A4AC6F4002732EC /* TabBarViewController.swift */,
-				847CF4582A433F35001E9011 /* ProductDetailView.swift */,
+				847CF4582A433F35001E9011 /* ProductDetailViewController.swift */,
 				847CF4622A4466DC001E9011 /* CartViewController.swift */,
 				847CF4642A446736001E9011 /* SettingsViewController.swift */,
 				84D977342A4488C700192330 /* CheckOutViewController.swift */,
@@ -496,7 +496,7 @@
 			packageProductDependencies = (
 				84A03BEA2A49DE16000C8BD0 /* Service */,
 				84A03BEC2A49DE16000C8BD0 /* IdentifiedCollections */,
-				84A03BEE2A49DE16000C8BD0 /* BlueTriangle */,
+				84A28B912A5D68EA00C59466 /* BlueTriangle */,
 			);
 			productName = "Example-UIKit";
 			productReference = 847CF43C2A4315D7001E9011 /* Example-UIKit.app */;
@@ -518,7 +518,7 @@
 			packageProductDependencies = (
 				C94BF014290AE2FC007E1C25 /* Service */,
 				C9E11419291421F00031E874 /* IdentifiedCollections */,
-				84A03BE82A49D9AF000C8BD0 /* BlueTriangle */,
+				84A28B8F2A5D68CE00C59466 /* BlueTriangle */,
 			);
 			productName = "Example-SwiftUI";
 			productReference = C9F4A4122900DB6100BCDF3E /* Example-SwiftUI.app */;
@@ -598,7 +598,7 @@
 			mainGroup = C9F4A4092900DB6100BCDF3E;
 			packageReferences = (
 				C9E11418291421F00031E874 /* XCRemoteSwiftPackageReference "swift-identified-collections" */,
-				84A03BE72A49D9AF000C8BD0 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */,
+				84A28B8E2A5D68CE00C59466 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */,
 			);
 			productRefGroup = C9F4A4132900DB6100BCDF3E /* Products */;
 			projectDirPath = "";
@@ -656,7 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				847CF4432A4315D7001E9011 /* ViewController.swift in Sources */,
-				847CF4592A433F35001E9011 /* ProductDetailView.swift in Sources */,
+				847CF4592A433F35001E9011 /* ProductDetailViewController.swift in Sources */,
 				848826662A44A33A007B9D72 /* ProductViewModel.swift in Sources */,
 				8492EDC62A45D39000FE3A5E /* ProductDetailCollectionViewCell.swift in Sources */,
 				847CF4652A446736001E9011 /* SettingsViewController.swift in Sources */,
@@ -1158,12 +1158,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		84A03BE72A49D9AF000C8BD0 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */ = {
+		84A28B8E2A5D68CE00C59466 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "http://github.com/JP-aloha/btt-swift-sdk.git";
+			repositoryURL = "https://github.com/blue-triangle-tech/btt-swift-sdk.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.5.0;
 			};
 		};
 		C9E11418291421F00031E874 /* XCRemoteSwiftPackageReference "swift-identified-collections" */ = {
@@ -1177,11 +1177,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		84A03BE82A49D9AF000C8BD0 /* BlueTriangle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 84A03BE72A49D9AF000C8BD0 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
-			productName = BlueTriangle;
-		};
 		84A03BEA2A49DE16000C8BD0 /* Service */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Service;
@@ -1191,9 +1186,14 @@
 			package = C9E11418291421F00031E874 /* XCRemoteSwiftPackageReference "swift-identified-collections" */;
 			productName = IdentifiedCollections;
 		};
-		84A03BEE2A49DE16000C8BD0 /* BlueTriangle */ = {
+		84A28B8F2A5D68CE00C59466 /* BlueTriangle */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 84A03BE72A49D9AF000C8BD0 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
+			package = 84A28B8E2A5D68CE00C59466 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
+			productName = BlueTriangle;
+		};
+		84A28B912A5D68EA00C59466 /* BlueTriangle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84A28B8E2A5D68CE00C59466 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
 			productName = BlueTriangle;
 		};
 		C94BF014290AE2FC007E1C25 /* Service */ = {
