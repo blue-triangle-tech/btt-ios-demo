@@ -18,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Configure Blue Triangle SDK
         BlueTriangle.configure { config in
             config.siteID = Configuration.siteID
+            config.sessionID = 12121212
+            config.networkSampleRate = 1.0
+            config.crashTracking = .nsException
+            config.enableDebugLogging = true
+            config.enableScreenTracking = true
+            config.ANRMonitoring = true
+            config.ANRStackTrace = true
             // ...
         }
 

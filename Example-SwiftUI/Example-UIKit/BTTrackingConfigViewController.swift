@@ -11,6 +11,7 @@ import BlueTriangle
 class BTTrackingConfigViewController: UIViewController {
 
     @IBOutlet weak var txtSiteID : UITextField!
+    @IBOutlet weak var txtSessionID : UITextField!
     @IBOutlet weak var anrEnableSwitch : UISwitch!
     @IBOutlet weak var screenTrackEnableSwitch : UISwitch!
     @IBOutlet weak var anrStackTraceSwitch : UISwitch!
@@ -19,6 +20,7 @@ class BTTrackingConfigViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.txtSiteID.text = Secrets.siteID
+        self.txtSessionID.text = self.getSessionId()
         btnSetup()
     }
     
@@ -33,14 +35,27 @@ class BTTrackingConfigViewController: UIViewController {
             return
         }
         
+        var identifierSessionId  : Identifier = 0
+        
         UserDefaults.standard.set(anrEnableSwitch.isOn, forKey: UserDefaultKeys.ANREnableKey)
         UserDefaults.standard.set(screenTrackEnableSwitch.isOn, forKey: UserDefaultKeys.ScreenTrackingEnableKey)
         UserDefaults.standard.set(siteId, forKey: UserDefaultKeys.ConfigureSiteId)
         UserDefaults.standard.set(anrStackTraceSwitch.isOn, forKey: UserDefaultKeys.ANRStackTraceKey)
+
+        if let sessionId = self.txtSessionID.text?.trimmingCharacters(in: .whitespaces), sessionId.count > 0{
+            identifierSessionId = Identifier(sessionId) ?? 0
+            UserDefaults.standard.set(sessionId, forKey: UserDefaultKeys.ConfigureSessionId)
+        }
+        else{
+            UserDefaults.standard.removeObject(forKey:UserDefaultKeys.ConfigureSessionId)
+        }
         UserDefaults.standard.synchronize()
         
         BlueTriangle.configure { config in
             config.siteID = siteId
+            if identifierSessionId > 0{
+                config.sessionID = identifierSessionId
+            }
             config.networkSampleRate = 1.0
             config.crashTracking = .nsException
             config.enableDebugLogging = true
@@ -50,6 +65,13 @@ class BTTrackingConfigViewController: UIViewController {
         }
         
         AppCoordinator.setupRootTabVc()
+    }
+    
+    func getSessionId() -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "ddMMyyhhmm"
+        let value = formatter.string(from: Date())
+        return value
     }
     
     @IBAction func didChangeANRSwitch(_ sender: Any?) {

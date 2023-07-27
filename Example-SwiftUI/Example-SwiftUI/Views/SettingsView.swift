@@ -137,6 +137,23 @@ struct SettingsView: View {
                 }
                 .frame(height: 50)
                 
+                VStack{
+                    HStack{
+                        Text("Session Id")
+                            .font(Font.system(size: 18, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    
+                    HStack{
+                        Text(vm.configureSessionId)
+                            .font(Font.system(size: 18, weight: .regular))
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
+                }
+                .frame(height: 50)
+                
                 Spacer()
             }
             .padding(.leading, 15)

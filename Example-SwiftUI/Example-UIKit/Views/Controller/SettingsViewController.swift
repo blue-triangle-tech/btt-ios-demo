@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var lblSdkVersionRule: UILabel!
     @IBOutlet weak var lblSdkLocation: UILabel!
     @IBOutlet weak var lblSiteId: UILabel!
+    @IBOutlet weak var lblSessionId: UILabel!
     
     @IBOutlet weak var lblAnrEnable : UILabel!
     @IBOutlet weak var lblScreenTrackEnable : UILabel!
@@ -28,6 +29,7 @@ class SettingsViewController: UIViewController {
         lblAppVersion.text = "\(version())"
         lblSdkVersionRule.text = "master"
         lblSdkLocation.text = "http://github.com/JP-aloha/btt-swift-sdk.git"
+        lblSessionId.text = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSiteId) ?? "Auto Generated"
         // Do any additional setup after loading the view.
     }
     

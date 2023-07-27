@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		512BBE982A49ED1A00EAFD97 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 512BBE972A49ED1A00EAFD97 /* Config.xcconfig */; };
 		512BBE992A49ED1A00EAFD97 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 512BBE972A49ED1A00EAFD97 /* Config.xcconfig */; };
+		51F2BAD02A69993B00865287 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 51F2BACF2A69993B00865287 /* BlueTriangle */; };
+		51F2BAD22A69996700865287 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 51F2BAD12A69996700865287 /* BlueTriangle */; };
 		51F61C942A4ACE9F0071F957 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C922A4ACE9F0071F957 /* AppCoordinator.swift */; };
 		51F61C972A4ACF2B0071F957 /* BTTrackingConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C952A4ACF2B0071F957 /* BTTrackingConfigViewController.swift */; };
 		51F61C992A4AD1EB0071F957 /* BTTrackingConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C982A4AD1EB0071F957 /* BTTrackingConfigView.swift */; };
@@ -63,8 +65,6 @@
 		8492EDC62A45D39000FE3A5E /* ProductDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492EDC52A45D39000FE3A5E /* ProductDetailCollectionViewCell.swift */; };
 		84A03BEB2A49DE16000C8BD0 /* Service in Frameworks */ = {isa = PBXBuildFile; productRef = 84A03BEA2A49DE16000C8BD0 /* Service */; };
 		84A03BED2A49DE16000C8BD0 /* IdentifiedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 84A03BEC2A49DE16000C8BD0 /* IdentifiedCollections */; };
-		84A28B902A5D68CE00C59466 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 84A28B8F2A5D68CE00C59466 /* BlueTriangle */; };
-		84A28B922A5D68EA00C59466 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 84A28B912A5D68EA00C59466 /* BlueTriangle */; };
 		84A2DA732A4AC6F4002732EC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2DA722A4AC6F4002732EC /* TabBarViewController.swift */; };
 		84AAA77B2A45891B000D2798 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AAA77A2A45891B000D2798 /* ProductCollectionViewCell.swift */; };
 		84B301E92A4DD9DC00BF23B5 /* ANRTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B301E82A4DD9DC00BF23B5 /* ANRTests.swift */; };
@@ -188,7 +188,7 @@
 			files = (
 				84A03BEB2A49DE16000C8BD0 /* Service in Frameworks */,
 				84A03BED2A49DE16000C8BD0 /* IdentifiedCollections in Frameworks */,
-				84A28B922A5D68EA00C59466 /* BlueTriangle in Frameworks */,
+				51F2BAD22A69996700865287 /* BlueTriangle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +198,7 @@
 			files = (
 				C9E1141A291421F00031E874 /* IdentifiedCollections in Frameworks */,
 				C94BF015290AE2FC007E1C25 /* Service in Frameworks */,
-				84A28B902A5D68CE00C59466 /* BlueTriangle in Frameworks */,
+				51F2BAD02A69993B00865287 /* BlueTriangle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +496,7 @@
 			packageProductDependencies = (
 				84A03BEA2A49DE16000C8BD0 /* Service */,
 				84A03BEC2A49DE16000C8BD0 /* IdentifiedCollections */,
-				84A28B912A5D68EA00C59466 /* BlueTriangle */,
+				51F2BAD12A69996700865287 /* BlueTriangle */,
 			);
 			productName = "Example-UIKit";
 			productReference = 847CF43C2A4315D7001E9011 /* Example-UIKit.app */;
@@ -518,7 +518,7 @@
 			packageProductDependencies = (
 				C94BF014290AE2FC007E1C25 /* Service */,
 				C9E11419291421F00031E874 /* IdentifiedCollections */,
-				84A28B8F2A5D68CE00C59466 /* BlueTriangle */,
+				51F2BACF2A69993B00865287 /* BlueTriangle */,
 			);
 			productName = "Example-SwiftUI";
 			productReference = C9F4A4122900DB6100BCDF3E /* Example-SwiftUI.app */;
@@ -598,7 +598,7 @@
 			mainGroup = C9F4A4092900DB6100BCDF3E;
 			packageReferences = (
 				C9E11418291421F00031E874 /* XCRemoteSwiftPackageReference "swift-identified-collections" */,
-				84A28B8E2A5D68CE00C59466 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */,
+				51F2BACE2A69993B00865287 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */,
 			);
 			productRefGroup = C9F4A4132900DB6100BCDF3E /* Products */;
 			projectDirPath = "";
@@ -792,7 +792,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = RFX6NF2RC6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Example-UIKit/Info.plist";
@@ -810,6 +810,10 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluetriangle.bluetriangledemo.UIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -823,7 +827,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = RFX6NF2RC6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Example-UIKit/Info.plist";
@@ -841,6 +845,10 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluetriangle.bluetriangledemo.UIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -970,7 +978,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Example-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = RFX6NF2RC6;
 				ENABLE_PREVIEWS = YES;
@@ -982,6 +990,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -990,6 +999,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluetriangle.bluetriangledemo.SwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1005,7 +1018,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"Example-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = RFX6NF2RC6;
 				ENABLE_PREVIEWS = YES;
@@ -1017,6 +1030,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1025,6 +1039,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluetriangle.bluetriangledemo.SwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1158,12 +1176,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		84A28B8E2A5D68CE00C59466 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */ = {
+		51F2BACE2A69993B00865287 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/blue-triangle-tech/btt-swift-sdk.git";
+			repositoryURL = "http://github.com/JP-aloha/btt-swift-sdk.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.5.0;
+				branch = crash_and_swiftUI_performance_time_issue;
+				kind = branch;
 			};
 		};
 		C9E11418291421F00031E874 /* XCRemoteSwiftPackageReference "swift-identified-collections" */ = {
@@ -1177,6 +1195,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		51F2BACF2A69993B00865287 /* BlueTriangle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51F2BACE2A69993B00865287 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
+			productName = BlueTriangle;
+		};
+		51F2BAD12A69996700865287 /* BlueTriangle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51F2BACE2A69993B00865287 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
+			productName = BlueTriangle;
+		};
 		84A03BEA2A49DE16000C8BD0 /* Service */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Service;
@@ -1185,16 +1213,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C9E11418291421F00031E874 /* XCRemoteSwiftPackageReference "swift-identified-collections" */;
 			productName = IdentifiedCollections;
-		};
-		84A28B8F2A5D68CE00C59466 /* BlueTriangle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 84A28B8E2A5D68CE00C59466 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
-			productName = BlueTriangle;
-		};
-		84A28B912A5D68EA00C59466 /* BlueTriangle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 84A28B8E2A5D68CE00C59466 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
-			productName = BlueTriangle;
 		};
 		C94BF014290AE2FC007E1C25 /* Service */ = {
 			isa = XCSwiftPackageProductDependency;

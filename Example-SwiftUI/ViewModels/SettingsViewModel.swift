@@ -14,5 +14,6 @@ final class SettingsViewModel: ObservableObject {
     private(set) var anrStackTraceEnable : Bool = UserDefaults.standard.bool(forKey: UserDefaultKeys.ANRStackTraceKey)
     
     private(set) var configureSiteId : String = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSiteId) ?? ""
+    private(set) var configureSessionId : String = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId) ?? "Auto Generated"
     
 }
