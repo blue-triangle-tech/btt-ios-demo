@@ -43,9 +43,12 @@ struct SettingsView: View {
                     }
                     
                     HStack{
-                        Text("master")
+                        Text("crash_and_swiftUI_performance_time_issue")
                             .font(Font.system(size: 18, weight: .regular))
                             .foregroundColor(.gray)
+                       /* Text("master")
+                            .font(Font.system(size: 18, weight: .regular))
+                            .foregroundColor(.gray)*/
                         Spacer()
                     }
                 }
@@ -159,6 +162,10 @@ struct SettingsView: View {
             .padding(.leading, 15)
             .padding(.trailing, 15)
             .navigationTitle("Settings")
+            .bttTrackScreen("SettingsView")
+            .onAppear{
+                Thread.sleep(forTimeInterval: 3)
+            }
         }
         
     }

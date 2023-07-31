@@ -57,6 +57,7 @@ struct ProductListView: View {
                     }
                 }
             }
+            .bttTrackScreen("ProductListView")
             .refreshable {
                 await viewModel.loadProducts()
             }

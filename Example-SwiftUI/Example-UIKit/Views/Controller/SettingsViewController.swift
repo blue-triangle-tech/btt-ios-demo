@@ -27,10 +27,12 @@ class SettingsViewController: UIViewController {
         lblAnrStackTraceEnable.text = UserDefaults.standard.bool(forKey: UserDefaultKeys.ANRStackTraceKey) ? "Enable" : "Disable"
         lblSiteId.text = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSiteId) ?? ""
         lblAppVersion.text = "\(version())"
-        lblSdkVersionRule.text = "master"
+        lblSdkVersionRule.text = "crash_and_swiftUI_performance_time_issue"//"master"
         lblSdkLocation.text = "http://github.com/JP-aloha/btt-swift-sdk.git"
         lblSessionId.text = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSiteId) ?? "Auto Generated"
         // Do any additional setup after loading the view.
+        
+        Thread.sleep(forTimeInterval: 3)
     }
     
     func version() -> String {

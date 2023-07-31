@@ -46,6 +46,7 @@ struct CartView: View {
                             .buttonStyle(.primary())
                             .padding()
                         }.disabled(viewModel.isLoading)
+                    .bttTrackScreen("CartView")
                     
            //     }
             }

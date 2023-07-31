@@ -33,7 +33,7 @@ struct OrderSuccessfulView: View {
             .foregroundColor(.secondary)
             .padding(.horizontal)
             .navigationTitle("Checkout")
-            .bttTrackScreen("ChekoutView")
+            .bttTrackScreen("OrderSuccessfulView")
         }
     }
 }
