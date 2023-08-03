@@ -10,19 +10,25 @@ import Foundation
 struct ANRTest {
     
     static func quantityLimitExceedCrash() {
+        
+        // NSException Crash
         let arr = NSArray()
         NSLog("Not found element \(arr[1])")
-        
     }
     
     static func cartLimitExceedCrash() {
-        let arr = NSArray()
-        NSLog("Not found element \(arr[1])")
+        
+        // Force Cast Crash
+        let string: String = "TestString"
+        let intValue = string as! Int
+        NSLog("Force casted string value to int", intValue)
     }
     
     static func emptyCartCrash() {
-        let arr = NSArray()
-        NSLog("Not found element \(arr[1])")
+        
+        // Force Unwrap Crash
+        var value: Int?
+        NSLog("Force unwrapping nil value \(value!)")
     }
     
     static func removeCartItem(startTime: TimeInterval = Date().timeIntervalSince1970) {
@@ -35,6 +41,7 @@ struct ANRTest {
     }
     
     static func heavyLoop(taskStartTime : Date = .now){
+        
         let interval : TimeInterval = 8
         var list : [String] = []
         var generator = SystemRandomNumberGenerator()
