@@ -69,7 +69,9 @@ class BTTrackingConfigViewController: UIViewController {
     
     func getSessionId() -> String{
         let formatter = DateFormatter()
-        formatter.dateFormat = "ddMMyyhhmm"
+        
+       // YYYYMMDDhhmm
+        formatter.dateFormat = "YYYYMMddhhmm"
         let value = formatter.string(from: Date())
         return value
     }

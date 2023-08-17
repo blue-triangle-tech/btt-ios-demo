@@ -63,7 +63,7 @@ class BTTConfigModel: ObservableObject {
     
     func updateSessionId(){
         let formatter = DateFormatter()
-        formatter.dateFormat = "ddMMyyhhmm"
+        formatter.dateFormat = "YYYYMMddhhmm"
         let value = formatter.string(from: Date())
         self.txtSessionId = value
     }

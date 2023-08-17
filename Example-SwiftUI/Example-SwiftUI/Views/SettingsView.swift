@@ -43,7 +43,7 @@ struct SettingsView: View {
                     }
                     
                     HStack{
-                        Text("crash_and_swiftUI_performance_time_issue")
+                        Text("feature/memory_warning_observer")
                             .font(Font.system(size: 18, weight: .regular))
                             .foregroundColor(.gray)
                        /* Text("master")

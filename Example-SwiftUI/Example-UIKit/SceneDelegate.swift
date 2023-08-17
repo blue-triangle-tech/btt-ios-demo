@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import BlueTriangle
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,7 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        AppCoordinator.setupRootConfigVc()
+        self.configure()
+        AppCoordinator.setupRootTabVc()
+        //AppCoordinator.setupRootConfigVc()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -48,7 +51,45 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+    
+    
+    func configure(){
+        
+        let siteId = Secrets.siteID
+        let enableDebugLogging = true
+        let enableScreenTracking = true
+        let enableAnrStackTrace = true
+        let anrMonitoring = true
+        let sessionId = getSessionId()
+        let sessionIdIdentifier  : Identifier = Identifier(sessionId) ?? 0
+        
+        UserDefaults.standard.set(anrMonitoring, forKey: UserDefaultKeys.ANREnableKey)
+        UserDefaults.standard.set(enableScreenTracking, forKey: UserDefaultKeys.ScreenTrackingEnableKey)
+        UserDefaults.standard.set(siteId, forKey: UserDefaultKeys.ConfigureSiteId)
+        UserDefaults.standard.set(enableAnrStackTrace, forKey: UserDefaultKeys.ANRStackTraceKey)
+        UserDefaults.standard.set(sessionId, forKey: UserDefaultKeys.ConfigureSessionId)
+        UserDefaults.standard.synchronize()
+        
+        BlueTriangle.configure { config in
+            config.siteID = siteId
+            config.sessionID = sessionIdIdentifier
+            config.networkSampleRate = 1.0
+            config.crashTracking = .nsException
+            config.enableDebugLogging = enableDebugLogging
+            config.enableScreenTracking = enableScreenTracking
+            config.ANRMonitoring = anrMonitoring
+            config.ANRStackTrace = enableAnrStackTrace
+        }
+        
+    }
 
+    func getSessionId() -> String{
+        let formatter = DateFormatter()
+       // YYYYMMDDhhmm
+        formatter.dateFormat = "YYYYMMddhhmm"
+        let value = formatter.string(from: Date())
+        return value
+    }
 
 }
 

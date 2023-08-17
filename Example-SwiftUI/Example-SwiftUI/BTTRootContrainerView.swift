@@ -15,13 +15,13 @@ struct BTTRootContrainerView: View {
         
         VStack{
             
-            if vm.isConfigurationScreen{
-                BTTrackingConfigView(vm: vm)
-            }else{
+           // if vm.isConfigurationScreen{
+            //    BTTrackingConfigView(vm: vm)
+           // }else{
                 TabContainerView(
                     imageLoader: .live,
                     service: .captured, vm: vm)
-            }
+           // }
         }
     }
 }
