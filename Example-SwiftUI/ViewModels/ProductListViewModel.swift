@@ -17,6 +17,7 @@ final class ProductListViewModel: ObservableObject {
     private let imageLoader: ImageLoader
     private let service: Service
     private var hasAppeared: Bool = false
+    private(set) var configureSessionId : String = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId) ?? "Auto Generated"
 
     init(
         cartRepository: CartRepository,

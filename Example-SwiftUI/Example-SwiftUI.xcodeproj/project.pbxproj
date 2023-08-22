@@ -1180,7 +1180,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "http://github.com/JP-aloha/btt-swift-sdk.git";
 			requirement = {
-				branch = feature/memory_warning_observer;
+				branch = crash_and_swiftUI_performance_time_issue;
 				kind = branch;
 			};
 		};

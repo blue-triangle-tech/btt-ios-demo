@@ -14,10 +14,14 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     var vm: ProductListViewModel!
     
     @IBOutlet weak var ProductCollectionView: UICollectionView!
+    @IBOutlet weak var lblSessionId: UILabel!
  
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backButtonTitle = "Product"
+        
+        lblSessionId.text =  UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId) ?? ""
+        lblSessionId.accessibilityIdentifier = "BTTSessionID"
         
         loadData()
     }
