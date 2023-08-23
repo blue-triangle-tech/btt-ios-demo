@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import BlueTriangle
 
 class SettingsViewController: UIViewController {
 
@@ -33,6 +34,13 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         Thread.sleep(forTimeInterval: 3)
+    }
+    
+    @IBAction func btnTestManualTimer(_ sender: UIButton) {
+        let timer = BlueTriangle.startTimer(
+            page: Page(
+                pageName: "TEST MANUAL TIMER"))
+        BlueTriangle.endTimer(timer)
     }
     
     func version() -> String {

@@ -157,7 +157,22 @@ struct SettingsView: View {
                 }
                 .frame(height: 50)
                 
-                Spacer()
+                VStack{
+                    HStack{
+                        
+                        Button("TEST MANUAL TIMER") {
+                            let timer = BlueTriangle.startTimer(
+                                page: Page(
+                                    pageName: "TEST MANUAL TIMER"))
+                            BlueTriangle.endTimer(timer)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.blue)
+                        
+                        Spacer()
+                    }
+                }
+                .frame(height: 50)
             }
             .padding(.leading, 15)
             .padding(.trailing, 15)
