@@ -72,7 +72,7 @@ struct ProductListView: View {
                         .font(Font.system(size: 16, weight: .medium))
                     Text("\(viewModel.configureSessionId)")
                         .font(Font.system(size: 16, weight: .regular))
-                        .accessibilityIdentifier("BTTSessionID")
+                        .accessibilityIdentifier("sessionid")
                 }
                 .padding(.bottom, 10)
                 .frame(height: 20)

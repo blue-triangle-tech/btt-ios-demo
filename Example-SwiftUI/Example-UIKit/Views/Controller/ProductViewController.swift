@@ -21,7 +21,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         navigationItem.backButtonTitle = "Product"
         
         lblSessionId.text =  UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId) ?? ""
-        lblSessionId.accessibilityIdentifier = "BTTSessionID"
+        lblSessionId.accessibilityIdentifier = "sessionid"
         
         loadData()
     }
