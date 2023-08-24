@@ -55,7 +55,7 @@ struct Example_SwiftUIApp: App {
     func getSessionId() -> String{
         let formatter = DateFormatter()
        // YYYYMMDDhhmm
-        formatter.dateFormat = "YYYYMMddhhmm"
+        formatter.dateFormat = "YYYYMMddHHmm"
         let value = formatter.string(from: Date())
         return value
     }
