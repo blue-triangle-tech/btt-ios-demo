@@ -18,17 +18,22 @@ struct ANRTest {
     
     static func cartLimitExceedCrash() {
         
+        let arr = NSArray()
+        NSLog("Not found element \(arr[1])")
         // Force Cast Crash
-        let string: String = "TestString"
+       /* let string: String = "TestString"
         let intValue = string as! Int
-        NSLog("Force casted string value to int", intValue)
+        NSLog("Force casted string value to int", intValue)*/
     }
     
     static func emptyCartCrash() {
         
+        let arr = NSArray()
+        NSLog("Not found element \(arr[1])")
+        
         // Force Unwrap Crash
-        var value: Int?
-        NSLog("Force unwrapping nil value \(value!)")
+        /*var value: Int?
+        NSLog("Force unwrapping nil value \(value!)")*/
     }
     
     static func removeCartItem(startTime: TimeInterval = Date().timeIntervalSince1970) {
