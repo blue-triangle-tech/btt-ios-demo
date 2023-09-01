@@ -10,13 +10,13 @@ import SwiftUI
 
 struct SettingsView: View {
     @ObservedObject var vm: SettingsViewModel
+    @State var isUnitTestsActive : Bool = false
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 15){
-                
-                Spacer().frame(height:20)
-                
+        
+            VStack(spacing: 5){
+                                
                 VStack{
                     HStack{
                         Text("App Version")
@@ -157,7 +157,7 @@ struct SettingsView: View {
                 }
                 .frame(height: 50)
                 
-                VStack{
+                VStack(spacing: 10){
                     HStack{
                         
                         Button("TEST MANUAL TIMER") {
@@ -171,13 +171,30 @@ struct SettingsView: View {
                         
                         Spacer()
                     }
+                    .frame(height: 45)
+                    
+                    HStack{
+                        Button("UNIT TESTS") {
+                            self.isUnitTestsActive = true
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.blue)
+                        
+                        Spacer()
+                    }
+                    .frame(height: 45)
                 }
-                .frame(height: 50)
+                .frame(height: 100)
+                
+                Spacer()
             }
             .padding(.leading, 15)
             .padding(.trailing, 15)
             .navigationTitle("Settings")
             .bttTrackScreen("SettingsView")
+            .navigationDestination(isPresented: self.$isUnitTestsActive, destination: {
+                UnitTestsView()
+            })
             .onAppear{
                 Thread.sleep(forTimeInterval: 3)
             }

@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		512A3FBE2AA1CE2E005D5A22 /* UnitTestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A3FBD2AA1CE2E005D5A22 /* UnitTestsViewController.swift */; };
+		512A3FC12AA1CFEF005D5A22 /* MemoryTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A3FC02AA1CFEF005D5A22 /* MemoryTestViewController.swift */; };
+		512A3FC42AA1D1D6005D5A22 /* UnitTestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A3FC32AA1D1D6005D5A22 /* UnitTestsView.swift */; };
 		512BBE982A49ED1A00EAFD97 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 512BBE972A49ED1A00EAFD97 /* Config.xcconfig */; };
 		512BBE992A49ED1A00EAFD97 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 512BBE972A49ED1A00EAFD97 /* Config.xcconfig */; };
+		5170A8BF2AA1E82D0091B65A /* MemoryTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8BE2AA1E82D0091B65A /* MemoryTestView.swift */; };
+		5170A8C12AA1F3B50091B65A /* UnitTestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */; };
+		5170A8C22AA1F4090091B65A /* UnitTestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */; };
+		5170A8C42AA1F7490091B65A /* CPUTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C32AA1F7490091B65A /* CPUTestView.swift */; };
+		5170A8C62AA1F87C0091B65A /* CPUTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C52AA1F87C0091B65A /* CPUTestViewController.swift */; };
+		5198A2992A9F7104003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
+		5198A29A2A9F7114003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
 		51F2BAD02A69993B00865287 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 51F2BACF2A69993B00865287 /* BlueTriangle */; };
 		51F2BAD22A69996700865287 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 51F2BAD12A69996700865287 /* BlueTriangle */; };
 		51F61C942A4ACE9F0071F957 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C922A4ACE9F0071F957 /* AppCoordinator.swift */; };
@@ -111,7 +121,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		512A3FBD2AA1CE2E005D5A22 /* UnitTestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestsViewController.swift; sourceTree = "<group>"; };
+		512A3FC02AA1CFEF005D5A22 /* MemoryTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryTestViewController.swift; sourceTree = "<group>"; };
+		512A3FC32AA1D1D6005D5A22 /* UnitTestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestsView.swift; sourceTree = "<group>"; };
 		512BBE972A49ED1A00EAFD97 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		5170A8BE2AA1E82D0091B65A /* MemoryTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryTestView.swift; sourceTree = "<group>"; };
+		5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestsViewModel.swift; sourceTree = "<group>"; };
+		5170A8C32AA1F7490091B65A /* CPUTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUTestView.swift; sourceTree = "<group>"; };
+		5170A8C52AA1F87C0091B65A /* CPUTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUTestViewController.swift; sourceTree = "<group>"; };
+		5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryAllocationTest.swift; sourceTree = "<group>"; };
 		51F61C922A4ACE9F0071F957 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		51F61C952A4ACF2B0071F957 /* BTTrackingConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTTrackingConfigViewController.swift; sourceTree = "<group>"; };
 		51F61C982A4AD1EB0071F957 /* BTTrackingConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTTrackingConfigView.swift; sourceTree = "<group>"; };
@@ -219,6 +237,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		512A3FBF2AA1CFA2005D5A22 /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				512A3FBD2AA1CE2E005D5A22 /* UnitTestsViewController.swift */,
+				512A3FC02AA1CFEF005D5A22 /* MemoryTestViewController.swift */,
+				5170A8C52AA1F87C0091B65A /* CPUTestViewController.swift */,
+			);
+			path = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		512A3FC22AA1D1AA005D5A22 /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				512A3FC32AA1D1D6005D5A22 /* UnitTestsView.swift */,
+				5170A8BE2AA1E82D0091B65A /* MemoryTestView.swift */,
+				5170A8C32AA1F7490091B65A /* CPUTestView.swift */,
+			);
+			path = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		5198A2972A9F70CC003EFBEF /* TestFactory */ = {
+			isa = PBXGroup;
+			children = (
+				5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */,
+			);
+			path = TestFactory;
+			sourceTree = "<group>";
+		};
 		8419BD0E2A49CFD6009429C9 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +294,7 @@
 				8419BD252A49CFEC009429C9 /* CheckoutViewModel.swift */,
 				8419BD262A49CFEC009429C9 /* ProductListViewModel.swift */,
 				8419BD272A49CFEC009429C9 /* CartViewModel.swift */,
+				5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -297,6 +344,7 @@
 		847CF4532A4318CE001E9011 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				512A3FBF2AA1CFA2005D5A22 /* Unit Tests */,
 				847CF4542A431B10001E9011 /* ProductViewController.swift */,
 				84A2DA722A4AC6F4002732EC /* TabBarViewController.swift */,
 				847CF4582A433F35001E9011 /* ProductDetailViewController.swift */,
@@ -352,6 +400,7 @@
 		C94BF00A290ADBA6007E1C25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				512A3FC22AA1D1AA005D5A22 /* Unit Tests */,
 				C94BF00F290ADC07007E1C25 /* Components */,
 				C93FCCB529100D5600633487 /* View Styles */,
 				C94BF01A290AE580007E1C25 /* CartView.swift */,
@@ -390,6 +439,7 @@
 				C9B9E58729B654EE007CC9DA /* README.md */,
 				8419BD322A49CFFF009429C9 /* Extensions */,
 				8419BD222A49CFEC009429C9 /* ViewModels */,
+				5198A2972A9F70CC003EFBEF /* TestFactory */,
 				8419BD1B2A49CFE0009429C9 /* Models */,
 				8419BD0E2A49CFD6009429C9 /* Helper */,
 				C9F4A4142900DB6100BCDF3E /* Example-SwiftUI */,
@@ -667,6 +717,8 @@
 				847CF43F2A4315D7001E9011 /* AppDelegate.swift in Sources */,
 				848826622A449BB6007B9D72 /* APIManager.swift in Sources */,
 				84AAA77B2A45891B000D2798 /* ProductCollectionViewCell.swift in Sources */,
+				5198A29A2A9F7114003EFBEF /* MemoryAllocationTest.swift in Sources */,
+				512A3FC12AA1CFEF005D5A22 /* MemoryTestViewController.swift in Sources */,
 				51F61C942A4ACE9F0071F957 /* AppCoordinator.swift in Sources */,
 				84D977352A4488C700192330 /* CheckOutViewController.swift in Sources */,
 				847CF4552A431B10001E9011 /* ProductViewController.swift in Sources */,
@@ -683,11 +735,14 @@
 				8419BD2D2A49CFEC009429C9 /* CheckoutViewModel.swift in Sources */,
 				8419BD292A49CFEC009429C9 /* ProductDetailViewModel.swift in Sources */,
 				84B301EA2A4DD9DC00BF23B5 /* ANRTests.swift in Sources */,
+				512A3FBE2AA1CE2E005D5A22 /* UnitTestsViewController.swift in Sources */,
 				847CF4412A4315D7001E9011 /* SceneDelegate.swift in Sources */,
 				8419BD2B2A49CFEC009429C9 /* SettingsViewModel.swift in Sources */,
 				8488265C2A449992007B9D72 /* Constant.swift in Sources */,
+				5170A8C22AA1F4090091B65A /* UnitTestsViewModel.swift in Sources */,
 				8419BD1F2A49CFE1009429C9 /* CartItemModel.swift in Sources */,
 				8419BD3D2A49CFFF009429C9 /* UIColor+Utils.swift in Sources */,
+				5170A8C62AA1F87C0091B65A /* CPUTestViewController.swift in Sources */,
 				84B301ED2A4ED16700BF23B5 /* OrderSuccessfulViewController.swift in Sources */,
 				84A2DA732A4AC6F4002732EC /* TabBarViewController.swift in Sources */,
 			);
@@ -700,8 +755,10 @@
 				8419BD2E2A49CFEC009429C9 /* ProductListViewModel.swift in Sources */,
 				8419BD2C2A49CFEC009429C9 /* CheckoutViewModel.swift in Sources */,
 				8419BD382A49CFFF009429C9 /* Service+BTT.swift in Sources */,
+				512A3FC42AA1D1D6005D5A22 /* UnitTestsView.swift in Sources */,
 				8419BD152A49CFD7009429C9 /* ImageLoader.swift in Sources */,
 				C93FCCB729100D9C00633487 /* PrimaryButtonStyle.swift in Sources */,
+				5170A8C12AA1F3B50091B65A /* UnitTestsViewModel.swift in Sources */,
 				C9C7D88F2939029C00950C55 /* LineItemRow.swift in Sources */,
 				8419BD172A49CFD7009429C9 /* CartRepository.swift in Sources */,
 				C94BF01B290AE580007E1C25 /* CartView.swift in Sources */,
@@ -716,6 +773,7 @@
 				51F61C992A4AD1EB0071F957 /* BTTrackingConfigView.swift in Sources */,
 				8419BD202A49CFE1009429C9 /* CartModel.swift in Sources */,
 				8419BD3A2A49CFFF009429C9 /* View+ErrorAlert.swift in Sources */,
+				5170A8C42AA1F7490091B65A /* CPUTestView.swift in Sources */,
 				51F61C9B2A4AD3490071F957 /* BTTRootContrainerView.swift in Sources */,
 				8419BD1E2A49CFE1009429C9 /* CartItemModel.swift in Sources */,
 				8419BD282A49CFEC009429C9 /* ProductDetailViewModel.swift in Sources */,
@@ -723,12 +781,14 @@
 				8419BD132A49CFD7009429C9 /* Constants.swift in Sources */,
 				C9F4A4162900DB6100BCDF3E /* ExampleApp.swift in Sources */,
 				8419BD2A2A49CFEC009429C9 /* SettingsViewModel.swift in Sources */,
+				5170A8BF2AA1E82D0091B65A /* MemoryTestView.swift in Sources */,
 				84B301EF2A4EDA0C00BF23B5 /* OrderSuccessfulView.swift in Sources */,
 				8419BD3E2A49CFFF009429C9 /* String+LocalizedError.swift in Sources */,
 				C9C7D8932939315D00950C55 /* RemoteImage.swift in Sources */,
 				C94BF02B290B1803007E1C25 /* CheckoutView.swift in Sources */,
 				84B301E92A4DD9DC00BF23B5 /* ANRTests.swift in Sources */,
 				C94BF019290AE519007E1C25 /* TabContainerView.swift in Sources */,
+				5198A2992A9F7104003EFBEF /* MemoryAllocationTest.swift in Sources */,
 				C93FCCB929103A7E00633487 /* CartItemRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1180,7 +1240,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "http://github.com/JP-aloha/btt-swift-sdk.git";
 			requirement = {
-				branch = crash_and_swiftUI_performance_time_issue;
+				branch = feature/memory_warning_observer;
 				kind = branch;
 			};
 		};

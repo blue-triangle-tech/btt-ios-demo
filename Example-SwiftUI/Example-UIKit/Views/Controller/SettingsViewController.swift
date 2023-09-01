@@ -43,6 +43,12 @@ class SettingsViewController: UIViewController {
         BlueTriangle.endTimer(timer)
     }
     
+    @IBAction func didSelectMemoryTest(_ sender: Any?) {
+        let storyboard = UIStoryboard(name:"Main", bundle: nil)
+        guard let itemVC = storyboard.instantiateViewController(withIdentifier: "UnitTestsViewController") as? UnitTestsViewController else { return }
+        self.navigationController?.pushViewController(itemVC, animated: true)
+    }
+    
     func version() -> String {
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String

@@ -42,6 +42,7 @@ final class ProductDetailViewModel: ObservableObject {
     @MainActor
     func imageStatus() async -> ImageStatus? {
 
+        
         // Start timer
         let timer = BlueTriangle.startTimer(
             page: Page(
