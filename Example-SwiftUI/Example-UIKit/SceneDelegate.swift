@@ -58,7 +58,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let siteId = Secrets.siteID
         let enableDebugLogging = true
         let enableScreenTracking = true
-        let enableAnrStackTrace = true
+        let enableAnrStackTrace = false
         let anrMonitoring = true
         let sessionId = getSessionId()
         let sessionIdIdentifier  : Identifier = Identifier(sessionId) ?? 0

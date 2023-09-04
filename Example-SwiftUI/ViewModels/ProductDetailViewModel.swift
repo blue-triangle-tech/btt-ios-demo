@@ -66,5 +66,9 @@ final class ProductDetailViewModel: ObservableObject {
         } catch {
             self.error = error
         }
+        
+        if product.name.lowercased().contains("perfume"){
+            cartRepository.increase100MbMemory()
+        }
     }
 }

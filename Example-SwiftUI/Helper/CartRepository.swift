@@ -11,9 +11,11 @@ import IdentifiedCollections
 import Service
 
 final class CartRepository {
+    private let memoryTest = MemoryAllocationTest()
     private let service: Service
     private var cartDetail: CartDetail?
     let items = CurrentValueSubject<IdentifiedArrayOf<CartItemModel>, Never>([])
+
 
     init(service: Service) {
         self.service = service
@@ -67,6 +69,9 @@ final class CartRepository {
         self.cartDetail = nil
         self.items.value = []
     }
+    
+    
+    
 }
 
 private extension CartRepository {
@@ -133,5 +138,18 @@ private extension CartRepository {
 extension CartRepository {
     static var mock: CartRepository {
         .init(service: .mock)
+    }
+}
+
+extension CartRepository {
+     
+    func increase100MbMemory(){
+        memoryTest.runMemoryTest()
+        print("Increase 100 MB")
+    }
+    
+    func free100MbMemory(){
+        memoryTest.freeMemoryTest()
+        print("Free 100 MB")
     }
 }

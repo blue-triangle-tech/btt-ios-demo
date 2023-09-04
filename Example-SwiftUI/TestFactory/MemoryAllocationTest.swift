@@ -25,6 +25,14 @@ class MemoryAllocationTest {
         allocatedMemoryBlocks.append(memoryBlock)
     }
     
+    private func freeOneBlockMemory() {
+    
+       if let block = allocatedMemoryBlocks.first {
+            free(block)
+            allocatedMemoryBlocks.remove(at: 0)
+        }
+    }
+    
     private func deallocateMemory() {
         
         for block in allocatedMemoryBlocks {
@@ -46,8 +54,8 @@ extension MemoryAllocationTest{
         self.allocateMemory(100)
     }
     
-    func runLightMemoryTest() {
-        self.allocateMemory(1)
+    func freeMemoryTest() {
+        self.freeOneBlockMemory()
     }
 }
 

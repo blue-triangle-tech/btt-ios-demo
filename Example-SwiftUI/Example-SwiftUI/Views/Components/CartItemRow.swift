@@ -43,12 +43,13 @@ struct CartItemRow: View {
 
                 Text(price, format: .currency(code: "USD"))
 
-                Stepper(
-                    label: {
-                        Text("\(quantity)")
-                    }, onIncrement: onIncrement,
-                    onDecrement: onDecrement)
-
+                Stepper {
+                    Text("\(quantity)")
+                } onIncrement: {
+                    onIncrement()
+                } onDecrement: {
+                    onDecrement()
+                }
             }
         }
         .buttonStyle(.borderless)

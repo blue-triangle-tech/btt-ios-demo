@@ -172,19 +172,8 @@ struct SettingsView: View {
                         Spacer()
                     }
                     .frame(height: 45)
-                    
-                    HStack{
-                        Button("UNIT TESTS") {
-                            self.isUnitTestsActive = true
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .tint(.blue)
-                        
-                        Spacer()
-                    }
-                    .frame(height: 45)
                 }
-                .frame(height: 100)
+                .frame(height: 50)
                 
                 Spacer()
             }

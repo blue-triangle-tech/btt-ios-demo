@@ -58,6 +58,11 @@ final class CartViewModel: ObservableObject {
             isLoading = true
             try await cartRepository.updateQuantity(cartItemID: id, quantity: currentQuantity + 1)
             isLoading = false
+            if let product = productItems[id: id]?.product{
+                if product.name.lowercased().contains("perfume"){
+                    cartRepository.increase100MbMemory()
+                }
+            }
         } catch {
             self.error = error
         }
@@ -79,6 +84,11 @@ final class CartViewModel: ObservableObject {
                 try await cartRepository.remove(cartItemID: id)
                 isLoading = false
             }
+            if let product = productItems[id: id]?.product{
+                if product.name.lowercased().contains("perfume"){
+                    cartRepository.free100MbMemory()
+                }
+            }
         } catch {
             self.error = error
         }
@@ -86,11 +96,17 @@ final class CartViewModel: ObservableObject {
     
     @MainActor
     func removeProduct(id: CartItemModel.ID) async {
-        guard let prodcut = productItems[id: id] else { return }
+        guard let product = productItems[id: id] else { return }
         do {
             isLoading = true
             try await cartRepository.remove(cartItemID: id)
             isLoading = false
+            
+            if product.product.name.lowercased().contains("perfume"){
+                for _ in 1 ... product.quantity {
+                    cartRepository.free100MbMemory()
+                }
+            }
         } catch {
             self.error = error
         }
