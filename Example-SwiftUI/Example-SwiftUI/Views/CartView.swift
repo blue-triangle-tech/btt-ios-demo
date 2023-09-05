@@ -53,6 +53,9 @@ struct CartView: View {
             .navigationDestination(isPresented: $didPlaceOrder, destination: {
                 OrderSuccessfulView(checkoutId: viewModel.checkoutItem?.confirmation ?? UUID().uuidString)
             })
+            .alert("Detected memory warning", isPresented: $viewModel.isMemoryWarning) {
+                Button("OK", role: .cancel) { }
+            }
             .navigationTitle("Cart")
         }
         .errorAlert(error: $viewModel.error)

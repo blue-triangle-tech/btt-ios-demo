@@ -57,6 +57,9 @@ struct ProductDetailView: View {
                 imageStatus = status
             }
         }
+        .alert("Detected memory warning", isPresented: $viewModel.isMemoryWarning) {
+            Button("OK", role: .cancel) { }
+        }
         .navigationTitle("Product Detail")
         //.navigationBarTitleDisplayMode(.inline)
     }

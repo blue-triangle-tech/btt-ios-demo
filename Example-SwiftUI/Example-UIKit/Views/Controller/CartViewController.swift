@@ -27,6 +27,7 @@ class CartViewController: UIViewController {
         
         btnSetup()
         getCart()
+        resisterObserver()
     }
     
     
@@ -82,6 +83,32 @@ class CartViewController: UIViewController {
         self.lblTax.text = "$\(vm.estimatedTax.roundedToPlaces())"
         self.lblSubtotal.text = "$\(vm.subtotal.roundedToPlaces())"
     }
+    
+     //MARK: - Memory Warning observers
+    
+    @objc func raiseMemoryWarning(){
+        let alert = UIAlertController(title: "Error", message: "Detected memory warning ", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+     
+     private func resisterObserver(){
+         
+         NotificationCenter.default.addObserver(self,
+                                                selector: #selector(raiseMemoryWarning),
+                                                name: UIApplication.didReceiveMemoryWarningNotification,
+                                                object: nil)
+     }
+     
+     private func removeObserver(){
+         NotificationCenter.default.removeObserver(self,
+                                                           name: UIApplication.didReceiveMemoryWarningNotification,
+                                                           object: nil)
+     }
+     
+     deinit {
+         removeObserver()
+     }
 }
 
 extension CartViewController: UITableViewDataSource,UITableViewDelegate {

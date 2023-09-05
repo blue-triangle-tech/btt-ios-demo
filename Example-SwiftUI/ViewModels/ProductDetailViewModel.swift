@@ -8,6 +8,7 @@
 import BlueTriangle
 import Foundation
 import Service
+import UIKit
 
 final class ProductDetailViewModel: ObservableObject {
     @Published var error: Error?
@@ -15,6 +16,7 @@ final class ProductDetailViewModel: ObservableObject {
     private let cartRepository: CartRepository
     private let imageLoader: ImageLoader
     private let product: Product
+    @Published var isMemoryWarning: Bool = false
 
     var name: String {
         product.name
@@ -70,5 +72,31 @@ final class ProductDetailViewModel: ObservableObject {
         if product.name.lowercased().contains("perfume"){
             cartRepository.increase100MbMemory()
         }
+    }
+    
+    deinit {
+        removeObserver()
+    }
+}
+
+extension ProductDetailViewModel {
+    //MARK: - Memory Warning observers
+   
+   @objc func raiseMemoryWarning(){
+       self.isMemoryWarning = true
+   }
+    
+    private func resisterObserver(){
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(raiseMemoryWarning),
+                                               name: UIApplication.didReceiveMemoryWarningNotification,
+                                               object: nil)
+    }
+    
+    private func removeObserver(){
+        NotificationCenter.default.removeObserver(self,
+                                                          name: UIApplication.didReceiveMemoryWarningNotification,
+                                                          object: nil)
     }
 }

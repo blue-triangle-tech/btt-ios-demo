@@ -9,6 +9,8 @@ import Foundation
 import IdentifiedCollections
 import Service
 import BlueTriangle
+import UIKit
+
 final class CartViewModel: ObservableObject {
     private let service: Service
     private let cartRepository: CartRepository
@@ -17,6 +19,7 @@ final class CartViewModel: ObservableObject {
     @Published var error: Error?
     @Published var checkoutitem: Checkout?
     @Published var isLoading: Bool = false
+    @Published var isMemoryWarning: Bool = false
     
     var estimatedTax: Double {
         Constants.averageSalesTax * subtotal
@@ -136,6 +139,10 @@ final class CartViewModel: ObservableObject {
             self.error = error
         }
     }
+    
+    deinit {
+        removeObserver()
+    }
 }
 
 extension CartViewModel {
@@ -146,5 +153,27 @@ extension CartViewModel {
             onFinish: { [weak self] in
                 self?.checkoutItem = nil
             })
+    }
+}
+
+extension CartViewModel {
+    //MARK: - Memory Warning observers
+   
+   @objc func raiseMemoryWarning(){
+       self.isMemoryWarning = true
+   }
+    
+    private func resisterObserver(){
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(raiseMemoryWarning),
+                                               name: UIApplication.didReceiveMemoryWarningNotification,
+                                               object: nil)
+    }
+    
+    private func removeObserver(){
+        NotificationCenter.default.removeObserver(self,
+                                                          name: UIApplication.didReceiveMemoryWarningNotification,
+                                                          object: nil)
     }
 }

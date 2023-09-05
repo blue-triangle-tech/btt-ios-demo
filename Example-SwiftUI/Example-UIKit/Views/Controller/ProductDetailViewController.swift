@@ -23,7 +23,7 @@ class ProductDetailViewController: UIViewController {
         super.viewDidLoad()
         setupBtn()
         setupLbl()
-       
+        resisterObserver()
     }
     
     
@@ -68,6 +68,32 @@ class ProductDetailViewController: UIViewController {
             await vm.addToCart()
             btnAddtoCart.isEnabled = true
         }
-       
     }
+    
+    
+     //MARK: - Memory Warning observers
+    
+    @objc func raiseMemoryWarning(){
+        let alert = UIAlertController(title: "Error", message: "Detected memory warning ", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+     
+     private func resisterObserver(){
+         
+         NotificationCenter.default.addObserver(self,
+                                                selector: #selector(raiseMemoryWarning),
+                                                name: UIApplication.didReceiveMemoryWarningNotification,
+                                                object: nil)
+     }
+     
+     private func removeObserver(){
+         NotificationCenter.default.removeObserver(self,
+                                                           name: UIApplication.didReceiveMemoryWarningNotification,
+                                                           object: nil)
+     }
+     
+     deinit {
+         removeObserver()
+     }
 }
