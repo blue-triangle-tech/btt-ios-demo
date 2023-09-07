@@ -38,9 +38,9 @@ class AppCoordinator{
         }
     }
 
-    static private func getRootTabVC() ->UINavigationController? {
+    static private func getRootTabVC() ->TabBarViewController? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let rootVC = storyboard.instantiateViewController(withIdentifier: "NavigationVC") as? UINavigationController
+        let rootVC = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as? TabBarViewController
         return rootVC
     }
     

@@ -16,11 +16,11 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cartRepository = CartRepository(service: service)
-        if let productListVC = self.viewControllers?[0] as? ProductViewController {
+        if let navVC = self.viewControllers?[0] as? UINavigationController, let productListVC = navVC.viewControllers[0] as? ProductViewController {
             productListVC.vm = ProductListViewModel(cartRepository: cartRepository, imageLoader: imageLoader, service: service)
         }
         
-        if let cartVC =  self.viewControllers?[1] as? CartViewController {
+        if let navVC = self.viewControllers?[1] as? UINavigationController, let cartVC =  navVC.viewControllers[0] as? CartViewController {
             cartVC.vm = CartViewModel(service: service, cartRepository: cartRepository)
         }
         

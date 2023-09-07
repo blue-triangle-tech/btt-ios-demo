@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XTc-JZ-VZc">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -21,16 +21,67 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ecF-GM-whX" kind="relationship" relationship="viewControllers" id="Hii-mQ-LHm"/>
-                        <segue destination="RoX-54-DA7" kind="relationship" relationship="viewControllers" id="Czb-g4-0s1"/>
-                        <segue destination="S62-xb-YMX" kind="relationship" relationship="viewControllers" id="MWe-p4-UBa"/>
+                        <segue destination="Fhq-5W-GdI" kind="relationship" relationship="viewControllers" id="5Vz-no-neZ"/>
+                        <segue destination="mPr-xN-Hfw" kind="relationship" relationship="viewControllers" id="z4u-IK-gqZ"/>
+                        <segue destination="nnI-Bj-noa" kind="relationship" relationship="viewControllers" id="1gX-ro-gCh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Y6-tm-GS4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="-332"/>
+            <point key="canvasLocation" x="552" y="-332"/>
         </scene>
-        <!--Product-->
+        <!--Products-->
+        <scene sceneID="ITe-Fl-Hrf">
+            <objects>
+                <navigationController id="Fhq-5W-GdI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Products" id="C6M-a6-KDv"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tSd-jq-b3a">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ecF-GM-whX" kind="relationship" relationship="rootViewController" id="pFb-KP-Bb5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4dX-mX-8GM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1360" y="-769"/>
+        </scene>
+        <!--Cart-->
+        <scene sceneID="a8e-aY-LsJ">
+            <objects>
+                <navigationController id="mPr-xN-Hfw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cart" id="FB3-im-liX"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="STV-v7-stg">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="RoX-54-DA7" kind="relationship" relationship="rootViewController" id="y5y-nN-QwK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kB0-qa-6ah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1526" y="-96"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="qeM-aZ-aiu">
+            <objects>
+                <navigationController id="nnI-Bj-noa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" id="UtY-di-tZu"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fbq-wl-qrH">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="S62-xb-YMX" kind="relationship" relationship="rootViewController" id="DkE-jH-Fxw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iKP-UI-cQn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="813" y="568"/>
+        </scene>
+        <!--Products-->
         <scene sceneID="q6S-6u-NUJ">
             <objects>
                 <viewController storyboardIdentifier="ProductViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ecF-GM-whX" customClass="ProductViewController" customModule="Example_UIKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -154,7 +205,7 @@
                             <constraint firstItem="WSV-O3-twe" firstAttribute="leading" secondItem="g4i-gT-x8U" secondAttribute="leading" constant="10" id="yYp-KH-Yvd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Product" image="square.grid.2x2" catalog="system" selectedImage="square.grid.2x2.fill" id="O2h-ce-ED3"/>
+                    <tabBarItem key="tabBarItem" title="Products" image="square.grid.2x2" catalog="system" selectedImage="square.grid.2x2.fill" id="O2h-ce-ED3"/>
                     <navigationItem key="navigationItem" id="zxF-qs-ZUu"/>
                     <connections>
                         <outlet property="ProductCollectionView" destination="OAE-fp-FJR" id="Tll-mv-kRC"/>
@@ -806,6 +857,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" selectedImage="cart.fill" id="iCH-HZ-MgD"/>
+                    <navigationItem key="navigationItem" id="G7E-sg-0Mw"/>
                     <connections>
                         <outlet property="btnCheckOut" destination="Nnd-F2-0Xf" id="UVF-UJ-FRD"/>
                         <outlet property="emptyCartView" destination="9bf-bd-JPb" id="1bp-M7-Cws"/>
@@ -817,7 +869,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i7A-G9-53G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2055.7251908396947" y="-130.28169014084509"/>
+            <point key="canvasLocation" x="2297" y="-108"/>
         </scene>
         <!--Settings-->
         <scene sceneID="YmW-Xa-wVM">
@@ -1044,6 +1096,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" selectedImage="gearshape.fill" id="dm7-us-wQ2"/>
+                    <navigationItem key="navigationItem" id="Dy1-ME-TsN"/>
                     <connections>
                         <outlet property="lblAnrEnable" destination="FII-Mu-2lS" id="TWS-RF-kCI"/>
                         <outlet property="lblAnrStackTraceEnable" destination="kpF-m5-YhV" id="gWh-4K-l15"/>
@@ -1174,25 +1227,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgM-If-zys" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3698" y="820"/>
-        </scene>
-        <!--Product-->
-        <scene sceneID="MTx-Mv-hZt">
-            <objects>
-                <navigationController storyboardIdentifier="NavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="yZ6-hu-IVU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Product" image="square.grid.2x2" catalog="system" selectedImage="square.grid.2x2.fill" id="8iG-mf-5Jf"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HD1-eK-jrG">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="XTc-JZ-VZc" kind="relationship" relationship="rootViewController" id="A3G-Nr-ZBB"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EcY-7X-Py6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1233" y="-540"/>
         </scene>
         <!--Tracking Config View Controller-->
         <scene sceneID="qll-iS-CTf">
