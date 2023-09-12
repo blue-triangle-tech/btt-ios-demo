@@ -30,7 +30,7 @@ struct Example_SwiftUIApp: App {
         let enableAnrStackTrace = false
         let anrMonitoring = true
         let sessionId = getSessionId()
-        let sessionIdIdentifier  : Identifier = Identifier(sessionId) ?? 0
+        let sessionIdIdentifier  : Identifier = sessionId
         
         UserDefaults.standard.set(anrMonitoring, forKey: UserDefaultKeys.ANREnableKey)
         UserDefaults.standard.set(enableScreenTracking, forKey: UserDefaultKeys.ScreenTrackingEnableKey)
@@ -52,11 +52,7 @@ struct Example_SwiftUIApp: App {
         
     }
 
-    func getSessionId() -> String{
-        let formatter = DateFormatter()
-       // YYYYMMDDhhmm
-        formatter.dateFormat = "YYYYMMddHHmm"
-        let value = formatter.string(from: Date())
-        return value
+    func getSessionId() -> Identifier{
+        Identifier.random()
     }
 }
