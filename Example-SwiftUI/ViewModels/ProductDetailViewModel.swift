@@ -72,6 +72,11 @@ final class ProductDetailViewModel: ObservableObject {
         if product.name.lowercased().contains("perfume"){
             cartRepository.increase100MbMemory()
         }
+        
+        if product.name.lowercased().contains("key holder"){
+            let cpuTest = CPUUsesTest()
+            cpuTest.runSingleCore()
+        }
     }
     
     deinit {

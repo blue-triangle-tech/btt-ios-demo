@@ -12,6 +12,7 @@ import Service
 
 final class CartRepository {
     private let memoryTest = MemoryAllocationTest()
+    private let cpuTest = CPUUsesTest()
     private let service: Service
     private var cartDetail: CartDetail?
     let items = CurrentValueSubject<IdentifiedArrayOf<CartItemModel>, Never>([])
@@ -151,5 +152,10 @@ extension CartRepository {
     func free100MbMemory(){
         memoryTest.freeMemoryTest()
         print("Free 100 MB")
+    }
+    
+    func cpuUses(){
+        cpuTest.runSingleCore()
+        print("Increase 100 % MB")
     }
 }
