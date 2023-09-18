@@ -26,6 +26,10 @@ class ProductDetailViewController: UIViewController {
         resisterObserver()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        vm.freeAllMemoryOnDisapear()
+    }
     
     @IBAction func didClickStepper(_ sender: UIStepper) {
         self.vm.quantity = Int(sender.value)
@@ -59,7 +63,7 @@ class ProductDetailViewController: UIViewController {
     
     @IBAction func didSelectAddToCart(_ sender: Any) {
         vm.quantity += 1
-        if vm.quantity > 3 {
+        if vm.hasCrashLimitExceed() {
                 ANRTest.quantityLimitExceedCrash()
         }
         
@@ -74,7 +78,7 @@ class ProductDetailViewController: UIViewController {
      //MARK: - Memory Warning observers
     
     @objc func raiseMemoryWarning(){
-        let alert = UIAlertController(title: "Error", message: "Detected memory warning. ", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Memory Warning", message: "Memory warning received. Your App is consuming too much memory.", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

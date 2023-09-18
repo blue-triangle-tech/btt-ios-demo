@@ -36,7 +36,7 @@ struct ProductDetailView: View {
             Button(
                 action: {
                     viewModel.quantity += 1
-                    if viewModel.quantity > 3 {
+                    if viewModel.hasCrashLimitExceed() {
                             ANRTest.quantityLimitExceedCrash()
                     }
                     
@@ -57,8 +57,13 @@ struct ProductDetailView: View {
                 imageStatus = status
             }
         }
-        .alert("Detected memory warning.", isPresented: $viewModel.isMemoryWarning) {
+        .alert("Memory Warning", isPresented: $viewModel.isMemoryWarning, actions: {
             Button("OK", role: .cancel) { }
+        }, message: {
+           Text("Memory warning received. Your App is consuming too much memory.")
+        })
+        .onDisappear{
+            viewModel.freeAllMemoryOnDisapear()
         }
         .navigationTitle("Product Detail")
         //.navigationBarTitleDisplayMode(.inline)

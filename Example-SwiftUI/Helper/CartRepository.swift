@@ -149,9 +149,9 @@ extension CartRepository {
         print("Increase 100 MB")
     }
     
-    func free100MbMemory(){
-        memoryTest.freeMemoryTest()
-        print("Free 100 MB")
+    func freeAllMemory(){
+        memoryTest.freeAllMemoryTest()
+        print("Free All memory")
     }
     
     func cpuUses50To80Percent(){

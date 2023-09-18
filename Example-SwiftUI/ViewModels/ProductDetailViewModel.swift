@@ -39,6 +39,25 @@ final class ProductDetailViewModel: ObservableObject {
         self.imageLoader = imageLoader
         self.product = product
         self.quantity = quantity
+        self.resisterObserver()
+    }
+    
+    func hasCrashLimitExceed() -> Bool{
+        
+        var currentItems = cartRepository.items.value
+        var isAllPerfumeType = true
+        for item in currentItems{
+            if !item.product.name.lowercased().contains("perfume"){
+                isAllPerfumeType = false
+                break
+            }
+        }
+        
+        if quantity > 3 && isAllPerfumeType == false{
+            return true
+        }
+        
+        return false
     }
 
     @MainActor
@@ -84,6 +103,10 @@ final class ProductDetailViewModel: ObservableObject {
         if product.name.lowercased().contains("oppof19"){
             cartRepository.cpuUsesDoubleCore100Percent()
         }
+    }
+    
+    func freeAllMemoryOnDisapear(){
+        cartRepository.freeAllMemory()
     }
     
     deinit {
