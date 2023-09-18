@@ -154,8 +154,18 @@ extension CartRepository {
         print("Free 100 MB")
     }
     
-    func cpuUses(){
-        cpuTest.runSingleCore()
-        print("Increase 100 % MB")
+    func cpuUses50To80Percent(){
+        cpuTest.runSingleCoreFiftyToEightyPercent()
+        print("CPU uses 50 - 80 % ")
+    }
+    
+    func cpuUsesSingleCore100Percent(){
+        cpuTest.runSingleCoreHundradePercent()
+        print("CPU uses 100 % ")
+    }
+    
+    func cpuUsesDoubleCore100Percent(){
+        cpuTest.runDoubleCoreHundradePercent()
+        print("CPU uses 200 %")
     }
 }

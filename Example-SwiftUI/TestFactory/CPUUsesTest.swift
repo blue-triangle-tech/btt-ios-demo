@@ -9,14 +9,14 @@ import Foundation
 
 class CPUUsesTest {
     
-    func runSingleFiftyToEightCore(){
+    func runSingleCoreFiftyToEightyPercent(){
         DispatchQueue.global().async {
             let extractTaskCombination = AlphabetCombination()
              extractTaskCombination.createCpuUses()
         }
     }
     
-    func runSingleCore(){
+    func runSingleCoreHundradePercent(){
         
         DispatchQueue.global().async {
             let extractTaskCombination = AlphabetCombination()
@@ -24,7 +24,7 @@ class CPUUsesTest {
         }
     }
     
-    func runDoubleCore(){
+    func runDoubleCoreHundradePercent(){
        
         DispatchQueue.global().async {
             let extractTaskCombination = AlphabetCombination()
@@ -36,26 +36,13 @@ class CPUUsesTest {
             extractCombination.runInfiniteLoop()
         }
     }
-    
-    func heavyLoopTest(){
-        
-        let processInfo = ProcessInfo()
-        let logicalCoresCount = ProcessInfo.processInfo.processorCount
-        print("Count1 :\(processInfo.activeProcessorCount)-\(logicalCoresCount)")
-        
-        DispatchQueue.global().async {
-            let extractTaskCombination = AlphabetCombination()
-            let taskCombinations = extractTaskCombination.makeAllCombinations()
-            print("Background Thread1: \(taskCombinations)")
-        }
-    }
 }
 
 
 class AlphabetCombination{
     
     var result: [String] = []
-    let idleTime : CGFloat = 60
+    let idleTime : CGFloat = 30
     
     
     func createCpuUses(){

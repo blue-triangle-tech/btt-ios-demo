@@ -74,8 +74,15 @@ final class ProductDetailViewModel: ObservableObject {
         }
         
         if product.name.lowercased().contains("key holder"){
-            let cpuTest = CPUUsesTest()
-            cpuTest.runSingleCore()
+            cartRepository.cpuUses50To80Percent()
+        }
+        
+        if product.name.lowercased().contains("infinix inbook"){
+            cartRepository.cpuUsesSingleCore100Percent()
+        }
+        
+        if product.name.lowercased().contains("oppof19"){
+            cartRepository.cpuUsesDoubleCore100Percent()
         }
     }
     
