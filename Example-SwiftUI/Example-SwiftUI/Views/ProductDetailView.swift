@@ -60,7 +60,7 @@ struct ProductDetailView: View {
         .alert("Memory Warning", isPresented: $viewModel.isMemoryWarning, actions: {
             Button("OK", role: .cancel) { }
         }, message: {
-           Text("Memory warning received. Your App is consuming too much memory.")
+           Text("Memory warning received. Your app is using too much memory than expected.")
         })
         .onDisappear{
             viewModel.freeAllMemoryOnDisapear()
