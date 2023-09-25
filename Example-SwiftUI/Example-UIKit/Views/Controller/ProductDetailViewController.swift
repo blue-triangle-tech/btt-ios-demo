@@ -78,7 +78,7 @@ class ProductDetailViewController: UIViewController {
      //MARK: - Memory Warning observers
     
     @objc func raiseMemoryWarning(){
-        let alert = UIAlertController(title: "Memory Warning", message: "Memory warning received. Your App is consuming too much memory.", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Memory Warning", message: "Memory warning received. Your app is using too much memory than expected.", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

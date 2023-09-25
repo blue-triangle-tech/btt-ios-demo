@@ -12,7 +12,7 @@ class CPUUsesTest {
     func runSingleCoreFiftyToEightyPercent(){
         DispatchQueue.global().async {
             let extractTaskCombination = AlphabetCombination()
-             extractTaskCombination.createCpuUses()
+             extractTaskCombination.cpuUses50_80Percent()
         }
     }
     
@@ -20,7 +20,7 @@ class CPUUsesTest {
         
         DispatchQueue.global().async {
             let extractTaskCombination = AlphabetCombination()
-            extractTaskCombination.createCpuUses()
+            extractTaskCombination.runInfiniteLoop()
         }
     }
     
@@ -45,7 +45,7 @@ class AlphabetCombination{
     let idleTime : CGFloat = 30
     
     
-    func createCpuUses(){
+    func cpuUses50_80Percent(){
         
         let startTime = Date()
         var counter = 0
