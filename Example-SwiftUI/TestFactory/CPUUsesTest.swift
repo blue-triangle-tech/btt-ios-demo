@@ -101,7 +101,7 @@ class AlphabetCombination{
              
              for i in 0..<n {
                  
-                 if (Date().timeIntervalSince1970 - startTime.timeIntervalSince1970) > 60 {
+                 if (Date().timeIntervalSince1970 - startTime.timeIntervalSince1970) > idleTime {
                      return []
                  }
                  

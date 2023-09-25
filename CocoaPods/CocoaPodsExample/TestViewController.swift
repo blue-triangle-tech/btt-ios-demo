@@ -17,5 +17,6 @@ class TestViewController: UIViewController {
     
     @IBAction func didSelectDissmiss(_ sender : Any){
         self.dismiss(animated: true)
+        NSArray()[0]
     }
 }

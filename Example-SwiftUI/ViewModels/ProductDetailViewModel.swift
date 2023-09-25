@@ -44,7 +44,7 @@ final class ProductDetailViewModel: ObservableObject {
     
     func hasCrashLimitExceed() -> Bool{
         
-        var currentItems = cartRepository.items.value
+        let currentItems = cartRepository.items.value
         var isAllPerfumeType = true
         for item in currentItems{
             if !item.product.name.lowercased().contains("perfume"){

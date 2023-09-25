@@ -2,5 +2,5 @@ platform :ios, '16.0'
 
 target 'CocoaPodsExample' do
   use_frameworks!
-  pod 'BlueTriangleSDK-Swift', :git => 'https://github.com/JP-aloha/btt-swift-sdk.git', :branch => 'crash_and_swiftUI_performance_time_issue'
+  pod 'BlueTriangleSDK-Swift', :git => 'https://github.com/blue-triangle-tech/btt-swift-sdk.git', :branch => 'master'
 end
