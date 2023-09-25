@@ -11,7 +11,7 @@ import SwiftUI
 struct ProductDetailView: View {
     @ObservedObject var viewModel: ProductDetailViewModel
     @State var imageStatus: ImageStatus?
-
+    @State var isLoading: Bool = false
     var body: some View {
         ScrollView {
             VStack {
@@ -31,16 +31,24 @@ struct ProductDetailView: View {
                 .padding(.horizontal, 16)
             }
         }
+        .bttTrackScreen("ProductDetailView")
         .overlay(alignment: .bottom) {
             Button(
                 action: {
+                    viewModel.quantity += 1
+                    if viewModel.hasCrashLimitExceed() {
+                            ANRTest.quantityLimitExceedCrash()
+                    }
+                    
                     Task {
+                        isLoading = true
                         await viewModel.addToCart()
+                        isLoading = false
                     }
                 },
                 label: {
                     Text("Add to Cart")
-                })
+                }).disabled(isLoading)
             .buttonStyle(.primary())
             .padding()
         }
@@ -49,7 +57,16 @@ struct ProductDetailView: View {
                 imageStatus = status
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
+        .alert("Memory Warning", isPresented: $viewModel.isMemoryWarning, actions: {
+            Button("OK", role: .cancel) { }
+        }, message: {
+           Text("Memory warning received. Your app is using too much memory than expected.")
+        })
+        .onDisappear{
+            viewModel.freeAllMemoryOnDisapear()
+        }
+        .navigationTitle("Product Detail")
+        //.navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -66,16 +83,16 @@ private extension ProductDetailView {
                 Text(viewModel.price)
             }
 
-            HStack(spacing: 0) {
-                Text("Qty:")
+//            HStack(spacing: 0) {
+//                Text("Qty:")
 
-                Picker("Quantity",
-                       selection: $viewModel.quantity) {
-                    ForEach(1..<5) { Text("\($0)").tag($0) }
-                }
-
-                Spacer()
-            }
+//                Picker("Quantity",
+//                       selection: $viewModel.quantity) {
+//                    ForEach(1..<5) { Text("\($0)").tag($0) }
+//                }
+//
+//                Spacer()
+//            }
         }
     }
 }

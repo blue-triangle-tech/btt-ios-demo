@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		519CD2AE2A77E9D20031D562 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519CD2AD2A77E9D20031D562 /* TestViewController.swift */; };
 		C9B9E59C29B65B2F007CC9DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9E59B29B65B2F007CC9DA /* AppDelegate.swift */; };
 		C9B9E59E29B65B2F007CC9DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9E59D29B65B2F007CC9DA /* SceneDelegate.swift */; };
 		C9B9E5A029B65B2F007CC9DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B9E59F29B65B2F007CC9DA /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		519CD2AD2A77E9D20031D562 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		B35ABE7E868B48CD63505562 /* Pods_CocoaPodsExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoaPodsExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD458A242D12DA8B13471BB1 /* Pods-CocoaPodsExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoaPodsExample.release.xcconfig"; path = "Target Support Files/Pods-CocoaPodsExample/Pods-CocoaPodsExample.release.xcconfig"; sourceTree = "<group>"; };
 		C9B9E59829B65B2F007CC9DA /* CocoaPodsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoaPodsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 				C9B9E59B29B65B2F007CC9DA /* AppDelegate.swift */,
 				C9B9E59D29B65B2F007CC9DA /* SceneDelegate.swift */,
 				C9B9E5D029B65C0C007CC9DA /* Configuration.swift */,
+				519CD2AD2A77E9D20031D562 /* TestViewController.swift */,
 				C9B9E59F29B65B2F007CC9DA /* ViewController.swift */,
 				C9B9E5A129B65B2F007CC9DA /* Main.storyboard */,
 				C9B9E5A429B65B31007CC9DA /* Assets.xcassets */,
@@ -346,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				519CD2AE2A77E9D20031D562 /* TestViewController.swift in Sources */,
 				C9B9E5A029B65B2F007CC9DA /* ViewController.swift in Sources */,
 				C9B9E59C29B65B2F007CC9DA /* AppDelegate.swift in Sources */,
 				C9B9E5D129B65C0C007CC9DA /* Configuration.swift in Sources */,

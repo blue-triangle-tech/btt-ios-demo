@@ -15,7 +15,6 @@ class ViewController: UIViewController {
             submitButton.isEnabled = !hasActiveTimer
         }
     }
-
     // MARK: - Subviews
 
     private lazy var submitButton: UIButton = {
@@ -26,9 +25,18 @@ class ViewController: UIViewController {
         control.translatesAutoresizingMaskIntoConstraints = false
         return control
     }()
+    
+    private lazy var testViewButton: UIButton = {
+        let action = UIAction(title: "Test View") { [weak self] _ in
+            self?.testTrackingView()
+        }
+        let control = UIButton(configuration: .filled(), primaryAction: action)
+        control.translatesAutoresizingMaskIntoConstraints = false
+        return control
+    }()
 
     private lazy var buttonStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [submitButton])
+        let view = UIStackView(arrangedSubviews: [submitButton, testViewButton])
         view.axis = .vertical
         view.alignment = .fill
         view.distribution = .fillEqually
@@ -36,6 +44,17 @@ class ViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    
+    private func testTrackingView(){
+        let storyboard = UIStoryboard(name:"Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "TestViewController") as? TestViewController{
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
+    }
+    
+
 
     // MARK: - Lifecycle
 
