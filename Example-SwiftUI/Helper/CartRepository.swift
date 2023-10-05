@@ -159,9 +159,9 @@ extension CartRepository {
         print("CPU uses 50 - 80 % ")
     }
     
-    func cpuUsesSingleCore100Percent(){
-        cpuTest.runSingleCoreHundradePercent()
-        print("CPU uses 100 % ")
+    func cpuUsesHalfNumberOfCore100Percent(){
+        cpuTest.runHalfNumberOfCore100Percent()
+        print("CPU uses 50 % ")
     }
     
     func cpuUsesDoubleCore100Percent(){
