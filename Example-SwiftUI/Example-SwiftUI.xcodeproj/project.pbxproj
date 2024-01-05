@@ -17,10 +17,9 @@
 		5170A8C22AA1F4090091B65A /* UnitTestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */; };
 		5170A8C42AA1F7490091B65A /* CPUTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C32AA1F7490091B65A /* CPUTestView.swift */; };
 		5170A8C62AA1F87C0091B65A /* CPUTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C52AA1F87C0091B65A /* CPUTestViewController.swift */; };
+		518C8D2B2B48466C00345E83 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 518C8D2A2B48466C00345E83 /* BlueTriangle */; };
 		5198A2992A9F7104003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
 		5198A29A2A9F7114003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
-		51CB09712ABCB307007E6FFC /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 51CB09702ABCB307007E6FFC /* BlueTriangle */; };
-		51CB09732ABCB3AF007E6FFC /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 51CB09722ABCB3AF007E6FFC /* BlueTriangle */; };
 		51F61C942A4ACE9F0071F957 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C922A4ACE9F0071F957 /* AppCoordinator.swift */; };
 		51F61C972A4ACF2B0071F957 /* BTTrackingConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C952A4ACF2B0071F957 /* BTTrackingConfigViewController.swift */; };
 		51F61C992A4AD1EB0071F957 /* BTTrackingConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C982A4AD1EB0071F957 /* BTTrackingConfigView.swift */; };
@@ -212,7 +211,6 @@
 			files = (
 				84A03BEB2A49DE16000C8BD0 /* Service in Frameworks */,
 				84A03BED2A49DE16000C8BD0 /* IdentifiedCollections in Frameworks */,
-				51CB09732ABCB3AF007E6FFC /* BlueTriangle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +220,7 @@
 			files = (
 				C9E1141A291421F00031E874 /* IdentifiedCollections in Frameworks */,
 				C94BF015290AE2FC007E1C25 /* Service in Frameworks */,
-				51CB09712ABCB307007E6FFC /* BlueTriangle in Frameworks */,
+				518C8D2B2B48466C00345E83 /* BlueTriangle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,7 +552,6 @@
 			packageProductDependencies = (
 				84A03BEA2A49DE16000C8BD0 /* Service */,
 				84A03BEC2A49DE16000C8BD0 /* IdentifiedCollections */,
-				51CB09722ABCB3AF007E6FFC /* BlueTriangle */,
 			);
 			productName = "Example-UIKit";
 			productReference = 847CF43C2A4315D7001E9011 /* Example-UIKit.app */;
@@ -576,7 +573,7 @@
 			packageProductDependencies = (
 				C94BF014290AE2FC007E1C25 /* Service */,
 				C9E11419291421F00031E874 /* IdentifiedCollections */,
-				51CB09702ABCB307007E6FFC /* BlueTriangle */,
+				518C8D2A2B48466C00345E83 /* BlueTriangle */,
 			);
 			productName = "Example-SwiftUI";
 			productReference = C9F4A4122900DB6100BCDF3E /* Example-SwiftUI.app */;
@@ -656,7 +653,7 @@
 			mainGroup = C9F4A4092900DB6100BCDF3E;
 			packageReferences = (
 				C9E11418291421F00031E874 /* XCRemoteSwiftPackageReference "swift-identified-collections" */,
-				51CB096F2ABCB307007E6FFC /* XCRemoteSwiftPackageReference "btt-swift-sdk" */,
+				518C8D292B48466C00345E83 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */,
 			);
 			productRefGroup = C9F4A4132900DB6100BCDF3E /* Products */;
 			projectDirPath = "";
@@ -1248,11 +1245,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		51CB096F2ABCB307007E6FFC /* XCRemoteSwiftPackageReference "btt-swift-sdk" */ = {
+		518C8D292B48466C00345E83 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/blue-triangle-tech/btt-swift-sdk.git";
+			repositoryURL = "https://github.com/JP-aloha/btt-swift-sdk.git";
 			requirement = {
-				branch = master;
+				branch = "feature/cpu-memory-netstate";
 				kind = branch;
 			};
 		};
@@ -1267,14 +1264,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		51CB09702ABCB307007E6FFC /* BlueTriangle */ = {
+		518C8D2A2B48466C00345E83 /* BlueTriangle */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 51CB096F2ABCB307007E6FFC /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
-			productName = BlueTriangle;
-		};
-		51CB09722ABCB3AF007E6FFC /* BlueTriangle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 51CB096F2ABCB307007E6FFC /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
+			package = 518C8D292B48466C00345E83 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
 			productName = BlueTriangle;
 		};
 		84A03BEA2A49DE16000C8BD0 /* Service */ = {
