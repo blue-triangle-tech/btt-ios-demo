@@ -49,6 +49,13 @@ class SettingsViewController: UIViewController {
         self.navigationController?.pushViewController(itemVC, animated: true)
     }
     
+    @IBAction func didSelectWebView(_ sender: Any?) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let navigation = storyboard.instantiateViewController(identifier: "WebViewNav") as? UINavigationController{
+            self.present(navigation, animated: true)
+        }
+    }
+    
     func version() -> String {
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String

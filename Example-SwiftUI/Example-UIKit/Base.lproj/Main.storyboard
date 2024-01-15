@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1081,8 +1081,36 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GZa-Of-HYW">
+                                        <rect key="frame" x="0.0" y="481" width="353" height="36"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lma-e2-71p">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="36"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wez-Gg-XmM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="254" height="36"/>
+                                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="PROCEED TO WEB HYBRID UI">
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="didSelectWebView:" destination="S62-xb-YMX" eventType="touchUpInside" id="PVr-kh-ufq"/>
+                                                        </connections>
+                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uah-hr-Bf0">
+                                                        <rect key="frame" x="254" y="0.0" width="99" height="36"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="lx6-8O-FK9"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JmY-Nd-YvU">
-                                        <rect key="frame" x="0.0" y="481" width="353" height="129"/>
+                                        <rect key="frame" x="0.0" y="522" width="353" height="88"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -1552,13 +1580,77 @@
             </objects>
             <point key="canvasLocation" x="2253" y="611"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="J8D-8B-oKm">
+            <objects>
+                <navigationController storyboardIdentifier="WebViewNav" id="7uL-OS-Nw6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pE2-cO-e2e">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zmv-lj-1Ra" kind="relationship" relationship="rootViewController" id="rJ0-EY-zrj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q5K-Ia-Nrf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="552" y="1264"/>
+        </scene>
+        <!--Web View-->
+        <scene sceneID="G46-9D-2aP">
+            <objects>
+                <viewController storyboardIdentifier="BttWebViewController" id="zmv-lj-1Ra" customClass="BttWebViewController" customModule="Example_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ktR-r8-VJS">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbP-tB-uWO">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1aY-Cp-cXQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EbP-tB-uWO" firstAttribute="bottom" secondItem="1aY-Cp-cXQ" secondAttribute="bottom" id="JIT-8i-i9q"/>
+                            <constraint firstItem="EbP-tB-uWO" firstAttribute="trailing" secondItem="1aY-Cp-cXQ" secondAttribute="trailing" id="YyP-i4-V41"/>
+                            <constraint firstItem="EbP-tB-uWO" firstAttribute="leading" secondItem="1aY-Cp-cXQ" secondAttribute="leading" id="Z1a-Af-nb7"/>
+                            <constraint firstItem="EbP-tB-uWO" firstAttribute="top" secondItem="1aY-Cp-cXQ" secondAttribute="top" id="reU-A8-8oZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Web View" id="lNy-Aw-xoj">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="question" id="vJm-lU-ucL">
+                            <connections>
+                                <action selector="didSelectQuestion:" destination="zmv-lj-1Ra" id="mXL-eA-Tfl"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="cross" id="1lq-IB-7Sy">
+                            <connections>
+                                <action selector="didSelectFinish:" destination="zmv-lj-1Ra" id="M6K-JP-Ktb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="EbP-tB-uWO" id="aig-1j-Gpx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kjz-G6-Y9G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1465" y="1264"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="clothes" width="512" height="512"/>
+        <image name="cross" width="64" height="64"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="question" width="64" height="64"/>
         <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <image name="trash" catalog="system" width="117" height="128"/>

@@ -3,10 +3,10 @@
     {
       "identity" : "btt-swift-sdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/blue-triangle-tech/btt-swift-sdk.git",
+      "location" : "http://github.com/JP-aloha/btt-swift-sdk.git",
       "state" : {
-        "branch" : "master",
-        "revision" : "580012fc9ab2cb8920d5c21cd819042721a700a8"
+        "branch" : "feature/hybrid-support",
+        "revision" : "d7b17d03d0198a2b607c9e481ee44688d29f6f8a"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-collections",
       "state" : {
-        "revision" : "937e904258d22af6e447a0b72c0bc67583ef64a2",
-        "version" : "1.0.4"
+        "revision" : "d029d9d39c87bed85b1c50adee7c41795261a192",
+        "version" : "1.0.6"
       }
     },
     {
