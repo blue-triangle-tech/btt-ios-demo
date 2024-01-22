@@ -12,6 +12,8 @@ import BlueTriangle
 class BttWebViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
+    private let model = HybridViewModel()
+    var tagUrl : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +22,15 @@ class BttWebViewController: UIViewController {
     }
     
     func loadWebView() {
-        let url = URL(string: "https://bluetriangle.com/about")
-        let request = URLRequest(url: url!)
-        webView.load(request)
+        
+        guard let url = model.getTemplateUrl(tagUrl) else {
+             return
+        }
+        webView.load(URLRequest(url: url))
+       /* if let htmlString = model.getHTMLString(tagUrl){
+           // webView.load(URLRequest(url: URL(string: "https://google.com")!))
+            webView.loadHTMLString(htmlString, baseURL: nil)
+        }*/
     }
     
     @IBAction func didSelectFinish(_ sender: Any?) {
@@ -30,9 +38,7 @@ class BttWebViewController: UIViewController {
     }
     
     @IBAction func didSelectQuestion(_ sender: Any?) {
-        if let url = URL(string: "https://developer.apple.com/documentation/safari-developer-tools/inspecting-ios") {
-            UIApplication.shared.open(url)
-        }
+        HybridViewModel.showDocInfo()
     }
 }
 

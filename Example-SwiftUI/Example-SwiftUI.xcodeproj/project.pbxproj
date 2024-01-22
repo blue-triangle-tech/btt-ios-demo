@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5118665B2B5AC56300574667 /* updated-template.html in Resources */ = {isa = PBXBuildFile; fileRef = 5118665A2B5AC56200574667 /* updated-template.html */; };
+		5118665C2B5AC89200574667 /* updated-template.html in Resources */ = {isa = PBXBuildFile; fileRef = 5118665A2B5AC56200574667 /* updated-template.html */; };
 		512A3FBE2AA1CE2E005D5A22 /* UnitTestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A3FBD2AA1CE2E005D5A22 /* UnitTestsViewController.swift */; };
 		512A3FC12AA1CFEF005D5A22 /* MemoryTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A3FC02AA1CFEF005D5A22 /* MemoryTestViewController.swift */; };
 		512A3FC42AA1D1D6005D5A22 /* UnitTestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A3FC32AA1D1D6005D5A22 /* UnitTestsView.swift */; };
@@ -17,11 +19,16 @@
 		5170A8C22AA1F4090091B65A /* UnitTestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */; };
 		5170A8C42AA1F7490091B65A /* CPUTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C32AA1F7490091B65A /* CPUTestView.swift */; };
 		5170A8C62AA1F87C0091B65A /* CPUTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C52AA1F87C0091B65A /* CPUTestViewController.swift */; };
+		519833A02B55656100F71C1E /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 5198339F2B55656100F71C1E /* template.html */; };
+		519833A12B55656100F71C1E /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 5198339F2B55656100F71C1E /* template.html */; };
 		5198A2992A9F7104003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
 		5198A29A2A9F7114003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
 		51D6F4F12B359BAB0044A3F0 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 51D6F4F02B359BAB0044A3F0 /* BlueTriangle */; };
 		51D6F4F32B359BC50044A3F0 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 51D6F4F22B359BC50044A3F0 /* BlueTriangle */; };
 		51D6F4F52B35A38F0044A3F0 /* BttWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6F4F42B35A38F0044A3F0 /* BttWebViewController.swift */; };
+		51E1F49D2B5935CA00C7F523 /* HybridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */; };
+		51E1F49E2B5935CA00C7F523 /* HybridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */; };
+		51E1F4A02B5936D700C7F523 /* BttWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1F49F2B5936D700C7F523 /* BttWebView.swift */; };
 		51F61C942A4ACE9F0071F957 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C922A4ACE9F0071F957 /* AppCoordinator.swift */; };
 		51F61C972A4ACF2B0071F957 /* BTTrackingConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C952A4ACF2B0071F957 /* BTTrackingConfigViewController.swift */; };
 		51F61C992A4AD1EB0071F957 /* BTTrackingConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C982A4AD1EB0071F957 /* BTTrackingConfigView.swift */; };
@@ -126,6 +133,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5118665A2B5AC56200574667 /* updated-template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "updated-template.html"; sourceTree = "<group>"; };
 		512A3FBD2AA1CE2E005D5A22 /* UnitTestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestsViewController.swift; sourceTree = "<group>"; };
 		512A3FC02AA1CFEF005D5A22 /* MemoryTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryTestViewController.swift; sourceTree = "<group>"; };
 		512A3FC32AA1D1D6005D5A22 /* UnitTestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestsView.swift; sourceTree = "<group>"; };
@@ -134,8 +142,11 @@
 		5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestsViewModel.swift; sourceTree = "<group>"; };
 		5170A8C32AA1F7490091B65A /* CPUTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUTestView.swift; sourceTree = "<group>"; };
 		5170A8C52AA1F87C0091B65A /* CPUTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUTestViewController.swift; sourceTree = "<group>"; };
+		5198339F2B55656100F71C1E /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryAllocationTest.swift; sourceTree = "<group>"; };
 		51D6F4F42B35A38F0044A3F0 /* BttWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BttWebViewController.swift; sourceTree = "<group>"; };
+		51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HybridViewModel.swift; sourceTree = "<group>"; };
+		51E1F49F2B5936D700C7F523 /* BttWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BttWebView.swift; sourceTree = "<group>"; };
 		51F61C922A4ACE9F0071F957 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		51F61C952A4ACF2B0071F957 /* BTTrackingConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTTrackingConfigViewController.swift; sourceTree = "<group>"; };
 		51F61C982A4AD1EB0071F957 /* BTTrackingConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTTrackingConfigView.swift; sourceTree = "<group>"; };
@@ -304,6 +315,7 @@
 				8419BD262A49CFEC009429C9 /* ProductListViewModel.swift */,
 				8419BD272A49CFEC009429C9 /* CartViewModel.swift */,
 				5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */,
+				51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -420,6 +432,7 @@
 				84B301EE2A4EDA0C00BF23B5 /* OrderSuccessfulView.swift */,
 				C94BF00B290ADBF0007E1C25 /* ProductListView.swift */,
 				C94BF01C290AE58A007E1C25 /* SettingsView.swift */,
+				51E1F49F2B5936D700C7F523 /* BttWebView.swift */,
 				C94BF018290AE519007E1C25 /* TabContainerView.swift */,
 			);
 			path = Views;
@@ -448,6 +461,8 @@
 			isa = PBXGroup;
 			children = (
 				C9B9E58729B654EE007CC9DA /* README.md */,
+				5198339F2B55656100F71C1E /* template.html */,
+				5118665A2B5AC56200574667 /* updated-template.html */,
 				8419BD322A49CFFF009429C9 /* Extensions */,
 				8419BD222A49CFEC009429C9 /* ViewModels */,
 				5198A2972A9F70CC003EFBEF /* TestFactory */,
@@ -678,8 +693,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5118665C2B5AC89200574667 /* updated-template.html in Resources */,
 				512BBE992A49ED1A00EAFD97 /* Config.xcconfig in Resources */,
 				847CF44B2A4315DB001E9011 /* LaunchScreen.storyboard in Resources */,
+				519833A12B55656100F71C1E /* template.html in Resources */,
 				847CF4482A4315DB001E9011 /* Assets.xcassets in Resources */,
 				847CF4462A4315D7001E9011 /* Main.storyboard in Resources */,
 			);
@@ -689,6 +706,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5118665B2B5AC56300574667 /* updated-template.html in Resources */,
+				519833A02B55656100F71C1E /* template.html in Resources */,
 				C9F4A41D2900DB6200BCDF3E /* Preview Assets.xcassets in Resources */,
 				512BBE982A49ED1A00EAFD97 /* Config.xcconfig in Resources */,
 				C9F4A41A2900DB6200BCDF3E /* Assets.xcassets in Resources */,
@@ -726,6 +745,7 @@
 				8419BD142A49CFD7009429C9 /* Constants.swift in Sources */,
 				8419BD162A49CFD7009429C9 /* ImageLoader.swift in Sources */,
 				847CF43F2A4315D7001E9011 /* AppDelegate.swift in Sources */,
+				51E1F49E2B5935CA00C7F523 /* HybridViewModel.swift in Sources */,
 				84F2A80F2AB2FB1800471E13 /* CPUUsesTest.swift in Sources */,
 				848826622A449BB6007B9D72 /* APIManager.swift in Sources */,
 				51D6F4F52B35A38F0044A3F0 /* BttWebViewController.swift in Sources */,
@@ -792,6 +812,7 @@
 				51F61C9B2A4AD3490071F957 /* BTTRootContrainerView.swift in Sources */,
 				8419BD1E2A49CFE1009429C9 /* CartItemModel.swift in Sources */,
 				8419BD282A49CFEC009429C9 /* ProductDetailViewModel.swift in Sources */,
+				51E1F4A02B5936D700C7F523 /* BttWebView.swift in Sources */,
 				C94BF011290ADC20007E1C25 /* ProductCell.swift in Sources */,
 				8419BD132A49CFD7009429C9 /* Constants.swift in Sources */,
 				C9F4A4162900DB6100BCDF3E /* ExampleApp.swift in Sources */,
@@ -801,6 +822,7 @@
 				8419BD3E2A49CFFF009429C9 /* String+LocalizedError.swift in Sources */,
 				C9C7D8932939315D00950C55 /* RemoteImage.swift in Sources */,
 				C94BF02B290B1803007E1C25 /* CheckoutView.swift in Sources */,
+				51E1F49D2B5935CA00C7F523 /* HybridViewModel.swift in Sources */,
 				84B301E92A4DD9DC00BF23B5 /* ANRTests.swift in Sources */,
 				84F2A80E2AB2FB1800471E13 /* CPUUsesTest.swift in Sources */,
 				C94BF019290AE519007E1C25 /* TabContainerView.swift in Sources */,

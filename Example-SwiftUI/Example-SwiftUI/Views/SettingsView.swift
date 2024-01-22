@@ -11,6 +11,9 @@ import SwiftUI
 struct SettingsView: View {
     @ObservedObject var vm: SettingsViewModel
     @State var isUnitTestsActive : Bool = false
+    @State private var showingAlert = false
+    @State private var presentHybridDemo = false
+    @State private var tagUrl = "\(Secrets.siteID).btttag.com/btt.js"
     
     var body: some View {
         NavigationStack {
@@ -175,7 +178,74 @@ struct SettingsView: View {
                 }
                 .frame(height: 50)
                 
-                Spacer()
+                VStack (spacing: 10) {
+                    HStack {
+                        
+                        /*
+                        NavigationLink {
+                            VStack {
+                                BttWebView(tagUrl: tagUrl)
+                            }
+                            .navigationTitle("WebView")
+                            .navigationBarTitleDisplayMode(.inline)
+                        } label: {
+                            Text("Hybrid Demo")
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.blue)*/
+                        Button {
+                            self.presentHybridDemo.toggle()
+                        } label: {
+                            Text("Hybrid Demo")
+                                .foregroundColor(.white)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.blue)
+                        .fullScreenCover(isPresented: $presentHybridDemo) {
+                            NavigationView {
+                                BttWebView(tagUrl: tagUrl)
+                                    .navigationTitle("WebView")
+                                    .navigationBarItems(
+                                        leading:
+                                            Button {
+                                                HybridViewModel.showDocInfo()
+                                            }
+                                        label: {
+                                            Image(systemName: "questionmark")
+                                                .foregroundColor(.blue)
+                                        },
+                                        trailing:
+                                            Button{
+                                                self.presentHybridDemo = false
+                                            } label: {
+                                                Image(systemName: "xmark")
+                                                .foregroundColor(.blue)
+                                            }
+                                    )
+                            }
+                        }
+                        
+                        Button {
+                            self.showingAlert.toggle()
+                        } label: {
+                            Image(systemName: "gearshape.fill")
+                        }
+                        .alert("", isPresented: $showingAlert) {
+                            TextField("", text: $tagUrl)
+                            Button("Cancel", role: .cancel, action: {})
+                            Button("OK",  action: {})
+                        } message: {
+                            Text("")
+                        }
+                        .padding(.leading, 30)
+                        
+                        Spacer()
+                    }
+                    .frame(height: 45)
+                }
+                .frame(height: 50)
+                
+                //Spacer()
             }
             .padding(.leading, 15)
             .padding(.trailing, 15)
