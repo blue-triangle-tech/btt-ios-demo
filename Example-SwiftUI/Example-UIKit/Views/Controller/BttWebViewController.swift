@@ -27,10 +27,6 @@ class BttWebViewController: UIViewController {
              return
         }
         webView.load(URLRequest(url: url))
-       /* if let htmlString = model.getHTMLString(tagUrl){
-           // webView.load(URLRequest(url: URL(string: "https://google.com")!))
-            webView.loadHTMLString(htmlString, baseURL: nil)
-        }*/
     }
     
     @IBAction func didSelectFinish(_ sender: Any?) {
@@ -47,12 +43,6 @@ extension BttWebViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        let webTracker = BTTWebViewTracker()
-        webTracker.webView(webView, didCommit: navigation)
-    }
-    
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        print("Policy : \(navigationAction.request.url)")
-        decisionHandler(.allow)
+        BTTWebViewTracker.webView(webView, didCommit: navigation)
     }
 }

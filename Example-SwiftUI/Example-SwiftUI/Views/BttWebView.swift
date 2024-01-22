@@ -40,13 +40,7 @@ extension BttWebView {
         }
         
         func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-            let webTracker = BTTWebViewTracker()
-            webTracker.webView(webView, didCommit: navigation)
-        }
-        
-        func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-            print("Policy : \(navigationAction.request.url)")
-            decisionHandler(.allow)
+            BTTWebViewTracker.webView(webView, didCommit: navigation)
         }
     }
 }
