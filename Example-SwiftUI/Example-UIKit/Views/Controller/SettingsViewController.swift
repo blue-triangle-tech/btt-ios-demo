@@ -60,6 +60,10 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    @IBAction func didSelectCopy(_ sender: Any?) {
+        UIPasteboard.general.string = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId)
+    }
+    
     @IBAction func didSelectSetting(_ sender: Any?) {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
 

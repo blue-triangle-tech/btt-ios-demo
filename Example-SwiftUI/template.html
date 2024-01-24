@@ -14,7 +14,7 @@
         gap: 1rem;
         padding: 1rem;
       }
-    
+
       img {
         display: inline-block;
         border-radius: 1rem;
@@ -28,20 +28,20 @@
     </style>
   </head>
   <body>
-    
-    <div class="ajaxblock">
-      <button onclick="makeAjaxCall()">Get Data</button>
-      <div id="result"></div>
-    </div>
-    <div class="container">
-      <img src="https://picsum.photos/id/20/1080" alt="Image 1" />
-      <img src="https://picsum.photos/id/28/1080" alt="Image 2" />
-      <img src="https://picsum.photos/id/57/1080" alt="Image 3" />
-      <img src="https://picsum.photos/id/59/1080" alt="Image 4" />
-    </div>
 
+  <div class="ajaxblock">
+    <button onclick="makeAjaxCall()">Get Data</button>
+    <div id="result"></div>
+    <button onclick="throwError()">Throw Error</button>
+  </div>
+  <div class="container">
+    <img src="https://picsum.photos/id/20/1080" alt="Image 1" />
+    <img src="https://picsum.photos/id/28/1080" alt="Image 2" />
+    <img src="https://picsum.photos/id/57/1080" alt="Image 3" />
+    <img src="https://picsum.photos/id/59/1080" alt="Image 4" />
+  </div>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
       function makeAjaxCall() {
         // Create a new XMLHttpRequest object
         var xhr = new XMLHttpRequest();
@@ -58,6 +58,11 @@
               "User ID: " + response.userId + "<br>Title: " + response.title;
           }
         };
+        function throwError() {
+          var number1 = 10000
+          var number2 = 0
+          console.log(number1/number2);
+        }
         // Send the request
         xhr.send();
       }

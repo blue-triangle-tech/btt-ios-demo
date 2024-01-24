@@ -148,6 +148,16 @@ struct SettingsView: View {
                         Text("Session Id")
                             .font(Font.system(size: 18, weight: .bold))
                             .foregroundColor(.black)
+                        
+                        Button {
+                            UIPasteboard.general.string = vm.configureSessionId
+                        } label: {
+                            Text("Copy")
+                                .foregroundColor(.white)
+                        }
+                        .padding(.leading, 10)
+                        .buttonStyle(.borderedProminent)
+                        .tint(.blue)
                         Spacer()
                     }
                     
@@ -180,19 +190,6 @@ struct SettingsView: View {
                 
                 VStack (spacing: 10) {
                     HStack {
-                        
-                        /*
-                        NavigationLink {
-                            VStack {
-                                BttWebView(tagUrl: tagUrl)
-                            }
-                            .navigationTitle("WebView")
-                            .navigationBarTitleDisplayMode(.inline)
-                        } label: {
-                            Text("Hybrid Demo")
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .tint(.blue)*/
                         Button {
                             self.presentHybridDemo.toggle()
                         } label: {
@@ -204,7 +201,7 @@ struct SettingsView: View {
                         .fullScreenCover(isPresented: $presentHybridDemo) {
                             NavigationView {
                                 BttWebView(tagUrl: tagUrl)
-                                    .navigationTitle("WebView")
+                                    .navigationTitle("Hybrid Demo")
                                     .navigationBarItems(
                                         leading:
                                             Button {
@@ -228,8 +225,11 @@ struct SettingsView: View {
                         Button {
                             self.showingAlert.toggle()
                         } label: {
-                            Image(systemName: "gearshape.fill")
+                            Text("Tag Url")
+                                .foregroundColor(.white)
                         }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.blue)
                         .alert("", isPresented: $showingAlert) {
                             TextField("", text: $tagUrl)
                             Button("Cancel", role: .cancel, action: {})
@@ -237,7 +237,7 @@ struct SettingsView: View {
                         } message: {
                             Text("")
                         }
-                        .padding(.leading, 30)
+                        .padding(.leading, 10)
                         
                         Spacer()
                     }
