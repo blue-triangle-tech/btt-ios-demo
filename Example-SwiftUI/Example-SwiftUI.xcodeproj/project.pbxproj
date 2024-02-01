@@ -1249,7 +1249,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JP-aloha/btt-swift-sdk.git";
 			requirement = {
-				branch = "feature/cpu-memory-netstate";
+				branch = "CPU-and-Memory";
 				kind = branch;
 			};
 		};
