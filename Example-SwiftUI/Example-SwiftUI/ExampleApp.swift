@@ -49,8 +49,10 @@ struct Example_SwiftUIApp: App {
             config.enableScreenTracking = enableScreenTracking
             config.ANRMonitoring = anrMonitoring
             config.ANRStackTrace = enableAnrStackTrace
-            //config.enableTrackingNetworkState = true
+            config.enableTrackingNetworkState = true
             config.isPerformanceMonitorEnabled = isPerformanceMonitor
+            config.cacheMemoryLimit = 10 * 1024
+            config.cacheExpiryDuration = 2 * 60 * 1000
         }
         
     }

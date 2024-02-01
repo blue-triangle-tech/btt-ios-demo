@@ -11,6 +11,9 @@ import SwiftUI
 struct SettingsView: View {
     @ObservedObject var vm: SettingsViewModel
     @State var isUnitTestsActive : Bool = false
+    @State private var showingAlert = false
+    @State private var presentHybridDemo = false
+    @State private var tagUrl = "\(Secrets.siteID).btttag.com/btt.js"
     
     var body: some View {
         NavigationStack {
@@ -46,9 +49,6 @@ struct SettingsView: View {
                         Text("feature/memory_warning_observer")
                             .font(Font.system(size: 18, weight: .regular))
                             .foregroundColor(.gray)
-                       /* Text("master")
-                            .font(Font.system(size: 18, weight: .regular))
-                            .foregroundColor(.gray)*/
                         Spacer()
                     }
                 }
@@ -145,6 +145,16 @@ struct SettingsView: View {
                         Text("Session Id")
                             .font(Font.system(size: 18, weight: .bold))
                             .foregroundColor(.black)
+                        
+                        Button {
+                            UIPasteboard.general.string = vm.configureSessionId
+                        } label: {
+                            Text("Copy")
+                                .foregroundColor(.white)
+                        }
+                        .padding(.leading, 10)
+                        .buttonStyle(.borderedProminent)
+                        .tint(.blue)
                         Spacer()
                     }
                     
@@ -175,7 +185,64 @@ struct SettingsView: View {
                 }
                 .frame(height: 50)
                 
-                Spacer()
+                VStack (spacing: 10) {
+                    HStack {
+                        Button {
+                            self.presentHybridDemo.toggle()
+                        } label: {
+                            Text("Hybrid Demo")
+                                .foregroundColor(.white)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.blue)
+                        .fullScreenCover(isPresented: $presentHybridDemo) {
+                            NavigationView {
+                                BttWebView(tagUrl: tagUrl)
+                                    .navigationTitle("Hybrid Demo")
+                                    .navigationBarItems(
+                                        leading:
+                                            Button {
+                                                HybridViewModel.showDocInfo()
+                                            }
+                                        label: {
+                                            Image(systemName: "questionmark")
+                                                .foregroundColor(.blue)
+                                        },
+                                        trailing:
+                                            Button{
+                                                self.presentHybridDemo = false
+                                            } label: {
+                                                Image(systemName: "xmark")
+                                                .foregroundColor(.blue)
+                                            }
+                                    )
+                            }
+                        }
+                        
+                        Button {
+                            self.showingAlert.toggle()
+                        } label: {
+                            Text(" Change tag url")
+                                .foregroundColor(.white)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.blue)
+                        .alert("", isPresented: $showingAlert) {
+                            TextField("", text: $tagUrl)
+                            Button("Cancel", role: .cancel, action: {})
+                            Button("OK",  action: {})
+                        } message: {
+                            Text("")
+                        }
+                        .padding(.leading, 10)
+                        
+                        Spacer()
+                    }
+                    .frame(height: 45)
+                }
+                .frame(height: 50)
+                
+                //Spacer()
             }
             .padding(.leading, 15)
             .padding(.trailing, 15)

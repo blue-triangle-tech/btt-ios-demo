@@ -20,6 +20,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var lblScreenTrackEnable : UILabel!
     @IBOutlet weak var lblAnrStackTraceEnable : UILabel!
     
+    private var tagUrl = "\(Secrets.siteID).btttag.com/btt.js"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,6 +49,37 @@ class SettingsViewController: UIViewController {
         let storyboard = UIStoryboard(name:"Main", bundle: nil)
         guard let itemVC = storyboard.instantiateViewController(withIdentifier: "UnitTestsViewController") as? UnitTestsViewController else { return }
         self.navigationController?.pushViewController(itemVC, animated: true)
+    }
+    
+    @IBAction func didSelectWebView(_ sender: Any?) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let navigation = storyboard.instantiateViewController(identifier: "WebViewNav") as? UINavigationController, let vc = navigation.viewControllers.first as? BttWebViewController{
+            navigation.modalPresentationStyle = .fullScreen
+            vc.tagUrl = tagUrl
+            self.present(navigation, animated: true)
+        }
+    }
+    
+    @IBAction func didSelectCopy(_ sender: Any?) {
+        UIPasteboard.general.string = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId)
+    }
+    
+    @IBAction func didSelectSetting(_ sender: Any?) {
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+
+        alert.addTextField { (textField) in
+            textField.text = self.tagUrl
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            if let textFieldValue = alert?.textFields![0].text{
+                self.tagUrl = textFieldValue
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+        }))
+
+        self.present(alert, animated: true, completion: nil)
     }
     
     func version() -> String {
