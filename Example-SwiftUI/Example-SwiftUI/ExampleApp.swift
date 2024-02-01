@@ -29,6 +29,7 @@ struct Example_SwiftUIApp: App {
         let enableScreenTracking = true
         let enableAnrStackTrace = false
         let anrMonitoring = true
+        let isPerformanceMonitor = true
         let sessionId = getSessionId()
         let sessionIdIdentifier  : Identifier = sessionId
         
@@ -48,7 +49,8 @@ struct Example_SwiftUIApp: App {
             config.enableScreenTracking = enableScreenTracking
             config.ANRMonitoring = anrMonitoring
             config.ANRStackTrace = enableAnrStackTrace
-            config.enableTrackingNetworkState = true
+            //config.enableTrackingNetworkState = true
+            config.isPerformanceMonitorEnabled = isPerformanceMonitor
         }
         
     }
