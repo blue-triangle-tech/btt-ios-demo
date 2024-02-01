@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
 		5118665B2B5AC56300574667 /* updated-template.html in Resources */ = {isa = PBXBuildFile; fileRef = 5118665A2B5AC56200574667 /* updated-template.html */; };
 		5118665C2B5AC89200574667 /* updated-template.html in Resources */ = {isa = PBXBuildFile; fileRef = 5118665A2B5AC56200574667 /* updated-template.html */; };
+		510C8EE82ACECE9E007292B2 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 510C8EE72ACECE9E007292B2 /* BlueTriangle */; };
+		510C8EEA2ACECEB5007292B2 /* BlueTriangle in Frameworks */ = {isa = PBXBuildFile; productRef = 510C8EE92ACECEB5007292B2 /* BlueTriangle */; };
 		512A3FBE2AA1CE2E005D5A22 /* UnitTestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A3FBD2AA1CE2E005D5A22 /* UnitTestsViewController.swift */; };
 		512A3FC12AA1CFEF005D5A22 /* MemoryTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A3FC02AA1CFEF005D5A22 /* MemoryTestViewController.swift */; };
 		512A3FC42AA1D1D6005D5A22 /* UnitTestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A3FC32AA1D1D6005D5A22 /* UnitTestsView.swift */; };
@@ -29,6 +32,7 @@
 		51E1F49D2B5935CA00C7F523 /* HybridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */; };
 		51E1F49E2B5935CA00C7F523 /* HybridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */; };
 		51E1F4A02B5936D700C7F523 /* BttWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1F49F2B5936D700C7F523 /* BttWebView.swift */; };
+
 		51F61C942A4ACE9F0071F957 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C922A4ACE9F0071F957 /* AppCoordinator.swift */; };
 		51F61C972A4ACF2B0071F957 /* BTTrackingConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C952A4ACF2B0071F957 /* BTTrackingConfigViewController.swift */; };
 		51F61C992A4AD1EB0071F957 /* BTTrackingConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F61C982A4AD1EB0071F957 /* BTTrackingConfigView.swift */; };
@@ -225,7 +229,8 @@
 			files = (
 				84A03BEB2A49DE16000C8BD0 /* Service in Frameworks */,
 				84A03BED2A49DE16000C8BD0 /* IdentifiedCollections in Frameworks */,
-				51D6F4F32B359BC50044A3F0 /* BlueTriangle in Frameworks */,
+
+				510C8EEA2ACECEB5007292B2 /* BlueTriangle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +240,7 @@
 			files = (
 				C9E1141A291421F00031E874 /* IdentifiedCollections in Frameworks */,
 				C94BF015290AE2FC007E1C25 /* Service in Frameworks */,
-				51D6F4F12B359BAB0044A3F0 /* BlueTriangle in Frameworks */,
+				510C8EE82ACECE9E007292B2 /* BlueTriangle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +577,8 @@
 			packageProductDependencies = (
 				84A03BEA2A49DE16000C8BD0 /* Service */,
 				84A03BEC2A49DE16000C8BD0 /* IdentifiedCollections */,
-				51D6F4F22B359BC50044A3F0 /* BlueTriangle */,
+
+				510C8EE92ACECEB5007292B2 /* BlueTriangle */,
 			);
 			productName = "Example-UIKit";
 			productReference = 847CF43C2A4315D7001E9011 /* Example-UIKit.app */;
@@ -594,7 +600,8 @@
 			packageProductDependencies = (
 				C94BF014290AE2FC007E1C25 /* Service */,
 				C9E11419291421F00031E874 /* IdentifiedCollections */,
-				51D6F4F02B359BAB0044A3F0 /* BlueTriangle */,
+
+				510C8EE72ACECE9E007292B2 /* BlueTriangle */,
 			);
 			productName = "Example-SwiftUI";
 			productReference = C9F4A4122900DB6100BCDF3E /* Example-SwiftUI.app */;
@@ -674,7 +681,9 @@
 			mainGroup = C9F4A4092900DB6100BCDF3E;
 			packageReferences = (
 				C9E11418291421F00031E874 /* XCRemoteSwiftPackageReference "swift-identified-collections" */,
-				51D6F4EF2B359BAB0044A3F0 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */,
+
+				510C8EE62ACECE9E007292B2 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */,
+
 			);
 			productRefGroup = C9F4A4132900DB6100BCDF3E /* Products */;
 			projectDirPath = "";
@@ -1076,7 +1085,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Example-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = RFX6NF2RC6;
 				ENABLE_PREVIEWS = YES;
@@ -1093,7 +1102,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.4.1;
+				MARKETING_VERSION = 3.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluetriangle.bluetriangledemo.SwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1116,7 +1125,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Example-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = RFX6NF2RC6;
 				ENABLE_PREVIEWS = YES;
@@ -1133,7 +1142,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.4.1;
+				MARKETING_VERSION = 3.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluetriangle.bluetriangledemo.SwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1274,7 +1283,8 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		51D6F4EF2B359BAB0044A3F0 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */ = {
+
+		510C8EE62ACECE9E007292B2 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "http://github.com/JP-aloha/btt-swift-sdk.git";
 			requirement = {
@@ -1293,14 +1303,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		51D6F4F02B359BAB0044A3F0 /* BlueTriangle */ = {
+		510C8EE72ACECE9E007292B2 /* BlueTriangle */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 51D6F4EF2B359BAB0044A3F0 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
+			package = 510C8EE62ACECE9E007292B2 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
 			productName = BlueTriangle;
 		};
-		51D6F4F22B359BC50044A3F0 /* BlueTriangle */ = {
+		510C8EE92ACECEB5007292B2 /* BlueTriangle */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 51D6F4EF2B359BAB0044A3F0 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
+			package = 510C8EE62ACECE9E007292B2 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
 			productName = BlueTriangle;
 		};
 		84A03BEA2A49DE16000C8BD0 /* Service */ = {

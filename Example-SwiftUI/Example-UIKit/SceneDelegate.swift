@@ -52,7 +52,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
-    
     func configure(){
         
         let siteId = Secrets.siteID
@@ -60,6 +59,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let enableScreenTracking = true
         let enableAnrStackTrace = false
         let anrMonitoring = true
+        let isPerformanceMonitor = true
         let sessionId = getSessionId()
         let sessionIdIdentifier  : Identifier = sessionId
         
@@ -79,6 +79,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             config.enableScreenTracking = enableScreenTracking
             config.ANRMonitoring = anrMonitoring
             config.ANRStackTrace = enableAnrStackTrace
+            config.enableTrackingNetworkState = true
+            config.isPerformanceMonitorEnabled = isPerformanceMonitor
+            config.cacheMemoryLimit = 10 * 1024
+            config.cacheExpiryDuration = 2 * 60 * 1000
         }
         
     }
