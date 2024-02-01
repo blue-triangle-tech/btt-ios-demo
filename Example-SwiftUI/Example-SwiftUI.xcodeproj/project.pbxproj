@@ -1278,7 +1278,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "http://github.com/JP-aloha/btt-swift-sdk.git";
 			requirement = {
-				branch = "feature/hybrid-support";
+				branch = "feature/cpu-memory-netstate-offline-hybrid";
 				kind = branch;
 			};
 		};
