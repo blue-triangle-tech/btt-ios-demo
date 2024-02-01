@@ -79,7 +79,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             config.enableScreenTracking = enableScreenTracking
             config.ANRMonitoring = anrMonitoring
             config.ANRStackTrace = enableAnrStackTrace
+            //config.enableTrackingNetworkState = true
             config.isPerformanceMonitorEnabled = isPerformanceMonitor
+
         }
         
     }
