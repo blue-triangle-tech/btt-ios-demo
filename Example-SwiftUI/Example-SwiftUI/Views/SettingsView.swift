@@ -49,9 +49,6 @@ struct SettingsView: View {
                         Text("feature/memory_warning_observer")
                             .font(Font.system(size: 18, weight: .regular))
                             .foregroundColor(.gray)
-                       /* Text("master")
-                            .font(Font.system(size: 18, weight: .regular))
-                            .foregroundColor(.gray)*/
                         Spacer()
                     }
                 }
@@ -225,7 +222,7 @@ struct SettingsView: View {
                         Button {
                             self.showingAlert.toggle()
                         } label: {
-                            Text("Tag Url")
+                            Text(" Change tag url")
                                 .foregroundColor(.white)
                         }
                         .buttonStyle(.borderedProminent)

@@ -22,6 +22,7 @@ struct BttWebView: UIViewRepresentable {
     func makeUIView(context: Context) -> some UIView {
         
         if let htmlURL = model.getTemplateUrl(tagUrl){
+            webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
             webView.navigationDelegate = context.coordinator
             webView.load(URLRequest(url: htmlURL))
         }
@@ -41,6 +42,13 @@ extension BttWebView {
         
         func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
             BTTWebViewTracker.webView(webView, didCommit: navigation)
+        }
+        
+        func webView(_ webView: WKWebView,
+                     decidePolicyFor navigationResponse: WKNavigationResponse,
+                     decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+            
+            decisionHandler(.allow)
         }
     }
 }

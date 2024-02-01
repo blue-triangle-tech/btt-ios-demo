@@ -18,6 +18,7 @@ class BttWebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         webView.navigationDelegate = self
+        webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         loadWebView()
     }
     
@@ -26,6 +27,7 @@ class BttWebViewController: UIViewController {
         guard let url = model.getTemplateUrl(tagUrl) else {
              return
         }
+
         webView.load(URLRequest(url: url))
     }
     
