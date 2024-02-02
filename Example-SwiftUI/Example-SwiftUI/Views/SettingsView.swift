@@ -43,6 +43,7 @@ struct SettingsView: View {
                     HStack{
                         Spacer()
                         Text("This app is built with swiftUI.")
+                            .italic(true)
                             .font(Font.system(size: 18, weight: .regular))
                             .foregroundColor(.gray)
                         Spacer()
