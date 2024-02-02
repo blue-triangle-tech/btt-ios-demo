@@ -19,16 +19,47 @@ struct SettingsView: View {
         NavigationStack {
         
             VStack(spacing: 5){
-                                
+                
                 VStack{
                     HStack{
-                        Text("App Version")
+                        Spacer()
+                        Image("playstore")
+                            .resizable()
+                            .frame(width: 80, height: 80)
+                        Spacer()
+                    }
+                }
+                .frame(height: 80)
+                
+                VStack{
+                    HStack{
+                        Spacer()
+                        Text("BTT e-Com")
+                            .font(Font.system(size: 20, weight: .bold))
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    
+                    HStack{
+                        Spacer()
+                        Text("This app is built with swiftUI.")
+                            .font(Font.system(size: 18, weight: .regular))
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }
+                }
+                
+                VStack{
+                    HStack{
+                        Spacer()
+                        Text("Version")
                             .font(Font.system(size: 18, weight: .bold))
                             .foregroundColor(.black)
                         Spacer()
                     }
                     
                     HStack{
+                        Spacer()
                         Text("\(version())")
                             .font(Font.system(size: 18, weight: .regular))
                             .foregroundColor(.gray)
@@ -37,7 +68,10 @@ struct SettingsView: View {
                 }
                 .frame(height: 50)
                 
-                VStack{
+                Spacer()
+                        .frame(height: 50)
+                
+                /*VStack{
                     HStack{
                         Text("BTT SDK VersionRule")
                             .font(Font.system(size: 18, weight: .bold))
@@ -69,7 +103,7 @@ struct SettingsView: View {
                         Spacer()
                     }
                 }
-                .frame(height: 50)
+                .frame(height: 50)*/
                 
                 VStack{
                     HStack{
@@ -89,7 +123,7 @@ struct SettingsView: View {
                 .frame(height: 50)
                 
                 
-                VStack{
+               /* VStack{
                     HStack{
                         Text("ANR Detection")
                             .font(Font.system(size: 18, weight: .bold))
@@ -138,7 +172,7 @@ struct SettingsView: View {
                         Spacer()
                     }
                 }
-                .frame(height: 50)
+                .frame(height: 50)*/
                 
                 VStack{
                     HStack{
@@ -166,6 +200,9 @@ struct SettingsView: View {
                     }
                 }
                 .frame(height: 50)
+                
+                Spacer()
+                        .frame(height: 50)
                 
                 VStack(spacing: 10){
                     HStack{
@@ -242,7 +279,7 @@ struct SettingsView: View {
                 }
                 .frame(height: 50)
                 
-                //Spacer()
+                Spacer()
             }
             .padding(.leading, 15)
             .padding(.trailing, 15)

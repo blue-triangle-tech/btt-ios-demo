@@ -15,6 +15,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var lblSdkLocation: UILabel!
     @IBOutlet weak var lblSiteId: UILabel!
     @IBOutlet weak var lblSessionId: UILabel!
+    @IBOutlet weak var lblPlateform: UILabel!
     
     @IBOutlet weak var lblAnrEnable : UILabel!
     @IBOutlet weak var lblScreenTrackEnable : UILabel!
@@ -25,12 +26,13 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        lblPlateform.text = "This app is built with UIKit."
         lblAnrEnable.text = UserDefaults.standard.bool(forKey: UserDefaultKeys.ANREnableKey) ? "Enable" : "Disable"
         lblScreenTrackEnable.text = UserDefaults.standard.bool(forKey: UserDefaultKeys.ScreenTrackingEnableKey)  ? "Enable" : "Disable"
         lblAnrStackTraceEnable.text = UserDefaults.standard.bool(forKey: UserDefaultKeys.ANRStackTraceKey) ? "Enable" : "Disable"
         lblSiteId.text = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSiteId) ?? ""
         lblAppVersion.text = "\(version())"
-        lblSdkVersionRule.text = "feature/memory_warning_observer"//"master"
+        lblSdkVersionRule.text = "feature/cpu-memory-netstate-offline-hybrid"//"master"
         lblSdkLocation.text = "http://github.com/JP-aloha/btt-swift-sdk.git"
         lblSessionId.text = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId) ?? "Auto Generated"
         // Do any additional setup after loading the view.
