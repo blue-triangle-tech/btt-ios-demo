@@ -7,6 +7,7 @@
 
 import UIKit
 import BlueTriangle
+import Clarity
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -55,6 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func configure(){
         
         let siteId = Secrets.siteID
+        let clarityProjectId = Secrets.clarityProjectID
         let enableDebugLogging = true
         let enableScreenTracking = true
         let enableAnrStackTrace = false
@@ -62,12 +64,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let isPerformanceMonitor = true
         let sessionId = getSessionId()
         let sessionIdIdentifier  : Identifier = sessionId
+        let claritySessionId =  "\(Int.random(in: 1000000..<9999999))"
         
         UserDefaults.standard.set(anrMonitoring, forKey: UserDefaultKeys.ANREnableKey)
         UserDefaults.standard.set(enableScreenTracking, forKey: UserDefaultKeys.ScreenTrackingEnableKey)
         UserDefaults.standard.set(siteId, forKey: UserDefaultKeys.ConfigureSiteId)
         UserDefaults.standard.set(enableAnrStackTrace, forKey: UserDefaultKeys.ANRStackTraceKey)
         UserDefaults.standard.set(sessionId, forKey: UserDefaultKeys.ConfigureSessionId)
+        UserDefaults.standard.set(claritySessionId, forKey: UserDefaultKeys.ClaritySessionIdKey)
         UserDefaults.standard.synchronize()
         
         BlueTriangle.configure { config in
@@ -84,6 +88,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             config.cacheMemoryLimit = 10 * 1024
             config.cacheExpiryDuration = 2 * 60 * 1000
         }
+        
+        ClaritySDK.initialize(config: ClarityConfig(projectId: clarityProjectId))
+        ClaritySDK.setCustomSessionId(claritySessionId)
         
     }
 

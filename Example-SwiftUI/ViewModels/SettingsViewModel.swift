@@ -16,4 +16,6 @@ final class SettingsViewModel: ObservableObject {
     private(set) var configureSiteId : String = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSiteId) ?? ""
     private(set) var configureSessionId : String = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId) ?? "Auto Generated"
     
+    private(set) var claritySessionId : String = UserDefaults.standard.string(forKey: UserDefaultKeys.ClaritySessionIdKey) ?? ""
+    
 }
