@@ -16,10 +16,12 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var lblSiteId: UILabel!
     @IBOutlet weak var lblSessionId: UILabel!
     @IBOutlet weak var lblPlateform: UILabel!
+    @IBOutlet weak var lblClaritySessionId: UILabel!
     
     @IBOutlet weak var lblAnrEnable : UILabel!
     @IBOutlet weak var lblScreenTrackEnable : UILabel!
     @IBOutlet weak var lblAnrStackTraceEnable : UILabel!
+    
     
     private var tagUrl = "\(Secrets.siteID).btttag.com/btt.js"
     
@@ -35,6 +37,7 @@ class SettingsViewController: UIViewController {
         lblSdkVersionRule.text = "feature/cpu-memory-netstate-offline-hybrid"//"master"
         lblSdkLocation.text = "http://github.com/JP-aloha/btt-swift-sdk.git"
         lblSessionId.text = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId) ?? "Auto Generated"
+        lblClaritySessionId.text = UserDefaults.standard.string(forKey: UserDefaultKeys.ClaritySessionIdKey)
         // Do any additional setup after loading the view.
         
         Thread.sleep(forTimeInterval: 3)
@@ -62,7 +65,11 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    @IBAction func didSelectCopy(_ sender: Any?) {
+    @IBAction func didSelectSessionIDCopy(_ sender: Any?) {
+        UIPasteboard.general.string = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId)
+    }
+    
+    @IBAction func didSelectClaritySessionIDCopy(_ sender: Any?) {
         UIPasteboard.general.string = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId)
     }
     

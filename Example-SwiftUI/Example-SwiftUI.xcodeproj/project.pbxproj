@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,11 +21,14 @@
 		5170A8C22AA1F4090091B65A /* UnitTestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */; };
 		5170A8C42AA1F7490091B65A /* CPUTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C32AA1F7490091B65A /* CPUTestView.swift */; };
 		5170A8C62AA1F87C0091B65A /* CPUTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C52AA1F87C0091B65A /* CPUTestViewController.swift */; };
+		5193C6322B7F710A004EE254 /* Clarity in Frameworks */ = {isa = PBXBuildFile; productRef = 5193C6312B7F710A004EE254 /* Clarity */; };
 		519833A02B55656100F71C1E /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 5198339F2B55656100F71C1E /* template.html */; };
 		519833A12B55656100F71C1E /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 5198339F2B55656100F71C1E /* template.html */; };
 		5198A2992A9F7104003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
 		5198A29A2A9F7114003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
 		51D6F4F52B35A38F0044A3F0 /* BttWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6F4F42B35A38F0044A3F0 /* BttWebViewController.swift */; };
+		51DEF8232B7F881600D9EF94 /* Clarity in Frameworks */ = {isa = PBXBuildFile; productRef = 51DEF8222B7F881600D9EF94 /* Clarity */; };
+		51DEF8252B7F898700D9EF94 /* Clarity in Frameworks */ = {isa = PBXBuildFile; productRef = 51DEF8242B7F898700D9EF94 /* Clarity */; };
 		51E1F49D2B5935CA00C7F523 /* HybridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */; };
 		51E1F49E2B5935CA00C7F523 /* HybridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */; };
 		51E1F4A02B5936D700C7F523 /* BttWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1F49F2B5936D700C7F523 /* BttWebView.swift */; };
@@ -226,6 +229,7 @@
 				84A03BEB2A49DE16000C8BD0 /* Service in Frameworks */,
 				84A03BED2A49DE16000C8BD0 /* IdentifiedCollections in Frameworks */,
 				510C8EEA2ACECEB5007292B2 /* BlueTriangle in Frameworks */,
+				51DEF8252B7F898700D9EF94 /* Clarity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +240,8 @@
 				C9E1141A291421F00031E874 /* IdentifiedCollections in Frameworks */,
 				C94BF015290AE2FC007E1C25 /* Service in Frameworks */,
 				510C8EE82ACECE9E007292B2 /* BlueTriangle in Frameworks */,
+				5193C6322B7F710A004EE254 /* Clarity in Frameworks */,
+				51DEF8232B7F881600D9EF94 /* Clarity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +579,7 @@
 				84A03BEA2A49DE16000C8BD0 /* Service */,
 				84A03BEC2A49DE16000C8BD0 /* IdentifiedCollections */,
 				510C8EE92ACECEB5007292B2 /* BlueTriangle */,
+				51DEF8242B7F898700D9EF94 /* Clarity */,
 			);
 			productName = "Example-UIKit";
 			productReference = 847CF43C2A4315D7001E9011 /* Example-UIKit.app */;
@@ -595,6 +602,8 @@
 				C94BF014290AE2FC007E1C25 /* Service */,
 				C9E11419291421F00031E874 /* IdentifiedCollections */,
 				510C8EE72ACECE9E007292B2 /* BlueTriangle */,
+				5193C6312B7F710A004EE254 /* Clarity */,
+				51DEF8222B7F881600D9EF94 /* Clarity */,
 			);
 			productName = "Example-SwiftUI";
 			productReference = C9F4A4122900DB6100BCDF3E /* Example-SwiftUI.app */;
@@ -675,6 +684,7 @@
 			packageReferences = (
 				C9E11418291421F00031E874 /* XCRemoteSwiftPackageReference "swift-identified-collections" */,
 				510C8EE62ACECE9E007292B2 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */,
+				51DEF8212B7F881600D9EF94 /* XCLocalSwiftPackageReference "../Clarity/Clarity-iOS-master" */,
 			);
 			productRefGroup = C9F4A4132900DB6100BCDF3E /* Products */;
 			projectDirPath = "";
@@ -1275,6 +1285,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		51DEF8212B7F881600D9EF94 /* XCLocalSwiftPackageReference "../Clarity/Clarity-iOS-master" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../Clarity/Clarity-iOS-master";
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		510C8EE62ACECE9E007292B2 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -1304,6 +1321,19 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 510C8EE62ACECE9E007292B2 /* XCRemoteSwiftPackageReference "btt-swift-sdk" */;
 			productName = BlueTriangle;
+		};
+		5193C6312B7F710A004EE254 /* Clarity */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Clarity;
+		};
+		51DEF8222B7F881600D9EF94 /* Clarity */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Clarity;
+		};
+		51DEF8242B7F898700D9EF94 /* Clarity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 51DEF8212B7F881600D9EF94 /* XCLocalSwiftPackageReference "../Clarity/Clarity-iOS-master" */;
+			productName = Clarity;
 		};
 		84A03BEA2A49DE16000C8BD0 /* Service */ = {
 			isa = XCSwiftPackageProductDependency;
