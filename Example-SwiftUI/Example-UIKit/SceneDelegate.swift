@@ -85,8 +85,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             config.ANRStackTrace = enableAnrStackTrace
             config.enableTrackingNetworkState = true
             config.isPerformanceMonitorEnabled = isPerformanceMonitor
-            config.cacheMemoryLimit = 10 * 1024
-            config.cacheExpiryDuration = 2 * 60 * 1000
+            config.cacheMemoryLimit = 20 * 1024
+            config.cacheExpiryDuration = 5 * 60 * 1000
         }
         
         ClaritySDK.initialize(config: ClarityConfig(projectId: clarityProjectId))
