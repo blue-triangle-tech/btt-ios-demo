@@ -23,7 +23,7 @@ struct SettingsView: View {
                 VStack{
                     HStack{
                         Spacer()
-                        Image("playstore")
+                        Image("settingAppIcon")
                             .resizable()
                             .frame(width: 80, height: 80)
                         Spacer()

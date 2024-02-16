@@ -34,6 +34,8 @@ final class ProductListViewModel: ObservableObject {
         // Custom metrics
         // BlueTriangle.metrics?["metrics-page"] = "product-list"
 
+        NSLog("SessionID : %@", configureSessionId)
+        
         // Start timer
         let timer = BlueTriangle.startTimer(
             page: Page(

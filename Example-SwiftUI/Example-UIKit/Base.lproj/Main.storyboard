@@ -899,7 +899,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZP-JZ-6Sq">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="80"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playstore" translatesAutoresizingMaskIntoConstraints="NO" id="VCa-SR-I70">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settingAppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="VCa-SR-I70">
                                                         <rect key="frame" x="136.66666666666666" y="0.0" width="80" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="80" id="57x-aO-xUM"/>
@@ -1737,8 +1737,8 @@
         <image name="cross" width="32" height="32"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
-        <image name="playstore" width="512" height="512"/>
         <image name="question" width="32" height="32"/>
+        <image name="settingAppIcon" width="512" height="512"/>
         <image name="square.grid.2x2" catalog="system" width="128" height="114"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <image name="trash" catalog="system" width="117" height="128"/>
