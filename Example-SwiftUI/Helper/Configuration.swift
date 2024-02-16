@@ -11,6 +11,7 @@ private enum Configuration {
     enum Key: String {
         case baseURL = "_BASE_URL"
         case siteID = "_SITE_ID"
+        case clarityProjectID = "_CLARITY_PROJECT_ID"
     }
 
     static func value(for key: Key) -> String {
@@ -32,5 +33,9 @@ enum Secrets {
 
     static var siteID: String {
         Configuration.value(for: .siteID)
+    }
+    
+    static var clarityProjectID: String {
+        Configuration.value(for: .clarityProjectID)
     }
 }

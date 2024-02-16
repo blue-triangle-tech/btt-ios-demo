@@ -8,6 +8,7 @@
 
 import BlueTriangle
 import SwiftUI
+import Clarity
 
 @main
 struct Example_SwiftUIApp: App {
@@ -25,6 +26,7 @@ struct Example_SwiftUIApp: App {
     func configure(){
         
         let siteId = Secrets.siteID
+        let clarityProjectId = Secrets.clarityProjectID
         let enableDebugLogging = true
         let enableScreenTracking = true
         let enableAnrStackTrace = false
@@ -32,12 +34,14 @@ struct Example_SwiftUIApp: App {
         let isPerformanceMonitor = true
         let sessionId = getSessionId()
         let sessionIdIdentifier  : Identifier = sessionId
+        let claritySessionId =  "\(Int.random(in: 1000000..<9999999))"
         
         UserDefaults.standard.set(anrMonitoring, forKey: UserDefaultKeys.ANREnableKey)
         UserDefaults.standard.set(enableScreenTracking, forKey: UserDefaultKeys.ScreenTrackingEnableKey)
         UserDefaults.standard.set(siteId, forKey: UserDefaultKeys.ConfigureSiteId)
         UserDefaults.standard.set(enableAnrStackTrace, forKey: UserDefaultKeys.ANRStackTraceKey)
         UserDefaults.standard.set(sessionId, forKey: UserDefaultKeys.ConfigureSessionId)
+        UserDefaults.standard.set(claritySessionId, forKey: UserDefaultKeys.ClaritySessionIdKey)
         UserDefaults.standard.synchronize()
         
         BlueTriangle.configure { config in
@@ -51,10 +55,12 @@ struct Example_SwiftUIApp: App {
             config.ANRStackTrace = enableAnrStackTrace
             config.enableTrackingNetworkState = true
             config.isPerformanceMonitorEnabled = isPerformanceMonitor
-            config.cacheMemoryLimit = 10 * 1024
-            config.cacheExpiryDuration = 2 * 60 * 1000
+            config.cacheMemoryLimit = 20 * 1024
+            config.cacheExpiryDuration = 5 * 60 * 1000
         }
         
+        ClaritySDK.initialize(config: ClarityConfig(projectId: clarityProjectId))
+        ClaritySDK.setCustomSessionId(claritySessionId)
     }
 
     func getSessionId() -> Identifier{

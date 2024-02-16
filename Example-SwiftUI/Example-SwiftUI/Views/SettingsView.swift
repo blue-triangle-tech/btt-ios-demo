@@ -176,31 +176,62 @@ struct SettingsView: View {
                 .frame(height: 50)*/
                 
                 VStack{
-                    HStack{
-                        Text("Session Id")
-                            .font(Font.system(size: 18, weight: .bold))
-                            .foregroundColor(.black)
-                        
-                        Button {
-                            UIPasteboard.general.string = vm.configureSessionId
-                        } label: {
-                            Text("Copy")
-                                .foregroundColor(.white)
+                    VStack{
+                        HStack{
+                            Text("Session Id")
+                                .font(Font.system(size: 18, weight: .bold))
+                                .foregroundColor(.black)
+                            
+                            Button {
+                                UIPasteboard.general.string = vm.configureSessionId
+                            } label: {
+                                Text("Copy")
+                                    .foregroundColor(.white)
+                            }
+                            .padding(.leading, 10)
+                            .buttonStyle(.borderedProminent)
+                            .tint(.blue)
+                            Spacer()
                         }
-                        .padding(.leading, 10)
-                        .buttonStyle(.borderedProminent)
-                        .tint(.blue)
-                        Spacer()
+                        
+                        HStack{
+                            Text(vm.configureSessionId)
+                                .font(Font.system(size: 18, weight: .regular))
+                                .foregroundColor(.gray)
+                            Spacer()
+                        }
                     }
+                    .frame(height: 50)
                     
-                    HStack{
-                        Text(vm.configureSessionId)
-                            .font(Font.system(size: 18, weight: .regular))
-                            .foregroundColor(.gray)
-                        Spacer()
+                    Spacer()
+                            .frame(height: 15)
+                    VStack{
+                        HStack{
+                            Text("Clarity Session Id")
+                                .font(Font.system(size: 18, weight: .bold))
+                                .foregroundColor(.black)
+                            
+                            Button {
+                                UIPasteboard.general.string = vm.claritySessionId
+                            } label: {
+                                Text("Copy")
+                                    .foregroundColor(.white)
+                            }
+                            .padding(.leading, 10)
+                            .buttonStyle(.borderedProminent)
+                            .tint(.blue)
+                            Spacer()
+                        }
+                        
+                        HStack{
+                            Text(vm.claritySessionId)
+                                .font(Font.system(size: 18, weight: .regular))
+                                .foregroundColor(.gray)
+                            Spacer()
+                        }
                     }
+                    .frame(height: 50)
                 }
-                .frame(height: 50)
                 
                 Spacer()
                         .frame(height: 50)
