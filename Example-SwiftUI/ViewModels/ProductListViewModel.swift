@@ -47,31 +47,7 @@ final class ProductListViewModel: ObservableObject {
             products = productResponse.splitTuple()
             productList = productResponse
             let imageURLS = productResponse.map { product in
-                
-               if product.id == 26 {
-                    //DNS
-                    return URL(string: "https://dnsrequestwouldfailhere.com/")!
-                }
-                else if product.id == 27{
-                    //TLS
-                    return URL(string: "https://untrusted-root.badssl.com/")!
-                }
-                else if product.id == 28{
-                    //ConnectionFailure
-                    return URL(string: "http://www.127.0.0.1:10000/api/server")!
-                }
-                else if product.id == 29{
-                    //404
-                    return URL(string: "https://httpbin.org/invalidendpoint")!
-                }
-                else if product.id == 30{
-                    //TimeOut
-                    return URL(string: "https://hub.dummyapis.com/delay?seconds=30")!
-                }
-                else{
-                    //Success
                    return product.image
-                }
               }
             
             try await imageLoader.fetch(urls: imageURLS)

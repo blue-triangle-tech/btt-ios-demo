@@ -10,8 +10,10 @@ import Service
 
 extension Service {
     static var captured: Self {
-        let session = URLSession(configuration: .default)
-
+        let config = URLSessionConfiguration.default
+        config.requestCachePolicy = .reloadIgnoringLocalCacheData
+        config.urlCache = nil
+        let session = URLSession(configuration: config)
         return .init(
             baseURL: URL(string: "http://\(Secrets.baseURL)")!,
             networking: { request in
