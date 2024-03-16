@@ -30,6 +30,7 @@ struct Example_SwiftUIApp: App {
         let enableDebugLogging = true
         let enableScreenTracking = true
         let enableAnrStackTrace = false
+        let enableMemoryWarning = true
         let anrMonitoring = true
         let isPerformanceMonitor = true
         let sessionId = getSessionId()
@@ -53,6 +54,7 @@ struct Example_SwiftUIApp: App {
             config.enableScreenTracking = enableScreenTracking
             config.ANRMonitoring = anrMonitoring
             config.ANRStackTrace = enableAnrStackTrace
+            config.enableMemoryWarning = enableMemoryWarning
             config.enableTrackingNetworkState = true
             config.isPerformanceMonitorEnabled = isPerformanceMonitor
             config.cacheMemoryLimit = 20 * 1024

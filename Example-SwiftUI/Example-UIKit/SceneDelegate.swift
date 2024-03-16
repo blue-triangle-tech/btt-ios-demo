@@ -59,6 +59,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let clarityProjectId = Secrets.clarityProjectID
         let enableDebugLogging = true
         let enableScreenTracking = true
+        let enableMemoryWarning = true
         let enableAnrStackTrace = false
         let anrMonitoring = true
         let isPerformanceMonitor = true
@@ -83,6 +84,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             config.enableScreenTracking = enableScreenTracking
             config.ANRMonitoring = anrMonitoring
             config.ANRStackTrace = enableAnrStackTrace
+            config.enableMemoryWarning = enableMemoryWarning
             config.enableTrackingNetworkState = true
             config.isPerformanceMonitorEnabled = isPerformanceMonitor
             config.cacheMemoryLimit = 20 * 1024
