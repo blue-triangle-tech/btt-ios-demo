@@ -14,6 +14,9 @@
 		512A3FC42AA1D1D6005D5A22 /* UnitTestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A3FC32AA1D1D6005D5A22 /* UnitTestsView.swift */; };
 		512BBE982A49ED1A00EAFD97 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 512BBE972A49ED1A00EAFD97 /* Config.xcconfig */; };
 		512BBE992A49ED1A00EAFD97 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 512BBE972A49ED1A00EAFD97 /* Config.xcconfig */; };
+		512BD4ED2BCE68D9005E80E5 /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512BD4EC2BCE68D9005E80E5 /* ConfigurationView.swift */; };
+		512BD4EF2BCE72A4005E80E5 /* ConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512BD4EE2BCE72A4005E80E5 /* ConfigurationModel.swift */; };
+		512BD4F02BCEC198005E80E5 /* ConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512BD4EE2BCE72A4005E80E5 /* ConfigurationModel.swift */; };
 		5170A8BF2AA1E82D0091B65A /* MemoryTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8BE2AA1E82D0091B65A /* MemoryTestView.swift */; };
 		5170A8C12AA1F3B50091B65A /* UnitTestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */; };
 		5170A8C22AA1F4090091B65A /* UnitTestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */; };
@@ -24,6 +27,7 @@
 		519833A12B55656100F71C1E /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 5198339F2B55656100F71C1E /* template.html */; };
 		5198A2992A9F7104003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
 		5198A29A2A9F7114003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
+		51B55E252BCD5E5100758C75 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B55E242BCD5E5100758C75 /* ConfigurationViewController.swift */; };
 		51D6F4F52B35A38F0044A3F0 /* BttWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6F4F42B35A38F0044A3F0 /* BttWebViewController.swift */; };
 		51DEF8232B7F881600D9EF94 /* Clarity in Frameworks */ = {isa = PBXBuildFile; productRef = 51DEF8222B7F881600D9EF94 /* Clarity */; };
 		51DEF8252B7F898700D9EF94 /* Clarity in Frameworks */ = {isa = PBXBuildFile; productRef = 51DEF8242B7F898700D9EF94 /* Clarity */; };
@@ -138,12 +142,15 @@
 		512A3FC02AA1CFEF005D5A22 /* MemoryTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryTestViewController.swift; sourceTree = "<group>"; };
 		512A3FC32AA1D1D6005D5A22 /* UnitTestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestsView.swift; sourceTree = "<group>"; };
 		512BBE972A49ED1A00EAFD97 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		512BD4EC2BCE68D9005E80E5 /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
+		512BD4EE2BCE72A4005E80E5 /* ConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationModel.swift; sourceTree = "<group>"; };
 		5170A8BE2AA1E82D0091B65A /* MemoryTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryTestView.swift; sourceTree = "<group>"; };
 		5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestsViewModel.swift; sourceTree = "<group>"; };
 		5170A8C32AA1F7490091B65A /* CPUTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUTestView.swift; sourceTree = "<group>"; };
 		5170A8C52AA1F87C0091B65A /* CPUTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUTestViewController.swift; sourceTree = "<group>"; };
 		5198339F2B55656100F71C1E /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryAllocationTest.swift; sourceTree = "<group>"; };
+		51B55E242BCD5E5100758C75 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		51D6F4F42B35A38F0044A3F0 /* BttWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BttWebViewController.swift; sourceTree = "<group>"; };
 		51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HybridViewModel.swift; sourceTree = "<group>"; };
 		51E1F49F2B5936D700C7F523 /* BttWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BttWebView.swift; sourceTree = "<group>"; };
@@ -319,6 +326,7 @@
 				8419BD272A49CFEC009429C9 /* CartViewModel.swift */,
 				5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */,
 				51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */,
+				512BD4EE2BCE72A4005E80E5 /* ConfigurationModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -378,6 +386,7 @@
 				84D977342A4488C700192330 /* CheckOutViewController.swift */,
 				84B301EB2A4ED16700BF23B5 /* OrderSuccessfulViewController.swift */,
 				51D6F4F42B35A38F0044A3F0 /* BttWebViewController.swift */,
+				51B55E242BCD5E5100758C75 /* ConfigurationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -437,6 +446,7 @@
 				C94BF01C290AE58A007E1C25 /* SettingsView.swift */,
 				51E1F49F2B5936D700C7F523 /* BttWebView.swift */,
 				C94BF018290AE519007E1C25 /* TabContainerView.swift */,
+				512BD4EC2BCE68D9005E80E5 /* ConfigurationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -759,9 +769,11 @@
 				51F61C942A4ACE9F0071F957 /* AppCoordinator.swift in Sources */,
 				84D977352A4488C700192330 /* CheckOutViewController.swift in Sources */,
 				847CF4552A431B10001E9011 /* ProductViewController.swift in Sources */,
+				512BD4F02BCEC198005E80E5 /* ConfigurationModel.swift in Sources */,
 				84538C822A4ABE6400EF70A2 /* CartItemTableViewCell.swift in Sources */,
 				8419BD1A2A49CFD7009429C9 /* Configuration.swift in Sources */,
 				51F61C972A4ACF2B0071F957 /* BTTrackingConfigViewController.swift in Sources */,
+				51B55E252BCD5E5100758C75 /* ConfigurationViewController.swift in Sources */,
 				8419BD412A49CFFF009429C9 /* Collection+Utils.swift in Sources */,
 				8419BD392A49CFFF009429C9 /* Service+BTT.swift in Sources */,
 				8419BD2F2A49CFEC009429C9 /* ProductListViewModel.swift in Sources */,
@@ -794,6 +806,7 @@
 				8419BD2C2A49CFEC009429C9 /* CheckoutViewModel.swift in Sources */,
 				8419BD382A49CFFF009429C9 /* Service+BTT.swift in Sources */,
 				512A3FC42AA1D1D6005D5A22 /* UnitTestsView.swift in Sources */,
+				512BD4EF2BCE72A4005E80E5 /* ConfigurationModel.swift in Sources */,
 				8419BD152A49CFD7009429C9 /* ImageLoader.swift in Sources */,
 				C93FCCB729100D9C00633487 /* PrimaryButtonStyle.swift in Sources */,
 				5170A8C12AA1F3B50091B65A /* UnitTestsViewModel.swift in Sources */,
@@ -813,6 +826,7 @@
 				8419BD202A49CFE1009429C9 /* CartModel.swift in Sources */,
 				8419BD3A2A49CFFF009429C9 /* View+ErrorAlert.swift in Sources */,
 				5170A8C42AA1F7490091B65A /* CPUTestView.swift in Sources */,
+				512BD4ED2BCE68D9005E80E5 /* ConfigurationView.swift in Sources */,
 				51F61C9B2A4AD3490071F957 /* BTTRootContrainerView.swift in Sources */,
 				8419BD1E2A49CFE1009429C9 /* CartItemModel.swift in Sources */,
 				8419BD282A49CFEC009429C9 /* ProductDetailViewModel.swift in Sources */,

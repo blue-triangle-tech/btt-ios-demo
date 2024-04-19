@@ -91,6 +91,15 @@ class SettingsViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func didSelectConfiguration(_ sender: Any?) {
+        let storyboard = UIStoryboard(name:"Main", bundle: nil)
+        
+        if let navigation = storyboard.instantiateViewController(identifier: "ConfigurationViewNav") as? UINavigationController, let vc = navigation.viewControllers.first as? ConfigurationViewController{
+            navigation.modalPresentationStyle = .fullScreen
+            self.present(navigation, animated: true)
+        }
+    }
+    
     func version() -> String {
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String

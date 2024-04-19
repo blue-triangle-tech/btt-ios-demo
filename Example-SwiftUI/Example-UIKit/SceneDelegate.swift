@@ -55,14 +55,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func configure(){
         
+        let enableScreenTracking = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
+        let anrMonitoring =  UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigANRKey)
+        let enableMemoryWarning = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigMemoryWarningKey)
+        let isPerformanceMonitor = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigPerfomanceMonitorKey)
+        let isCrashTracking = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigCrashKey)
+        let isNetworkState = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigNetworkStateKey)
+        let isNetworkSampleRate = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigNetworkSampleRateKey)
+        
         let siteId = Secrets.siteID
         let clarityProjectId = Secrets.clarityProjectID
         let enableDebugLogging = true
-        let enableScreenTracking = true
-        let enableMemoryWarning = true
         let enableAnrStackTrace = false
-        let anrMonitoring = true
-        let isPerformanceMonitor = true
         let sessionId = getSessionId()
         let sessionIdIdentifier  : Identifier = sessionId
         let claritySessionId =  "\(Int.random(in: 1000000..<9999999))"
@@ -78,14 +82,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         BlueTriangle.configure { config in
             config.siteID = siteId
             config.sessionID = sessionIdIdentifier
-            config.networkSampleRate = 1.0
-            config.crashTracking = .nsException
+            config.networkSampleRate = isNetworkSampleRate ? 1.0 : 0.0
+            config.crashTracking = isCrashTracking ? .nsException : .none
             config.enableDebugLogging = enableDebugLogging
             config.enableScreenTracking = enableScreenTracking
             config.ANRMonitoring = anrMonitoring
             config.ANRStackTrace = enableAnrStackTrace
             config.enableMemoryWarning = enableMemoryWarning
-            config.enableTrackingNetworkState = true
+            config.enableTrackingNetworkState = isNetworkState
             config.isPerformanceMonitorEnabled = isPerformanceMonitor
             config.cacheMemoryLimit = 20 * 1024
             config.cacheExpiryDuration = 5 * 60 * 1000
