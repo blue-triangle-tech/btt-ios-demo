@@ -86,7 +86,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             config.siteID = siteId
             config.sessionID = sessionIdIdentifier
             if !isDefaultSetting {
-                config.networkSampleRate = isNetworkSampleRate ? 1.0 : 0.05
+                config.networkSampleRate = isNetworkSampleRate ? 1.0 : 0.00
                 config.crashTracking = isCrashTracking ? .nsException : .none
                 config.enableDebugLogging = enableDebugLogging
                 config.enableScreenTracking = enableScreenTracking
