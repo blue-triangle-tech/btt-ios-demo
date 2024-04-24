@@ -228,7 +228,7 @@ struct SettingsView: View {
                 
                 VStack(spacing: 10){
                     HStack{
-                        Button("Configuration Setting") {
+                        Button("Configuration Settings") {
                             self.showModal = true
                         }
                         .buttonStyle(.borderedProminent)

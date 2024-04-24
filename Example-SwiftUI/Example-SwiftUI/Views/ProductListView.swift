@@ -7,6 +7,7 @@
 
 import Service
 import SwiftUI
+import BlueTriangle
 
 struct ProductListView: View {
     enum Route: Hashable {
@@ -14,6 +15,7 @@ struct ProductListView: View {
     }
 
     @ObservedObject var viewModel: ProductListViewModel
+    @State var  timer : BTTimer?
 
     init(viewModel: ProductListViewModel) {
         self.viewModel = viewModel
@@ -79,6 +81,20 @@ struct ProductListView: View {
             }
         }
         .errorAlert(error: $viewModel.error)
+        .onAppear{
+            let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
+            if !isScreenTracking{
+                self.timer = BlueTriangle.startTimer(
+                    page: Page(
+                        pageName: "ProductListView Mannual Tracking"))
+            }
+        }
+        .onDisappear {
+            let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
+            if let timer = self.timer, !isScreenTracking{
+                BlueTriangle.endTimer(timer)
+            }
+        }
     }
 }
 

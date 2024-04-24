@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 import Service
+import BlueTriangle
 
 class CartViewController: UIViewController {
 
@@ -21,6 +22,7 @@ class CartViewController: UIViewController {
     private let service = Service.captured
      var vm: CartViewModel!
     private var cancellable: Set<AnyCancellable> = []
+    private var timer : BTTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,24 @@ class CartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
+        if !isScreenTracking{
+            self.timer = BlueTriangle.startTimer(
+                page: Page(
+                    pageName: "CartViewController Mannual Tracking"))
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
+        if let timer = self.timer, !isScreenTracking{
+            BlueTriangle.endTimer(timer)
+        }
     }
     
     func getCart() {

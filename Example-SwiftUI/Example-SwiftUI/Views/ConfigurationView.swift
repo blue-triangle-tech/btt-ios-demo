@@ -10,7 +10,8 @@ import SwiftUI
 struct ConfigurationView: View {
     
     @Binding var isConfigurationActive : Bool
-    @ObservedObject var vm : ConfigurationModel    
+    @ObservedObject var vm : ConfigurationModel  
+    @State private var showConfirm = false
     
     var body: some View {
         HStack{
@@ -18,13 +19,17 @@ struct ConfigurationView: View {
                 
                 VStack{
                     HStack{
+                        Button("Cancel") {
+                            isConfigurationActive = false
+                        }
                         Spacer()
                         Text("Configuration")
                             .font(Font.system(size: 18, weight: .regular))
                             .foregroundColor(.black)
                         Spacer()
-                        Button("Done") {
-                            isConfigurationActive = false
+                        Button("Apply") {
+                            vm.applyChanges()
+                            exit(0)
                         }
                     }
                 }
@@ -32,19 +37,7 @@ struct ConfigurationView: View {
                 
                 VStack{
                     HStack{
-                        Spacer()
-                        Text("To owner the configuration changes, you must restart the app.")
-                            .italic()
-                            .font(Font.system(size: 16, weight: .regular))
-                            .foregroundColor(.black)
-                        Spacer()
-                    }
-                }
-                .frame(height: 50)
-                
-                VStack{
-                    HStack{
-                        Text("Default")
+                        Text("Kepp Default Configurations")
                             .font(Font.system(size: 16, weight: .regular))
                             .foregroundColor(.black)
                         Spacer()
@@ -55,62 +48,13 @@ struct ConfigurationView: View {
                             })
                     }
                 }
-                .frame(height: 50)
-                
-                VStack{
-                    HStack{
-                        Text("Screen Tracking")
-                            .font(Font.system(size: 18, weight: .regular))
-                            .foregroundColor(.black)
-                        Spacer()
-                        
-                        Toggle("", isOn: $vm.isScreenTracking)
-                            .disabled(vm.isConfigDefault)
-                            .onChange(of: self.vm.isScreenTracking, perform: { value in
-                                vm.updateScreenTrackingConfig(value)
-                            })
-                    }
-                }
-                .frame(height: 30)
+                .frame(height: 100)
                 
                 
                 VStack{
                     HStack{
-                        Text("ANR")
-                            .font(Font.system(size: 18, weight: .regular))
-                            .foregroundColor(.black)
-                        Spacer()
-                        
-                        Toggle("", isOn: $vm.isANR)
-                            .disabled(vm.isConfigDefault)
-                            .onChange(of: self.vm.isANR, perform: { value in
-                                vm.updateANRConfig(value)
-                            })
-                    }
-                }
-                .frame(height: 30)
-                
-                
-                VStack{
-                    HStack{
-                        Text("Memory Warning")
-                            .font(Font.system(size: 18, weight: .regular))
-                            .foregroundColor(.black)
-                        Spacer()
-                        
-                        Toggle("", isOn: $vm.isMemoryWarning)
-                            .disabled(vm.isConfigDefault)
-                            .onChange(of: self.vm.isMemoryWarning, perform: { value in
-                                vm.updateMemoryWarningConfig(value)
-                            })
-                    }
-                }
-                .frame(height: 30)
-                
-                VStack{
-                    HStack{
-                        Text("Perfomance Monitor")
-                            .font(Font.system(size: 18, weight: .regular))
+                        Text("Perfomance Monitoring")
+                            .font(Font.system(size: 16, weight: .regular))
                             .foregroundColor(.black)
                         Spacer()
                         
@@ -123,10 +67,11 @@ struct ConfigurationView: View {
                 }
                 .frame(height: 30)
                 
+                
                 VStack{
                     HStack{
                         Text("Crash Tracking")
-                            .font(Font.system(size: 18, weight: .regular))
+                            .font(Font.system(size: 16, weight: .regular))
                             .foregroundColor(.black)
                         Spacer()
                         
@@ -141,8 +86,58 @@ struct ConfigurationView: View {
                 
                 VStack{
                     HStack{
-                        Text("Network Sample Rate")
-                            .font(Font.system(size: 18, weight: .regular))
+                        Text("ANR Tracking")
+                            .font(Font.system(size: 16, weight: .regular))
+                            .foregroundColor(.black)
+                        Spacer()
+                        
+                        Toggle("", isOn: $vm.isANR)
+                            .disabled(vm.isConfigDefault)
+                            .onChange(of: self.vm.isANR, perform: { value in
+                                vm.updateANRConfig(value)
+                            })
+                    }
+                }
+                .frame(height: 30)
+                
+                VStack{
+                    HStack{
+                        Text("Screen Tracking")
+                            .font(Font.system(size: 16, weight: .regular))
+                            .foregroundColor(.black)
+                        Spacer()
+                        
+                        Toggle("", isOn: $vm.isScreenTracking)
+                            .disabled(vm.isConfigDefault)
+                            .onChange(of: self.vm.isScreenTracking, perform: { value in
+                                vm.updateScreenTrackingConfig(value)
+                            })
+                    }
+                }
+                .frame(height: 30)
+                
+                VStack{
+                    HStack{
+                        Text("Memory Warning")
+                            .font(Font.system(size: 16, weight: .regular))
+                            .foregroundColor(.black)
+                        Spacer()
+                        
+                        Toggle("", isOn: $vm.isMemoryWarning)
+                            .disabled(vm.isConfigDefault)
+                            .onChange(of: self.vm.isMemoryWarning, perform: { value in
+                                vm.updateMemoryWarningConfig(value)
+                            })
+                    }
+                }
+                .frame(height: 30)
+
+
+                
+                VStack{
+                    HStack{
+                        Text("Network Capturing")
+                            .font(Font.system(size: 16, weight: .regular))
                             .foregroundColor(.black)
                         Spacer()
                         
@@ -157,8 +152,8 @@ struct ConfigurationView: View {
                 
                 VStack{
                     HStack{
-                        Text("Network State")
-                            .font(Font.system(size: 18, weight: .regular))
+                        Text("Network State Tracking")
+                            .font(Font.system(size: 16, weight: .regular))
                             .foregroundColor(.black)
                         Spacer()
                         
@@ -171,25 +166,22 @@ struct ConfigurationView: View {
                 }
                 .frame(height: 30)
                 
-                
-               /* VStack{
-                    HStack{
-                        Spacer()
-                        Button("Apply") {
-                            vm.applyChanges()
-                            exit(0)
-                        }
-                        Spacer()
-                    }
-                }
-                .frame(height: 100)*/
-  
-                
                 Spacer()
             }
             .padding(.leading, 10)
             .padding(.trailing, 10)
         }
+        //.alert(isPresented: $showConfirm, content: { confirmChange })
+    }
+    
+    var confirmChange: Alert {
+        Alert(title: Text("Change Configuration?"), message: Text("This application needs to restart to update the configuration. Do you want to restart the application?"),
+              primaryButton: .default (Text("Yes")) {
+            vm.applyChanges()
+            showConfirm = true
+        },
+              secondaryButton: .cancel(Text("No"))
+        )
     }
 }
 

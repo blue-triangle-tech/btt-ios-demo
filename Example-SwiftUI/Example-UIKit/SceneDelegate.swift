@@ -55,6 +55,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func configure(){
         
+        ConfigurationModel.setupInitialDefaultConfiguration()
+        
+        let isDefaultSetting = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigDefaultKey)
         let enableScreenTracking = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
         let anrMonitoring =  UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigANRKey)
         let enableMemoryWarning = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigMemoryWarningKey)
@@ -82,17 +85,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         BlueTriangle.configure { config in
             config.siteID = siteId
             config.sessionID = sessionIdIdentifier
-            config.networkSampleRate = isNetworkSampleRate ? 1.0 : 0.0
-            config.crashTracking = isCrashTracking ? .nsException : .none
-            config.enableDebugLogging = enableDebugLogging
-            config.enableScreenTracking = enableScreenTracking
-            config.ANRMonitoring = anrMonitoring
-            config.ANRStackTrace = enableAnrStackTrace
-            config.enableMemoryWarning = enableMemoryWarning
-            config.enableTrackingNetworkState = isNetworkState
-            config.isPerformanceMonitorEnabled = isPerformanceMonitor
-            config.cacheMemoryLimit = 20 * 1024
-            config.cacheExpiryDuration = 5 * 60 * 1000
+            if !isDefaultSetting {
+                config.networkSampleRate = isNetworkSampleRate ? 1.0 : 0.05
+                config.crashTracking = isCrashTracking ? .nsException : .none
+                config.enableDebugLogging = enableDebugLogging
+                config.enableScreenTracking = enableScreenTracking
+                config.ANRMonitoring = anrMonitoring
+                config.ANRStackTrace = enableAnrStackTrace
+                config.enableMemoryWarning = enableMemoryWarning
+                config.enableTrackingNetworkState = isNetworkState
+                config.isPerformanceMonitorEnabled = isPerformanceMonitor
+                config.cacheMemoryLimit = 20 * 1024
+                config.cacheExpiryDuration = 5 * 60 * 1000
+            }
         }
         
         ClaritySDK.initialize(config: ClarityConfig(projectId: clarityProjectId))

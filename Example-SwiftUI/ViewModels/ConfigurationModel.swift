@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 struct ConfigUserDefaultKeys {
+    static let HasAppLaunchedBefore = "HasAppLaunchedBefore"
     static let ConfigDefaultKey = "ConfigDefaultKey"
     static let ConfigANRKey = "ConfigANRKey"
     static let ConfigScreenTrackingKey = "ConfigScreenTrackingKey"
@@ -56,6 +57,7 @@ final class ConfigurationModel: ObservableObject {
     }
     
     func updateDefaultValue(){
+       // Default SetUP
         self.isScreenTracking = true
         self.isANR = true
         self.isMemoryWarning = true
@@ -63,8 +65,6 @@ final class ConfigurationModel: ObservableObject {
         self.isCrashTracking = true
         self.isNetworkSampleRate = false
         self.isNetworkState = false
-        
-        self.applyChanges()
     }
     
     func updateDefaultConfig(_ value : Bool){
@@ -76,43 +76,36 @@ final class ConfigurationModel: ObservableObject {
     func updateANRConfig(_ value : Bool){
         print("\(#function) - \(value)")
         self.isANR = value
-        self.applyChanges()
     }
     
     func updateScreenTrackingConfig(_ value : Bool){
         print("\(#function) - \(value)")
         self.isScreenTracking = value
-        self.applyChanges()
     }
     
     func updateMemoryWarningConfig(_ value : Bool){
         print("\(#function) - \(value)")
         self.isMemoryWarning = value
-        self.applyChanges()
     }
     
     func updatePerfomanceMonitorConfig(_ value : Bool){
         print("\(#function) - \(value)")
         self.isPerfomanceMonitor = value
-        self.applyChanges()
     }
     
     func updateCrash(_ value : Bool){
         print("\(#function) - \(value)")
         self.isCrashTracking = value
-        self.applyChanges()
     }
     
     func updateNetworkSampleRate(_ value : Bool){
         print("\(#function) - \(value)")
         self.isNetworkSampleRate = value
-        self.applyChanges()
     }
     
     func updateNetworkState(_ value : Bool){
         print("\(#function) - \(value)")
         self.isNetworkState = value
-        self.applyChanges()
     }
     
     func applyChanges(){
@@ -127,6 +120,22 @@ final class ConfigurationModel: ObservableObject {
         UserDefaults.standard.setValue(isNetworkState, forKey: ConfigUserDefaultKeys.ConfigNetworkStateKey)
         
         UserDefaults.standard.synchronize()
+    }
+    
+    static func setupInitialDefaultConfiguration(){
+       
+        let hasAppLaunchedBefore = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.HasAppLaunchedBefore)
+        if !hasAppLaunchedBefore {
+            UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigDefaultKey)
+            UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigANRKey)
+            UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
+            UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigMemoryWarningKey)
+            UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigPerfomanceMonitorKey)
+            UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigCrashKey)
+            UserDefaults.standard.setValue(false, forKey: ConfigUserDefaultKeys.ConfigNetworkSampleRateKey)
+            UserDefaults.standard.setValue(false, forKey: ConfigUserDefaultKeys.ConfigNetworkStateKey)
+            UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.HasAppLaunchedBefore)
+        }
     }
 }
 

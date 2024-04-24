@@ -49,7 +49,22 @@ class ConfigurationViewController: UIViewController {
     }
     
     @IBAction func didSelectApply(_ sender: Any?) {
-        vm.applyChanges()
+        self.vm.applyChanges()
+        exit(0)
+        /*let alertController = UIAlertController(title: "Change Configuration?", message: "This application need to restart to update the configuration. Do you want to restart the application ?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) {
+            UIAlertAction in
+            self.vm.applyChanges()
+            exit(0)
+        }
+
+        let cancelAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel) {
+            UIAlertAction in
+        }
+
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)*/
     }
     
     @IBAction func didChangeSwitch(_ sender: UISwitch?) {
