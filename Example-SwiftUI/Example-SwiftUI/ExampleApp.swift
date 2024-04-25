@@ -55,10 +55,10 @@ struct Example_SwiftUIApp: App {
         BlueTriangle.configure { config in
             config.siteID = siteId
             config.sessionID = sessionIdIdentifier
+            config.enableDebugLogging = enableDebugLogging
             if !isDefaultSetting {
                 config.networkSampleRate = isNetworkSampleRate ? 1.0 : 0.00
                 config.crashTracking = isCrashTracking ? .nsException : .none
-                config.enableDebugLogging = enableDebugLogging
                 config.enableScreenTracking = enableScreenTracking
                 config.ANRMonitoring = anrMonitoring
                 config.ANRStackTrace = enableAnrStackTrace
