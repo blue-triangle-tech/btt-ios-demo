@@ -135,6 +135,7 @@ final class ConfigurationModel: ObservableObject {
             UserDefaults.standard.setValue(false, forKey: ConfigUserDefaultKeys.ConfigNetworkSampleRateKey)
             UserDefaults.standard.setValue(false, forKey: ConfigUserDefaultKeys.ConfigNetworkStateKey)
             UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.HasAppLaunchedBefore)
+            UserDefaults.standard.synchronize()
         }
     }
 }
