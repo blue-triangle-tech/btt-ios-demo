@@ -61,6 +61,20 @@ struct ProductListView: View {
                     }
                 }
                 .bttTrackScreen("ProductListView")
+                .onAppear{
+                    let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
+                    if !isScreenTracking{
+                        self.timer = BlueTriangle.startTimer(
+                            page: Page(
+                                pageName: "ProductListView Mannual Tracking"))
+                    }
+                }
+                .onDisappear {
+                    let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
+                    if let timer = self.timer, !isScreenTracking{
+                        BlueTriangle.endTimer(timer)
+                    }
+                }
                 .refreshable {
                     await viewModel.loadProducts()
                 }
@@ -81,20 +95,6 @@ struct ProductListView: View {
             }
         }
         .errorAlert(error: $viewModel.error)
-        .onAppear{
-            let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
-            if !isScreenTracking{
-                self.timer = BlueTriangle.startTimer(
-                    page: Page(
-                        pageName: "ProductListView Mannual Tracking"))
-            }
-        }
-        .onDisappear {
-            let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
-            if let timer = self.timer, !isScreenTracking{
-                BlueTriangle.endTimer(timer)
-            }
-        }
     }
 }
 
