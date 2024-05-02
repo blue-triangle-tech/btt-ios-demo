@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "http://github.com/JP-aloha/btt-swift-sdk.git",
       "state" : {
-        "branch" : "feature/configuration-default-changes",
-        "revision" : "90474c3a46c2bfd2e6ff0d2cce527fd3b95c8940"
+        "branch" : "configuration-default-changes-release-3.6.0",
+        "revision" : "13bffae90c37f4854ea02bebcefe2d278dd7ac9b"
       }
     },
     {

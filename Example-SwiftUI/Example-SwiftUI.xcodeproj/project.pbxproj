@@ -1305,7 +1305,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "http://github.com/JP-aloha/btt-swift-sdk.git";
 			requirement = {
-				branch = "feature/configuration-default-changes";
+				branch = "configuration-default-changes-release-3.6.0";
 				kind = branch;
 			};
 		};

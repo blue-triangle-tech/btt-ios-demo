@@ -50,6 +50,21 @@ struct ConfigurationView: View {
                 }
                 .frame(height: 100)
                 
+                VStack{
+                    HStack{
+                        Text("Screen Tracking")
+                            .font(Font.system(size: 16, weight: .regular))
+                            .foregroundColor(.black)
+                        Spacer()
+                        
+                        Toggle("", isOn: $vm.isScreenTracking)
+                            .disabled(vm.isConfigDefault)
+                            .onChange(of: self.vm.isScreenTracking, perform: { value in
+                                vm.updateScreenTrackingConfig(value)
+                            })
+                    }
+                }
+                .frame(height: 30)
                 
                 VStack{
                     HStack{
@@ -95,22 +110,6 @@ struct ConfigurationView: View {
                             .disabled(vm.isConfigDefault)
                             .onChange(of: self.vm.isANR, perform: { value in
                                 vm.updateANRConfig(value)
-                            })
-                    }
-                }
-                .frame(height: 30)
-                
-                VStack{
-                    HStack{
-                        Text("Screen Tracking")
-                            .font(Font.system(size: 16, weight: .regular))
-                            .foregroundColor(.black)
-                        Spacer()
-                        
-                        Toggle("", isOn: $vm.isScreenTracking)
-                            .disabled(vm.isConfigDefault)
-                            .onChange(of: self.vm.isScreenTracking, perform: { value in
-                                vm.updateScreenTrackingConfig(value)
                             })
                     }
                 }
