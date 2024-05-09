@@ -12,6 +12,7 @@ struct SettingsView: View {
     @ObservedObject var vm: SettingsViewModel
     @State var isUnitTestsActive : Bool = false
     @State private var showingAlert = false
+    @State private var showModal = false
     @State private var presentHybridDemo = false
     @State private var tagUrl = "\(Secrets.siteID).btttag.com/btt.js"
     
@@ -72,40 +73,6 @@ struct SettingsView: View {
                 Spacer()
                         .frame(height: 50)
                 
-                /*VStack{
-                    HStack{
-                        Text("BTT SDK VersionRule")
-                            .font(Font.system(size: 18, weight: .bold))
-                            .foregroundColor(.black)
-                        Spacer()
-                    }
-                    
-                    HStack{
-                        Text("feature/memory_warning_observer")
-                            .font(Font.system(size: 18, weight: .regular))
-                            .foregroundColor(.gray)
-                        Spacer()
-                    }
-                }
-                .frame(height: 50)
-                
-                VStack{
-                    HStack{
-                        Text("BTT SDK Location")
-                            .font(Font.system(size: 18, weight: .bold))
-                            .foregroundColor(.black)
-                        Spacer()
-                    }
-                    
-                    HStack{
-                        Text(verbatim: "http://github.com/JP-aloha/btt-swift-sdk.git")
-                            .font(Font.system(size: 18, weight: .regular))
-                            .foregroundColor(.gray)
-                        Spacer()
-                    }
-                }
-                .frame(height: 50)*/
-                
                 VStack{
                     HStack{
                         Text("Site Id")
@@ -122,58 +89,6 @@ struct SettingsView: View {
                     }
                 }
                 .frame(height: 50)
-                
-                
-               /* VStack{
-                    HStack{
-                        Text("ANR Detection")
-                            .font(Font.system(size: 18, weight: .bold))
-                            .foregroundColor(.black)
-                        Spacer()
-                    }
-                    
-                    HStack{
-                        Text(vm.anrEnable ? "Enable" : "Disable")
-                            .font(Font.system(size: 18, weight: .regular))
-                            .foregroundColor(.gray)
-                        Spacer()
-                    }
-                }
-                .frame(height: 50)
-                
-                VStack{
-                    HStack{
-                        Text("Screen Tracking")
-                            .font(Font.system(size: 18, weight: .bold))
-                            .foregroundColor(.black)
-                        Spacer()
-                    }
-                    
-                    HStack{
-                        Text(vm.screenTrackingEnable ? "Enable" : "Disable")
-                            .font(Font.system(size: 18, weight: .regular))
-                            .foregroundColor(.gray)
-                        Spacer()
-                    }
-                }
-                .frame(height: 50)
-                
-                VStack{
-                    HStack{
-                        Text("ANR Stack Trace")
-                            .font(Font.system(size: 18, weight: .bold))
-                            .foregroundColor(.black)
-                        Spacer()
-                    }
-                    
-                    HStack{
-                        Text(vm.anrStackTraceEnable ? "Enable" : "Disable")
-                            .font(Font.system(size: 18, weight: .regular))
-                            .foregroundColor(.gray)
-                        Spacer()
-                    }
-                }
-                .frame(height: 50)*/
                 
                 VStack{
                     VStack{
@@ -311,12 +226,29 @@ struct SettingsView: View {
                 }
                 .frame(height: 50)
                 
+                VStack(spacing: 10){
+                    HStack{
+                        Button("Configuration Settings") {
+                            self.showModal = true
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.blue)
+                        
+                        Spacer()
+                    }
+                    .frame(height: 45)
+                }
+                .frame(height: 50)
+                
                 Spacer()
             }
             .padding(.leading, 15)
             .padding(.trailing, 15)
             .navigationTitle("Settings")
             .bttTrackScreen("SettingsView")
+            .fullScreenCover(isPresented: $showModal, content: {
+                ConfigurationView(isConfigurationActive: $showModal, vm: ConfigurationModel())
+            })
             .navigationDestination(isPresented: self.$isUnitTestsActive, destination: {
                 UnitTestsView()
             })
