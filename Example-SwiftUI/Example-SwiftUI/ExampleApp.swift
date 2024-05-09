@@ -8,7 +8,6 @@
 
 import BlueTriangle
 import SwiftUI
-import Clarity
 
 @main
 struct Example_SwiftUIApp: App {
@@ -69,9 +68,6 @@ struct Example_SwiftUIApp: App {
                 config.cacheExpiryDuration = 5 * 60 * 1000
             }
         }
-        
-        ClaritySDK.initialize(config: ClarityConfig(projectId: clarityProjectId))
-        ClaritySDK.setCustomSessionId(claritySessionId)
     }
 
     func getSessionId() -> Identifier{

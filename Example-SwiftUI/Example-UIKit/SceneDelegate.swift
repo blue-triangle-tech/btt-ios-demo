@@ -7,7 +7,6 @@
 
 import UIKit
 import BlueTriangle
-import Clarity
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -99,9 +98,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 config.cacheExpiryDuration = 5 * 60 * 1000
             }
         }
-        
-        ClaritySDK.initialize(config: ClarityConfig(projectId: clarityProjectId))
-        ClaritySDK.setCustomSessionId(claritySessionId)
         
     }
 
