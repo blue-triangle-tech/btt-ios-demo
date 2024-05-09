@@ -48,7 +48,6 @@ struct Example_SwiftUIApp: App {
         UserDefaults.standard.set(siteId, forKey: UserDefaultKeys.ConfigureSiteId)
         UserDefaults.standard.set(enableAnrStackTrace, forKey: UserDefaultKeys.ANRStackTraceKey)
         UserDefaults.standard.set(sessionId, forKey: UserDefaultKeys.ConfigureSessionId)
-        UserDefaults.standard.set(claritySessionId, forKey: UserDefaultKeys.ClaritySessionIdKey)
         UserDefaults.standard.synchronize()
         
         BlueTriangle.configure { config in

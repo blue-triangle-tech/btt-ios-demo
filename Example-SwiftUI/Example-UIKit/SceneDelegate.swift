@@ -66,7 +66,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let isNetworkSampleRate = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigNetworkSampleRateKey)
         
         let siteId = Secrets.siteID
-        let clarityProjectId = Secrets.clarityProjectID
         let enableDebugLogging = true
         let enableAnrStackTrace = false
         let sessionId = getSessionId()
@@ -78,7 +77,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UserDefaults.standard.set(siteId, forKey: UserDefaultKeys.ConfigureSiteId)
         UserDefaults.standard.set(enableAnrStackTrace, forKey: UserDefaultKeys.ANRStackTraceKey)
         UserDefaults.standard.set(sessionId, forKey: UserDefaultKeys.ConfigureSessionId)
-        UserDefaults.standard.set(claritySessionId, forKey: UserDefaultKeys.ClaritySessionIdKey)
         UserDefaults.standard.synchronize()
         
         BlueTriangle.configure { config in

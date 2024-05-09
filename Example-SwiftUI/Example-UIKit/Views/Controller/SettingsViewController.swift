@@ -37,10 +37,7 @@ class SettingsViewController: UIViewController {
         lblSdkVersionRule.text = "feature/cpu-memory-netstate-offline-hybrid"//"master"
         lblSdkLocation.text = "http://github.com/JP-aloha/btt-swift-sdk.git"
         lblSessionId.text = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId) ?? "Auto Generated"
-        lblClaritySessionId.text = UserDefaults.standard.string(forKey: UserDefaultKeys.ClaritySessionIdKey)
         // Do any additional setup after loading the view.
-        
-        Thread.sleep(forTimeInterval: 3)
     }
     
     @IBAction func btnTestManualTimer(_ sender: UIButton) {
