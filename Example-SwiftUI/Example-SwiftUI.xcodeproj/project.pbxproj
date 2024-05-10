@@ -27,6 +27,8 @@
 		5198A2992A9F7104003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
 		5198A29A2A9F7114003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
 		51B55E252BCD5E5100758C75 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B55E242BCD5E5100758C75 /* ConfigurationViewController.swift */; };
+		51CC8CEC2BED2DD00079EBD6 /* ConfigurationSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CC8CEB2BED2DD00079EBD6 /* ConfigurationSetup.swift */; };
+		51CC8CED2BED2DD00079EBD6 /* ConfigurationSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CC8CEB2BED2DD00079EBD6 /* ConfigurationSetup.swift */; };
 		51D6F4F52B35A38F0044A3F0 /* BttWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D6F4F42B35A38F0044A3F0 /* BttWebViewController.swift */; };
 		51E1F49D2B5935CA00C7F523 /* HybridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */; };
 		51E1F49E2B5935CA00C7F523 /* HybridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */; };
@@ -148,6 +150,7 @@
 		5198339F2B55656100F71C1E /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryAllocationTest.swift; sourceTree = "<group>"; };
 		51B55E242BCD5E5100758C75 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
+		51CC8CEB2BED2DD00079EBD6 /* ConfigurationSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSetup.swift; sourceTree = "<group>"; };
 		51D6F4F42B35A38F0044A3F0 /* BttWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BttWebViewController.swift; sourceTree = "<group>"; };
 		51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HybridViewModel.swift; sourceTree = "<group>"; };
 		51E1F49F2B5936D700C7F523 /* BttWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BttWebView.swift; sourceTree = "<group>"; };
@@ -321,6 +324,7 @@
 				5170A8C02AA1F3B50091B65A /* UnitTestsViewModel.swift */,
 				51E1F49C2B5935CA00C7F523 /* HybridViewModel.swift */,
 				512BD4EE2BCE72A4005E80E5 /* ConfigurationModel.swift */,
+				51CC8CEB2BED2DD00079EBD6 /* ConfigurationSetup.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -766,6 +770,7 @@
 				51B55E252BCD5E5100758C75 /* ConfigurationViewController.swift in Sources */,
 				8419BD412A49CFFF009429C9 /* Collection+Utils.swift in Sources */,
 				8419BD392A49CFFF009429C9 /* Service+BTT.swift in Sources */,
+				51CC8CED2BED2DD00079EBD6 /* ConfigurationSetup.swift in Sources */,
 				8419BD2F2A49CFEC009429C9 /* ProductListViewModel.swift in Sources */,
 				847CF4632A4466DC001E9011 /* CartViewController.swift in Sources */,
 				84F2A80C2AB069F900471E13 /* Identifier.swift in Sources */,
@@ -800,6 +805,7 @@
 				8419BD152A49CFD7009429C9 /* ImageLoader.swift in Sources */,
 				C93FCCB729100D9C00633487 /* PrimaryButtonStyle.swift in Sources */,
 				5170A8C12AA1F3B50091B65A /* UnitTestsViewModel.swift in Sources */,
+				51CC8CEC2BED2DD00079EBD6 /* ConfigurationSetup.swift in Sources */,
 				C9C7D88F2939029C00950C55 /* LineItemRow.swift in Sources */,
 				8419BD172A49CFD7009429C9 /* CartRepository.swift in Sources */,
 				C94BF01B290AE580007E1C25 /* CartView.swift in Sources */,
@@ -1288,7 +1294,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "http://github.com/JP-aloha/btt-swift-sdk.git";
 			requirement = {
-				branch = "configuration-default-changes-release-3.6.0";
+				branch = "feature/launch-time";
 				kind = branch;
 			};
 		};

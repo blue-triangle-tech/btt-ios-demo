@@ -165,6 +165,52 @@ struct ConfigurationView: View {
                 }
                 .frame(height: 30)
                 
+                VStack{
+                    HStack{
+                        Text("Launch Time")
+                            .font(Font.system(size: 16, weight: .regular))
+                            .foregroundColor(.black)
+                        Spacer()
+                        
+                        Toggle("", isOn: $vm.isLaunchTime)
+                            .disabled(vm.isConfigDefault)
+                            .onChange(of: self.vm.isLaunchTime, perform: { value in
+                                vm.updateLaunchTime(value)
+                            })
+                    }
+                }
+                .frame(height: 100)
+                
+                VStack{
+                    HStack{
+                        Text("Configure on Launch")
+                            .font(Font.system(size: 16, weight: .regular))
+                            .foregroundColor(.black)
+                        Spacer()
+                        
+                        Toggle("", isOn: $vm.isConfigOnLaunchTime)
+                            .onChange(of: self.vm.isConfigOnLaunchTime, perform: { value in
+                                vm.updateConfigOnLaunch(value)
+                            })
+                    }
+                }
+                .frame(height: 30)
+                
+                VStack{
+                    HStack{
+                        Text("Add Delay")
+                            .font(Font.system(size: 16, weight: .regular))
+                            .foregroundColor(.black)
+                        Spacer()
+                        
+                        Toggle("", isOn: $vm.isAddDelayKey)
+                            .onChange(of: self.vm.isAddDelayKey, perform: { value in
+                                vm.updateAddDelay(value)
+                            })
+                    }
+                }
+                .frame(height: 30)
+                
                 Spacer()
             }
             .padding(.leading, 10)

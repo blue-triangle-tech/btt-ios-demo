@@ -24,6 +24,7 @@ class ProductDetailViewController: UIViewController {
         setupBtn()
         setupLbl()
         resisterObserver()
+        ConfigurationSetup.configOnOtherScreen()
     }
     
     override func viewDidDisappear(_ animated: Bool) {

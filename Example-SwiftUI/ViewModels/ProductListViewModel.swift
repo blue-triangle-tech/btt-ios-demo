@@ -36,10 +36,16 @@ final class ProductListViewModel: ObservableObject {
 
         NSLog("SessionID : %@", configureSessionId)
         
-        // Start timer
-        let timer = BlueTriangle.startTimer(
-            page: Page(
-                pageName: "ProductList"))
+        let isCofigOnLaunchTime = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigOnLaunchTimeKey)
+        
+        var timer : BTTimer?
+        
+        if isCofigOnLaunchTime {
+            // Start timer
+            timer = BlueTriangle.startTimer(
+                page: Page(
+                    pageName: "ProductList"))
+        }
 
         do {
             let productResponse = try await service.products()
@@ -55,9 +61,11 @@ final class ProductListViewModel: ObservableObject {
         } catch {
             self.error = error
         }
-
-        // End timer after view images have loaded
-        BlueTriangle.endTimer(timer)
+       
+        if isCofigOnLaunchTime, let timer = timer {
+            // End timer after view images have loaded
+            BlueTriangle.endTimer(timer)
+        }
     }
 
     func onAppear() async {

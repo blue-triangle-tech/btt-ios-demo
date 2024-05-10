@@ -19,6 +19,9 @@ struct ConfigUserDefaultKeys {
     static let ConfigCrashKey = "ConfigCrashKey"
     static let ConfigNetworkSampleRateKey = "ConfigNetworkSampleRateKey"
     static let ConfigNetworkStateKey = "ConfigNetworkStateKey"
+    static let ConfigLaunchTimeKey = "ConfigLaunchTimeKey"
+    static let ConfigOnLaunchTimeKey = "ConfigOnLaunchTimeKey"
+    static let ConfigAddDelayKey = "ConfigAddDelayKey"
 }
 
 final class ConfigurationModel: ObservableObject {
@@ -32,6 +35,10 @@ final class ConfigurationModel: ObservableObject {
     @Published var isCrashTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigCrashKey)
     @Published var isNetworkSampleRate : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigNetworkSampleRateKey)
     @Published var isNetworkState : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigNetworkStateKey)
+    @Published var isLaunchTime : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigLaunchTimeKey)
+    
+    @Published var isConfigOnLaunchTime : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigOnLaunchTimeKey)
+    @Published var isAddDelayKey : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
     
     init() {
         let isConfigDefaultKey = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigDefaultKey)
@@ -43,6 +50,10 @@ final class ConfigurationModel: ObservableObject {
         let isCrashKey = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigCrashKey)
         let isNetworkSampleRateKey = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigNetworkSampleRateKey)
         let isNetworkState = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigNetworkStateKey)
+        let isLaunchTime = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigLaunchTimeKey)
+        
+        let isConfigOnLaunchTime = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigOnLaunchTimeKey)
+        let isAddDelayKey = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
         
         print("\(#function) - \(isConfigDefaultKey) - \(isScreenTrackingKey)  - \(isAnrKey)  - \(isMemoryKey)  - \(isPerfomanceKey)")
         
@@ -54,6 +65,9 @@ final class ConfigurationModel: ObservableObject {
         self.isCrashTracking = isCrashKey
         self.isNetworkSampleRate = isNetworkSampleRateKey
         self.isNetworkState = isNetworkState
+        self.isLaunchTime = isLaunchTime
+        self.isConfigOnLaunchTime = isConfigOnLaunchTime
+        self.isAddDelayKey = isAddDelayKey
     }
     
     func updateDefaultValue(){
@@ -65,6 +79,9 @@ final class ConfigurationModel: ObservableObject {
         self.isCrashTracking = true
         self.isNetworkSampleRate = false
         self.isNetworkState = true
+        self.isLaunchTime = true
+        self.isConfigOnLaunchTime = true
+        self.isAddDelayKey = false
     }
     
     func updateDefaultConfig(_ value : Bool){
@@ -108,6 +125,21 @@ final class ConfigurationModel: ObservableObject {
         self.isNetworkState = value
     }
     
+    func updateLaunchTime(_ value : Bool){
+        print("\(#function) - \(value)")
+        self.isLaunchTime = value
+    }
+    
+    func updateConfigOnLaunch(_ value : Bool){
+        print("\(#function) - \(value)")
+        self.isConfigOnLaunchTime = value
+    }
+    
+    func updateAddDelay(_ value : Bool){
+        print("\(#function) - \(value)")
+        self.isAddDelayKey = value
+    }
+    
     func applyChanges(){
         UserDefaults.standard.setValue(isConfigDefault, forKey: ConfigUserDefaultKeys.ConfigDefaultKey)
         UserDefaults.standard.setValue(isANR, forKey: ConfigUserDefaultKeys.ConfigANRKey)
@@ -118,6 +150,9 @@ final class ConfigurationModel: ObservableObject {
         UserDefaults.standard.setValue(isCrashTracking, forKey: ConfigUserDefaultKeys.ConfigCrashKey)
         UserDefaults.standard.setValue(isNetworkSampleRate, forKey: ConfigUserDefaultKeys.ConfigNetworkSampleRateKey)
         UserDefaults.standard.setValue(isNetworkState, forKey: ConfigUserDefaultKeys.ConfigNetworkStateKey)
+        UserDefaults.standard.setValue(isLaunchTime, forKey: ConfigUserDefaultKeys.ConfigLaunchTimeKey)
+        UserDefaults.standard.setValue(isConfigOnLaunchTime, forKey: ConfigUserDefaultKeys.ConfigOnLaunchTimeKey)
+        UserDefaults.standard.setValue(isAddDelayKey, forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
         
         UserDefaults.standard.synchronize()
     }
@@ -135,6 +170,10 @@ final class ConfigurationModel: ObservableObject {
             UserDefaults.standard.setValue(false, forKey: ConfigUserDefaultKeys.ConfigNetworkSampleRateKey)
             UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigNetworkStateKey)
             UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.HasAppLaunchedBefore)
+            UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigLaunchTimeKey)
+            UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigOnLaunchTimeKey)
+            UserDefaults.standard.setValue(false, forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
+            
             UserDefaults.standard.synchronize()
         }
     }

@@ -62,6 +62,9 @@ struct ProductDetailView: View {
         }, message: {
            Text("Memory warning received. Your app is using too much memory than expected.")
         })
+        .onAppear(perform: {
+            ConfigurationSetup.configOnOtherScreen()
+        })
         .onDisappear{
             viewModel.freeAllMemoryOnDisapear()
         }

@@ -18,6 +18,10 @@ class ConfigurationViewController: UIViewController {
     @IBOutlet var switchNetworkSampleRate : UISwitch!
     @IBOutlet var switchNetworkState : UISwitch!
     
+    @IBOutlet var switchLaunchTime : UISwitch!
+    @IBOutlet var switchConfigOnLaunch : UISwitch!
+    @IBOutlet var switchAddDelay : UISwitch!
+    
     private let vm =  ConfigurationModel()
     
     override func viewDidLoad() {
@@ -34,6 +38,9 @@ class ConfigurationViewController: UIViewController {
         switchCrash.isOn = vm.isCrashTracking
         switchNetworkSampleRate.isOn = vm.isNetworkSampleRate
         switchNetworkState.isOn = vm.isNetworkState
+        switchLaunchTime.isOn = vm.isLaunchTime
+        switchConfigOnLaunch.isOn = vm.isConfigOnLaunchTime
+        switchAddDelay.isOn = vm.isAddDelayKey
         
         switchScreenTracking.isEnabled = !vm.isConfigDefault
         switchANR.isEnabled = !vm.isConfigDefault
@@ -42,6 +49,7 @@ class ConfigurationViewController: UIViewController {
         switchCrash.isEnabled = !vm.isConfigDefault
         switchNetworkSampleRate.isEnabled = !vm.isConfigDefault
         switchNetworkState.isEnabled = !vm.isConfigDefault
+        switchLaunchTime.isEnabled = !vm.isConfigDefault
     }
     
     @IBAction func didSelectDone(_ sender: Any?) {
@@ -51,20 +59,6 @@ class ConfigurationViewController: UIViewController {
     @IBAction func didSelectApply(_ sender: Any?) {
         self.vm.applyChanges()
         exit(0)
-        /*let alertController = UIAlertController(title: "Change Configuration?", message: "This application need to restart to update the configuration. Do you want to restart the application ?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) {
-            UIAlertAction in
-            self.vm.applyChanges()
-            exit(0)
-        }
-
-        let cancelAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel) {
-            UIAlertAction in
-        }
-
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-        self.present(alertController, animated: true, completion: nil)*/
     }
     
     @IBAction func didChangeSwitch(_ sender: UISwitch?) {
@@ -87,6 +81,12 @@ class ConfigurationViewController: UIViewController {
                 vm.updateNetworkSampleRate(sender.isOn)
             }else if  sender == switchNetworkState{
                 vm.updateNetworkState(sender.isOn)
+            }else if  sender == switchLaunchTime{
+                vm.updateLaunchTime(sender.isOn)
+            }else if  sender == switchConfigOnLaunch{
+                vm.updateConfigOnLaunch(sender.isOn)
+            }else if  sender == switchAddDelay{
+                vm.updateAddDelay(sender.isOn)
             }
         }
     }

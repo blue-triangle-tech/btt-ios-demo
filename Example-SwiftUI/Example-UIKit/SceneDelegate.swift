@@ -19,9 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        self.configure()
         AppCoordinator.setupRootTabVc()
-        //AppCoordinator.setupRootConfigVc()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -31,77 +29,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
     }
 
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
-    }
+    func sceneDidBecomeActive(_ scene: UIScene) {}
 
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
     }
 
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
-    }
+    func sceneWillEnterForeground(_ scene: UIScene) {}
 
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-    
-    func configure(){
-        
-        ConfigurationModel.setupInitialDefaultConfiguration()
-        
-        let isDefaultSetting = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigDefaultKey)
-        let enableScreenTracking = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
-        let anrMonitoring =  UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigANRKey)
-        let enableMemoryWarning = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigMemoryWarningKey)
-        let isPerformanceMonitor = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigPerfomanceMonitorKey)
-        let isCrashTracking = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigCrashKey)
-        let isNetworkState = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigNetworkStateKey)
-        let isNetworkSampleRate = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigNetworkSampleRateKey)
-        
-        let siteId = Secrets.siteID
-        let enableDebugLogging = true
-        let enableAnrStackTrace = false
-        let sessionId = getSessionId()
-        let sessionIdIdentifier  : Identifier = sessionId
-        let claritySessionId =  "\(Int.random(in: 1000000..<9999999))"
-        
-        UserDefaults.standard.set(anrMonitoring, forKey: UserDefaultKeys.ANREnableKey)
-        UserDefaults.standard.set(enableScreenTracking, forKey: UserDefaultKeys.ScreenTrackingEnableKey)
-        UserDefaults.standard.set(siteId, forKey: UserDefaultKeys.ConfigureSiteId)
-        UserDefaults.standard.set(enableAnrStackTrace, forKey: UserDefaultKeys.ANRStackTraceKey)
-        UserDefaults.standard.set(sessionId, forKey: UserDefaultKeys.ConfigureSessionId)
-        UserDefaults.standard.synchronize()
-        
-        BlueTriangle.configure { config in
-            config.siteID = siteId
-            config.sessionID = sessionIdIdentifier
-            config.enableDebugLogging = enableDebugLogging
-            if !isDefaultSetting {
-                config.networkSampleRate = isNetworkSampleRate ? 1.0 : 0.00
-                config.crashTracking = isCrashTracking ? .nsException : .none
-                config.enableScreenTracking = enableScreenTracking
-                config.ANRMonitoring = anrMonitoring
-                config.ANRStackTrace = enableAnrStackTrace
-                config.enableMemoryWarning = enableMemoryWarning
-                config.enableTrackingNetworkState = isNetworkState
-                config.isPerformanceMonitorEnabled = isPerformanceMonitor
-                config.cacheMemoryLimit = 20 * 1024
-                config.cacheExpiryDuration = 5 * 60 * 1000
-            }
-        }
-        
-    }
-
-    func getSessionId() -> Identifier{
-        Identifier.random()
-    }
-
 }
 
