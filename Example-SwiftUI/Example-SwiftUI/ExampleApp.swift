@@ -12,7 +12,6 @@ import SwiftUI
 @main
 struct Example_SwiftUIApp: App {
     init() {
-        let _ = BlueTriangle.launchMonitor
         self.registerNotifications()
         ConfigurationSetup.configOnLaunch()
     }

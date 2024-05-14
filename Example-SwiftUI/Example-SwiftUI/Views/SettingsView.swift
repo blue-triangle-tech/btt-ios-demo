@@ -129,10 +129,12 @@ struct SettingsView: View {
                     HStack{
                         
                         Button("TEST MANUAL TIMER") {
-                            let timer = BlueTriangle.startTimer(
-                                page: Page(
-                                    pageName: "TEST MANUAL TIMER"))
-                            BlueTriangle.endTimer(timer)
+                            if BlueTriangle.initialized {
+                                let timer = BlueTriangle.startTimer(
+                                    page: Page(
+                                        pageName: "TEST MANUAL TIMER"))
+                                BlueTriangle.endTimer(timer)
+                            }
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(.blue)

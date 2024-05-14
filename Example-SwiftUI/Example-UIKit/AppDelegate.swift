@@ -12,7 +12,6 @@ import BlueTriangle
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let _ = BlueTriangle.launchMonitor
         self.registerNotifications()
         ConfigurationSetup.configOnLaunch()
         return true

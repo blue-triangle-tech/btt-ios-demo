@@ -11,6 +11,7 @@ import Foundation
 class ConfigurationSetup {
 
     static func configOnLaunch(){
+        ConfigurationModel.setupInitialDefaultConfiguration()
         let isCofigOnLaunchTime = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigOnLaunchTimeKey)
         if isCofigOnLaunchTime {
             configure()
@@ -18,6 +19,7 @@ class ConfigurationSetup {
     }
     
     static func configOnOtherScreen(){
+        ConfigurationModel.setupInitialDefaultConfiguration()
         let isCofigOnLaunchTime = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigOnLaunchTimeKey)
         if !isCofigOnLaunchTime {
             configure()
@@ -25,9 +27,7 @@ class ConfigurationSetup {
     }
     
     static func configure(){
-        
-        ConfigurationModel.setupInitialDefaultConfiguration()
-        
+
         let isDefaultSetting = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigDefaultKey)
         let enableScreenTracking = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
         let anrMonitoring =  UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigANRKey)

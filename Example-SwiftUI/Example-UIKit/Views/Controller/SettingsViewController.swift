@@ -41,10 +41,13 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func btnTestManualTimer(_ sender: UIButton) {
-        let timer = BlueTriangle.startTimer(
-            page: Page(
-                pageName: "TEST MANUAL TIMER"))
-        BlueTriangle.endTimer(timer)
+        
+        if BlueTriangle.initialized {
+            let timer = BlueTriangle.startTimer(
+                page: Page(
+                    pageName: "TEST MANUAL TIMER"))
+            BlueTriangle.endTimer(timer)
+        }
     }
     
     @IBAction func didSelectMemoryTest(_ sender: Any?) {

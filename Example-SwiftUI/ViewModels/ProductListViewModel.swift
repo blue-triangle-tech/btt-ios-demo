@@ -36,11 +36,9 @@ final class ProductListViewModel: ObservableObject {
 
         NSLog("SessionID : %@", configureSessionId)
         
-        let isCofigOnLaunchTime = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigOnLaunchTimeKey)
-        
         var timer : BTTimer?
         
-        if isCofigOnLaunchTime {
+        if BlueTriangle.initialized {
             // Start timer
             timer = BlueTriangle.startTimer(
                 page: Page(
@@ -62,7 +60,7 @@ final class ProductListViewModel: ObservableObject {
             self.error = error
         }
        
-        if isCofigOnLaunchTime, let timer = timer {
+        if BlueTriangle.initialized, let timer = timer {
             // End timer after view images have loaded
             BlueTriangle.endTimer(timer)
         }

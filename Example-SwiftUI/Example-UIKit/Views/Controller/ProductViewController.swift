@@ -32,7 +32,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
-        if !isScreenTracking{
+        if isScreenTracking, BlueTriangle.initialized{
             self.timer = BlueTriangle.startTimer(
                 page: Page(
                     pageName: "ProductViewController Mannual Tracking"))
@@ -43,7 +43,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewWillDisappear(animated)
         
         let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
-        if let timer = self.timer, !isScreenTracking{
+        if let timer = self.timer, !isScreenTracking, BlueTriangle.initialized{
             BlueTriangle.endTimer(timer)
         }
     }

@@ -63,7 +63,7 @@ struct ProductListView: View {
                 .bttTrackScreen("ProductListView")
                 .onAppear{
                     let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
-                    if !isScreenTracking{
+                    if !isScreenTracking, BlueTriangle.initialized{
                         self.timer = BlueTriangle.startTimer(
                             page: Page(
                                 pageName: "ProductListView Mannual Tracking"))
@@ -71,7 +71,7 @@ struct ProductListView: View {
                 }
                 .onDisappear {
                     let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
-                    if let timer = self.timer, !isScreenTracking{
+                    if let timer = self.timer, !isScreenTracking, BlueTriangle.initialized{
                         BlueTriangle.endTimer(timer)
                     }
                 }
