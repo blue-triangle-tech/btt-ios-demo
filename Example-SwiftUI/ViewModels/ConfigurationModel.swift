@@ -77,7 +77,7 @@ final class ConfigurationModel: ObservableObject {
         self.isMemoryWarning = true
         self.isPerfomanceMonitor = true
         self.isCrashTracking = true
-        self.isNetworkSampleRate = false
+        self.isNetworkSampleRate = true
         self.isNetworkState = true
         self.isLaunchTime = true
         self.isConfigOnLaunchTime = true
@@ -167,7 +167,7 @@ final class ConfigurationModel: ObservableObject {
             UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigMemoryWarningKey)
             UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigPerfomanceMonitorKey)
             UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigCrashKey)
-            UserDefaults.standard.setValue(false, forKey: ConfigUserDefaultKeys.ConfigNetworkSampleRateKey)
+            UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigNetworkSampleRateKey)
             UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigNetworkStateKey)
             UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.HasAppLaunchedBefore)
             UserDefaults.standard.setValue(true, forKey: ConfigUserDefaultKeys.ConfigLaunchTimeKey)

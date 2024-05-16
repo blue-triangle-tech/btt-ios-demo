@@ -179,11 +179,14 @@ struct ConfigurationView: View {
                             })
                     }
                 }
-                .frame(height: 100)
+                .frame(height: 30)
+                
+                
+                Spacer().frame(height: 30)
                 
                 VStack{
                     HStack{
-                        Text("Configure on Launch")
+                        Text("Early Configuration")
                             .font(Font.system(size: 16, weight: .regular))
                             .foregroundColor(.black)
                         Spacer()
@@ -198,7 +201,7 @@ struct ConfigurationView: View {
                 
                 VStack{
                     HStack{
-                        Text("Add Delay")
+                        Text("Add Artificial Delay")
                             .font(Font.system(size: 16, weight: .regular))
                             .foregroundColor(.black)
                         Spacer()
