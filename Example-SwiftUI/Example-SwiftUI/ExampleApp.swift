@@ -13,29 +13,33 @@ import UIKit
 @main
 struct Example_SwiftUIApp: App {
     
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    init() {
+        registerNotifications()
+        ConfigurationSetup.configOnLaunch()
+    }
+    
     
     var body: some Scene {
         WindowGroup {
             BTTRootContrainerView(vm: BTTConfigModel())
         }
     }
+    
+    
+    private func registerNotifications() {
+        
+        NotificationCenter.default.addObserver(forName: UIApplication.didFinishLaunchingNotification, object: nil, queue: nil) { notification in
+            let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
+            if isDelay {
+                ConfigurationSetup.addDelay()
+            }
+        }
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { notification in
+            let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
+            if isDelay {
+                ConfigurationSetup.addDelay()
+            }
+        }
+    }
 }
 
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        ConfigurationSetup.configOnLaunch()
-        let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
-        if isDelay {
-            ConfigurationSetup.addDelay()
-        }
-        return true
-    }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
-        if isDelay {
-            ConfigurationSetup.addDelay()
-        }
-    }
-}
