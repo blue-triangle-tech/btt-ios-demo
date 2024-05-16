@@ -8,31 +8,28 @@
 
 import BlueTriangle
 import SwiftUI
+import UIKit
 
 @main
 struct Example_SwiftUIApp: App {
-    init() {
-        self.registerNotifications()
-        ConfigurationSetup.configOnLaunch()
-    }
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {
             BTTRootContrainerView(vm: BTTConfigModel())
         }
     }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        ConfigurationSetup.configOnLaunch()
+        ConfigurationSetup.addDelay()
+        return true
+    }
     
-    
-    private func registerNotifications() {
-         NotificationCenter.default.addObserver(forName: nil, object: nil, queue: nil) { notification in
-             let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
-             if isDelay {
-                 if notification.name == UIApplication.didFinishLaunchingNotification {
-                     ConfigurationSetup.addDelay()
-                 } else if notification.name == UIApplication.willEnterForegroundNotification {
-                     ConfigurationSetup.addDelay()
-                 }
-             }
-        }
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        ConfigurationSetup.addDelay()
     }
 }

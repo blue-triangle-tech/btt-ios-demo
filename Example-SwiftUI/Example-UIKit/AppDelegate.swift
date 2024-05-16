@@ -18,14 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func registerNotifications() {
-        NotificationCenter.default.addObserver(forName: nil, object: nil, queue: nil) { notification in
+        
+        NotificationCenter.default.addObserver(forName: UIApplication.didFinishLaunchingNotification, object: nil, queue: nil) { notification in
             let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
             if isDelay {
-                if notification.name == UIApplication.didFinishLaunchingNotification {
-                    ConfigurationSetup.addDelay()
-                } else if notification.name == UIApplication.willEnterForegroundNotification {
-                    ConfigurationSetup.addDelay()
-                }
+                ConfigurationSetup.addDelay()
+            }
+        }
+        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { notification in
+            let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
+            if isDelay {
+                ConfigurationSetup.addDelay()
             }
         }
     }
