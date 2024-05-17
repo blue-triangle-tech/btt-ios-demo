@@ -14,8 +14,8 @@ import UIKit
 struct Example_SwiftUIApp: App {
     
     init() {
-        registerNotifications()
         ConfigurationSetup.configOnLaunch()
+        registerNotifications()
     }
     
     
@@ -34,7 +34,7 @@ struct Example_SwiftUIApp: App {
                 ConfigurationSetup.addDelay()
             }
         }
-        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { notification in
+        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { notification in
             let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
             if isDelay {
                 ConfigurationSetup.addDelay()

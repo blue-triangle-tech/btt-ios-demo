@@ -12,8 +12,8 @@ import BlueTriangle
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        self.registerNotifications()
         ConfigurationSetup.configOnLaunch()
+        self.registerNotifications()
         return true
     }
     
@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 ConfigurationSetup.addDelay()
             }
         }
-        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { notification in
+        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { notification in
             let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
             if isDelay {
                 ConfigurationSetup.addDelay()
