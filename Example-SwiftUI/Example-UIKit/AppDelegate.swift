@@ -13,24 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         ConfigurationSetup.configOnLaunch()
-        self.registerNotifications()
+        ConfigurationSetup.addDelay()
         return true
-    }
-    
-    private func registerNotifications() {
-        
-        NotificationCenter.default.addObserver(forName: UIApplication.didFinishLaunchingNotification, object: nil, queue: nil) { notification in
-            let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
-            if isDelay {
-                ConfigurationSetup.addDelay()
-            }
-        }
-        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { notification in
-            let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
-            if isDelay {
-                ConfigurationSetup.addDelay()
-            }
-        }
     }
 
     // MARK: UISceneSession Lifecycle

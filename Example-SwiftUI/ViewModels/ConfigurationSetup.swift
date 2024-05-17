@@ -75,11 +75,16 @@ class ConfigurationSetup {
         Identifier.random()
     }
     
+    
+    
     static func addDelay(){
-        let startTime = Date()
-        while true {
-            if (Date().timeIntervalSince1970 - startTime.timeIntervalSince1970) > 3 {
-                break
+        let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
+        if isDelay {
+            let startTime = Date()
+            while true {
+                if (Date().timeIntervalSince1970 - startTime.timeIntervalSince1970) > 3 {
+                    break
+                }
             }
         }
     }

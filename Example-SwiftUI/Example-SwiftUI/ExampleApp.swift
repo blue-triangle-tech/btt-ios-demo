@@ -12,32 +12,28 @@ import UIKit
 
 @main
 struct Example_SwiftUIApp: App {
+    @State private var  BttContainer =  BTTRootContrainerView(vm: BTTConfigModel())
+    @Environment(\.scenePhase) private var scenePhase
     
     init() {
         ConfigurationSetup.configOnLaunch()
-        registerNotifications()
+        ConfigurationSetup.addDelay()
     }
     
     
     var body: some Scene {
         WindowGroup {
-            BTTRootContrainerView(vm: BTTConfigModel())
+            self.BttContainer
         }
-    }
-    
-    
-    private func registerNotifications() {
-        
-        NotificationCenter.default.addObserver(forName: UIApplication.didFinishLaunchingNotification, object: nil, queue: nil) { notification in
-            let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
-            if isDelay {
+        .onChange(of: scenePhase) { phase in
+            switch phase {
+            case .active:
                 ConfigurationSetup.addDelay()
-            }
-        }
-        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { notification in
-            let isDelay = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigAddDelayKey)
-            if isDelay {
-                ConfigurationSetup.addDelay()
+            case .background:
+                print("Background")
+            case .inactive:
+                print("Inactive")
+            @unknown default: break
             }
         }
     }
