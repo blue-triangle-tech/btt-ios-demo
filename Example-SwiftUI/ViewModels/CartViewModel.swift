@@ -107,19 +107,25 @@ final class CartViewModel: ObservableObject {
             if BlueTriangle.initialized {
                 timer = BlueTriangle.startTimer(
                     page: Page(
-                        pageName: "Cart"))
+                        pageName: "Confirmation"))
             }
             let checkout = try await cartRepository.checkout()
             self.checkoutItem = checkout
             let detail = try await cartRepository.confirm(checkout.id)
+            let cartValue = Decimal(checkout.items.reduce(into: 0) { result, item in
+                result += Double(item.price).flatMap { $0 * Double(item.quantity) } ?? 0
+            })
+            let cartCount = checkout.items.reduce(into: 0) { result, item in
+                result +=  item.quantity
+            }
 
             if let timer = timer, BlueTriangle.initialized {
                 BlueTriangle.endTimer(
                     timer,
                     purchaseConfirmation: PurchaseConfirmation(
-                        cartValue: Decimal(checkout.items.reduce(into: 0) { result, item in
-                            result += Double(item.price).flatMap { $0 * Double(item.quantity) } ?? 0
-                        }),
+                        cartValue: cartValue,
+                        cartCount: cartCount,
+                        cartCountCheckout:cartCount,
                         orderNumber: detail.confirmation))
             }
             cartRepository.deleteCart()
