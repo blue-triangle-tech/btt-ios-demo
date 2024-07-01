@@ -36,6 +36,7 @@ struct ProductListView: View {
                                     ProductCell(
                                         imageStatusProvider: viewModel.imageStatus(_:),
                                         product: product)
+                                    .accessibilityIdentifier(product.name)
                                 }
                             }
                         }
@@ -46,6 +47,7 @@ struct ProductListView: View {
                                     ProductCell(
                                         imageStatusProvider: viewModel.imageStatus(_:),
                                         product: product)
+                                    .accessibilityIdentifier(product.name)
                                 }
                             }
                         }

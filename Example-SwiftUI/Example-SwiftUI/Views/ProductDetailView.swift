@@ -12,6 +12,8 @@ struct ProductDetailView: View {
     @ObservedObject var viewModel: ProductDetailViewModel
     @State var imageStatus: ImageStatus?
     @State var isLoading: Bool = false
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -31,7 +33,21 @@ struct ProductDetailView: View {
                 .padding(.horizontal, 16)
             }
         }
+        .navigationBarBackButtonHidden(true)
         .bttTrackScreen("ProductDetailView")
+        .toolbar {
+                   ToolbarItem(placement: .navigationBarLeading) {
+                       Button(action: {
+                           presentationMode.wrappedValue.dismiss()
+                       }) {
+                           HStack {
+                               Image(systemName: "chevron.left")
+                               Text("Products")
+                           }
+                       }
+                       .accessibilityIdentifier("Back")
+                   }
+               }
         .overlay(alignment: .bottom) {
             Button(
                 action: {
@@ -49,6 +65,7 @@ struct ProductDetailView: View {
                 label: {
                     Text("Add to Cart")
                 }).disabled(isLoading)
+                .accessibilityIdentifier("Add to Cart")
             .buttonStyle(.primary())
             .padding()
         }

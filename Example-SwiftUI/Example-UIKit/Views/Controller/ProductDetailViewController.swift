@@ -25,6 +25,11 @@ class ProductDetailViewController: UIViewController {
         setupLbl()
         resisterObserver()
         ConfigurationSetup.configOnOtherScreen()
+        let backButton = UIBarButtonItem()
+        backButton.title = "Products"
+        self.navigationItem.backBarButtonItem = backButton
+        btnAddtoCart.accessibilityIdentifier = "Add To Cart"
+        self.navigationItem.leftBarButtonItem?.accessibilityIdentifier = "Back"
     }
     
     override func viewDidDisappear(_ animated: Bool) {

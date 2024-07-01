@@ -17,6 +17,13 @@ class OrderSuccessfulViewController: UIViewController {
         super.viewDidLoad()
         self.lblCheckoutId.text = checkoutID
         btnSetup()
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = "Cart"
+        navigationItem.backBarButtonItem = backButton
+        self.navigationItem.leftBarButtonItem?.accessibilityIdentifier = "Back"
+        
+        btnConitueShopping.accessibilityIdentifier = "Conitue Shopping"
     }
 
     @IBAction func didSelectContiueShopiing(_ sender: UIButton) {
