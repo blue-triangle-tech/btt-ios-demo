@@ -77,7 +77,6 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         let product = vm?.productList[indexPath.row]
         cell.product = product
-        cell.accessibilityIdentifier = product?.name ?? ""
         return cell
     }
     

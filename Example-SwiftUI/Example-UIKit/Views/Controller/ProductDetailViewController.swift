@@ -28,8 +28,8 @@ class ProductDetailViewController: UIViewController {
         let backButton = UIBarButtonItem()
         backButton.title = "Products"
         self.navigationItem.backBarButtonItem = backButton
-        btnAddtoCart.accessibilityIdentifier = "Add To Cart"
-        self.navigationItem.leftBarButtonItem?.accessibilityIdentifier = "Back"
+        btnAddtoCart.accessibilityIdentifier = "add to cart"
+        self.navigationItem.leftBarButtonItem?.accessibilityIdentifier = "back"
     }
     
     override func viewDidDisappear(_ animated: Bool) {

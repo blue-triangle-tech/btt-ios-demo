@@ -44,7 +44,7 @@ struct CartView: View {
                                 label: {
                                     Text("Checkout")
                                 })
-                            .accessibilityIdentifier("Checkout")
+                            .accessibilityIdentifier("checkout")
                             .buttonStyle(.primary())
                             .padding()
                         }//.disabled(viewModel.isLoading)

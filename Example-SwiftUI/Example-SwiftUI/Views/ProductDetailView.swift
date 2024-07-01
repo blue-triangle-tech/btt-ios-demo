@@ -45,7 +45,7 @@ struct ProductDetailView: View {
                                Text("Products")
                            }
                        }
-                       .accessibilityIdentifier("Back")
+                       .accessibilityIdentifier("back")
                    }
                }
         .overlay(alignment: .bottom) {
@@ -65,7 +65,7 @@ struct ProductDetailView: View {
                 label: {
                     Text("Add to Cart")
                 }).disabled(isLoading)
-                .accessibilityIdentifier("Add to Cart")
+                .accessibilityIdentifier("add to cart")
             .buttonStyle(.primary())
             .padding()
         }

@@ -28,7 +28,7 @@ struct OrderSuccessfulView: View {
                     label: {
                         Text("Continue Shopping")
                     })
-                .accessibilityIdentifier("Continue Shopping")
+                .accessibilityIdentifier("continue shopping")
                 .buttonStyle(.primary())
             }
             .navigationBarBackButtonHidden(true)
@@ -42,7 +42,7 @@ struct OrderSuccessfulView: View {
                                    Text("Cart")
                                }
                            }
-                           .accessibilityIdentifier("Back")
+                           .accessibilityIdentifier("back")
                        }
                    }
             .foregroundColor(.secondary)
