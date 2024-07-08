@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "http://github.com/JP-aloha/btt-swift-sdk.git",
       "state" : {
-        "branch" : "feature/cart-count-checkout-count",
-        "revision" : "4db822c5f64c6cfc1fff67e22de602c6c36ff0e2"
+        "branch" : "feature/Integrate_crash_feature",
+        "revision" : "5a25022df1d7ce9fbe08da1a86a667da2a0c40cf"
       }
     },
     {

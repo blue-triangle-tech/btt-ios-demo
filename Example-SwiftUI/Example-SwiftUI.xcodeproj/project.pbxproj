@@ -26,6 +26,7 @@
 		519833A12B55656100F71C1E /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 5198339F2B55656100F71C1E /* template.html */; };
 		5198A2992A9F7104003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
 		5198A29A2A9F7114003EFBEF /* MemoryAllocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */; };
+		51A9CA4C2C3BCC6F004F86D8 /* SignalCrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A9CA4B2C3BCC6F004F86D8 /* SignalCrashViewController.swift */; };
 		51B55E252BCD5E5100758C75 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B55E242BCD5E5100758C75 /* ConfigurationViewController.swift */; };
 		51CC8CEC2BED2DD00079EBD6 /* ConfigurationSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CC8CEB2BED2DD00079EBD6 /* ConfigurationSetup.swift */; };
 		51CC8CED2BED2DD00079EBD6 /* ConfigurationSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CC8CEB2BED2DD00079EBD6 /* ConfigurationSetup.swift */; };
@@ -149,6 +150,7 @@
 		5170A8C52AA1F87C0091B65A /* CPUTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUTestViewController.swift; sourceTree = "<group>"; };
 		5198339F2B55656100F71C1E /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		5198A2982A9F7104003EFBEF /* MemoryAllocationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryAllocationTest.swift; sourceTree = "<group>"; };
+		51A9CA4B2C3BCC6F004F86D8 /* SignalCrashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalCrashViewController.swift; sourceTree = "<group>"; };
 		51B55E242BCD5E5100758C75 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		51CC8CEB2BED2DD00079EBD6 /* ConfigurationSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationSetup.swift; sourceTree = "<group>"; };
 		51D6F4F42B35A38F0044A3F0 /* BttWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BttWebViewController.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				84B301EB2A4ED16700BF23B5 /* OrderSuccessfulViewController.swift */,
 				51D6F4F42B35A38F0044A3F0 /* BttWebViewController.swift */,
 				51B55E242BCD5E5100758C75 /* ConfigurationViewController.swift */,
+				51A9CA4B2C3BCC6F004F86D8 /* SignalCrashViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				512A3FBE2AA1CE2E005D5A22 /* UnitTestsViewController.swift in Sources */,
 				847CF4412A4315D7001E9011 /* SceneDelegate.swift in Sources */,
 				8419BD2B2A49CFEC009429C9 /* SettingsViewModel.swift in Sources */,
+				51A9CA4C2C3BCC6F004F86D8 /* SignalCrashViewController.swift in Sources */,
 				8488265C2A449992007B9D72 /* Constant.swift in Sources */,
 				5170A8C22AA1F4090091B65A /* UnitTestsViewModel.swift in Sources */,
 				8419BD1F2A49CFE1009429C9 /* CartItemModel.swift in Sources */,
@@ -1296,7 +1300,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "http://github.com/JP-aloha/btt-swift-sdk.git";
 			requirement = {
-				branch = "feature/cart-count-checkout-count";
+				branch = feature/Integrate_crash_feature;
 				kind = branch;
 			};
 		};

@@ -27,13 +27,9 @@ struct ANRTest {
     }
     
     static func emptyCartCrash() {
-        
-        let arr = NSArray()
-        NSLog("Not found element \(arr[1])")
-        
         // Force Unwrap Crash
-        /*var value: Int?
-        NSLog("Force unwrapping nil value \(value!)")*/
+        var value: Int?
+        NSLog("Force unwrapping nil value \(value!)")
     }
     
     static func removeCartItem(startTime: TimeInterval = Date().timeIntervalSince1970) {

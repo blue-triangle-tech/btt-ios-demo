@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XTc-JZ-VZc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XTc-JZ-VZc">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1223,8 +1223,36 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GHn-is-d4C">
+                                        <rect key="frame" x="0.0" y="517" width="353" height="36"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FqN-1i-eeb">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="36"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdS-QR-rsm">
+                                                        <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="36"/>
+                                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Signal Crash">
+                                                            <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="didSelectSignalCrash:" destination="S62-xb-YMX" eventType="touchUpInside" id="1bb-F3-ryG"/>
+                                                        </connections>
+                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUT-4i-ReT">
+                                                        <rect key="frame" x="119.66666666666664" y="0.0" width="233.33333333333337" height="36"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="INb-Ba-BNK"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JmY-Nd-YvU">
-                                        <rect key="frame" x="0.0" y="517" width="353" height="93"/>
+                                        <rect key="frame" x="0.0" y="558" width="353" height="52"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -1772,6 +1800,107 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B6W-g2-rot" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="381" y="1954"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="l6T-dL-3Tu">
+            <objects>
+                <navigationController storyboardIdentifier="SignalCrashNav" id="Elh-3c-tgy" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7bY-cO-0J1">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="qsr-f5-hcy" kind="relationship" relationship="rootViewController" id="Jlp-Ju-faf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mzg-HK-Q9Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="331" y="2652"/>
+        </scene>
+        <!--Signal Crash-->
+        <scene sceneID="T8e-nM-Tu5">
+            <objects>
+                <viewController storyboardIdentifier="SignalCrashView" id="qsr-f5-hcy" customClass="SignalCrashViewController" customModule="Example_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZYo-bX-z9h">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m2x-7S-CRg">
+                                <rect key="frame" x="46.666666666666657" y="176" width="300" height="500"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRl-ox-xFZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="75"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Force Optional Crash"/>
+                                        <connections>
+                                            <action selector="didSelectForcedOptionalCrash:" destination="qsr-f5-hcy" eventType="touchUpInside" id="BtA-jM-G5Y"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mst-3v-uTR">
+                                        <rect key="frame" x="0.0" y="85" width="300" height="75"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Index out of bound Crash"/>
+                                        <connections>
+                                            <action selector="didSelectIndexOutOfBoundCrash:" destination="qsr-f5-hcy" eventType="touchUpInside" id="Ijq-9g-8Sd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DV9-z8-H9v">
+                                        <rect key="frame" x="0.0" y="170" width="300" height="75"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Abort / Fatal Error"/>
+                                        <connections>
+                                            <action selector="didSelectFatalError:" destination="qsr-f5-hcy" eventType="touchUpInside" id="OkY-Qn-M9b"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8a-HM-vg3">
+                                        <rect key="frame" x="0.0" y="255" width="300" height="75"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Unsafe Memory Access"/>
+                                        <connections>
+                                            <action selector="didSelectUnsafeMemoryAccess:" destination="qsr-f5-hcy" eventType="touchUpInside" id="Xww-Fj-BCh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1z-gU-HzV">
+                                        <rect key="frame" x="0.0" y="340" width="300" height="75"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Divide by zero"/>
+                                        <connections>
+                                            <action selector="didSelectDivideByZero:" destination="qsr-f5-hcy" eventType="touchUpInside" id="HJ0-lE-gAt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DN-fM-YHk">
+                                        <rect key="frame" x="0.0" y="425" width="300" height="75"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Segmentation Fault"/>
+                                        <connections>
+                                            <action selector="didSelectSegmentationFault:" destination="qsr-f5-hcy" eventType="touchUpInside" id="dvs-G7-oqc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="98x-on-ZjD"/>
+                                    <constraint firstAttribute="width" constant="300" id="tPr-Xk-kCK"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QVD-De-ZgP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="m2x-7S-CRg" firstAttribute="centerY" secondItem="ZYo-bX-z9h" secondAttribute="centerY" id="Co9-VF-dfq"/>
+                            <constraint firstItem="m2x-7S-CRg" firstAttribute="centerX" secondItem="ZYo-bX-z9h" secondAttribute="centerX" id="Qm3-3H-g6j"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Signal Crash" id="J5d-Es-Ofb">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="qeO-En-sZm">
+                            <connections>
+                                <action selector="didSelectDone:" destination="qsr-f5-hcy" id="FJ8-sE-N8s"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rM7-dO-xZz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1073" y="2644"/>
         </scene>
         <!--Cofiguration-->
         <scene sceneID="L4o-55-YjZ">
