@@ -11,8 +11,7 @@ class SignalCrashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        self.title = "Signal Crash"
     }
     
     @IBAction func didSelectDone(_ sender: Any?) {

@@ -1801,23 +1801,7 @@
             </objects>
             <point key="canvasLocation" x="381" y="1954"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="l6T-dL-3Tu">
-            <objects>
-                <navigationController storyboardIdentifier="SignalCrashNav" id="Elh-3c-tgy" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7bY-cO-0J1">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="qsr-f5-hcy" kind="relationship" relationship="rootViewController" id="Jlp-Ju-faf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mzg-HK-Q9Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="331" y="2652"/>
-        </scene>
-        <!--Signal Crash-->
+        <!--Signal Crash View Controller-->
         <scene sceneID="T8e-nM-Tu5">
             <objects>
                 <viewController storyboardIdentifier="SignalCrashView" id="qsr-f5-hcy" customClass="SignalCrashViewController" customModule="Example_UIKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -1890,13 +1874,6 @@
                             <constraint firstItem="m2x-7S-CRg" firstAttribute="centerX" secondItem="ZYo-bX-z9h" secondAttribute="centerX" id="Qm3-3H-g6j"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Signal Crash" id="J5d-Es-Ofb">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="qeO-En-sZm">
-                            <connections>
-                                <action selector="didSelectDone:" destination="qsr-f5-hcy" id="FJ8-sE-N8s"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rM7-dO-xZz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

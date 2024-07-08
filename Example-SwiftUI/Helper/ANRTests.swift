@@ -12,8 +12,10 @@ struct ANRTest {
     static func quantityLimitExceedCrash() {
         
         // NSException Crash
-        let arr = NSArray()
-        NSLog("Not found element \(arr[1])")
+        Task.detached {
+            let list = [1, 2]
+            NSLog("Values which not found", list[10])
+        }
     }
     
     static func cartLimitExceedCrash() {
