@@ -113,6 +113,7 @@ struct SettingsView: View {
                             Text(vm.configureSessionId)
                                 .font(Font.system(size: 18, weight: .regular))
                                 .foregroundColor(.gray)
+                                .accessibilityIdentifier("btt session id")
                             Spacer()
                         }
                     }

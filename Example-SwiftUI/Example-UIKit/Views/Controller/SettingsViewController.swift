@@ -37,6 +37,7 @@ class SettingsViewController: UIViewController {
         lblSdkVersionRule.text = "feature/cpu-memory-netstate-offline-hybrid"//"master"
         lblSdkLocation.text = "http://github.com/JP-aloha/btt-swift-sdk.git"
         lblSessionId.text = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId) ?? "Auto Generated"
+        lblSessionId.accessibilityIdentifier = "btt session id"
         // Do any additional setup after loading the view.
     }
     
