@@ -46,7 +46,7 @@ actor ImageLoader {
     ) {
         self.networking = networking
     }
-
+ 
     func fetch(urls: [URL]) async throws {
         await withTaskGroup(of: ImageResult.self, returning: Void.self) { group in
             var imagesUpdate: [URL: ImageStatus] = [:]
@@ -54,8 +54,17 @@ actor ImageLoader {
                 let task = downloadTask(url: url)
                 imagesUpdate[url] = .loading(task)
 
+               let timeoutTask = Task {
+                   do{
+                       try await Task.sleep(for: .seconds(20))
+                       task.cancel()
+                   }
+                }
+                
                 group.addTask {
-                    return await task.value
+                        let result = await task.value
+                        timeoutTask.cancel()
+                        return result
                 }
             }
 
@@ -102,6 +111,8 @@ private extension ImageLoader {
 extension ImageLoader {
     static var live: ImageLoader {
         let configuration = URLSessionConfiguration.default
+        configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
+        configuration.urlCache = nil
         let delegate = NetworkCaptureSessionDelegate()
 
         let session = URLSession(

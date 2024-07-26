@@ -8,51 +8,34 @@
 
 import BlueTriangle
 import SwiftUI
+import UIKit
 
 @main
 struct Example_SwiftUIApp: App {
+    @State private var  BttContainer =  BTTRootContrainerView(vm: BTTConfigModel())
+    @Environment(\.scenePhase) private var scenePhase
+    
     init() {
-        configure()
+        ConfigurationSetup.configOnLaunch()
+        ConfigurationSetup.addDelay()
     }
+    
     
     var body: some Scene {
         WindowGroup {
-            BTTRootContrainerView(vm: BTTConfigModel())
+            self.BttContainer
         }
-    }
-    
-    
-    func configure(){
-        
-        let siteId = Secrets.siteID
-        let enableDebugLogging = true
-        let enableScreenTracking = true
-        let enableAnrStackTrace = false
-        let anrMonitoring = true
-        let sessionId = getSessionId()
-        let sessionIdIdentifier  : Identifier = sessionId
-        
-        UserDefaults.standard.set(anrMonitoring, forKey: UserDefaultKeys.ANREnableKey)
-        UserDefaults.standard.set(enableScreenTracking, forKey: UserDefaultKeys.ScreenTrackingEnableKey)
-        UserDefaults.standard.set(siteId, forKey: UserDefaultKeys.ConfigureSiteId)
-        UserDefaults.standard.set(enableAnrStackTrace, forKey: UserDefaultKeys.ANRStackTraceKey)
-        UserDefaults.standard.set(sessionId, forKey: UserDefaultKeys.ConfigureSessionId)
-        UserDefaults.standard.synchronize()
-        
-        BlueTriangle.configure { config in
-            config.siteID = siteId
-            config.sessionID = sessionIdIdentifier
-            config.networkSampleRate = 1.0
-            config.crashTracking = .nsException
-            config.enableDebugLogging = enableDebugLogging
-            config.enableScreenTracking = enableScreenTracking
-            config.ANRMonitoring = anrMonitoring
-            config.ANRStackTrace = enableAnrStackTrace
+        .onChange(of: scenePhase) { phase in
+            switch phase {
+            case .active:
+                ConfigurationSetup.addDelay()
+            case .background:
+                print("Background")
+            case .inactive:
+                print("Inactive")
+            @unknown default: break
+            }
         }
-        
-    }
-
-    func getSessionId() -> Identifier{
-        Identifier.random()
     }
 }
+

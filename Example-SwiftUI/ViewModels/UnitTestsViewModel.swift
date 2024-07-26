@@ -14,10 +14,13 @@ final class UnitTestsViewModel: ObservableObject {
     @Published var increasedMemoryInMb : Int64 = 0
     
     func initalTimer() {
-        let timer = BlueTriangle.startTimer(
-            page: Page(
-                pageName: "INITIAL MEMORY TEST TIMER"))
-        BlueTriangle.endTimer(timer)
+        
+        if BlueTriangle.initialized{
+            let timer = BlueTriangle.startTimer(
+                page: Page(
+                    pageName: "INITIAL MEMORY TEST TIMER"))
+            BlueTriangle.endTimer(timer)
+        }
     }
     
     func runMemoryTestsToIncrease100Mb() {
@@ -26,9 +29,11 @@ final class UnitTestsViewModel: ObservableObject {
     }
     
     func finalTimer() {
-        let timer = BlueTriangle.startTimer(
-            page: Page(
-                pageName: "FINAL MEMORY TEST TIMER"))
-        BlueTriangle.endTimer(timer)
+        if BlueTriangle.initialized {
+            let timer = BlueTriangle.startTimer(
+                page: Page(
+                    pageName: "FINAL MEMORY TEST TIMER"))
+            BlueTriangle.endTimer(timer)
+        }
     }
 }

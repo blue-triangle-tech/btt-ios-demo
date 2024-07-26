@@ -24,6 +24,17 @@ class AppCoordinator{
     
     static private func switchRoot(sourceVC: UIViewController, completion: ((Bool) -> Void)? = nil){
         
+       /* if let window  = UIApplication.shared.delegate?.window {
+            UIView.transition(with: window!, duration: 0.1, options:[.transitionCrossDissolve, .curveEaseInOut], animations: {
+                window!.rootViewController = sourceVC
+                window!.makeKeyAndVisible()
+            }, completion: { completed in
+                if let completion = completion {
+                    completion(true)
+                }
+            })
+        }*/
+        
         // Use a UIHostingController as window root view controller.
         let scene = UIApplication.shared.connectedScenes.first
         if let sceneDelegate = scene?.delegate as? SceneDelegate, let window  = sceneDelegate.window {

@@ -34,23 +34,36 @@ final class ProductListViewModel: ObservableObject {
         // Custom metrics
         // BlueTriangle.metrics?["metrics-page"] = "product-list"
 
-        // Start timer
-        let timer = BlueTriangle.startTimer(
-            page: Page(
-                pageName: "ProductList"))
+        NSLog("SessionID : %@", configureSessionId)
+        
+        var timer : BTTimer?
+        
+        if BlueTriangle.initialized {
+            // Start timer
+            timer = BlueTriangle.startTimer(
+                page: Page(
+                    pageName: "ProductList"))
+        }
 
         do {
             let productResponse = try await service.products()
+
             products = productResponse.splitTuple()
             productList = productResponse
-            let imageURLS = productResponse.map { $0.image }
+            let imageURLS = productResponse.map { product in
+                   return product.image
+              }
+            
             try await imageLoader.fetch(urls: imageURLS)
+            
         } catch {
             self.error = error
         }
-
-        // End timer after view images have loaded
-        BlueTriangle.endTimer(timer)
+       
+        if BlueTriangle.initialized, let timer = timer {
+            // End timer after view images have loaded
+            BlueTriangle.endTimer(timer)
+        }
     }
 
     func onAppear() async {

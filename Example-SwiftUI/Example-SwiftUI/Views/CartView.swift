@@ -14,6 +14,7 @@ struct CartView: View {
     private let imageLoader: ImageLoader
     @ObservedObject var viewModel: CartViewModel
     @State var didPlaceOrder = false
+    @State var  timer : BTTimer?
    
     init(imageLoader: ImageLoader, viewModel: CartViewModel) {
         self.imageLoader = imageLoader
@@ -43,10 +44,25 @@ struct CartView: View {
                                 label: {
                                     Text("Checkout")
                                 })
+                            .accessibilityIdentifier("checkout")
                             .buttonStyle(.primary())
                             .padding()
-                        }.disabled(viewModel.isLoading)
+                        }//.disabled(viewModel.isLoading)
                     .bttTrackScreen("CartView")
+                    .onAppear{
+                        let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
+                        if !isScreenTracking, BlueTriangle.initialized{
+                            self.timer = BlueTriangle.startTimer(
+                                page: Page(
+                                    pageName: "CartView Mannual Tracking"))
+                        }
+                    }
+                    .onDisappear {
+                        let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
+                        if let timer = self.timer, !isScreenTracking, BlueTriangle.initialized{
+                            BlueTriangle.endTimer(timer)
+                        }
+                    }
                     
            //     }
             }

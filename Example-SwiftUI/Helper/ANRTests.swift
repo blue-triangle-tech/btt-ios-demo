@@ -12,8 +12,10 @@ struct ANRTest {
     static func quantityLimitExceedCrash() {
         
         // NSException Crash
-        let arr = NSArray()
-        NSLog("Not found element \(arr[1])")
+        Task.detached {
+            let list = [1, 2]
+            NSLog("Values which not found", list[10])
+        }
     }
     
     static func cartLimitExceedCrash() {
@@ -27,13 +29,9 @@ struct ANRTest {
     }
     
     static func emptyCartCrash() {
-        
-        let arr = NSArray()
-        NSLog("Not found element \(arr[1])")
-        
         // Force Unwrap Crash
-        /*var value: Int?
-        NSLog("Force unwrapping nil value \(value!)")*/
+        var value: Int?
+        NSLog("Force unwrapping nil value \(value!)")
     }
     
     static func removeCartItem(startTime: TimeInterval = Date().timeIntervalSince1970) {

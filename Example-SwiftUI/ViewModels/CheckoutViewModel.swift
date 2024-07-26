@@ -52,17 +52,23 @@ final class CheckoutViewModel: ObservableObject {
     @MainActor
     func placeOrder() async {
         do {
-            let timer = BlueTriangle.startTimer(
-                page: Page(
-                    pageName: "Checkout"))
+            var timer : BTTimer?
+            
+            if BlueTriangle.initialized {
+                 timer = BlueTriangle.startTimer(
+                    page: Page(
+                        pageName: "Checkout"))
+            }
 
             let detail = try await cartRepository.confirm(checkout.id)
 
-            BlueTriangle.endTimer(
-                timer,
-                purchaseConfirmation: PurchaseConfirmation(
-                    cartValue: Decimal(itemTotal),
-                    orderNumber: detail.confirmation))
+            if BlueTriangle.initialized, let timer = timer {
+                BlueTriangle.endTimer(
+                    timer,
+                    purchaseConfirmation: PurchaseConfirmation(
+                        cartValue: Decimal(itemTotal),
+                        orderNumber: detail.confirmation))
+            }
             onFinish()
             cartRepository.deleteCart()
         } catch {

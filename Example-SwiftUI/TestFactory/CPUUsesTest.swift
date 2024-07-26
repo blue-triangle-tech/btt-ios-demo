@@ -16,11 +16,16 @@ class CPUUsesTest {
         }
     }
     
-    func runSingleCoreHundradePercent(){
+    func runHalfNumberOfCore100Percent(){
         
-        DispatchQueue.global().async {
-            let extractTaskCombination = AlphabetCombination()
-            extractTaskCombination.runInfiniteLoop()
+        let active50PercentCore = ProcessInfo.processInfo.activeProcessorCount / 2
+                
+        for _ in 1...active50PercentCore{
+            
+            DispatchQueue.global().async {
+                let extractTaskCombination = AlphabetCombination()
+                extractTaskCombination.runInfiniteLoop()
+            }
         }
     }
     
@@ -101,7 +106,7 @@ class AlphabetCombination{
              
              for i in 0..<n {
                  
-                 if (Date().timeIntervalSince1970 - startTime.timeIntervalSince1970) > idleTime {
+                 if (Date().timeIntervalSince1970 - startTime.timeIntervalSince1970) > 60 {
                      return []
                  }
                  

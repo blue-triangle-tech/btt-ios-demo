@@ -28,8 +28,23 @@ struct OrderSuccessfulView: View {
                     label: {
                         Text("Continue Shopping")
                     })
+                .accessibilityIdentifier("continue shopping")
                 .buttonStyle(.primary())
             }
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                       ToolbarItem(placement: .navigationBarLeading) {
+                           Button(action: {
+                               presentationMode.wrappedValue.dismiss()
+                           }) {
+                               HStack {
+                                   Image(systemName: "chevron.left")
+                                   Text("Cart")
+                               }
+                           }
+                           .accessibilityIdentifier("back")
+                       }
+                   }
             .foregroundColor(.secondary)
             .padding(.horizontal)
             .navigationTitle("Checkout")
