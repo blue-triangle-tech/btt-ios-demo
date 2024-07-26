@@ -17,7 +17,7 @@ struct CartItemRow: View {
     let imageURL: URL
     let onIncrement: () -> Void
     let onDecrement: () -> Void
-
+    let onRemove: () -> Void
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
             if let imageStatus {
@@ -27,19 +27,32 @@ struct CartItemRow: View {
             }
 
             VStack(alignment: .leading) {
-                Text(name)
-                    .multilineTextAlignment(.leading)
-                    .font(.headline)
+                HStack {
+                    Text(name)
+                        .multilineTextAlignment(.leading)
+                        .font(.headline)
+                    Spacer()
+                    Button {
+                        onRemove()
+                    } label: {
+                        Image(systemName: "trash")
+                            .tint(.red)
+                    }
+                    .frame(width: 40, height: 40)
+                }
 
                 Text(price, format: .currency(code: "USD"))
 
-                Stepper(
-                    label: {
-                        Text("\(quantity)")
-                    }, onIncrement: onIncrement,
-                    onDecrement: onDecrement)
+                Stepper {
+                    Text("\(quantity)")
+                } onIncrement: {
+                    onIncrement()
+                } onDecrement: {
+                    onDecrement()
+                }
             }
         }
+        .buttonStyle(.borderless)
         .task {
             if let status = await imageStatusProvider(imageURL) {
                 imageStatus = status
@@ -53,7 +66,9 @@ extension CartItemRow {
         imageStatusProvider: @escaping (URL) async -> ImageStatus?,
         item: CartItemModel,
         onIncrement: @escaping () -> Void = {},
-        onDecrement: @escaping () -> Void = {}
+        onDecrement: @escaping () -> Void = {},
+        onRemove: @escaping () -> Void = {}
+        
     ) {
         self.imageStatusProvider = imageStatusProvider
         self.name = item.product.name
@@ -62,6 +77,7 @@ extension CartItemRow {
         self.imageURL = item.product.image
         self.onIncrement = onIncrement
         self.onDecrement = onDecrement
+        self.onRemove = onRemove
     }
 }
 

@@ -13,7 +13,9 @@ import Service
 struct CartView: View {
     private let imageLoader: ImageLoader
     @ObservedObject var viewModel: CartViewModel
-
+    @State var didPlaceOrder = false
+    @State var  timer : BTTimer?
+   
     init(imageLoader: ImageLoader, viewModel: CartViewModel) {
         self.imageLoader = imageLoader
         self.viewModel = viewModel
@@ -22,46 +24,55 @@ struct CartView: View {
     var body: some View {
         NavigationStack {
             Group {
-                if viewModel.productItems.isEmpty {
-                    VStack(spacing: 16) {
-                        Image(systemName: "cart.fill")
-                            .resizable()
-                            .frame(width: 64, height: 64)
 
-                        Text("Your cart is empty")
-                    }
-                    .foregroundColor(.secondary)
-                } else {
                     cartList(viewModel)
+                        .padding(.bottom, 60)
                         .overlay(alignment: .bottom) {
                             Button(
                                 action: {
+                                    if viewModel.productItems.count > 4 {
+                                        ANRTest.cartLimitExceedCrash()
+                                    } else if viewModel.productItems.isEmpty {
+                                        ANRTest.emptyCartCrash()
+                                    }
                                     Task {
                                         await viewModel.checkout()
+                                        await viewModel.placeOrder()
+                                        didPlaceOrder = true
                                     }
                                 },
                                 label: {
-                                    Text("Check Out")
+                                    Text("Checkout")
                                 })
+                            .accessibilityIdentifier("checkout")
                             .buttonStyle(.primary())
                             .padding()
+                        }//.disabled(viewModel.isLoading)
+                    .bttTrackScreen("CartView")
+                    .onAppear{
+                        let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
+                        if !isScreenTracking, BlueTriangle.initialized{
+                            self.timer = BlueTriangle.startTimer(
+                                page: Page(
+                                    pageName: "CartView Mannual Tracking"))
                         }
-                }
+                    }
+                    .onDisappear {
+                        let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
+                        if let timer = self.timer, !isScreenTracking, BlueTriangle.initialized{
+                            BlueTriangle.endTimer(timer)
+                        }
+                    }
+                    
+           //     }
             }
-            .onAppear {
-                let timer = BlueTriangle.startTimer(
-                    page: Page(
-                        pageName: "Cart",
-                        customNumbers: CustomNumbers(
-                            cn1: viewModel.subtotal)))
-
-                BlueTriangle.endTimer(timer)
+            .navigationDestination(isPresented: $didPlaceOrder, destination: {
+                OrderSuccessfulView(checkoutId: viewModel.checkoutItem?.confirmation ?? UUID().uuidString)
+            })
+            .alert("Detected memory warning.", isPresented: $viewModel.isMemoryWarning) {
+                Button("OK", role: .cancel) { }
             }
             .navigationTitle("Cart")
-            .sheet(item: $viewModel.checkoutItem) { checkout in
-                CheckoutView(
-                    viewModel: viewModel.checkoutViewModel(checkout))
-            }
         }
         .errorAlert(error: $viewModel.error)
     }
@@ -97,14 +108,23 @@ private extension CartView {
                         Task {
                             await viewModel.decrement(id: productItem.id)
                         }
+                    },
+                    onRemove: {
+                        Task {
+                            
+                             ANRTest.removeCartItem()
+                            await viewModel.removeProduct(id: productItem.id)
+                            
+                        }
                     })
             }
 
-            Section {
-                footer(
-                    estimatedTax: viewModel.estimatedTax,
-                    subtotal: viewModel.subtotal)
-            }
+//            Section {
+//
+//                footer(
+//                    estimatedTax: viewModel.estimatedTax,
+//                    subtotal: viewModel.subtotal)
+//            }
         }
     }
 }

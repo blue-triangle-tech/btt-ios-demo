@@ -14,15 +14,17 @@ struct TabContainerView: View {
         case cart
         case settings
     }
-
+   
     @State private var selectedTab: Tab = .products
     private let cartRepository: CartRepository
     private let imageLoader: ImageLoader
     private let service: Service
+    @ObservedObject var vm: BTTConfigModel
 
-    init(imageLoader: ImageLoader, service: Service) {
+    init(imageLoader: ImageLoader, service: Service, vm : BTTConfigModel) {
         self.imageLoader = imageLoader
         self.service = service
+        self.vm = vm
         self.cartRepository = CartRepository(service: service)
     }
 
@@ -33,6 +35,7 @@ struct TabContainerView: View {
                     cartRepository: cartRepository,
                     imageLoader: imageLoader,
                     service: service))
+                .bttTrackScreen("ProductListViewTab")
                 .tabItem {
                     Text("Products")
                     Image(systemName: "square.grid.2x2.fill")
@@ -44,13 +47,15 @@ struct TabContainerView: View {
                 viewModel: .init(
                     service: service,
                     cartRepository: cartRepository))
+                .bttTrackScreen("CartViewTab")
                 .tabItem {
                     Text("Cart")
                     Image(systemName: "cart.fill")
                  }
                 .tag(Tab.cart)
 
-            SettingsView(viewModel: .init())
+            SettingsView(vm: .init())
+                .bttTrackScreen("SettingsViewTab")
                 .tabItem {
                     Text("Settings")
                     Image(systemName: "gearshape.fill")
@@ -62,8 +67,6 @@ struct TabContainerView: View {
 
 struct TabContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        TabContainerView(
-            imageLoader: .mock,
-            service: .mock)
+        TabContainerView(imageLoader: .mock, service: .mock, vm: BTTConfigModel())
     }
 }

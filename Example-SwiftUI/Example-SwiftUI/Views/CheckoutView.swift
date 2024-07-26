@@ -10,9 +10,11 @@ import SwiftUI
 
 struct CheckoutView: View {
     @ObservedObject var viewModel: CheckoutViewModel
-
-    init(viewModel: CheckoutViewModel) {
+    @Binding var didPlaceOrder: Bool
+    
+    init(viewModel: CheckoutViewModel, didPlaceOrder: Binding<Bool>) {
         self.viewModel = viewModel
+        self._didPlaceOrder = didPlaceOrder
     }
 
     var body: some View {
@@ -26,6 +28,7 @@ struct CheckoutView: View {
                 action: {
                     Task {
                         await viewModel.placeOrder()
+                        didPlaceOrder = !didPlaceOrder
                     }
                 },
                 label: {
@@ -33,6 +36,7 @@ struct CheckoutView: View {
                 })
             .buttonStyle(.primary())
         }
+        .bttTrackScreen("CheckoutView")
         .padding()
         .errorAlert(error: $viewModel.error)
     }
@@ -58,14 +62,14 @@ private extension CheckoutView {
         }
     }
 }
-
-struct CheckoutView_Previews: PreviewProvider {
-    static var previews: some View {
-        CheckoutView(
-            viewModel: .init(
-                cartRepository: .mock,
-                checkout: Mock.checkout,
-                onFinish: {}
-            ))
-    }
-}
+//
+//struct CheckoutView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CheckoutView(
+//            viewModel: .init(
+//                cartRepository: .mock,
+//                checkout: Mock.checkout,
+//                onFinish: {}
+//            ), didPlaceOrder: $false)
+//    }
+//}

@@ -1,0 +1,15 @@
+{
+  "originHash" : "52f2d98fb23c77be32a7f5f5eef9c1e53667c66a9ca29d277f9225e264032ea6",
+  "pins" : [
+    {
+      "identity" : "btt-swift-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/blue-triangle-tech/btt-swift-sdk.git",
+      "state" : {
+        "revision" : "557223d9e1b4738843fd4f6927a3eb241fb68427",
+        "version" : "3.9.1"
+      }
+    }
+  ],
+  "version" : 3
+}

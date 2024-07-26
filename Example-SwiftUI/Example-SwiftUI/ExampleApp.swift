@@ -8,24 +8,34 @@
 
 import BlueTriangle
 import SwiftUI
+import UIKit
 
 @main
 struct Example_SwiftUIApp: App {
+    @State private var  BttContainer =  BTTRootContrainerView(vm: BTTConfigModel())
+    @Environment(\.scenePhase) private var scenePhase
+    
     init() {
-        BlueTriangle.configure { config in
-            config.siteID = Secrets.siteID
-            config.networkSampleRate = 1.0
-            // ...
-        }
-
-        BlueTriangle.metrics["example-app"] = "custom1"
+        ConfigurationSetup.configOnLaunch()
+        ConfigurationSetup.addDelay()
     }
-
+    
+    
     var body: some Scene {
         WindowGroup {
-            TabContainerView(
-                imageLoader: .live,
-                service: .captured)
+            self.BttContainer
+        }
+        .onChange(of: scenePhase) { phase in
+            switch phase {
+            case .active:
+                ConfigurationSetup.addDelay()
+            case .background:
+                print("Background")
+            case .inactive:
+                print("Inactive")
+            @unknown default: break
+            }
         }
     }
 }
+

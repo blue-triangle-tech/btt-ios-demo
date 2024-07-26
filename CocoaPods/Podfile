@@ -2,5 +2,5 @@ platform :ios, '16.0'
 
 target 'CocoaPodsExample' do
   use_frameworks!
-  pod 'BlueTriangleSDK-Swift'     
+  pod 'BlueTriangleSDK-Swift', :git => 'https://github.com/blue-triangle-tech/btt-swift-sdk.git', :branch => 'master'
 end
