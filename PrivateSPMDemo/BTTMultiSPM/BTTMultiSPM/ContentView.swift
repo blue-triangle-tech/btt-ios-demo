@@ -19,7 +19,7 @@ struct ContentView: View {
             
             Spacer()
             
-            Text("This Home screen is part of the BTTMultiSPM App, while the other two screens is from two different SDKs. the Introduction screen comes from the Intro Package (SPM), and the About screen also originates from the Intro Package(SPM)")
+            Text("This Home screen is part of the BTTMultiSPM App, while the other two screens is from two different private Swift package. the Introduction screen comes from the Intro Package (SPM), and the About screen comes from the About package(SPM)")
             
             Spacer()
             
