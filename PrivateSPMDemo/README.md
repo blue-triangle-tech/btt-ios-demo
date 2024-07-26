@@ -29,3 +29,7 @@ To add BlueTriangle as a dependency to a private Swift package, refer to the cod
 for more details refer /PrivateSPMDemo/Intro/Package.swift
 
 To add BlueTriangle SDK to main App and to integrate other feature follow help doc.
+
+## Try Multiple private SPM Demo 
+Find App Xcode project in PrivateSPMDemo/BTTMultiSPM. Open PrivateSPMDemo/BTTMultiSPM/BTTMultiSPM.xcodeproj will open demo app.
+PrivateSPMDemo/About and  PrivateSPMDemo/Intro contains two private Swift packages (SPM). Which are using BlueTriangle SDK.
