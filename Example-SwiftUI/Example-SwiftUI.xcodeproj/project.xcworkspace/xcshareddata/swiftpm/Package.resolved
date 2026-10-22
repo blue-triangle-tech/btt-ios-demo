@@ -3,10 +3,19 @@
     {
       "identity" : "btt-swift-sdk",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/blue-triangle-tech/btt-swift-sdk.git",
+      "location" : "https://github.com/JP-aloha/btt-swift-sdk.git",
       "state" : {
-        "revision" : "557223d9e1b4738843fd4f6927a3eb241fb68427",
-        "version" : "3.9.1"
+        "branch" : "feature/matric_kit_and_hitch",
+        "revision" : "be63c83fcb486b45fe619e2ffbc76d3b24569dff"
+      }
+    },
+    {
+      "identity" : "clarity-apps",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/microsoft/clarity-apps.git",
+      "state" : {
+        "revision" : "88652502e9427779c8c10a75bab49125143865af",
+        "version" : "3.5.4"
       }
     },
     {
@@ -14,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-collections",
       "state" : {
-        "revision" : "ee97538f5b81ae89698fd95938896dec5217b148",
-        "version" : "1.1.1"
+        "revision" : "3b69cedbaa49957e97c092ae400bb57602ef941f",
+        "version" : "1.7.2"
       }
     },
     {

@@ -1,0 +1,9 @@
+{
+  "id" : "f485c1e2-5ce6-47a7-a5c7-c222a9724521",
+  "targets" : [
+    {
+      "id" : "9B088E1B-4707-44B6-9A2A-B208C5B866AB",
+      "name" : "Example-SwiftUI"
+    }
+  ]
+}

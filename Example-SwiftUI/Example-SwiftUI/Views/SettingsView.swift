@@ -14,13 +14,13 @@ struct SettingsView: View {
     @State private var showingAlert = false
     @State private var showModal = false
     @State private var presentHybridDemo = false
+    @State private var presentTutorial = false
+    @State private var sessionID = ""
     @State private var tagUrl = "\(Secrets.siteID).btttag.com/btt.js"
     
     var body: some View {
-        NavigationStack {
-        
+        VStack {
             VStack(spacing: 5){
-                
                 VStack{
                     HStack{
                         Spacer()
@@ -35,7 +35,7 @@ struct SettingsView: View {
                 VStack{
                     HStack{
                         Spacer()
-                        Text("BTT e-Com")
+                        Text("eCom SwiftUI")
                             .font(Font.system(size: 20, weight: .bold))
                             .foregroundColor(.black)
                         Spacer()
@@ -104,13 +104,14 @@ struct SettingsView: View {
                                     .foregroundColor(.white)
                             }
                             .padding(.leading, 10)
+                            .accessibilityIdentifier("copy_action")
                             .buttonStyle(.borderedProminent)
                             .tint(.blue)
                             Spacer()
                         }
                         
                         HStack{
-                            Text(vm.configureSessionId)
+                            Text(sessionID)
                                 .font(Font.system(size: 18, weight: .regular))
                                 .foregroundColor(.gray)
                                 .accessibilityIdentifier("btt session id")
@@ -151,7 +152,7 @@ struct SettingsView: View {
                         Button {
                             self.presentHybridDemo.toggle()
                         } label: {
-                            Text("Hybrid Demo")
+                            Text("Hybrid Web Demo")
                                 .foregroundColor(.white)
                         }
                         .buttonStyle(.borderedProminent)
@@ -159,7 +160,7 @@ struct SettingsView: View {
                         .fullScreenCover(isPresented: $presentHybridDemo) {
                             NavigationView {
                                 BttWebView(tagUrl: tagUrl)
-                                    .navigationTitle("Hybrid Demo")
+                                    .navigationTitle("Hybrid Web Demo")
                                     .navigationBarItems(
                                         leading:
                                             Button {
@@ -210,6 +211,17 @@ struct SettingsView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(.blue)
+                        .accessibilityIdentifier("btn_configuration_settings")
+                        
+                        Button("About") {
+                            self.presentTutorial = true
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.blue)
+                        .accessibilityIdentifier("btn_about")
+                        .fullScreenCover(isPresented: $presentTutorial) {
+                            TutorialView(vm: AppCoordinator())
+                        }
                         
                         Spacer()
                     }
@@ -221,8 +233,7 @@ struct SettingsView: View {
             }
             .padding(.leading, 15)
             .padding(.trailing, 15)
-            .navigationTitle("Settings")
-            .bttTrackScreen("SettingsView")
+            //.bttTrackScreen("SettingsView")
             .fullScreenCover(isPresented: $showModal, content: {
                 ConfigurationView(isConfigurationActive: $showModal, vm: ConfigurationModel())
             })
@@ -230,9 +241,30 @@ struct SettingsView: View {
                 UnitTestsView()
             })
             .onAppear{
-                Thread.sleep(forTimeInterval: 3)
+               /* Thread.sleep(forTimeInterval: 3)*/
+                ConfigurationSetup.updateChangedSassionId()
+                if let sessionId = ConfigurationSetup.getSessionId() {
+                    sessionID = sessionId
+                }
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)  {
+                ConfigurationSetup.updateChangedSassionId()
+                if let sessionId = ConfigurationSetup.getSessionId() {
+                    sessionID = sessionId
+                }
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)  {
+                ConfigurationSetup.updateChangedSassionId()
+                if let sessionId = ConfigurationSetup.getSessionId() {
+                    sessionID = sessionId
+                }
+            }
+        }
+        .bttTrack("\(Self.self)")
         
     }
     

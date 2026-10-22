@@ -21,13 +21,14 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var lblAnrEnable : UILabel!
     @IBOutlet weak var lblScreenTrackEnable : UILabel!
     @IBOutlet weak var lblAnrStackTraceEnable : UILabel!
-    
+    @IBOutlet weak var btnConfigurationSettings : UIButton!
     
     private var tagUrl = "\(Secrets.siteID).btttag.com/btt.js"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = "Settings"
         lblPlateform.text = "This app is built with UIKit."
         lblAnrEnable.text = UserDefaults.standard.bool(forKey: UserDefaultKeys.ANREnableKey) ? "Enable" : "Disable"
         lblScreenTrackEnable.text = UserDefaults.standard.bool(forKey: UserDefaultKeys.ScreenTrackingEnableKey)  ? "Enable" : "Disable"
@@ -38,7 +39,39 @@ class SettingsViewController: UIViewController {
         lblSdkLocation.text = "http://github.com/JP-aloha/btt-swift-sdk.git"
         lblSessionId.text = UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId) ?? "Auto Generated"
         lblSessionId.accessibilityIdentifier = "btt session id"
+        btnConfigurationSettings.accessibilityIdentifier = "btn_configuration_settings"
         // Do any additional setup after loading the view.
+        
+      /*  NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [weak self] _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)  {
+                ConfigurationSetup.updateChangedSassionId()
+                if let sessionId = ConfigurationSetup.getSessionId() {
+                    self?.lblSessionId.text =  sessionId
+                }
+            }
+        }
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main) { [weak self] _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)  {
+                ConfigurationSetup.updateChangedSassionId()
+                if let sessionId = ConfigurationSetup.getSessionId() {
+                    self?.lblSessionId.text =  sessionId
+                }
+            }
+        }*/
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ConfigurationSetup.updateChangedSassionId()
+        if let sessionId = ConfigurationSetup.getSessionId() {
+            self.lblSessionId.text =  sessionId
+        }
+    }
+    
+    @IBAction func didSelectUserInfo(_ sender: UIButton) {
+        let authContainer = AuthContainerViewController()
+        authContainer.modalPresentationStyle = .fullScreen
+        self.present(authContainer, animated: true)
     }
     
     @IBAction func btnTestManualTimer(_ sender: UIButton) {
@@ -95,9 +128,9 @@ class SettingsViewController: UIViewController {
     @IBAction func didSelectConfiguration(_ sender: Any?) {
         let storyboard = UIStoryboard(name:"Main", bundle: nil)
         
-        if let navigation = storyboard.instantiateViewController(identifier: "ConfigurationViewNav") as? UINavigationController, let vc = navigation.viewControllers.first as? ConfigurationViewController{
-            navigation.modalPresentationStyle = .fullScreen
-            self.present(navigation, animated: true)
+        if let vc = storyboard.instantiateViewController(identifier: "ConfigurationViewController") as? ConfigurationViewController{
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
         }
     }
     
@@ -106,6 +139,14 @@ class SettingsViewController: UIViewController {
         if let vc = storyboard.instantiateViewController(identifier: "SignalCrashView") as? SignalCrashViewController{
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    @IBAction func didSelectAbout(_ sender: Any?) {
+        let storyboard = UIStoryboard(name:"Main", bundle: nil)
+        let tutorialVC = storyboard.instantiateViewController(withIdentifier: "TutorialVC")
+        let navTutorialVC = UINavigationController(rootViewController: tutorialVC)
+        navTutorialVC.modalPresentationStyle = .fullScreen
+        self.present(navTutorialVC, animated: true)
     }
     
     func version() -> String {

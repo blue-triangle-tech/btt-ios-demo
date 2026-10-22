@@ -6,28 +6,29 @@
 //
 
 import SwiftUI
+import BlueTriangle
 
 struct BTTRootContrainerView: View {
     
+    @ObservedObject var coordinatorVm: AppCoordinator
     @ObservedObject var vm: BTTConfigModel
     
     var body: some View {
-        
         VStack{
-            
-           // if vm.isConfigurationScreen{
-            //    BTTrackingConfigView(vm: vm)
-           // }else{
+            if !coordinatorVm.isShownTutorial{
+                TutorialView(vm: coordinatorVm)
+            }else{
                 TabContainerView(
                     imageLoader: .live,
                     service: .captured, vm: vm)
-           // }
+            }
         }
+        .bttTrack("\(Self.self)")
     }
 }
 
 struct BTTRootContrainerView_Previews: PreviewProvider {
     static var previews: some View {
-        BTTRootContrainerView(vm: BTTConfigModel())
+        BTTRootContrainerView(coordinatorVm: AppCoordinator(), vm: BTTConfigModel())
     }
 }

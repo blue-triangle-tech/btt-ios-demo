@@ -10,6 +10,7 @@ import UIKit
 protocol CartItemTVCDelegate: AnyObject {
     func chageQuanitiy(to quantity: Int, for index: Int)
     func deleteItem(at index: Int)
+    func didSelectAnrScenarioInfo()
 }
 
 class CartItemTableViewCell: UITableViewCell {
@@ -19,6 +20,7 @@ class CartItemTableViewCell: UITableViewCell {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productQty: UILabel!    
     @IBOutlet weak var counter: UIStepper!
+    @IBOutlet weak var btnRemove: UIButton!
     
     weak var delegate: CartItemTVCDelegate?
     
@@ -36,6 +38,10 @@ class CartItemTableViewCell: UITableViewCell {
         delegate?.deleteItem(at: index)
     }
     
+    @IBAction func didSelectAnrScenario(_ sender: UIButton) {
+        delegate?.didSelectAnrScenarioInfo()
+    }
+    
     
     func initCell(with data: CartItemModel, index: Int) {
         self.index = index
@@ -43,6 +49,7 @@ class CartItemTableViewCell: UITableViewCell {
         self.productTitle.text = data.product.name
         self.productQty.text = "\(data.quantity)"
         self.productPrice.text = "$\(data.price.roundedToPlaces())"
+        self.btnRemove.accessibilityIdentifier = "btn_remove"
         DispatchQueue.global().async {
             do {
                 let data = try Data(contentsOf: data.product.image)

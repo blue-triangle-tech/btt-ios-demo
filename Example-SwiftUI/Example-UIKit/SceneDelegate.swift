@@ -19,7 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        AppCoordinator.setupRootTabVc()
+        
+        let isTutorial = UserDefaults.standard.bool(forKey: UserDefaultKeys.TutorialShownKey)
+        if !isTutorial {
+            AppCoordinator.setupTutorialVc()
+        } else {
+            AppCoordinator.setupRootTabVc()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -39,9 +45,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
+        ConfigurationSetup.updateSessionId()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        SessionStore.updateSessionExpiry()
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.

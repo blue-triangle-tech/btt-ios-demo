@@ -7,6 +7,7 @@
 
 import Service
 import SwiftUI
+import BlueTriangle
 
 struct ProductDetailView: View {
     @ObservedObject var viewModel: ProductDetailViewModel
@@ -34,7 +35,7 @@ struct ProductDetailView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .bttTrackScreen("ProductDetailView")
+        //.bttTrackScreen("ProductDetailView")
         .toolbar {
                    ToolbarItem(placement: .navigationBarLeading) {
                        Button(action: {
@@ -64,9 +65,12 @@ struct ProductDetailView: View {
                 },
                 label: {
                     Text("Add to Cart")
-                }).disabled(isLoading)
-                .accessibilityIdentifier("add to cart")
+                }
+            )
+            .accessibilityIdentifier("Add_Identifier")
+            .disabled(isLoading)
             .buttonStyle(.primary())
+            .bttTrackAction("User-Add to Cart")
             .padding()
         }
         .task {
@@ -86,6 +90,7 @@ struct ProductDetailView: View {
             viewModel.freeAllMemoryOnDisapear()
         }
         .navigationTitle("Product Detail")
+        .bttTrack("\(Self.self)")
         //.navigationBarTitleDisplayMode(.inline)
     }
 }

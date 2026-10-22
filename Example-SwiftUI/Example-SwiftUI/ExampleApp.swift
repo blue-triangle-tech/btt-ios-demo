@@ -12,25 +12,42 @@ import UIKit
 
 @main
 struct Example_SwiftUIApp: App {
-    @State private var  BttContainer =  BTTRootContrainerView(vm: BTTConfigModel())
+    @UIApplicationDelegateAdaptor(MatricKitAppDelegate.self) private var matricKitAppDelegate
+    @State private var  BttContainer =  BTTRootContrainerView(coordinatorVm: AppCoordinator(), vm: BTTConfigModel())
     @Environment(\.scenePhase) private var scenePhase
     
     init() {
+        ErrorRcvLog.install()
+        _ = MetricKitManager.shared
+        if let armed = StressSimulators.slowLaunchDelayIfArmed(at: .appInit) {
+            StressSimulators.applySlowLaunchDelay(armed.delay, method: armed.method)
+        }
         ConfigurationSetup.configOnLaunch()
         ConfigurationSetup.addDelay()
+        BlueTriangle.trafficSegmentName = "iOS-SwiftUI-eComDemo"
+        BlueTriangle.setCampaignName("iOS")
+        BlueTriangle.setCampaignMedium("Device")
+        BlueTriangle.setCampaignSource("SwiftUI")
+        BlueTriangle.setDataCenter("NorthEast-1")
+        BlueTriangle.setAbTestID("Mardern-UI")
     }
     
     
     var body: some Scene {
         WindowGroup {
             self.BttContainer
+                .environmentObject(MetricKitManager.shared)
+                .environmentObject(HitchRateMonitor.shared)
         }
         .onChange(of: scenePhase) { phase in
             switch phase {
             case .active:
+                ConfigurationSetup.updateSessionId()
                 ConfigurationSetup.addDelay()
+                print("Active")
             case .background:
-                print("Background")
+                print("In Background")
+               SessionStore.updateSessionExpiry()
             case .inactive:
                 print("Inactive")
             @unknown default: break

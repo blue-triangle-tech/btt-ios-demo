@@ -9,34 +9,87 @@ import UIKit
 import Service
 import Combine
 import BlueTriangle
+import SwiftUI
 
 class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
   
+    @State private var showLoginSheet = false
+    
     var vm: ProductListViewModel!
     
     @IBOutlet weak var ProductCollectionView: UICollectionView!
     @IBOutlet weak var lblSessionId: UILabel!
     private var timer : BTTimer?
+    private var userView: UIView!
+    private var activityIndicator: UIActivityIndicatorView!
  
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backButtonTitle = "Product"
+        navigationItem.title = "Product"
         
+       // FloatingButton.shared.show()
+
         lblSessionId.text =  UserDefaults.standard.string(forKey: UserDefaultKeys.ConfigureSessionId) ?? ""
         lblSessionId.accessibilityIdentifier = "sessionid"
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
+        
+        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { [weak self] _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)  {
+                if let sessionId = ConfigurationSetup.getSessionId() {
+                    self?.lblSessionId.text = sessionId
+                }
+            }
+        }
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main) { [weak self] _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)  {
+                if let sessionId = ConfigurationSetup.getSessionId() {
+                    self?.lblSessionId.text = sessionId
+                }
+            }
+        }
         
         loadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    private func startLoading() {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+    }
+    
+    private func stopLoading() {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    
+    @IBAction func didSelectUserInfo(_ sender: UIButton) {
+        let authContainer = AuthContainerViewController()
+        authContainer.modalPresentationStyle = .fullScreen
+        self.present(authContainer, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
         if isScreenTracking, BlueTriangle.initialized{
-            self.timer = BlueTriangle.startTimer(
+           /* self.timer = BlueTriangle.startTimer(
                 page: Page(
-                    pageName: "ProductViewController Mannual Tracking"))
+                    pageName: "ProductViewController Mannual Tracking"))*/
         }
+        ConfigurationSetup.updateChangedSassionId()
+        if let sessionId = ConfigurationSetup.getSessionId() {
+            self.lblSessionId.text =  sessionId
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -44,14 +97,13 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
         if let timer = self.timer, !isScreenTracking, BlueTriangle.initialized{
-            BlueTriangle.endTimer(timer)
+           // BlueTriangle.endTimer(timer)
         }
     }
     
     func loadData()  {
-        
-        
         Task {
+            self.startLoading()
             let _ =  await vm.loadProducts()
             
             if let error = vm.error{                
@@ -64,6 +116,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
             }
             
             self.ProductCollectionView.reloadData()
+            self.stopLoading()
         }
     }
     
@@ -88,5 +141,45 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
             
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+}
+
+
+struct UserToolbarView: View {
+    @ObservedObject var userModel: UserViewModel
+    @Binding var showLoginSheet: Bool
+
+    var body: some View {
+        HStack {
+            if userModel.isLoggedIn, let user = userModel.loggedInUser() {
+                VStack {
+                    ZStack {
+                        Circle() // Round circle
+                            .fill(Color.gray.opacity(0.2))
+                            .frame(width: 36, height: 36)
+                        Image(systemName: "person")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 18, height: 18)
+                            .foregroundColor(.blue)
+                    }
+                    Text("\(user.name)")
+                        .font(.system(size: 12))
+                }
+            } else {
+                Text("") // Empty text when not logged in
+            }
+
+            Button(action: {
+                if userModel.isLoggedIn {
+                    userModel.logOut()
+                } else {
+                    showLoginSheet = true
+                }
+            }) {
+                Text(userModel.isLoggedIn ? "Logout" : "Login")
+            }
+        }
+        .bttTrack("\(Self.self)")
     }
 }

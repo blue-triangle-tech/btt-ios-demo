@@ -16,17 +16,14 @@ struct ProductListView: View {
 
     @ObservedObject var viewModel: ProductListViewModel
     @State var  timer : BTTimer?
-
-    init(viewModel: ProductListViewModel) {
-        self.viewModel = viewModel
-    }
+    @State private var sessionID = ""
 
     var columns: [GridItem] {
         [GridItem(.adaptive(minimum: 150, maximum: 170))]
     }
 
     var body: some View {
-        NavigationStack {
+        VStack {
             VStack{
                 ScrollView {
                     HStack(alignment: .top, spacing: 16) {
@@ -36,6 +33,7 @@ struct ProductListView: View {
                                     ProductCell(
                                         imageStatusProvider: viewModel.imageStatus(_:),
                                         product: product)
+                                    .bttTrackAction("Tap ProductCell \(product.name)")
                                 }
                             }
                         }
@@ -46,21 +44,14 @@ struct ProductListView: View {
                                     ProductCell(
                                         imageStatusProvider: viewModel.imageStatus(_:),
                                         product: product)
+                                    .bttTrackAction("Tap ProductCell \(product.name)")
                                 }
                             }
                         }
                     }
                     .padding(.horizontal, 16)
-                    .navigationDestination(for: Product.self) { product in
-                        if let detailViewModel = viewModel.detailViewModel(for: product.id) {
-                            ProductDetailView(
-                                viewModel: detailViewModel)
-                        } else {
-                            Text("Error")
-                        }
-                    }
                 }
-                .bttTrackScreen("ProductListView")
+               // .bttTrackScreen("ProductListView")
                 .onAppear{
                     let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
                     if !isScreenTracking, BlueTriangle.initialized{
@@ -68,6 +59,11 @@ struct ProductListView: View {
                             page: Page(
                                 pageName: "ProductListView Mannual Tracking"))
                     }
+                    ConfigurationSetup.updateChangedSassionId()
+                    if let sessionId = ConfigurationSetup.getSessionId() {
+                        sessionID = sessionId
+                    }
+                    BlueTriangle.setCustomCategory1("Guest")
                 }
                 .onDisappear {
                     let isScreenTracking : Bool = UserDefaults.standard.bool(forKey: ConfigUserDefaultKeys.ConfigScreenTrackingKey)
@@ -81,12 +77,11 @@ struct ProductListView: View {
                 .task {
                     await viewModel.onAppear()
                 }
-                .navigationTitle("Products")
-                
+                                
                 HStack{
                     Text("SessionID :")
                         .font(Font.system(size: 16, weight: .medium))
-                    Text("\(viewModel.configureSessionId)")
+                    Text("\(sessionID)")
                         .font(Font.system(size: 16, weight: .regular))
                         .accessibilityIdentifier("sessionid")
                 }
@@ -95,6 +90,23 @@ struct ProductListView: View {
             }
         }
         .errorAlert(error: $viewModel.error)
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)  {
+                ConfigurationSetup.updateChangedSassionId()
+                if let sessionId = ConfigurationSetup.getSessionId() {
+                    sessionID = sessionId
+                }
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)  {
+                ConfigurationSetup.updateChangedSassionId()
+                if let sessionId = ConfigurationSetup.getSessionId() {
+                    sessionID = sessionId
+                }
+            }
+        }
+        .bttTrack("\(Self.self)")
     }
 }
 
@@ -102,8 +114,8 @@ struct ProductListView_Previews: PreviewProvider {
     static var previews: some View {
         ProductListView(
             viewModel: .init(
-                cartRepository: .mock,
-                imageLoader: .mock,
-                service: .mock))
+                cartRepository: CartRepository(service: .captured),
+                imageLoader: .live,
+                service: .captured))
     }
 }

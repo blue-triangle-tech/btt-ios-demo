@@ -7,6 +7,7 @@
 
 import Service
 import SwiftUI
+import BlueTriangle
 
 struct CheckoutView: View {
     @ObservedObject var viewModel: CheckoutViewModel
@@ -36,9 +37,10 @@ struct CheckoutView: View {
                 })
             .buttonStyle(.primary())
         }
-        .bttTrackScreen("CheckoutView")
+        //.bttTrackScreen("CheckoutView")
         .padding()
         .errorAlert(error: $viewModel.error)
+        .bttTrack("\(Self.self)")
     }
 }
 
