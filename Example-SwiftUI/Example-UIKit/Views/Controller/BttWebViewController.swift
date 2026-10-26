@@ -24,15 +24,19 @@ class BttWebViewController: UIViewController {
             // Fallback on earlier versions
         }
         webView.navigationDelegate = self
-        webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         loadWebView()
     }
     
     func loadWebView() {
         
-        guard let url = model.getTemplateUrl(tagUrl) else {
-             return
+        let urlString = model.webviewSiteURL()
+        
+        guard let url = URL(string: urlString) else {
+            NSLog("Error: failed to create URL for : " + urlString)
+            return
         }
+        
+        NSLog("Loading url in webview : " + url.absoluteString)
         
         webView.load(URLRequest(url: url))
     }

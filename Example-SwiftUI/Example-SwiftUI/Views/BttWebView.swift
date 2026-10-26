@@ -21,17 +21,19 @@ struct BttWebView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> some UIView {
         
-        if let htmlURL = model.getTemplateUrl(tagUrl){
-			
-            if #available(iOS 16.4, *) {
-                webView.isInspectable = true
-            } else {
-                // Fallback on earlier versions
-            }
-            webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
-            webView.navigationDelegate = context.coordinator
-            webView.load(URLRequest(url: htmlURL))
-        }
+        let urlString = model.webviewSiteURL()
+                
+                if let htmlURL = URL(string: urlString){
+                    if #available(iOS 16.4, *) {
+                        webView.isInspectable = true
+                    }
+                    webView.navigationDelegate = context.coordinator
+                    NSLog("Loading url in webview : " + htmlURL.absoluteString)
+                    webView.load(URLRequest(url: htmlURL))
+                }else{
+                    NSLog("Error: failed to create URL for : " + urlString)
+                }
+        
         return webView
     }
     
